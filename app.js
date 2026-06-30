@@ -27,18 +27,42 @@ function burstCoin(e){
   const r=coin.getBoundingClientRect();
   const cx=r.left+r.width/2, cy=r.top+r.height/2;
   coin.classList.add('explode');
-  for(let i=0;i<24;i++){
+
+  const flash=document.createElement('i');
+  flash.className='flash-burst';
+  flash.style.left=(cx-9)+'px';
+  flash.style.top=(cy-9)+'px';
+  document.body.appendChild(flash);
+  setTimeout(()=>flash.remove(),600);
+
+  for(let i=0;i<36;i++){
     const s=document.createElement('i');
     s.className='spark';
-    const a=(Math.PI*2*i/24)+(Math.random()*.35);
-    const d=60+Math.random()*90;
+    const a=(Math.PI*2*i/36)+(Math.random()*.45);
+    const d=70+Math.random()*140;
     s.style.left=cx+'px'; s.style.top=cy+'px';
     s.style.setProperty('--x',Math.cos(a)*d+'px');
     s.style.setProperty('--y',Math.sin(a)*d+'px');
     document.body.appendChild(s);
-    setTimeout(()=>s.remove(),850);
+    setTimeout(()=>s.remove(),900);
   }
-  setTimeout(()=>coin.classList.remove('explode'),650);
+
+  for(let i=0;i<14;i++){
+    const piece=document.createElement('i');
+    piece.className='coin-piece';
+    piece.textContent='₮';
+    const a=(Math.PI*2*i/14)+(Math.random()*.7);
+    const d=80+Math.random()*170;
+    piece.style.left=(cx-11)+'px'; piece.style.top=(cy-11)+'px';
+    piece.style.setProperty('--x',Math.cos(a)*d+'px');
+    piece.style.setProperty('--y',Math.sin(a)*d+'px');
+    piece.style.setProperty('--rot',(Math.random()*720-360)+'deg');
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(),1050);
+  }
+
+  if(navigator.vibrate) navigator.vibrate(45);
+  setTimeout(()=>coin.classList.remove('explode'),760);
 }
 
 if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
