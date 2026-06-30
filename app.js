@@ -21,4 +21,24 @@ function setStatus(id,status){const orders=JSON.parse(localStorage.getItem('tm_o
 function deleteOrder(id){if(!confirm('Устгах уу?'))return; let orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); orders=orders.filter(x=>x.id!==id); localStorage.setItem('tm_orders',JSON.stringify(orders)); renderOrders()}
 function makeReport(id){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); if(!o)return; const text=`Амар амгаланг айлтгая.\n\n${o.client.name} таны санхүүгийн ерөнхий шинжилгээнд мөнгөний урсгал ${o.result.money}, хишгийн сав ${o.result.luck} гэж гарч, өр зээлийн блок илэрсэн төлөв харагдлаа. Энэ нь мөнгө олох боломж байхгүй гэсэн үг биш. Харин орлого орсон ч хуримтлал болохоос өмнө гэнэтийн зардал, хуучин өр, бусдын хэрэгцээ, буруу цагийн шийдвэр рүү урсах хандлагыг илтгэнэ.\n\nОйрын үед өндөр дүнтэй зээл, батлан даалт, эрсдэлтэй хөрөнгө оруулалтад яарахгүй байх нь зөв. Орлого орсон өдөртөө 3 хэсэгт хувааж, өр дарах, хадгалах, хэрэглээ гэж тусгаарлах хэрэгтэй. 21 хоногийн турш орлого зарлагаа бичиж, өглөө бүр мөнгө тогтох сав нээгдэж байна гэж сэтгэлээ тогтоон залбирах нь өлзийтэй.\n\nТайлангийн багц: ${o.package.name}`; navigator.clipboard?.writeText(text); alert('Тайлангийн текст clipboard-д хууллаа. Messenger/SMS рүү paste хийгээд явуулна.')}
 function exportOrders(){const data=localStorage.getItem('tm_orders')||'[]'; const blob=new Blob([data],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='tenger-melmii-orders.json'; a.click()}
+
+function burstCoin(e){
+  const coin=e.currentTarget;
+  const r=coin.getBoundingClientRect();
+  const cx=r.left+r.width/2, cy=r.top+r.height/2;
+  coin.classList.add('explode');
+  for(let i=0;i<24;i++){
+    const s=document.createElement('i');
+    s.className='spark';
+    const a=(Math.PI*2*i/24)+(Math.random()*.35);
+    const d=60+Math.random()*90;
+    s.style.left=cx+'px'; s.style.top=cy+'px';
+    s.style.setProperty('--x',Math.cos(a)*d+'px');
+    s.style.setProperty('--y',Math.sin(a)*d+'px');
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),850);
+  }
+  setTimeout(()=>coin.classList.remove('explode'),650);
+}
+
 if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
