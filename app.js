@@ -1,31 +1,24 @@
-let selected={name:'Өр зээлийн блокоос гарах',price:9900};
+let client={}, selected={}, receiptData='';
 const $=id=>document.getElementById(id);
-function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');scrollTo({top:0,behavior:'smooth'});if(id==='admin')renderOrders();}
-function val(id){return ($(id)?.value||'').trim()}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');scrollTo(0,0); if(id==='admin') renderOrders();}
 function startScan(){
-  if(!val('name')||!val('year')||!val('month')||!val('day')||!val('gender')||!val('phone')){alert('Мэдээллээ бүрэн оруулна уу');return}
-  $('clientName').textContent=val('name')+' таны';
-  go('scan');
-  let p=0; const texts=['Мөнгөний урсгалын сувгийг шалгаж байна','Өрийн блок хайж байна','Хишгийн савыг хэмжиж байна','Баялгийн сувгийг шалгаж байна','Гол шалтгааныг илрүүлж байна'];
-  const ids=['s1','s2','s3','s4','s5'];
-  const t=setInterval(()=>{p+=Math.floor(Math.random()*8)+4;if(p>100)p=100;$('barFill').style.width=p+'%';$('percent').textContent=p+'%';const idx=Math.min(Math.floor(p/22),4);$('scanText').textContent=texts[idx];ids.forEach((x,i)=>$(x).classList.toggle('on',i<=idx));if(p>=100){clearInterval(t);setTimeout(makeResult,600)}},520);
+ const name=$('name').value.trim(), phone=$('phone').value.trim(), year=+$('year').value, month=+$('month').value, day=+$('day').value, gender=$('gender').value;
+ if(!name||!phone||!year||!month||!day||!gender){alert('Бүх мэдээллээ бөглөнө үү');return}
+ client={name,phone,year,month,day,gender}; go('loading');
+ let p=0, step=0; const items=[...document.querySelectorAll('#scanText li')];
+ const timer=setInterval(()=>{p+=Math.floor(Math.random()*7)+4; if(p>100)p=100; $('bar').style.width=p+'%'; $('percent').textContent=p+'%'; items.forEach(x=>x.classList.remove('on')); items[Math.min(step,items.length-1)].classList.add('on'); if(p>18)step=1;if(p>38)step=2;if(p>58)step=3;if(p>78)step=4; if(p>=100){clearInterval(timer); setTimeout(showResult,900)}},420)
 }
-function makeResult(){
-  const y=Number(val('year'))||1990, m=Number(val('month'))||1, d=Number(val('day'))||1;
-  const base=(y+m*7+d*11)%9;
-  $('flowScore').textContent=(88+base)+'%';
-  $('debtScore').textContent=(84+((base+3)%10))+'%';
-  $('luckScore').textContent=(80+((base+5)%12))+'%';
-  go('result');
+function seed(){return (client.year*7+client.month*31+client.day*13+client.name.length*9)%100}
+function showResult(){
+ const n=seed(); const money=88+(n%10), luck=80+(n%13); $('resultName').textContent=client.name+' таны шинжилгээ'; $('s1').textContent=money+'%'; $('s3').textContent=luck+'%'; $('payNote').textContent=client.name+' '+client.phone; go('result');
 }
-function selectPackage(n,p){selected={name:n,price:p};$('pkgName').textContent=n;$('pkgPrice').textContent=p.toLocaleString('mn-MN')+'₮';$('payNote').textContent=(val('name')||'Нэр')+' '+(val('phone')||'утас');go('pay')}
-function saveOrder(){
-  const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]');
-  orders.unshift({date:new Date().toLocaleString('mn-MN'),name:val('name'),phone:val('phone'),birth:`${val('year')}.${val('month')}.${val('day')}`,gender:val('gender'),pkg:selected.name,price:selected.price});
-  localStorage.setItem('tm_orders',JSON.stringify(orders));go('done');
-}
-function renderOrders(){
-  const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]');
-  $('orders').innerHTML=orders.length?orders.map(o=>`<div class="order"><b>${o.pkg} — ${Number(o.price).toLocaleString('mn-MN')}₮</b><br>${o.name} / ${o.phone}<br>${o.birth} / ${o.gender}<br><small>${o.date}</small></div>`).join(''):'Захиалга алга байна.';
-}
-if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+function selectPackage(name,price){selected={name,price}; $('payTitle').textContent=name; $('payAmount').textContent=price.toLocaleString('mn-MN')+'₮'; $('payNote').textContent=(client.name||'Нэр')+' '+(client.phone||'утас'); go('payment')}
+function previewReceipt(input){const f=input.files[0]; if(!f)return; const r=new FileReader(); r.onload=e=>{receiptData=e.target.result; $('receiptPrev').src=receiptData; $('receiptPrev').style.display='block'}; r.readAsDataURL(f)}
+function submitOrder(){if(!client.name){alert('Эхлээд шинжилгээ бөглөнө үү');return} if(!selected.name){alert('Багц сонгоно уу');return} if(!receiptData){alert('Баримтын зураг оруулна уу');return} const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const order={id:Date.now(),date:new Date().toLocaleString('mn-MN'),status:'Шинэ',client,package:selected,receipt:receiptData,result:{money:$('s1').textContent,debt:'Илэрсэн',luck:$('s3').textContent}}; orders.unshift(order); localStorage.setItem('tm_orders',JSON.stringify(orders)); go('thanks')}
+function openAdmin(){const pass=prompt('Админ нууц үг'); if(pass==='9999')go('admin'); else if(pass) alert('Нууц үг буруу')}
+function renderOrders(){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); $('orders').innerHTML=orders.length?orders.map(o=>`<div class="order"><div><h3>${o.client.name} — ${o.package.name}</h3><p>Утас: <b>${o.client.phone}</b><br>Төрсөн: ${o.client.year}.${o.client.month}.${o.client.day} / ${o.client.gender}<br>Үнэ: ${Number(o.package.price).toLocaleString('mn-MN')}₮<br>Огноо: ${o.date}<br>Үр дүн: Мөнгө ${o.result.money}, Өрийн блок ${o.result.debt}, Хишиг ${o.result.luck}</p><span class="status">${o.status}</span><div class="actions"><button class="mini" onclick="setStatus(${o.id},'Баталгаажсан')">Баталгаажсан</button><button class="mini" onclick="setStatus(${o.id},'Тайлан илгээсэн')">Илгээсэн</button><button class="mini" onclick="makeReport(${o.id})">Тайлан текст</button><button class="mini" onclick="deleteOrder(${o.id})">Устгах</button></div></div><img src="${o.receipt}" alt="barimt"></div>`).join(''):'<div class="card"><p>Одоогоор захиалга алга.</p></div>'}
+function setStatus(id,status){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); if(o)o.status=status; localStorage.setItem('tm_orders',JSON.stringify(orders)); renderOrders()}
+function deleteOrder(id){if(!confirm('Устгах уу?'))return; let orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); orders=orders.filter(x=>x.id!==id); localStorage.setItem('tm_orders',JSON.stringify(orders)); renderOrders()}
+function makeReport(id){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); if(!o)return; const text=`Амар амгаланг айлтгая.\n\n${o.client.name} таны санхүүгийн ерөнхий шинжилгээнд мөнгөний урсгал ${o.result.money}, хишгийн сав ${o.result.luck} гэж гарч, өр зээлийн блок илэрсэн төлөв харагдлаа. Энэ нь мөнгө олох боломж байхгүй гэсэн үг биш. Харин орлого орсон ч хуримтлал болохоос өмнө гэнэтийн зардал, хуучин өр, бусдын хэрэгцээ, буруу цагийн шийдвэр рүү урсах хандлагыг илтгэнэ.\n\nОйрын үед өндөр дүнтэй зээл, батлан даалт, эрсдэлтэй хөрөнгө оруулалтад яарахгүй байх нь зөв. Орлого орсон өдөртөө 3 хэсэгт хувааж, өр дарах, хадгалах, хэрэглээ гэж тусгаарлах хэрэгтэй. 21 хоногийн турш орлого зарлагаа бичиж, өглөө бүр мөнгө тогтох сав нээгдэж байна гэж сэтгэлээ тогтоон залбирах нь өлзийтэй.\n\nТайлангийн багц: ${o.package.name}`; navigator.clipboard?.writeText(text); alert('Тайлангийн текст clipboard-д хууллаа. Messenger/SMS рүү paste хийгээд явуулна.')}
+function exportOrders(){const data=localStorage.getItem('tm_orders')||'[]'; const blob=new Blob([data],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='tenger-melmii-orders.json'; a.click()}
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
