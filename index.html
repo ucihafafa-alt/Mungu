@@ -1,98 +1,145 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="mn">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Тэнгэрийн Мэлмий — Өр зээл ба Мөнгөний урсгал</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#071226" />
+<link rel="manifest" href="manifest.json" />
+<title>Тэнгэрийн Мэлмий — Мөнгөний блок</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg"><span></span><span></span><span></span></div>
-  <header class="topbar">
-    <div class="brand"><div class="eye">◉</div><div><b>Тэнгэрийн Мэлмий</b><small>Өр зээл • Мөнгөний урсгал</small></div></div>
-    <button class="adminBtn" onclick="openAdmin()">Админ</button>
-  </header>
+<div class="bg-orbs"></div>
+<header class="brand">
+  <div class="eye">◉</div>
+  <div>
+    <h1>Тэнгэрийн Мэлмий</h1>
+    <p>Өр зээл ба мөнгөний урсгалын шинжилгээ</p>
+  </div>
+</header>
 
-  <main>
-    <section id="home" class="screen active hero">
-      <div class="orb"><div class="coin">₮</div></div>
-      <h1>Мөнгөний урсгал тань хаана гацсаныг 30 секундэд шалгаарай</h1>
-      <p class="lead">Өр зээлийн блок, мөнгө тогтох сав, хишгийн урсгалын ерөнхий төлөвийг үнэгүй харуулна.</p>
-      <div class="badges"><span>Үнэгүй оношлогоо</span><span>Шуурхай үр дүн</span><span>9,900₮ тайлан</span></div>
-      <button class="primary" onclick="go('form')">Үнэгүй шалгах</button>
-      <p class="hint">Дэлгэрэнгүй тайланг хүсвэл төлбөр баталгаажсаны дараа мессежээр илгээнэ.</p>
-    </section>
-
-    <section id="form" class="screen card">
-      <h2>Мэдээллээ оруулна уу</h2>
-      <label>Нэр<input id="name" placeholder="Жишээ: Бат" autocomplete="name"></label>
-      <div class="grid3">
-        <label>Он<input id="year" type="number" placeholder="1992"></label>
-        <label>Сар<input id="month" type="number" placeholder="06"></label>
-        <label>Өдөр<input id="day" type="number" placeholder="12"></label>
-      </div>
-      <label>Хүйс<select id="gender"><option value="female">Эмэгтэй</option><option value="male">Эрэгтэй</option></select></label>
-      <label>Одоогийн байдал<select id="status"><option>Мөнгө тогтдоггүй</option><option>Өр зээл давтагддаг</option><option>Орлого тасалдаж байна</option><option>Бизнес гацсан</option><option>Цалин ордог ч хурдан дуусдаг</option></select></label>
-      <button class="primary" onclick="startScan()">Шинжилгээ эхлүүлэх</button>
-    </section>
-
-    <section id="loading" class="screen loading">
-      <div class="scanEye">◉</div>
-      <h2>Тэнгэрийн Мэлмий таны санхүүгийн энергийг шинжилж байна...</h2>
-      <p id="loadText">Төрсөн төөргийн мөнгөний савыг нээж байна</p>
-      <div class="bar"><i id="barFill"></i></div>
-      <div class="percent" id="percent">0%</div>
-      <div class="secrets" id="secrets"></div>
-    </section>
-
-    <section id="result" class="screen">
-      <div class="resultHead">
-        <h2 id="resultTitle">Үр дүн</h2>
-        <p>Таны үнэгүй оношлогооны эхний дүгнэлт гарлаа</p>
-      </div>
-      <div class="scoreGrid">
-        <div class="score"><b id="debtScore">88%</b><span>Өр зээлийн блок</span></div>
-        <div class="score"><b id="moneyScore">72%</b><span>Мөнгөний урсгал</span></div>
-        <div class="score"><b id="saveScore">41%</b><span>Мөнгө тогтох сав</span></div>
-        <div class="score"><b id="luckScore">76%</b><span>Хишгийн нээлт</span></div>
-      </div>
-      <article class="freeText" id="freeText"></article>
-      <div class="locked">
-        <h3>Гол шалтгаан илэрсэн байна</h3>
-        <p>Дэлгэрэнгүй тайланд таны мөнгө хаана гадагшилж байгаа, өр зээлээс гарахад тохиромжтой үе, мөнгөний урсгал нээгдэх сарууд гарна.</p>
-        <button class="primary" onclick="scrollPackages()">Тайлан нээх</button>
-      </div>
-      <section id="packages" class="packages">
-        <h2>Тайлангийн багц</h2>
-        <div class="pkg"><h3>Өр зээлийн блокоос гарах</h3><b>9,900₮</b><p>Өр зээл давтагдах шалтгаан, дарах үе, болгоомжлох өдөр сар.</p><button onclick="pay('Өр зээлийн блокоос гарах',9900)">Нээх</button></div>
-        <div class="pkg"><h3>Мөнгөний урсгал</h3><b>9,900₮</b><p>Орлого орох суваг, мөнгө тогтох сав, урсгал нээгдэх үе.</p><button onclick="pay('Мөнгөний урсгал',9900)">Нээх</button></div>
-        <div class="pkg gold"><h3>Алтан урсгал</h3><b>19,900₮</b><p>Өр зээл + мөнгөний урсгал + 12 сарын санхүүгийн зураглал.</p><button onclick="pay('Алтан урсгал',19900)">Сонгох</button></div>
-        <div class="pkg silver"><h3>Мөнгөн хамгаалалт</h3><b>29,900₮</b><p>Дахин өр үүсэхээс хамгаалах зөвлөмж, 3 жилийн төлөв, PDF тайлан.</p><button onclick="pay('Мөнгөн хамгаалалт',29900)">Сонгох</button></div>
-      </section>
-    </section>
-  </main>
-
-  <div id="payModal" class="modal"><div class="modalBox">
-    <button class="x" onclick="closePay()">×</button>
-    <h2 id="payTitle">Төлбөр төлөх</h2>
-    <div class="bank">
-      <p><b>Хаан банк</b></p>
-      <p>Данс: <b>5680034540</b></p>
-      <p>IBAN: <b>59000500</b></p>
-      <p>Гүйлгээний утга: <b id="payRef">Нэр + утас</b></p>
+<main>
+<section id="landing" class="screen active hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="pill">Үнэгүй эхний оношилгоо</span>
+      <h2>Таны мөнгөний урсгал хаана гацаж байгааг 30 секундэд шалгаарай</h2>
+      <p>Өр зээл давтагдах, мөнгө тогтохгүй байх, орлого орсон ч хурдан гарах шинжийг төрсөн өгөгдөл дээр тулгуурлан бэлгэдлийн байдлаар шинжилнэ.</p>
+      <button class="gold-btn" onclick="go('form')">ҮНЭГҮЙ ШИНЖЛЭХ</button>
+      <div class="trust"><b>150,000+</b> шинжилгээ хийлгэсэн мэт premium funnel загвар</div>
     </div>
-    <label>Утасны дугаар<input id="phone" placeholder="99112233"></label>
-    <label>Баримтын тайлбар<input id="receipt" placeholder="Гүйлгээ хийсэн нэр / цаг"></label>
-    <p class="hint">Төлбөр баталгаажсаны дараа тайланг 15–30 минутын дотор мессежээр илгээнэ.</p>
-    <button class="primary" onclick="submitOrder()">Би төлбөр төлсөн</button>
-  </div></div>
+    <div class="magic-card">
+      <img src="bg-preview.png" alt="Тэнгэрийн Мэлмий дизайн" />
+      <div class="coin c1">₮</div><div class="coin c2">₮</div><div class="coin c3">₮</div>
+    </div>
+  </div>
+</section>
 
-  <div id="adminModal" class="modal"><div class="modalBox adminBox">
-    <button class="x" onclick="closeAdmin()">×</button><h2>Админ захиалга</h2>
-    <div id="orders"></div><button class="ghost" onclick="clearOrders()">Цэвэрлэх</button>
-  </div></div>
+<section id="form" class="screen">
+  <div class="card narrow">
+    <h2>Мэдээллээ оруулна уу</h2>
+    <p class="muted">Эхний оношилгоо үнэгүй. Дэлгэрэнгүй шалтгаан, гарах арга зам төлбөртэй нээгдэнэ.</p>
+    <label>Нэр<input id="name" placeholder="Жишээ: Бат" /></label>
+    <div class="row3">
+      <label>Он<input id="year" type="number" placeholder="1992" /></label>
+      <label>Сар<input id="month" type="number" min="1" max="12" placeholder="06" /></label>
+      <label>Өдөр<input id="day" type="number" min="1" max="31" placeholder="12" /></label>
+    </div>
+    <label>Хүйс<select id="gender"><option value="">Сонгоно уу</option><option>Эмэгтэй</option><option>Эрэгтэй</option></select></label>
+    <label>Утас<input id="phone" inputmode="tel" placeholder="99112233" /></label>
+    <button class="gold-btn full" onclick="startScan()">ШИНЖИЛГЭЭ ЭХЛҮҮЛЭХ</button>
+    <button class="ghost" onclick="go('landing')">Буцах</button>
+  </div>
+</section>
 
-  <script src="app.js"></script>
+<section id="scan" class="screen scan">
+  <div class="scan-eye"><span>◉</span></div>
+  <h2>Санхүүгийн энергийг уншиж байна...</h2>
+  <p id="scanText">Мөнгөний урсгалын сувгийг шалгаж байна</p>
+  <div class="bar"><i id="barFill"></i></div>
+  <b id="percent">0%</b>
+  <ul class="steps">
+    <li id="s1">Санхүүгийн энерги уншиж байна</li>
+    <li id="s2">Өрийн блок хайж байна</li>
+    <li id="s3">Хишгийн савыг хэмжиж байна</li>
+    <li id="s4">Баялгийн сувгийг шалгаж байна</li>
+    <li id="s5">Хувийн мөнгөний тайлбар бэлдэж байна</li>
+  </ul>
+</section>
+
+<section id="result" class="screen">
+  <div class="result-head">
+    <span class="pill danger">Гол шалтгаан илэрлээ</span>
+    <h2><span id="clientName">Таны</span> санхүүгийн оношилгоо</h2>
+    <p>Мөнгө олох суваг нээлттэй боловч мөнгө тогтох сав болон өрийн давтамж дээр блок илэрлээ.</p>
+  </div>
+  <div class="scores">
+    <div class="score"><span>Мөнгөний урсгал</span><b id="flowScore">91%</b><small>Өндөр боломж</small></div>
+    <div class="score red"><span>Өрийн блок</span><b id="debtScore">87%</b><small>Илэрсэн</small></div>
+    <div class="score"><span>Хишгийн сав</span><b id="luckScore">83%</b><small>Хэсэгчлэн нээлттэй</small></div>
+  </div>
+  <div class="warning">
+    <h3>Анхаарах дохио</h3>
+    <p>Орлого орж ирэх суваг байгаа ч мөнгө гадагшлах давтамж өндөр байна. Өр зээл дарагдсан ч дахин үүсэх хандлага харагдаж байгаа тул шалтгааныг нь тусад нь нээж үзэх шаардлагатай.</p>
+  </div>
+  <div class="locked">
+    <h3>Түгжээтэй дэлгэрэнгүй тайлан</h3>
+    <div>🔒 Өрийн блокийн гол шалтгаан</div>
+    <div>🔒 Хэзээ тайлагдах боломжтой</div>
+    <div>🔒 21 хоногийн мөнгө тогтоох зөвлөмж</div>
+    <div>🔒 Орлого нэмэгдэх сарууд</div>
+    <button class="gold-btn full" onclick="go('packages')">БҮРЭН ТАЙЛАН НЭЭХ</button>
+  </div>
+</section>
+
+<section id="packages" class="screen">
+  <h2 class="center">Тайлангийн багц сонгох</h2>
+  <div class="packages">
+    <button onclick="selectPackage('Өр зээлийн блокоос гарах',9900)"><b>Өр зээлийн блокоос гарах</b><span>9,900₮</span><small>Өрийн давтамж, шалтгаан, гарах үе</small></button>
+    <button onclick="selectPackage('Мөнгөний урсгал',9900)"><b>Мөнгөний урсгал</b><span>9,900₮</span><small>Орлого, мөнгө тогтох сав, боломж</small></button>
+    <button class="hot" onclick="selectPackage('Алтан урсгал',19900)"><b>Алтан урсгал</b><span>19,900₮</span><small>2 багц нийлсэн + 12 сарын төлөв</small></button>
+    <button onclick="selectPackage('Тэнгэрийн ивээл',29900)"><b>Тэнгэрийн ивээл</b><span>29,900₮</span><small>Бүрэн санхүүгийн тайлан + зөвлөмж</small></button>
+  </div>
+</section>
+
+<section id="pay" class="screen">
+  <div class="pay-grid">
+    <div class="card">
+      <h2 id="pkgName">Багц</h2>
+      <div class="price" id="pkgPrice">9,900₮</div>
+      <p class="muted">Төлбөр баталгаажсаны дараа тайланг мессежээр илгээнэ.</p>
+      <div class="bank">
+        <p><span>Банк</span><b>Хаан банк</b></p>
+        <p><span>Данс</span><b>5680034540</b></p>
+        <p><span>IBAN</span><b>59000500</b></p>
+        <p><span>Гүйлгээний утга</span><b id="payNote">Нэр + утас</b></p>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Төлбөр төлсөн</h2>
+      <label>Баримтын зураг<input id="receipt" type="file" accept="image/*" /></label>
+      <button class="gold-btn full" onclick="saveOrder()">ЗАХИАЛГА ИЛГЭЭХ</button>
+      <button class="ghost" onclick="go('packages')">Багц солих</button>
+    </div>
+  </div>
+</section>
+
+<section id="done" class="screen">
+  <div class="card narrow success">
+    <h2>Захиалга бүртгэгдлээ</h2>
+    <p>Төлбөр баталгаажсаны дараа таны дэлгэрэнгүй тайланг мессежээр илгээнэ.</p>
+    <button class="gold-btn full" onclick="go('admin')">Админ хэсэг харах</button>
+  </div>
+</section>
+
+<section id="admin" class="screen">
+  <div class="card">
+    <h2>Админ — Захиалгууд</h2>
+    <div id="orders"></div>
+    <button class="ghost" onclick="localStorage.removeItem('tm_orders'); renderOrders();">Захиалга цэвэрлэх</button>
+  </div>
+</section>
+</main>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,14 +1,31 @@
-let current={};let chosen={name:'',price:0};const qs=id=>document.getElementById(id);function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));qs(id).classList.add('active');scrollTo(0,0)}
-function seed(){let n=(+qs('year').value||1990)*7+(+qs('month').value||1)*13+(+qs('day').value||1)*17;return n}
-function clamp(n,a,b){return Math.max(a,Math.min(b,n))}
-function startScan(){let name=qs('name').value.trim();if(!name){alert('Нэрээ оруулна уу');return}current={name,year:qs('year').value,month:qs('month').value,day:qs('day').value,gender:qs('gender').value,status:qs('status').value};go('loading');let p=0;let lines=['Мөнгө тогтох савыг шалгаж байна...','Өр зээлийн давтамжийн мөрийг харж байна...','Орлого хаанаас нээгдэх боломжтойг тооцоолж байна...','Хишгийн урсгалын хаагдсан хэсгийг илрүүлж байна...','Гол шалтгаан бараг тодорлоо...'];let k=0;let t=setInterval(()=>{p+=Math.floor(Math.random()*8)+4;if(p>100)p=100;qs('barFill').style.width=p+'%';qs('percent').textContent=p+'%';if(p>k*20&&k<lines.length){qs('secrets').innerHTML='<b>'+lines[k]+'</b>';qs('loadText').textContent=lines[k];k++}if(p>=100){clearInterval(t);setTimeout(showResult,900)}},220)}
-function showResult(){let s=seed();let debt=clamp(82+(s%13),82,96);let money=clamp(68+(s%22),68,90);let save=clamp(28+(s%31),28,59);let luck=clamp(70+(s%21),70,91);current.scores={debt,money,save,luck};qs('resultTitle').textContent=current.name+' таны санхүүгийн төлөв';qs('debtScore').textContent=debt+'%';qs('moneyScore').textContent=money+'%';qs('saveScore').textContent=save+'%';qs('luckScore').textContent=luck+'%';let reason=current.status==='Өр зээл давтагддаг'?'өр зээл дахин давтагдах мөр хүчтэй байна.':'мөнгө орж ирсэн ч тогтох сав сул харагдаж байна.';qs('freeText').innerHTML=`<p><b>${current.name}</b>, таны оношлогоонд өр зээлийн блок <b>${debt}%</b> буюу өндөр түвшинд гарлаа. Энэ нь мөнгө олох чадваргүй гэсэн үг биш, харин ${reason}</p><p>Мөнгөний урсгал нээгдэх боломж байна. Гэхдээ буруу цагт зээл авах, бусдад мөнгө зээлүүлэх, гэнэтийн их зардал хийх үед урсгал дахин хаагдах шинжтэй.</p><p><b>Дэлгэрэнгүй тайлан нээвэл</b> яг ямар шалтгаанаар мөнгө гадагшилж байгаа, өр дарахад тохиромжтой сар, мөнгө тогтоох 21 хоногийн зөвлөмж гарна.</p>`;saveLead();go('result')}
-function saveLead(){let leads=JSON.parse(localStorage.getItem('leads')||'[]');leads.unshift({...current,time:new Date().toLocaleString()});localStorage.setItem('leads',JSON.stringify(leads).slice(0,200000))}
-function scrollPackages(){qs('packages').scrollIntoView({behavior:'smooth'})}
-function pay(name,price){chosen={name,price};qs('payTitle').textContent=name+' — '+price.toLocaleString()+'₮';qs('payRef').textContent=(current.name||'Нэр')+' + утас';qs('payModal').classList.add('show')}
-function closePay(){qs('payModal').classList.remove('show')}
-function submitOrder(){let phone=qs('phone').value.trim();if(!phone){alert('Утасны дугаараа оруулна уу');return}let orders=JSON.parse(localStorage.getItem('orders')||'[]');orders.unshift({time:new Date().toLocaleString(),customer:current,package:chosen,phone,receipt:qs('receipt').value,status:'Төлбөр шалгах'});localStorage.setItem('orders',JSON.stringify(orders));closePay();alert('Захиалга бүртгэгдлээ. Төлбөр баталгаажсаны дараа тайлан мессежээр илгээгдэнэ.')}
-function openAdmin(){qs('adminModal').classList.add('show');renderOrders()}function closeAdmin(){qs('adminModal').classList.remove('show')}
-function renderOrders(){let orders=JSON.parse(localStorage.getItem('orders')||'[]');let leads=JSON.parse(localStorage.getItem('leads')||'[]');qs('orders').innerHTML='<h3>Төлбөртэй захиалга</h3>'+(orders.length?orders.map((o,i)=>`<div class="order"><b>${o.package.name}</b> — ${o.package.price}₮<br>Нэр: ${o.customer.name}<br>Утас: ${o.phone}<br>Төрсөн: ${o.customer.year}.${o.customer.month}.${o.customer.day}<br>Оноо: Өр ${o.customer.scores?.debt||''}% / Урсгал ${o.customer.scores?.money||''}%<br>Баримт: ${o.receipt||'—'}<br>${o.time}</div>`).join(''):'<p>Одоогоор захиалга алга.</p>')+'<h3>Үнэгүй орсон хүмүүс</h3>'+(leads.length?leads.slice(0,20).map(l=>`<div class="order">${l.name} — ${l.year}.${l.month}.${l.day} — ${l.status}<br>${l.time}</div>`).join(''):'<p>Одоогоор бүртгэл алга.</p>')}
-function clearOrders(){if(confirm('Бүх бүртгэлийг цэвэрлэх үү?')){localStorage.removeItem('orders');localStorage.removeItem('leads');renderOrders()}}
-if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+let selected={name:'Өр зээлийн блокоос гарах',price:9900};
+const $=id=>document.getElementById(id);
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');scrollTo({top:0,behavior:'smooth'});if(id==='admin')renderOrders();}
+function val(id){return ($(id)?.value||'').trim()}
+function startScan(){
+  if(!val('name')||!val('year')||!val('month')||!val('day')||!val('gender')||!val('phone')){alert('Мэдээллээ бүрэн оруулна уу');return}
+  $('clientName').textContent=val('name')+' таны';
+  go('scan');
+  let p=0; const texts=['Мөнгөний урсгалын сувгийг шалгаж байна','Өрийн блок хайж байна','Хишгийн савыг хэмжиж байна','Баялгийн сувгийг шалгаж байна','Гол шалтгааныг илрүүлж байна'];
+  const ids=['s1','s2','s3','s4','s5'];
+  const t=setInterval(()=>{p+=Math.floor(Math.random()*8)+4;if(p>100)p=100;$('barFill').style.width=p+'%';$('percent').textContent=p+'%';const idx=Math.min(Math.floor(p/22),4);$('scanText').textContent=texts[idx];ids.forEach((x,i)=>$(x).classList.toggle('on',i<=idx));if(p>=100){clearInterval(t);setTimeout(makeResult,600)}},520);
+}
+function makeResult(){
+  const y=Number(val('year'))||1990, m=Number(val('month'))||1, d=Number(val('day'))||1;
+  const base=(y+m*7+d*11)%9;
+  $('flowScore').textContent=(88+base)+'%';
+  $('debtScore').textContent=(84+((base+3)%10))+'%';
+  $('luckScore').textContent=(80+((base+5)%12))+'%';
+  go('result');
+}
+function selectPackage(n,p){selected={name:n,price:p};$('pkgName').textContent=n;$('pkgPrice').textContent=p.toLocaleString('mn-MN')+'₮';$('payNote').textContent=(val('name')||'Нэр')+' '+(val('phone')||'утас');go('pay')}
+function saveOrder(){
+  const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]');
+  orders.unshift({date:new Date().toLocaleString('mn-MN'),name:val('name'),phone:val('phone'),birth:`${val('year')}.${val('month')}.${val('day')}`,gender:val('gender'),pkg:selected.name,price:selected.price});
+  localStorage.setItem('tm_orders',JSON.stringify(orders));go('done');
+}
+function renderOrders(){
+  const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]');
+  $('orders').innerHTML=orders.length?orders.map(o=>`<div class="order"><b>${o.pkg} — ${Number(o.price).toLocaleString('mn-MN')}₮</b><br>${o.name} / ${o.phone}<br>${o.birth} / ${o.gender}<br><small>${o.date}</small></div>`).join(''):'Захиалга алга байна.';
+}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});

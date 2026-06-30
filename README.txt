@@ -1,4 +1,4 @@
-Тэнгэрийн Мэлмий — Өр зээл ба Мөнгөний урсгал v2
-GitHub дээр index.html, style.css, app.js, manifest.json, sw.js файлуудыг repository root дээр upload хийнэ.
-Төлбөрийн мэдээлэл: Хаан банк 5680034540, IBAN 59000500.
-Админ товчоор localStorage дээр хадгалсан захиалгууд харагдана.
+Тэнгэрийн Мэлмий v3
+GitHub repository root хавтас руу index.html, style.css, app.js, manifest.json, sw.js, bg-preview.png файлуудыг бүгдийг upload хийнэ.
+ZIP файлыг өөрийг нь upload хийхгүй.
+Settings > Pages > Deploy from branch > main / root сонгоно.
