@@ -3,161 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — V2.1</title>
+<title>Тэнгэрийн Мэлмий — Мөнгөний Зурхай</title>
+<meta property="og:title" content="Тэнгэрийн Мэлмий — Мөнгөний Зурхай">
+<meta property="og:description" content="Төрсөн мэдээллээр мөнгөний урсгал, зангилаа, ивээлийн кодоо шалгаарай.">
+<meta property="og:type" content="website">
 <link rel="manifest" href="manifest.json">
 <style>
-:root{--bg:#03120d;--gold:#d7a94b;--gold2:#fff0b7;--text:#fff8e7;--muted:#c8b98e;--line:rgba(215,169,75,.32);--red:#ff6b6b}
+:root{
+  --bg:#062016; --bg2:#0a2b1f; --card:#0b3828cc; --gold:#d8a72d; --gold2:#ffe374;
+  --text:#f7f1dc; --muted:#aeb9a8; --line:rgba(215,167,45,.32); --red:#ff5b63;
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#03120d;color:var(--text);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 12% 6%,rgba(255,220,120,.28),transparent 24%),radial-gradient(circle at 88% 0%,rgba(37,136,100,.32),transparent 30%),linear-gradient(145deg,#020705,#071b13 45%,#020805)}
-body:after{content:"";position:fixed;inset:0;z-index:-2;background-image:radial-gradient(rgba(255,240,183,.32) 1px,transparent 1px);background-size:34px 34px;opacity:.14;animation:stars 16s linear infinite}
-@keyframes stars{to{transform:translateY(34px)}}
-.wrap{max-width:1080px;margin:0 auto;padding:18px 14px 90px}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0 18px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:2px;color:var(--gold2)}
-.logo{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff6ce,#d7a94b 45%,#5f3f0d);box-shadow:0 0 32px rgba(215,169,75,.55)}
-.pill{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:999px;padding:10px 14px;color:var(--gold2);font-weight:800;font-size:13px;backdrop-filter:blur(12px)}
-.hero{min-height:620px;display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:center}
-.kicker{display:inline-flex;gap:8px;align-items:center;color:var(--gold2);border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:9px 13px;font-weight:900;font-size:13px}
-h1{font-size:58px;line-height:.98;margin:16px 0 18px;letter-spacing:-2px}
-h1 span,.gold{color:var(--gold2);text-shadow:0 0 28px rgba(215,169,75,.26)}
-.lead{font-size:18px;line-height:1.7;color:#eadfc6;max-width:690px}
-.btn{border:0;cursor:pointer;border-radius:20px;padding:16px 22px;font-weight:950;font-size:16px;background:linear-gradient(135deg,#fff2bd,#d7a94b 48%,#a66b16);color:#160e02;box-shadow:0 20px 46px rgba(215,169,75,.24);transition:.25s}
-.btn:disabled{opacity:.38;filter:grayscale(.9);cursor:not-allowed;box-shadow:none}
-.btn.dark{background:rgba(9,35,25,.8);color:var(--gold2);border:1px solid var(--line);box-shadow:none}
-.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.035));border-radius:32px;box-shadow:0 30px 100px rgba(0,0,0,.36);backdrop-filter:blur(18px)}
-.hero-visual{min-height:500px;position:relative;overflow:hidden;padding:28px;display:grid;place-items:center}
-.eye{width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,#0b160f 0 7%,#fff7cd 8% 13%,#d7a94b 14% 28%,#134a36 29% 40%,#04110c 41% 60%,transparent 61%);box-shadow:0 0 80px rgba(215,169,75,.5),inset 0 0 38px rgba(255,255,255,.12);animation:eye 3.2s infinite}
-@keyframes eye{50%{transform:scale(1.05) rotate(2deg);filter:brightness(1.15)}}
-.ring{position:absolute;border:1px solid rgba(255,230,163,.35);border-radius:50%;animation:spin 16s linear infinite}.r1{width:370px;height:370px}.r2{width:450px;height:450px;animation-duration:23s}.r3{width:300px;height:300px;animation-duration:11s;animation-direction:reverse}@keyframes spin{to{transform:rotate(360deg)}}
-.coin{position:absolute;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#fff7c9,#d7a94b 48%,#8f5e14);box-shadow:0 0 24px rgba(215,169,75,.55);animation:float 5s ease-in-out infinite}
-.c1{left:11%;top:18%}.c2{right:13%;top:24%;animation-delay:.7s}.c3{left:20%;bottom:18%;animation-delay:1.4s}.c4{right:23%;bottom:14%;animation-delay:2s}@keyframes float{50%{transform:translateY(-26px) rotate(28deg)}}
-.section{margin-top:26px}.sectionTitle{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}.sectionTitle h2{font-size:32px;margin:0}.muted{color:var(--muted);line-height:1.65}
-.form{padding:24px;max-width:680px;margin-left:auto;margin-right:auto}
-.formStack{display:grid;gap:14px}
-label{font-weight:900;color:var(--gold2);display:block;margin-bottom:7px}
-input,select{width:100%;padding:16px;border-radius:18px;border:1px solid var(--line);background:rgba(0,0,0,.28);color:#fff;font-size:16px;outline:none}
-input:focus,select:focus{box-shadow:0 0 0 3px rgba(215,169,75,.16)}
-.scan{padding:26px;text-align:center;display:none}.scan.active{display:block}
-.loader{width:160px;height:160px;margin:10px auto;border-radius:50%;background:conic-gradient(var(--gold2),#0c2b20,#d7a94b);padding:8px;animation:spin 1.3s linear infinite}.loader div{height:100%;border-radius:50%;background:#071b13;display:grid;place-items:center;color:var(--gold2);font-weight:950}
-.scanList{max-width:580px;margin:18px auto;display:grid;gap:9px}.scanItem{padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.045);opacity:.55}.scanItem.on{opacity:1;background:rgba(215,169,75,.11);color:var(--gold2)}
-.result{display:none}.result.active{display:block}
-.statGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.stat{padding:20px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.055);animation:rise .55s both}
-.stat small{color:var(--muted);font-weight:900}.stat b{display:block;font-size:34px;color:var(--gold2);margin-top:6px}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.zodiacCard{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;padding:22px}
-.zodiacIcon{height:150px;border-radius:30px;background:radial-gradient(circle,#fff2bd,#d7a94b 32%,#133d2e 63%,#06140e);display:grid;place-items:center;font-size:70px;box-shadow:inset 0 0 36px rgba(255,255,255,.15)}
-.locks,.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.lock,.package{padding:22px}.lock h3,.package h3{margin:0 0 10px;color:var(--gold2);font-size:22px}.tag{display:inline-flex;margin-top:12px;color:#ffdf85;font-weight:900}
-.package.best{border-color:rgba(255,240,183,.7);box-shadow:0 0 0 1px rgba(255,240,183,.35),0 30px 90px rgba(215,169,75,.18)}
-.price{font-size:34px;font-weight:950;color:var(--gold2)}.old{text-decoration:line-through;color:#a99770}.timer{font-size:22px;color:#fff;border:1px solid rgba(255,107,107,.55);background:rgba(255,107,107,.12);padding:12px 15px;border-radius:18px;text-align:center;font-weight:950}
-.pay{display:none;padding:24px;max-width:760px;margin-left:auto;margin-right:auto}.pay.active{display:block}
-.payGrid{display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:center}
-.qr{width:210px;height:210px;border:10px solid #fff;border-radius:24px;background:linear-gradient(90deg,#111 10px,transparent 10px) 0 0/30px 30px,linear-gradient(#111 10px,transparent 10px) 0 0/30px 30px,#fff;box-shadow:0 0 34px rgba(215,169,75,.25)}
-.copyRow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.copyBox{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.25);color:var(--gold2);font-weight:900}
-.check{display:flex;gap:10px;align-items:flex-start;margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.05);cursor:pointer}.check input{width:22px;height:22px;margin-top:2px}
-.success{display:none;text-align:center;max-width:720px;margin:26px auto;padding:30px}.success.active{display:block}
-.report{display:none;max-width:900px;margin:26px auto}.report.active{display:block}.page{background:#fffdf6;color:#14231b;border-radius:28px;padding:34px;margin:16px 0;box-shadow:0 22px 70px rgba(0,0,0,.36)}.page h2{color:#123b2d}.page h3{color:#9b6713}.page li{margin:9px 0;line-height:1.65}
-.admin{display:none}.admin.active{display:block}.order{padding:16px;border:1px solid var(--line);border-radius:20px;margin:10px 0;background:rgba(255,255,255,.05)}
-.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:90;background:#092318;border:1px solid var(--line);color:var(--gold2);padding:13px 18px;border-radius:16px;display:none;font-weight:900}
-@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto}.hero-visual{min-height:380px}h1{font-size:42px}.statGrid,.locks,.packages{grid-template-columns:1fr}.zodiacCard{grid-template-columns:1fr}.sectionTitle{display:block}.wrap{padding-bottom:50px}.brand{font-size:13px}}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--text);background:#04140f;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:
+ radial-gradient(circle at 50% 10%,rgba(214,167,45,.22),transparent 24%),
+ radial-gradient(circle at 10% 30%,rgba(38,130,84,.22),transparent 32%),
+ linear-gradient(180deg,#062016,#062016 48%,#04120e)}
+body:after{content:"";position:fixed;inset:0;z-index:-2;background-image:
+ linear-gradient(rgba(216,167,45,.12) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(216,167,45,.12) 1px,transparent 1px);
+ background-size:76px 76px;opacity:.55}
+.page{max-width:760px;margin:0 auto;padding:22px 18px 90px;position:relative}
+.center{text-align:center}.smallCaps{letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-size:13px;font-weight:900}
+.logo{width:92px;height:92px;border-radius:50%;margin:18px auto 10px;background:
+ radial-gradient(circle,#fff2a0,#d8a72d 46%,#8b5a10 70%,#092216 72%);
+ display:grid;place-items:center;font-size:48px;box-shadow:0 0 42px rgba(216,167,45,.45)}
+.heroTitle{font-size:40px;line-height:1.12;margin:16px 0 10px;font-weight:950}
+.heroTitle span,.gold{color:var(--gold2)}
+.sub{color:var(--muted);font-size:18px;line-height:1.65;margin:0 auto;max-width:560px}
+.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(13,68,47,.86),rgba(8,38,28,.72));border-radius:34px;box-shadow:0 26px 90px rgba(0,0,0,.3);backdrop-filter:blur(16px)}
+.heroCard{padding:26px 20px;margin-top:28px}
+.frog{width:260px;max-width:84%;height:220px;margin:0 auto 8px;position:relative}
+.frog:before{content:"";position:absolute;inset:25px 35px 0;border-radius:42% 42% 36% 36%;background:
+ radial-gradient(circle at 35% 22%,#ff4545 0 5px,transparent 6px),
+ radial-gradient(circle at 64% 22%,#ff4545 0 5px,transparent 6px),
+ radial-gradient(circle at 50% 45%,#ffd95b,#c88a18 52%,#80500e 100%);
+ box-shadow:0 28px 0 -12px #c88a18,0 40px 48px rgba(216,167,45,.25),inset 0 12px 28px rgba(255,255,255,.22)}
+.frog:after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:56px;border-radius:50%;background:
+ repeating-radial-gradient(circle at 20% 50%,#ffe374 0 10px,#bc7a13 11px 18px);
+ filter:drop-shadow(0 14px 24px rgba(0,0,0,.25))}
+.orbit{position:absolute;inset:5px;border:1px solid rgba(255,227,116,.22);border-radius:50%;animation:spin 13s linear infinite}
+.beam{position:absolute;left:50%;top:-30px;width:70px;height:340px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,227,116,.0),rgba(255,227,116,.28),rgba(255,227,116,.0));filter:blur(6px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn{width:100%;border:0;border-radius:20px;padding:18px 18px;font-size:17px;font-weight:950;color:#112016;background:linear-gradient(100deg,#c68a18,#ffe374);box-shadow:0 20px 44px rgba(216,167,45,.2);cursor:pointer}
+.btn.secondary{background:transparent;color:var(--gold2);border:1px solid var(--line);box-shadow:none}
+.btn:disabled{opacity:.42;filter:grayscale(1);cursor:not-allowed}
+.formBox{padding:22px;margin-top:18px;display:none}.formBox.show{display:block}
+.field{margin:14px 0;text-align:left}.field label{display:block;margin-bottom:8px;color:var(--muted);font-weight:800}.field input{width:100%;padding:18px 18px;border-radius:18px;border:1px solid rgba(216,167,45,.24);background:rgba(4,20,15,.66);color:var(--text);font-size:18px;outline:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:20}.modal.show{display:flex}.modalCard{max-width:620px;width:100%;padding:24px}.confirmGrid{border:1px solid rgba(216,167,45,.22);border-radius:20px;margin:18px 0;overflow:hidden}.confirmRow{display:flex;justify-content:space-between;padding:17px 18px;border-bottom:1px solid rgba(216,167,45,.14)}.confirmRow:last-child{border-bottom:0}.confirmRow span{color:var(--muted);letter-spacing:.05em}.confirmRow b{font-size:18px}
+.scan{display:none;min-height:100vh;place-items:center;text-align:center}.scan.show{display:grid}.progress{width:78%;height:9px;border-radius:999px;background:rgba(255,227,116,.14);margin:28px auto;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#c68a18,#fff2a0);border-radius:999px;transition:.22s}.scanText{font-size:21px;font-weight:900;color:rgba(247,241,220,.68)}
+.result{display:none}.result.show{display:block}.archetype{padding-top:28px;text-align:center}.zodiacFigure{height:300px;display:grid;place-items:center;position:relative}.zodiacFigure .symbol{font-size:122px;color:var(--gold2);filter:drop-shadow(0 0 26px rgba(216,167,45,.45));z-index:2}.zodiacFigure:before{content:"";position:absolute;width:245px;height:245px;border-radius:50%;background:radial-gradient(circle,rgba(255,227,116,.24),transparent 63%)}.zodiacFigure:after{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(255,227,116,.2);border-radius:50%;animation:spin 20s linear infinite}
+.cardText{font-size:22px;line-height:1.7;padding:28px;border-radius:32px;border:1px solid rgba(216,167,45,.22);background:rgba(8,48,35,.68)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0}.chip{border:1px solid var(--line);border-radius:999px;padding:12px 16px;color:var(--gold2);background:rgba(216,167,45,.1);font-weight:800}
+.lockCard{padding:34px 24px;margin-top:24px;text-align:center}.lockIcon{font-size:42px;color:var(--gold);margin:12px 0}.blurLine{height:18px;border-radius:999px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);filter:blur(4px);margin:18px auto;max-width:360px}
+.coins{display:flex;justify-content:center;gap:12px;margin:24px 0}.coin{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:950;background:radial-gradient(circle,#fff0a0,#d8a72d 55%,#82530f);color:#231600;box-shadow:0 12px 24px rgba(0,0,0,.25)}.coin.locked{filter:grayscale(.8) brightness(.45);color:#ffe374}
+.countBox{border:1px solid rgba(255,91,99,.5);border-radius:26px;padding:22px;text-align:center;margin:34px 0;background:rgba(255,91,99,.07)}.countBox b{font-size:45px;color:var(--gold2);letter-spacing:.08em}
+.pack{padding:30px 24px;margin:24px 0}.pack.best{border-color:rgba(255,227,116,.8);box-shadow:0 0 0 2px rgba(216,167,45,.18),0 28px 80px rgba(216,167,45,.13)}.price{font-size:42px;font-weight:950;color:var(--gold2)}.old{text-decoration:line-through;color:#8fa294;font-size:20px}.sale{display:inline-block;background:#f00;color:white;border-radius:999px;padding:8px 13px;font-weight:950;margin-left:10px}.list{padding:0;margin:20px 0;list-style:none}.list li{margin:15px 0;color:#d9dfd4;font-size:18px;line-height:1.45}.list li:before{content:"✦";color:var(--gold2);margin-right:9px}
+.pay{display:none;padding:24px;margin-top:24px}.pay.show{display:block}.copyLine{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px;padding:14px;border:1px solid rgba(216,167,45,.22);border-radius:18px;background:rgba(255,255,255,.045);margin:10px 0}.copyLine span{color:var(--muted);font-size:13px}.copyLine b{font-size:18px;color:var(--gold2)}.copyLine button{border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--gold2);border-radius:12px;padding:8px 10px;cursor:pointer}.check{display:flex;gap:10px;align-items:flex-start;margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.05)}.check input{width:22px;height:22px}
+.admin{display:none}.admin.show{display:block}.order{padding:16px;border:1px solid var(--line);border-radius:18px;margin:12px 0;background:rgba(255,255,255,.05)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#092318;border:1px solid var(--line);color:var(--gold2);padding:13px 18px;border-radius:16px;display:none;font-weight:900;z-index:40}
+@media(max-width:520px){.page{padding:16px 14px 80px}.heroTitle{font-size:34px}.cardText{font-size:19px}.copyLine{grid-template-columns:1fr auto}.copyLine span{grid-column:1/-1}.coin{width:68px;height:68px}.price{font-size:36px}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav class="nav"><div class="brand"><div class="logo">👁</div>ТЭНГЭРИЙН МЭЛМИЙ</div><div class="pill">Premium V2.1</div></nav>
-  <section class="hero">
-    <div><div class="kicker">Өнөөдрийн 50% хямдрал <b id="timer">--:--:--</b></div><h1>Таны <span>мөнгөний зураглал</span> нээгдэх мөч</h1><p class="lead">Төрсөн мэдээллээр тань санхүүгийн хэв маяг, мөнгө тогтох чадвар, өр зээлийн саад, эд баялгийн хаалга болон хувийн <b class="gold">Мөнгөний Ивээлийн Код</b>-ыг боловсруулна.</p><div class="actions"><button class="btn" onclick="scrollToId('form')">Үнэгүй шинжилгээ эхлүүлэх</button><button class="btn dark" onclick="scrollToId('packages')">Багцууд харах</button></div></div>
-    <div class="card hero-visual"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><i class="coin c1"></i><i class="coin c2"></i><i class="coin c3"></i><i class="coin c4"></i><div class="eye"></div></div>
-  </section>
-
-  <section id="form" class="section card form">
-    <div class="sectionTitle"><h2>Мэдээллээ оруулна уу</h2><p class="muted">Нэг нэгээрээ цэвэрхэн бөглөнө.</p></div>
-    <div class="formStack">
-      <div><label>Овог</label><input id="lastName" placeholder="Жишээ: Боржигон"></div>
-      <div><label>Нэр</label><input id="firstName" placeholder="Жишээ: Номин"></div>
-      <div><label>Утас</label><input id="phone" placeholder="99112233"></div>
-      <div><label>Төрсөн он</label><input id="year" type="number" placeholder="1998"></div>
-      <div><label>Төрсөн сар</label><input id="month" type="number" placeholder="10"></div>
-      <div><label>Төрсөн өдөр</label><input id="day" type="number" placeholder="10"></div>
-      <div><label>Хүйс</label><select id="gender"><option>Эмэгтэй</option><option>Эрэгтэй</option></select></div>
+<div class="page" id="main">
+  <section class="center" id="home">
+    <div class="smallCaps">ҮНЭГҮЙ ШИНЖИЛГЭЭ</div>
+    <h1 class="heroTitle">Зоосны зангилаагаа<br><span>үнэгүй шалгуулъя</span></h1>
+    <p class="sub">Доорх 3 зүйлээ бөглөмөгц мөнгөний урсгалын товч зураглал шууд бэлэн болно.</p>
+    <div class="card heroCard">
+      <div class="frog"><div class="beam"></div><div class="orbit"></div></div>
+      <button class="btn" onclick="showForm()">Мэдээллээ оруулах</button>
     </div>
-    <button class="btn" style="width:100%;margin-top:18px" onclick="startScan()">Шинжилгээ гаргах</button>
+    <div class="card formBox" id="formBox">
+      <div class="field"><label>Овог нэр</label><input id="fullName" placeholder="Өрөр"></div>
+      <div class="field"><label>Төрсөн огноо</label><input id="birthDate" placeholder="1988.12.31"></div>
+      <div class="field"><label>Утас</label><input id="phone" placeholder="99039726"></div>
+      <button class="btn" onclick="confirmInfo()">Үнэгүй үр дүнгээ нээх</button>
+    </div>
   </section>
 
-  <section id="scan" class="section card scan">
-    <div class="loader"><div id="pct">0%</div></div><h2>Тэнгэрийн Мэлмий уншиж байна</h2>
-    <div class="scanList"><div class="scanItem on">Төрсөн мэдээллийн суурь давтамжийг тооцоолж байна</div><div class="scanItem">Мөнгөний урсгалын хэв маягийг нээж байна</div><div class="scanItem">Өр зээлийн саадыг шалгаж байна</div><div class="scanItem">Эд баялгийн хаалгыг тодорхойлж байна</div><div class="scanItem">Мөнгөний Ивээлийн Кодыг бэлтгэж байна</div></div>
+  <section id="scan" class="scan">
+    <div>
+      <div class="frog"><div class="beam"></div><div class="orbit"></div></div>
+      <p class="scanText" id="scanText">Алтан Мэлмий таны төлөө ажиллаж байна</p>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="smallCaps">АЛТАН МЭЛМИЙ ТАНЫ ТӨЛӨӨ АЖИЛЛАЖ БАЙНА</div>
+    </div>
   </section>
 
   <section id="result" class="result">
-    <div class="sectionTitle section"><h2>Таны эхний зураглал</h2><span class="pill" id="zodiacName">Орд</span></div>
-    <div class="card zodiacCard"><div class="zodiacIcon" id="zodiacIcon">♑</div><div><h2 id="archTitle" class="gold">Мөнгөний архетип</h2><p class="muted" id="archText"></p></div></div>
-    <div class="section statGrid"><div class="stat"><small>Мөнгөний урсгал</small><b id="flow">--%</b></div><div class="stat"><small>Мөнгө тогтох чадвар</small><b id="save">--%</b></div><div class="stat"><small>Орлого өсөх боломж</small><b id="income">--%</b></div><div class="stat"><small>Өрийн эрсдэл</small><b id="debt">--%</b></div></div>
-    <div class="section card lock"><h3>Товч санхүүгийн зөвлөмж</h3><p class="muted" id="quickAdvice"></p></div>
-    <div class="sectionTitle section"><h2>Илэрсэн хаалгууд</h2><p class="muted">Дэлгэрэнгүйг багцаар нээнэ.</p></div>
-    <div class="locks"><div class="card lock"><h3>🔒 Өрийн блок</h3><p class="muted">Давтагддаг өрийн хэв маяг, ямар үед суларч эхлэхийг тайлна.</p><span class="tag">Нээх боломжтой</span></div><div class="card lock"><h3>🔒 Мөнгө тогтох блок</h3><p class="muted">Орлого орсон ч яагаад сарнидаг шалтгааныг харуулна.</p><span class="tag">Нээх боломжтой</span></div><div class="card lock"><h3>🔒 Эд баялгийн хаалга</h3><p class="muted">Танд тохирох орлогын чиглэл, өдөр, өнгө, бэлгэдлийг гаргана.</p><span class="tag">Нээх боломжтой</span></div></div>
-  </section>
+    <div class="archetype">
+      <div class="smallCaps" id="archSmall">ТАНЫ БАЯЛГИЙН АРХЕТИП</div>
+      <h1 class="heroTitle"><span id="archTitle">Сургалтын</span><br><span style="color:#fff" id="archTitle2">Эзэн</span></h1>
+      <p class="sub" id="archSub">Мөнгөний зан чанар</p>
+      <div class="zodiacFigure"><div class="symbol" id="zodiacSymbol">♑</div></div>
+      <h2 class="gold" id="zodiacName">Матрын орд</h2>
+      <p class="sub" id="zodiacText">Энэ орд нь чиний мөнгөтэй харьцах далд хэв маяг, эрсдэлийг урьдчилан мэдрэх зөнг тодорхойлдог.</p>
+      <div class="card cardText" id="mainText"></div>
+      <div class="smallCaps" style="margin-top:22px">ЧИНИЙ МӨНГӨНИЙ ДАЛД ХҮЧ</div>
+      <div class="chips" id="chips"></div>
+    </div>
 
-  <section id="packages" class="section"><div class="sectionTitle"><h2>Нээх багцууд</h2><div class="timer" id="timer2">--:--:--</div></div><div class="packages"><div class="card package"><h3>🥉 Мөнгөний Үүд</h3><p class="muted">Санхүүгийн эхний зураглал, мөнгөний зан чанар, 5 бодит зөвлөмж.</p><div class="old">19,800₮</div><div class="price">9,900₮</div><button class="btn" onclick="choosePackage('Мөнгөний Үүд',9900)">Нээх</button></div><div class="card package best"><h3>🥈 Алтан Урсгал</h3><p class="muted">Өрийн блок, мөнгөний урсгал, хайр ба санхүү, 12 сарын төлөв, дом/бэлгэдэл.</p><div class="old">39,800₮</div><div class="price">19,900₮</div><button class="btn" onclick="choosePackage('Алтан Урсгал',19900)">Нээх</button></div><div class="card package"><h3>🥇 Тэнгэрийн Ивээл</h3><p class="muted">Мөнгөний Ивээлийн 3 оронтой Код, кодын утга, тохирох өдөр цаг, зан үйл.</p><div class="old">99,800₮</div><div class="price">49,900₮</div><button class="btn" onclick="choosePackage('Тэнгэрийн Ивээл',49900)">Нээх</button></div></div></section>
+    <div class="card lockCard">
+      <div class="smallCaps">ГЭХДЭЭ...</div>
+      <h1 class="heroTitle" style="font-size:36px"><span>Зоосны зангилаа</span></h1>
+      <p class="sub" id="knotText">Гэвч бусдын зовлонг өөрийнхөөрөө үүрч, тэдний өмнөөс хариуцлага хүлээх зан чинь чамайг хоосон үлдээдэг.</p>
+      <div class="blurLine"></div><div class="lockIcon">🔒</div>
+      <p class="sub">Энэ зангилаа яг хаана, ямар үед үүссэн, хэрхэн тайлахыг <b class="gold">бүрэн тайлан</b> алхам алхмаар харуулна.</p>
+    </div>
 
-  <section id="payment" class="section card pay">
-    <div class="sectionTitle"><h2>Төлбөр хийх</h2><span class="pill" id="payAmount">0₮</span></div>
-    <div class="payInfo">
-      <div class="bankCard">
-        <h3 class="gold">ХААН БАНК</h3>
-        <div class="copyLine"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button class="copyBtn" onclick="copyText('accName')">📋</button></div>
-        <div class="copyLine"><span>Данс</span><b id="accNo">5690034540</b><button class="copyBtn" onclick="copyText('accNo')">📋</button></div>
-        <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button class="copyBtn" onclick="copyText('ibanNo')">📋</button></div>
-        <div class="copyLine highlight"><span>Гүйлгээний утга</span><b id="txn">утас</b><button class="copyBtn" onclick="copyText('txn')">📋</button></div>
-      </div>
-      <p class="muted">Банкны апп руугаа орж дээрх данс руу шилжүүлнэ. Гүйлгээний утга дээр бүртгүүлсэн утасны дугаараа заавал бичнэ.</p>
-      <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
-      <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Захиалга илгээх</button>
+    <div class="card lockCard">
+      <h2 class="gold">Чиний Зоосны түлхүүр</h2>
+      <p class="sub">Эхний хоёр орон л танд үзүүллээ.</p>
+      <div class="coins"><div class="coin" id="code1">7</div><div class="coin" id="code2">7</div><div class="coin locked">🔒</div><div class="coin locked">🔒</div></div>
+      <p class="sub">Сүүлийн хоёр орон — зангилааг бүрэн тайлах хэсэг — <b class="gold">бүрэн тайланд</b> илчлэгдэнэ.</p>
+    </div>
+
+    <h1 class="heroTitle center" style="font-size:34px"><span>Зоосны зангилаагаа</span> тайлж,<br>мөнгөний урсгалаа нээх үү?</h1>
+    <p class="sub center" id="pitch">Өөрт тохирох багцаа сонгоорой.</p>
+
+    <div class="countBox"><div class="smallCaps" style="color:#ff9aa0">• -50% ХЯМДРАЛ ДУУСАХАД</div><b id="timer">--:--:--</b><p class="sub">Өнөөдөр шөнө дунд хүртэл</p></div>
+
+    <div class="card pack">
+      <div class="smallCaps">ЭХЛЭЛ</div><h2>Зоосны Дусал</h2><p class="sub">Баялгаа дусал дуслаар эхлүүл</p>
+      <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
+      <ul class="list"><li>Мөнгөний чинь түгжсэн зангилаа аль зүгт нуугдсаныг илчилнэ</li><li>Гэр, ажлын баялгийн өнцөг хаана байгааг заана</li><li>Хувийн сахиус — тоон шившлэгийн эхний хэсэг</li><li>Азын зүг, өнгө, тоо</li></ul>
+      <button class="btn" onclick="choosePackage('Зоосны Дусал',9900)">ЭХНИЙ ДУСЛАА АВАХ</button>
+    </div>
+
+    <div class="card pack best">
+      <div class="smallCaps">БҮРЭН ШИЙДЭЛ</div><h2 class="gold">Мөнгөн Гол</h2><p class="sub">Мөнгөний урсгалаа бүрэн нээ</p>
+      <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
+      <ul class="list"><li>«Зоосны Дусал» багцын бүх зүйл</li><li>Баялгийн зүг чиг — мөнгө аль зүгээс урсаж ирэхийг тогтоох</li><li>Зангилаа тайлах нууц шившлэг ба зан үйл</li><li>Аз дуудах сайн өдрүүд, гай зайлуулах өдрүүд</li><li>Баялаг татах бэлгэдэл, өнгө, эд зүйлс</li></ul>
+      <button class="btn" onclick="choosePackage('Мөнгөн Гол',19900)">УРСГАЛАА НЭЭХ</button>
+    </div>
+
+    <div class="card pack">
+      <div class="smallCaps">ДЭЭД ЗЭРЭГ</div><h2>Алтан Далай</h2><p class="sub">Хязгааргүй элбэгийн далай</p>
+      <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
+      <ul class="list"><li>«Мөнгөн Гол» багцын бүх зүйл</li><li>Насан туршийн хий морь, сулдны өсөлт, уналтын зураг</li><li>Зангилаа дахин үүсэхээс хамгаалах сахиус</li><li>Их далайд хүрэх 3 ид шидийн эргэлт</li><li>49 хоногийн гүн тахил, залбирал</li></ul>
+      <button class="btn secondary" onclick="choosePackage('Алтан Далай',99000)">ДАЛАЙГ ЭЗЭМШИХ</button>
     </div>
   </section>
 
-  <section id="success" class="card success"><h2 class="gold">✅ Захиалга бүртгэгдлээ</h2><p class="muted">Төлбөр баталгаажмагц тайлангийн хамгаалалттай линк SMS-р илгээгдэх болно.</p><p class="pill">Дундаж хугацаа: 5–15 минут</p></section>
-  <section id="admin" class="section card admin"><div class="sectionTitle"><h2>Админ</h2><button class="btn dark" onclick="loadOrders()">Шинэчлэх</button></div><div id="orders">Уншиж байна...</div></section>
-  <section id="report" class="report"></section>
-</div><div class="toast" id="toast"></div>
+  <section class="card pay" id="pay">
+    <h2 class="gold" id="payTitle">Төлбөр хийх</h2>
+    <p class="sub" id="payDesc"></p>
+    <div class="copyLine"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
+    <div class="copyLine"><span>Банк</span><b id="bankName">Хаан банк</b><button onclick="copyText('bankName')">📋</button></div>
+    <div class="copyLine"><span>Данс</span><b id="accNo">5690034540</b><button onclick="copyText('accNo')">📋</button></div>
+    <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
+    <div class="copyLine"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
+    <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
+    <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Захиалга илгээх</button>
+  </section>
+
+  <section class="card pay" id="success">
+    <h2 class="gold">Захиалга бүртгэгдлээ</h2>
+    <p class="sub">Төлбөр баталгаажмагц тайлангийн хамгаалалттай линк SMS-р илгээгдэнэ.</p>
+  </section>
+
+  <section class="card pay admin" id="admin"><h2>Админ</h2><button class="btn secondary" onclick="loadOrders()">Шинэчлэх</button><div id="orders"></div></section>
+</div>
+
+<div class="modal" id="confirmModal">
+  <div class="card modalCard center">
+    <div class="logo">🐸</div>
+    <h2>Мэдээллээ шалгаарай</h2>
+    <p class="sub">Зурхай чинь яг эдгээр мэдээлэл дээр үндэслэнэ.</p>
+    <div class="confirmGrid">
+      <div class="confirmRow"><span>Нэр</span><b id="cName"></b></div>
+      <div class="confirmRow"><span>Төрсөн огноо</span><b id="cBirth"></b></div>
+      <div class="confirmRow"><span>Утас</span><b id="cPhone"></b></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button class="btn secondary" onclick="closeModal()">← Засах</button><button class="btn" onclick="beginScan()">Тийм, нээ</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";import{getFirestore,collection,addDoc,getDocs,doc,setDoc,getDoc,updateDoc,serverTimestamp,query,orderBy}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import{initializeApp}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import{getFirestore,collection,addDoc,getDocs,doc,setDoc,getDoc,updateDoc,serverTimestamp,query,orderBy}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 const firebaseConfig={apiKey:"AIzaSyCptq_EpedA2ok205SoFMBjci5IcID7nWc",authDomain:"mongo-block.firebaseapp.com",projectId:"mongo-block",storageBucket:"mongo-block.firebasestorage.app",messagingSenderId:"161463190344",appId:"1:161463190344:web:cc5e2672ded4900937e97d",measurementId:"G-6074VCDK9W"};
 window.app=initializeApp(firebaseConfig);window.db=getFirestore(app);window.fb={collection,addDoc,getDocs,doc,setDoc,getDoc,updateDoc,serverTimestamp,query,orderBy};
 </script>
 <script>
-const $=id=>document.getElementById(id);let client={},selected={};
-function toast(t){$('toast').textContent=t;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',2200)}
-function scrollToId(id){$(id).scrollIntoView({behavior:'smooth'})}
+const $=id=>document.getElementById(id);
+let client={}, selected={};
+function toast(t){$('toast').textContent=t;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',1600)}
+function showForm(){$('formBox').classList.add('show');$('formBox').scrollIntoView({behavior:'smooth'})}
+function parseDate(s){let p=s.trim().replaceAll('/','.').replaceAll('-','.').split('.').map(x=>parseInt(x,10));return {year:p[0],month:p[1],day:p[2]}}
+function confirmInfo(){
+ const bd=parseDate($('birthDate').value);
+ client={fullName:$('fullName').value.trim(),phone:$('phone').value.trim(),year:bd.year,month:bd.month,day:bd.day,birth:$('birthDate').value.trim()};
+ if(!client.fullName||!client.phone||!client.year||!client.month||!client.day){toast('Мэдээллээ бүрэн оруулна уу');return}
+ $('cName').textContent=client.fullName;$('cBirth').textContent=client.birth;$('cPhone').textContent=client.phone;$('confirmModal').classList.add('show')
+}
+function closeModal(){$('confirmModal').classList.remove('show')}
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return Math.abs(h)}
-function val(a,b,s){return a+(s%(b-a+1))}function codeFrom(c){return String(100+(hash((c.lastName+c.firstName+c.year+c.month+c.day).toLowerCase())%900))}
-const zmap=[['Матар','♑',120],['Хумх','♒',218],['Загас','♓',320],['Хонь','♈',420],['Үхэр','♉',521],['Ихэр','♊',621],['Мэлхий','♋',722],['Арслан','♌',823],['Охин','♍',923],['Жинлүүр','♎',1023],['Хилэнц','♏',1122],['Нум','♐',1222],['Матар','♑',1231]];
-function zodiac(m,d){let x=m*100+d;return zmap.find(z=>x<=z[2])||zmap[0]}
-const arch=[['Баялаг бүтээгч','Та хөдөлмөр, ур чадвар, зохион байгуулалтаар мөнгөний боломж татах хэв шинжтэй. Харин төлөвлөгөөгүй зарлага өсөхөд мөнгө тогтох чадвар сулардаг.'],['Алтан урсгал','Танд мөнгөний боломж хурдан орж ирэх боловч нэг чиглэлд тогтоож чадвал өсөлт илүү мэдрэгдэнэ. Яаралтай шийдвэрээс илүү тогтвортой дүрэм хэрэгтэй.'],['Хишгийн сав','Таны санхүүгийн хүч харилцаа, нэр хүнд, итгэлцлээс их хамаардаг. Бусдад хэт найдах, батлан даах үед эрсдэл нэмэгдэнэ.'],['Эрдэнийн хаалга','Ур чадвар, мэдлэг, бүтээлч байдлаа мөнгө болгох боломж өндөр. Өөрийн үнэ цэнийг хямд үнэлэхээс болгоомжил.']];
-const cases=['Орлого нэмэгдэх боломж байгаа боловч мөнгөний урсгал замбараагүй хуваагдах үед үр дүн богино хугацаанд сарнидаг.','Шинэ зээл авахын өмнө хуучин өрийн бүтцээ цэгцлэх нь энэ мөчлөгт илүү зөв алхам байна.','Батлан даалт, хамтын өр, бусдын нэр дээрх санхүүгийн үүрэгт болгоомжтой хандах хэрэгтэй.','Худалдаа, захиалга, онлайн орлого зэрэг богино эргэлттэй чиглэл танд илүү тохиромжтой байж болно.','Цалин, орлого орсон өдөр шууд төлөвлөгөө гаргах нь мөнгө тогтоход тустай.','Сурсан чадвар, гарын ур, мэдлэгээ жижиг үйлчилгээ болгон хувиргах боломжтой.','Хайр дурлалын тогтворгүй байдал зарим үед мөнгөний төвлөрөлд нөлөөлөх хандлагатай.','Том ашиг амласан саналд яарахгүй, бичгээр тооцоо хийж байж шийдэх нь зөв.'];
-const steps=['Өдрийн төгсгөлд зайлшгүй бус юунд мөнгө гаргаснаа тэмдэглэ.','Нэг хэрэггүй subscription, давтагддаг зардлаа цуцал.','Хэн нэгэнд батлан даалт хийхээс өмнө бичгээр эрсдэлээ тооц.','Гэнэтийн зардлын жижиг нөөц сан үүсгэж эхэл.','Том худалдан авалт хийхээс өмнө дор хаяж 24 цаг хүлээ.','Орлого бүрээс бага дүнг тусад нь хадгалах тогтолцоо эхлүүл.'];
-const rituals=['Бүтэн сар гарах орой ирэх сарын санхүүгийн зорилгоо цаасан дээр бичиж хадгал.','Харанхуй шөнө яаран мөнгө зээлэх, зээлүүлэхээс болгоомжилж, өглөө шийдвэр гаргахыг эрхэмлэ.','Орлого орсон өдөр багахан мөнгийг тусад нь хадгалж, мөнгө тогтох савыг бэлгэдэн эхлүүл.','Бусдын мөнгийг өөрийн түрийвчинд удаан хадгалахгүй байхыг санхүүгийн хил хязгаарын бэлгэдэл гэж үздэг.','Түрийвчээ хэрэггүй баримт, хуучин тасалбар, хог цаасаар дүүргэхгүй байхыг эрхэмлэ.','Зосыг цэвэрхэн уутанд хийж халаасандаа авч явахыг эдийн бэлгэдэл гэж үздэг.','Лаврын навч дээр санхүүгийн зорилгоо бичиж долоо хоног хадгалахыг зорилго төвлөрүүлэх бэлгэдэл гэж үздэг.'];
-function pick(arr,seed,n){return Array.from({length:n},(_,i)=>arr[(seed+i*5)%arr.length])}
-function startScan(){client={lastName:$('lastName').value.trim(),firstName:$('firstName').value.trim(),phone:$('phone').value.trim(),gender:$('gender').value,year:+$('year').value,month:+$('month').value,day:+$('day').value};if(!client.firstName||!client.phone||!client.year||!client.month||!client.day){toast('Мэдээллээ бүрэн оруулна уу');return}$('scan').classList.add('active');scrollToId('scan');let p=0;const items=[...document.querySelectorAll('.scanItem')];let t=setInterval(()=>{p+=4;$('pct').textContent=Math.min(p,100)+'%';items.forEach((x,i)=>x.classList.toggle('on',i<=Math.floor(p/22)));if(p>=100){clearInterval(t);analyze()}},90)}
-function analyze(){const seed=hash(JSON.stringify(client));client.code=codeFrom(client);let z=zodiac(client.month,client.day);client.zodiac=z[0];client.zodiacIcon=z[1];const a=arch[seed%arch.length];$('zodiacName').textContent=z[0]+' орд';$('zodiacIcon').textContent=z[1];$('archTitle').textContent=a[0];$('archText').textContent=a[1];$('flow').textContent=val(78,96,seed)+'%';$('save').textContent=val(38,72,seed+5)+'%';$('income').textContent=val(70,95,seed+9)+'%';$('debt').textContent=val(62,91,seed+12)+'%';$('quickAdvice').textContent=pick(cases,seed,2).join(' ');$('result').classList.add('active');scrollToId('result')}
-function choosePackage(name,price){selected={name,price};$('payAmount').textContent=price.toLocaleString()+'₮';$('txn').textContent=client.phone||'утас';$('paidCheck').checked=false;toggleSubmit();$('payment').classList.add('active');scrollToId('payment')}
-function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
+function val(a,b,s){return a+(s%(b-a+1))}
+const z=[['Матар','♑',120],['Хумх','♒',218],['Загас','♓',320],['Хонь','♈',420],['Үхэр','♉',521],['Ихэр','♊',621],['Мэлхий','♋',722],['Арслан','♌',823],['Охин','♍',923],['Жинлүүр','♎',1023],['Хилэнц','♏',1122],['Нум','♐',1222],['Матар','♑',1231]];
+function zodiac(m,d){let x=m*100+d;return z.find(a=>x<=a[2])||z[0]}
+function moneyCode(c){return String(1000+(hash(c.fullName+c.birth)%9000))}
+function beginScan(){closeModal();$('home').style.display='none';$('scan').classList.add('show');let p=0;let texts=['Алтан Мэлмий таны төлөө ажиллаж байна','Хишгийн зам, азын тоонуудыг тооцоолж байна...','Зоосны зангилааг хайж байна...','Мөнгөний түлхүүрийг бэлтгэж байна...'];let interval=setInterval(()=>{p+=4;$('bar').style.width=p+'%';$('scanText').textContent=texts[Math.min(texts.length-1,Math.floor(p/28))];if(p>=100){clearInterval(interval);showResult()}},105)}
+function showResult(){
+ $('scan').classList.remove('show');$('result').classList.add('show');
+ const seed=hash(JSON.stringify(client)), zz=zodiac(client.month,client.day), code=moneyCode(client);client.zodiac=zz[0];client.code=code;
+ $('zodiacSymbol').textContent=zz[1];$('zodiacName').textContent=zz[0]+'ын орд';
+ let archetypes=[
+  ['Сургалтын','Эзэн','«Ивээгч» төрлийн мөнгөний зан чанар','Чи бусдыг эдгээж, зааж, чиглүүлэх агуу хайртай. Мөнгөний хувьд энэ нөлөө чинь ховор хүч: чи мэдлэг, үнэ цэнээ хуваалцаж олон хүнд хүрснээр элбэг урсгал бүрдүүлж чадна.'],
+  ['Алтан','Удирдагч','«Зохион байгуулагч» төрлийн мөнгөний зан чанар','Чи мөнгийг сахилга бат, удирдлага, зөв хуваарилалтаар өсгөдөг. Харин бүхнийг ганцаараа үүрэх үед урсгал чинь гацдаг.'],
+  ['Хишгийн','Түлхүүр','«Боломж нээгч» төрлийн мөнгөний зан чанар','Чамд боломжийг олж харах зөн хүчтэй. Гэвч хурдан шийдвэр, бусдад хэт итгэх зан санхүүгийн зангилаа үүсгэдэг.']
+ ];
+ let a=archetypes[seed%archetypes.length];
+ $('archTitle').textContent=a[0];$('archTitle2').textContent=a[1];$('archSub').textContent=a[2];$('mainText').textContent=a[3];
+ $('chips').innerHTML=['Агуу өгөөмөр сэтгэл','Зааж чиглүүлэх авьяас','Тэвчээр хатуужил'].map(x=>`<span class="chip">${x}</span>`).join('');
+ $('code1').textContent=code[0];$('code2').textContent=code[1];
+ $('result').scrollIntoView({behavior:'smooth'})
+}
+function tick(){let now=new Date(),end=new Date();end.setHours(24,0,0,0);let s=Math.max(0,Math.floor((end-now)/1000));$('timer').textContent=[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(x=>String(x).padStart(2,'0')).join(':')}
+setInterval(tick,1000);tick();
+function choosePackage(name,price){selected={name,price};$('payTitle').textContent=name+' — төлбөр хийх';$('payDesc').textContent='Төлөх дүн: '+price.toLocaleString()+'₮';$('txn').textContent=client.phone||'утас';$('paidCheck').checked=false;toggleSubmit();$('pay').classList.add('show');$('pay').scrollIntoView({behavior:'smooth'})}
 function copyText(id){navigator.clipboard?.writeText($(id).textContent);toast('Хууллаа')}
-function buildReport(c,pkg){const seed=hash(JSON.stringify(c)+pkg.name), code=c.code||codeFrom(c), parts=String(code).split('');return{client:c,package:pkg,code,sections:{stats:{flow:val(78,96,seed),save:val(38,72,seed+5),income:val(70,95,seed+9),debt:val(62,91,seed+12)},analysis:pick(cases,seed,pkg.price>=19900?5:3),steps:pick(steps,seed+3,pkg.price>=19900?5:3),rituals:pick(rituals,seed+8,pkg.price>=19900?5:3),codeText:pkg.price>=49900?`Таны Мөнгөний Ивээлийн Код ${code}. ${parts[0]} нь санхүүгийн хүч, ${parts[1]} нь гол саад, ${parts[2]} нь нээх эхний алхмыг бэлгэднэ. Энэ кодыг санхүүгийн зорилгоо төвлөрүүлэх, өдөр тутмын сахилга бат сануулах хувийн түлхүүр болгон ашиглана.`:'Мөнгөний Ивээлийн Код дээд багцад бүрэн нээгдэнэ.'}}}
-async function submitOrder(){if(!$('paidCheck').checked){toast('Төлбөр шилжүүлснээ батална уу');return}if(!selected.name){toast('Багцаа сонгоно уу');return}const report=buildReport(client,selected);try{await fb.addDoc(fb.collection(db,'orders'),{...client,package:selected.name,price:selected.price,status:'new',paidConfirmed:true,report,createdAt:fb.serverTimestamp()});$('success').classList.add('active');scrollToId('success');toast('Захиалга илгээгдлээ')}catch(e){toast('Firebase алдаа: '+e.message)}}
-function renderReport(r){const s=r.sections,c=r.client;$('report').innerHTML=`<div class="page"><h2>Тэнгэрийн Мэлмий — ${r.package.name}</h2><p>Үйлчлүүлэгч: <b>${c.firstName}</b> • ${c.year}.${c.month}.${c.day} • ${c.zodiac}</p><h3>Санхүүгийн индекс</h3><ul><li>Мөнгөний урсгал: ${s.stats.flow}%</li><li>Мөнгө тогтох чадвар: ${s.stats.save}%</li><li>Орлого өсөх боломж: ${s.stats.income}%</li><li>Өрийн эрсдэл: ${s.stats.debt}%</li></ul></div><div class="page"><h2>Гол шинжилгээ</h2><ul>${s.analysis.map(x=>`<li>${x}</li>`).join('')}</ul><h3>Бодит алхам</h3><ul>${s.steps.map(x=>`<li>${x}</li>`).join('')}</ul><h3>Бэлгэдлийн зөвлөмж</h3><ul>${s.rituals.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="page"><h2>Мөнгөний Ивээлийн Код</h2><h1 style="font-size:76px;color:#9b6713">${r.code}</h1><p>${s.codeText}</p><h3>Дүгнэлт</h3><p>Энэ тайлангийн зорилго нь айдас төрүүлэх бус, санхүүгээ илүү цэгцтэй харах, зорилгоо төвлөрүүлэх, өдөр тутмын бодит алхмаа тодорхойлоход туслах явдал юм.</p><button onclick="window.print()">PDF / Хэвлэх</button></div>`;$('report').classList.add('active');scrollToId('report')}
-async function loadOrders(){const box=$('orders');box.innerHTML='Уншиж байна...';try{const snap=await fb.getDocs(fb.query(fb.collection(db,'orders'),fb.orderBy('createdAt','desc')));let html='';snap.forEach(d=>{let o=d.data();html+=`<div class="order"><b>${o.firstName||''} • ${o.phone||''}</b><p>${o.package} — ${o.price}₮ — ${o.status}</p><button class="btn" onclick="adminReport('${d.id}')">Тайлан</button> <button class="btn dark" onclick="createLink('${d.id}')">Линк</button> <button class="btn dark" onclick="smsLink('${d.id}','${o.phone||''}')">SMS</button></div>`});box.innerHTML=html||'Захиалга алга'}catch(e){box.innerHTML='Алдаа: '+e.message}}
-async function adminReport(id){const d=await fb.getDoc(fb.doc(db,'orders',id));if(d.exists())renderReport(d.data().report)}
+function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
+function buildReport(){return{client,package:selected,code:client.code,created:new Date().toISOString()}}
+async function submitOrder(){if(!$('paidCheck').checked){toast('Төлбөр шилжүүлснээ батална уу');return}try{await fb.addDoc(fb.collection(db,'orders'),{...client,package:selected.name,price:selected.price,status:'new',paidConfirmed:true,report:buildReport(),createdAt:fb.serverTimestamp()});$('success').classList.add('show');$('success').scrollIntoView({behavior:'smooth'});toast('Захиалга илгээгдлээ')}catch(e){toast('Firebase алдаа: '+e.message)}}
+async function loadOrders(){const box=$('orders');box.innerHTML='Уншиж байна...';try{const snap=await fb.getDocs(fb.query(fb.collection(db,'orders'),fb.orderBy('createdAt','desc')));let html='';snap.forEach(d=>{let o=d.data();html+=`<div class="order"><b>${o.fullName||''} • ${o.phone||''}</b><p>${o.package} — ${o.price}₮ — ${o.status}</p><button class="btn" onclick="createLink('${d.id}')">Линк</button> <button class="btn secondary" onclick="smsLink('${d.id}','${o.phone||''}')">SMS</button></div>`});box.innerHTML=html||'Захиалга алга'}catch(e){box.innerHTML='Алдаа: '+e.message}}
 function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
-async function createLink(id){const d=await fb.getDoc(fb.doc(db,'orders',id));if(!d.exists())return;let t=d.data().reportToken||token();await fb.setDoc(fb.doc(db,'reports',t),{orderId:id,report:d.data().report,createdAt:fb.serverTimestamp()});await fb.updateDoc(fb.doc(db,'orders',id),{reportToken:t,status:'linked'});const link=location.origin+location.pathname+'#report='+t;navigator.clipboard?.writeText(link);toast('Линк үүсээд хууллаа')}
+async function createLink(id){const d=await fb.getDoc(fb.doc(db,'orders',id));if(!d.exists())return;let t=d.data().reportToken||token();await fb.setDoc(fb.doc(db,'reports',t),{orderId:id,report:d.data().report,createdAt:fb.serverTimestamp()});await fb.updateDoc(fb.doc(db,'orders',id),{reportToken:t,status:'linked'});const link=location.origin+location.pathname+'#report='+t;navigator.clipboard?.writeText(link);toast('Линк хууллаа')}
 async function smsLink(id,phone){const d=await fb.getDoc(fb.doc(db,'orders',id));if(!d.exists())return;let t=d.data().reportToken;if(!t){await createLink(id);const nd=await fb.getDoc(fb.doc(db,'orders',id));t=nd.data().reportToken}const link=location.origin+location.pathname+'#report='+t;location.href=`sms:${phone}?body=${encodeURIComponent('Тэнгэрийн Мэлмий: Таны тайлан бэлэн боллоо. '+link)}`}
-async function openReportToken(t){try{const d=await fb.getDoc(fb.doc(db,'reports',t));if(d.exists())renderReport(d.data().report);else toast('Тайлан олдсонгүй')}catch(e){toast(e.message)}}
-function tick(){let now=new Date(),end=new Date();end.setHours(24,0,0,0);let s=Math.max(0,Math.floor((end-now)/1000));let str=[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(x=>String(x).padStart(2,'0')).join(':');$('timer').textContent=str;$('timer2').textContent=str}setInterval(tick,1000);tick();
-addEventListener('load',()=>{if(location.hash==='#admin'){if(prompt('Админ нууц үг')==='9999'){$('admin').classList.add('active');loadOrders();scrollToId('admin')}}else if(location.hash.startsWith('#report=')){openReportToken(location.hash.split('=')[1])}})
-window.scrollToId=scrollToId;window.startScan=startScan;window.choosePackage=choosePackage;window.toggleSubmit=toggleSubmit;window.copyText=copyText;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.adminReport=adminReport;window.createLink=createLink;window.smsLink=smsLink;
+addEventListener('load',()=>{if(location.hash==='#admin'){if(prompt('Админ нууц үг')==='9999'){$('admin').classList.add('show');loadOrders();$('admin').scrollIntoView()}}})
+window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;
 </script>
-</body></html>
+</body>
+</html>

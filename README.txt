@@ -1,4 +1,3 @@
-Тэнгэрийн Мэлмий V2.2
-QR removed. Bank copy buttons added.
-Admin: /Mungu/#admin
-Password: 9999
+Melhii-style UI/UX version.
+Upload index.html + manifest.json to GitHub root.
+Admin: #admin password 9999
