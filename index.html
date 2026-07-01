@@ -3,249 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Мөнгөний Зурхай</title>
-<meta property="og:title" content="Тэнгэрийн Мэлмий — Мөнгөний Зурхай">
-<meta property="og:description" content="Төрсөн мэдээллээр мөнгөний урсгал, зангилаа, ивээлийн кодоо шалгаарай.">
-<meta property="og:type" content="website">
+<title>Тэнгэрийн Мэлмий — Мөнгөний Оношлогоо</title>
+<meta property="og:title" content="Тэнгэрийн Мэлмий — Мөнгөний Оношлогоо">
+<meta property="og:description" content="Төрсөн огноогоор мөнгөний урсгал, өрийн блок, хишгийн сав, санхүүгийн энергээ шалгаарай.">
+<meta property="og:image" content="bg-preview.png">
 <link rel="manifest" href="manifest.json">
-<style>
-:root{
-  --bg:#062016; --bg2:#0a2b1f; --card:#0b3828cc; --gold:#d8a72d; --gold2:#ffe374;
-  --text:#f7f1dc; --muted:#aeb9a8; --line:rgba(215,167,45,.32); --red:#ff5b63;
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--text);background:#04140f;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:-3;background:
- radial-gradient(circle at 50% 10%,rgba(214,167,45,.22),transparent 24%),
- radial-gradient(circle at 10% 30%,rgba(38,130,84,.22),transparent 32%),
- linear-gradient(180deg,#062016,#062016 48%,#04120e)}
-body:after{content:"";position:fixed;inset:0;z-index:-2;background-image:
- linear-gradient(rgba(216,167,45,.12) 1px,transparent 1px),
- linear-gradient(90deg,rgba(216,167,45,.12) 1px,transparent 1px);
- background-size:76px 76px;opacity:.55}
-.page{max-width:760px;margin:0 auto;padding:22px 18px 90px;position:relative}
-.center{text-align:center}.smallCaps{letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-size:13px;font-weight:900}
-.logo{width:92px;height:92px;border-radius:50%;margin:18px auto 10px;background:
- radial-gradient(circle,#fff2a0,#d8a72d 46%,#8b5a10 70%,#092216 72%);
- display:grid;place-items:center;font-size:48px;box-shadow:0 0 42px rgba(216,167,45,.45)}
-.heroTitle{font-size:40px;line-height:1.12;margin:16px 0 10px;font-weight:950}
-.heroTitle span,.gold{color:var(--gold2)}
-.sub{color:var(--muted);font-size:18px;line-height:1.65;margin:0 auto;max-width:560px}
-.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(13,68,47,.86),rgba(8,38,28,.72));border-radius:34px;box-shadow:0 26px 90px rgba(0,0,0,.3);backdrop-filter:blur(16px)}
-.heroCard{padding:26px 20px;margin-top:28px}
-.frog{width:260px;max-width:84%;height:220px;margin:0 auto 8px;position:relative}
-.frog:before{content:"";position:absolute;inset:25px 35px 0;border-radius:42% 42% 36% 36%;background:
- radial-gradient(circle at 35% 22%,#ff4545 0 5px,transparent 6px),
- radial-gradient(circle at 64% 22%,#ff4545 0 5px,transparent 6px),
- radial-gradient(circle at 50% 45%,#ffd95b,#c88a18 52%,#80500e 100%);
- box-shadow:0 28px 0 -12px #c88a18,0 40px 48px rgba(216,167,45,.25),inset 0 12px 28px rgba(255,255,255,.22)}
-.frog:after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:56px;border-radius:50%;background:
- repeating-radial-gradient(circle at 20% 50%,#ffe374 0 10px,#bc7a13 11px 18px);
- filter:drop-shadow(0 14px 24px rgba(0,0,0,.25))}
-.orbit{position:absolute;inset:5px;border:1px solid rgba(255,227,116,.22);border-radius:50%;animation:spin 13s linear infinite}
-.beam{position:absolute;left:50%;top:-30px;width:70px;height:340px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,227,116,.0),rgba(255,227,116,.28),rgba(255,227,116,.0));filter:blur(6px)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.btn{width:100%;border:0;border-radius:20px;padding:18px 18px;font-size:17px;font-weight:950;color:#112016;background:linear-gradient(100deg,#c68a18,#ffe374);box-shadow:0 20px 44px rgba(216,167,45,.2);cursor:pointer}
-.btn.secondary{background:transparent;color:var(--gold2);border:1px solid var(--line);box-shadow:none}
-.btn:disabled{opacity:.42;filter:grayscale(1);cursor:not-allowed}
-.formBox{padding:22px;margin-top:18px;display:none}.formBox.show{display:block}
-.field{margin:14px 0;text-align:left}.field label{display:block;margin-bottom:8px;color:var(--muted);font-weight:800}.field input{width:100%;padding:18px 18px;border-radius:18px;border:1px solid rgba(216,167,45,.24);background:rgba(4,20,15,.66);color:var(--text);font-size:18px;outline:none}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:20}.modal.show{display:flex}.modalCard{max-width:620px;width:100%;padding:24px}.confirmGrid{border:1px solid rgba(216,167,45,.22);border-radius:20px;margin:18px 0;overflow:hidden}.confirmRow{display:flex;justify-content:space-between;padding:17px 18px;border-bottom:1px solid rgba(216,167,45,.14)}.confirmRow:last-child{border-bottom:0}.confirmRow span{color:var(--muted);letter-spacing:.05em}.confirmRow b{font-size:18px}
-.scan{display:none;min-height:100vh;place-items:center;text-align:center}.scan.show{display:grid}.progress{width:78%;height:9px;border-radius:999px;background:rgba(255,227,116,.14);margin:28px auto;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#c68a18,#fff2a0);border-radius:999px;transition:.22s}.scanText{font-size:21px;font-weight:900;color:rgba(247,241,220,.68)}
-.result{display:none}.result.show{display:block}.archetype{padding-top:28px;text-align:center}.zodiacFigure{height:300px;display:grid;place-items:center;position:relative}.zodiacFigure .symbol{font-size:122px;color:var(--gold2);filter:drop-shadow(0 0 26px rgba(216,167,45,.45));z-index:2}.zodiacFigure:before{content:"";position:absolute;width:245px;height:245px;border-radius:50%;background:radial-gradient(circle,rgba(255,227,116,.24),transparent 63%)}.zodiacFigure:after{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(255,227,116,.2);border-radius:50%;animation:spin 20s linear infinite}
-.cardText{font-size:22px;line-height:1.7;padding:28px;border-radius:32px;border:1px solid rgba(216,167,45,.22);background:rgba(8,48,35,.68)}
-.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0}.chip{border:1px solid var(--line);border-radius:999px;padding:12px 16px;color:var(--gold2);background:rgba(216,167,45,.1);font-weight:800}
-.lockCard{padding:34px 24px;margin-top:24px;text-align:center}.lockIcon{font-size:42px;color:var(--gold);margin:12px 0}.blurLine{height:18px;border-radius:999px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);filter:blur(4px);margin:18px auto;max-width:360px}
-.coins{display:flex;justify-content:center;gap:12px;margin:24px 0}.coin{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:950;background:radial-gradient(circle,#fff0a0,#d8a72d 55%,#82530f);color:#231600;box-shadow:0 12px 24px rgba(0,0,0,.25)}.coin.locked{filter:grayscale(.8) brightness(.45);color:#ffe374}
-.countBox{border:1px solid rgba(255,91,99,.5);border-radius:26px;padding:22px;text-align:center;margin:34px 0;background:rgba(255,91,99,.07)}.countBox b{font-size:45px;color:var(--gold2);letter-spacing:.08em}
-.pack{padding:30px 24px;margin:24px 0}.pack.best{border-color:rgba(255,227,116,.8);box-shadow:0 0 0 2px rgba(216,167,45,.18),0 28px 80px rgba(216,167,45,.13)}.price{font-size:42px;font-weight:950;color:var(--gold2)}.old{text-decoration:line-through;color:#8fa294;font-size:20px}.sale{display:inline-block;background:#f00;color:white;border-radius:999px;padding:8px 13px;font-weight:950;margin-left:10px}.list{padding:0;margin:20px 0;list-style:none}.list li{margin:15px 0;color:#d9dfd4;font-size:18px;line-height:1.45}.list li:before{content:"✦";color:var(--gold2);margin-right:9px}
-.pay{display:none;padding:24px;margin-top:24px}.pay.show{display:block}.copyLine{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px;padding:14px;border:1px solid rgba(216,167,45,.22);border-radius:18px;background:rgba(255,255,255,.045);margin:10px 0}.copyLine span{color:var(--muted);font-size:13px}.copyLine b{font-size:18px;color:var(--gold2)}.copyLine button{border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--gold2);border-radius:12px;padding:8px 10px;cursor:pointer}.check{display:flex;gap:10px;align-items:flex-start;margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.05)}.check input{width:22px;height:22px}
-.admin{display:none}.admin.show{display:block}.order{padding:16px;border:1px solid var(--line);border-radius:18px;margin:12px 0;background:rgba(255,255,255,.05)}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#092318;border:1px solid var(--line);color:var(--gold2);padding:13px 18px;border-radius:16px;display:none;font-weight:900;z-index:40}
-@media(max-width:520px){.page{padding:16px 14px 80px}.heroTitle{font-size:34px}.cardText{font-size:19px}.copyLine{grid-template-columns:1fr auto}.copyLine span{grid-column:1/-1}.coin{width:68px;height:68px}.price{font-size:36px}}
-</style>
+<link rel="stylesheet" href="style.css?v=fullreplace2">
 </head>
 <body>
-<div class="page" id="main">
-  <section class="center" id="home">
-    <div class="smallCaps">ҮНЭГҮЙ ШИНЖИЛГЭЭ</div>
-    <h1 class="heroTitle">Зоосны зангилаагаа<br><span>үнэгүй шалгуулъя</span></h1>
-    <p class="sub">Доорх 3 зүйлээ бөглөмөгц мөнгөний урсгалын товч зураглал шууд бэлэн болно.</p>
-    <div class="card heroCard">
-      <div class="frog"><div class="beam"></div><div class="orbit"></div></div>
-      <button class="btn" onclick="showForm()">Мэдээллээ оруулах</button>
+<div class="stars"></div>
+
+<header class="topbar">
+  <button class="ghost" onclick="showScreen('home')">Эхлэл</button>
+  <div class="brand"><img src="logo.png"><div><b>ТЭНГЭРИЙН МЭЛМИЙ</b><span>ЗУРХАЙН ӨРГӨӨ</span></div></div>
+  <button class="ghost" onclick="openAdmin()">Админ</button>
+</header>
+
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="heroText">
+      <div class="kicker">ҮНЭГҮЙ ОНОШЛОГОО</div>
+      <h1>Таны мөнгөний энерги<br><span>хэдэн хувь нээлттэй вэ?</span></h1>
+      <p>Овог нэр, төрсөн огноо, утсаа оруулаад мөнгөний урсгал, өрийн эрсдэл, хишгийн сав, санхүүгийн энергийн анхны зураглалаа нээгээрэй.</p>
+      <button class="gold" onclick="showScreen('form')">Шинжилгээ эхлүүлэх</button>
     </div>
-    <div class="card formBox" id="formBox">
-      <div class="field"><label>Овог нэр</label><input id="fullName" placeholder="Өрөр"></div>
-      <div class="field"><label>Төрсөн огноо</label><input id="birthDate" placeholder="1988.12.31"></div>
-      <div class="field"><label>Утас</label><input id="phone" placeholder="99039726"></div>
-      <button class="btn" onclick="confirmInfo()">Үнэгүй үр дүнгээ нээх</button>
+    <div class="heroArt card">
+      <img src="zodiac-wheel.jpg" class="wheel">
+      <div class="ring"></div>
+      <div class="previewScore">92%</div>
     </div>
-  </section>
-
-  <section id="scan" class="scan">
-    <div>
-      <div class="frog"><div class="beam"></div><div class="orbit"></div></div>
-      <p class="scanText" id="scanText">Алтан Мэлмий таны төлөө ажиллаж байна</p>
-      <div class="progress"><div class="bar" id="bar"></div></div>
-      <div class="smallCaps">АЛТАН МЭЛМИЙ ТАНЫ ТӨЛӨӨ АЖИЛЛАЖ БАЙНА</div>
-    </div>
-  </section>
-
-  <section id="result" class="result">
-    <div class="archetype">
-      <div class="smallCaps" id="archSmall">ТАНЫ БАЯЛГИЙН АРХЕТИП</div>
-      <h1 class="heroTitle"><span id="archTitle">Сургалтын</span><br><span style="color:#fff" id="archTitle2">Эзэн</span></h1>
-      <p class="sub" id="archSub">Мөнгөний зан чанар</p>
-      <div class="zodiacFigure"><div class="symbol" id="zodiacSymbol">♑</div></div>
-      <h2 class="gold" id="zodiacName">Матрын орд</h2>
-      <p class="sub" id="zodiacText">Энэ орд нь чиний мөнгөтэй харьцах далд хэв маяг, эрсдэлийг урьдчилан мэдрэх зөнг тодорхойлдог.</p>
-      <div class="card cardText" id="mainText"></div>
-      <div class="smallCaps" style="margin-top:22px">ЧИНИЙ МӨНГӨНИЙ ДАЛД ХҮЧ</div>
-      <div class="chips" id="chips"></div>
-    </div>
-
-    <div class="card lockCard">
-      <div class="smallCaps">ГЭХДЭЭ...</div>
-      <h1 class="heroTitle" style="font-size:36px"><span>Зоосны зангилаа</span></h1>
-      <p class="sub" id="knotText">Гэвч бусдын зовлонг өөрийнхөөрөө үүрч, тэдний өмнөөс хариуцлага хүлээх зан чинь чамайг хоосон үлдээдэг.</p>
-      <div class="blurLine"></div><div class="lockIcon">🔒</div>
-      <p class="sub">Энэ зангилаа яг хаана, ямар үед үүссэн, хэрхэн тайлахыг <b class="gold">бүрэн тайлан</b> алхам алхмаар харуулна.</p>
-    </div>
-
-    <div class="card lockCard">
-      <h2 class="gold">Чиний Зоосны түлхүүр</h2>
-      <p class="sub">Эхний хоёр орон л танд үзүүллээ.</p>
-      <div class="coins"><div class="coin" id="code1">7</div><div class="coin" id="code2">7</div><div class="coin locked">🔒</div><div class="coin locked">🔒</div></div>
-      <p class="sub">Сүүлийн хоёр орон — зангилааг бүрэн тайлах хэсэг — <b class="gold">бүрэн тайланд</b> илчлэгдэнэ.</p>
-    </div>
-
-    <h1 class="heroTitle center" style="font-size:34px"><span>Зоосны зангилаагаа</span> тайлж,<br>мөнгөний урсгалаа нээх үү?</h1>
-    <p class="sub center" id="pitch">Өөрт тохирох багцаа сонгоорой.</p>
-
-    <div class="countBox"><div class="smallCaps" style="color:#ff9aa0">• -50% ХЯМДРАЛ ДУУСАХАД</div><b id="timer">--:--:--</b><p class="sub">Өнөөдөр шөнө дунд хүртэл</p></div>
-
-    <div class="card pack">
-      <div class="smallCaps">ЭХЛЭЛ</div><h2>Зоосны Дусал</h2><p class="sub">Баялгаа дусал дуслаар эхлүүл</p>
-      <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Мөнгөний чинь түгжсэн зангилаа аль зүгт нуугдсаныг илчилнэ</li><li>Гэр, ажлын баялгийн өнцөг хаана байгааг заана</li><li>Хувийн сахиус — тоон шившлэгийн эхний хэсэг</li><li>Азын зүг, өнгө, тоо</li></ul>
-      <button class="btn" onclick="choosePackage('Зоосны Дусал',9900)">ЭХНИЙ ДУСЛАА АВАХ</button>
-    </div>
-
-    <div class="card pack best">
-      <div class="smallCaps">БҮРЭН ШИЙДЭЛ</div><h2 class="gold">Мөнгөн Гол</h2><p class="sub">Мөнгөний урсгалаа бүрэн нээ</p>
-      <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>«Зоосны Дусал» багцын бүх зүйл</li><li>Баялгийн зүг чиг — мөнгө аль зүгээс урсаж ирэхийг тогтоох</li><li>Зангилаа тайлах нууц шившлэг ба зан үйл</li><li>Аз дуудах сайн өдрүүд, гай зайлуулах өдрүүд</li><li>Баялаг татах бэлгэдэл, өнгө, эд зүйлс</li></ul>
-      <button class="btn" onclick="choosePackage('Мөнгөн Гол',19900)">УРСГАЛАА НЭЭХ</button>
-    </div>
-
-    <div class="card pack">
-      <div class="smallCaps">ДЭЭД ЗЭРЭГ</div><h2>Алтан Далай</h2><p class="sub">Хязгааргүй элбэгийн далай</p>
-      <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>«Мөнгөн Гол» багцын бүх зүйл</li><li>Насан туршийн хий морь, сулдны өсөлт, уналтын зураг</li><li>Зангилаа дахин үүсэхээс хамгаалах сахиус</li><li>Их далайд хүрэх 3 ид шидийн эргэлт</li><li>49 хоногийн гүн тахил, залбирал</li></ul>
-      <button class="btn secondary" onclick="choosePackage('Алтан Далай',99000)">ДАЛАЙГ ЭЗЭМШИХ</button>
-    </div>
-  </section>
-
-  <section class="card pay" id="pay">
-    <h2 class="gold" id="payTitle">Төлбөр хийх</h2>
-    <p class="sub" id="payDesc"></p>
-    <div class="copyLine"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
-    <div class="copyLine"><span>Банк</span><b id="bankName">Хаан банк</b><button onclick="copyText('bankName')">📋</button></div>
-    <div class="copyLine"><span>Данс</span><b id="accNo">5690034540</b><button onclick="copyText('accNo')">📋</button></div>
-    <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
-    <div class="copyLine"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
-    <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
-    
-<div class="tm-bank-copy">
-  <div class="tm-copy-line"><span>Данс эзэмшигч</span><b id="tmAccName">Л.Батцог</b><button type="button" onclick="tmCopyValue('tmAccName')">📋</button></div>
-  <div class="tm-copy-line"><span>Банк</span><b id="tmBank">Хаан банк</b><button type="button" onclick="tmCopyValue('tmBank')">📋</button></div>
-  <div class="tm-copy-line"><span>Данс</span><b id="tmAccNo">5690034540</b><button type="button" onclick="tmCopyValue('tmAccNo')">📋</button></div>
-  <div class="tm-copy-line"><span>IBAN</span><b id="tmIban">59000500</b><button type="button" onclick="tmCopyValue('tmIban')">📋</button></div>
-  <div class="tm-copy-line"><span>Гүйлгээний утга</span><b id="tmTxn">утасны дугаар</b><button type="button" onclick="tmCopyValue('tmTxn')">📋</button></div>
-</div>
-<label class="tm-paid-check"><input id="tmPaidCheck" type="checkbox" onchange="tmTogglePaid()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
-<button id="submitBtn" disabled  id="submitBtn" class="btn" disabled onclick="submitOrder()">Захиалга илгээх</button>
-  </section>
-
-  <section class="card pay" id="success">
-    <h2 class="gold">Захиалга бүртгэгдлээ</h2>
-    <p class="sub">Төлбөр баталгаажмагц тайлангийн хамгаалалттай линк SMS-р илгээгдэнэ.</p>
-  </section>
-
-  <section class="card pay admin" id="admin"><h2>Админ</h2><button class="btn secondary" onclick="loadOrders()">Шинэчлэх</button><div id="orders"></div></section>
-</div>
-
-<div class="modal" id="confirmModal">
-  <div class="card modalCard center">
-    <div class="logo">🐸</div>
-    <h2>Мэдээллээ шалгаарай</h2>
-    <p class="sub">Зурхай чинь яг эдгээр мэдээлэл дээр үндэслэнэ.</p>
-    <div class="confirmGrid">
-      <div class="confirmRow"><span>Нэр</span><b id="cName"></b></div>
-      <div class="confirmRow"><span>Төрсөн огноо</span><b id="cBirth"></b></div>
-      <div class="confirmRow"><span>Утас</span><b id="cPhone"></b></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button class="btn secondary" onclick="closeModal()">← Засах</button><button class="btn" onclick="beginScan()">Тийм, нээ</button></div>
   </div>
-</div>
+</section>
 
-<div class="toast" id="toast"></div>
+<section id="form" class="screen">
+  <div class="formCard card">
+    <img src="logo.png" class="bigLogo">
+    <h2>Мэдээллээ оруулна уу</h2>
+    <p>Гуравхан мэдээллээр эхний зураглал гарна.</p>
+    <label>Овог нэр<input id="fullName" placeholder="Жишээ: Өрөр"></label>
+    <label>Төрсөн огноо<input id="birthDate" placeholder="1988.12.31"></label>
+    <label>Утас<input id="phone" placeholder="99039726" inputmode="tel"></label>
+    <button class="gold full" onclick="confirmInfo()">Үнэгүй үр дүнгээ нээх</button>
+  </div>
+</section>
 
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-import{getFirestore,collection,addDoc,getDocs,doc,setDoc,getDoc,updateDoc,serverTimestamp,query,orderBy}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-const firebaseConfig={apiKey:"AIzaSyCptq_EpedA2ok205SoFMBjci5IcID7nWc",authDomain:"mongo-block.firebaseapp.com",projectId:"mongo-block",storageBucket:"mongo-block.firebasestorage.app",messagingSenderId:"161463190344",appId:"1:161463190344:web:cc5e2672ded4900937e97d",measurementId:"G-6074VCDK9W"};
-window.app=initializeApp(firebaseConfig);window.db=getFirestore(app);window.fb={collection,addDoc,getDocs,doc,setDoc,getDoc,updateDoc,serverTimestamp,query,orderBy};
-</script>
-<script>
-const $=id=>document.getElementById(id);
-let client={}, selected={};
-function toast(t){$('toast').textContent=t;$('toast').style.display='block';setTimeout(()=>$('toast').style.display='none',1600)}
-function showForm(){$('formBox').classList.add('show');$('formBox').scrollIntoView({behavior:'smooth'})}
-function parseDate(s){let p=s.trim().replaceAll('/','.').replaceAll('-','.').split('.').map(x=>parseInt(x,10));return {year:p[0],month:p[1],day:p[2]}}
-function confirmInfo(){
- const bd=parseDate($('birthDate').value);
- client={fullName:$('fullName').value.trim(),phone:$('phone').value.trim(),year:bd.year,month:bd.month,day:bd.day,birth:$('birthDate').value.trim()};
- if(!client.fullName||!client.phone||!client.year||!client.month||!client.day){toast('Мэдээллээ бүрэн оруулна уу');return}
- $('cName').textContent=client.fullName;$('cBirth').textContent=client.birth;$('cPhone').textContent=client.phone;$('confirmModal').classList.add('show')
-}
-function closeModal(){$('confirmModal').classList.remove('show')}
-function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return Math.abs(h)}
-function val(a,b,s){return a+(s%(b-a+1))}
-const z=[['Матар','♑',120],['Хумх','♒',218],['Загас','♓',320],['Хонь','♈',420],['Үхэр','♉',521],['Ихэр','♊',621],['Мэлхий','♋',722],['Арслан','♌',823],['Охин','♍',923],['Жинлүүр','♎',1023],['Хилэнц','♏',1122],['Нум','♐',1222],['Матар','♑',1231]];
-function zodiac(m,d){let x=m*100+d;return z.find(a=>x<=a[2])||z[0]}
-function moneyCode(c){return String(1000+(hash(c.fullName+c.birth)%9000))}
-function beginScan(){closeModal();$('home').style.display='none';$('scan').classList.add('show');let p=0;let texts=['Алтан Мэлмий таны төлөө ажиллаж байна','Хишгийн зам, азын тоонуудыг тооцоолж байна...','Зоосны зангилааг хайж байна...','Мөнгөний түлхүүрийг бэлтгэж байна...'];let interval=setInterval(()=>{p+=4;$('bar').style.width=p+'%';$('scanText').textContent=texts[Math.min(texts.length-1,Math.floor(p/28))];if(p>=100){clearInterval(interval);showResult()}},105)}
-function showResult(){
- $('scan').classList.remove('show');$('result').classList.add('show');
- const seed=hash(JSON.stringify(client)), zz=zodiac(client.month,client.day), code=moneyCode(client);client.zodiac=zz[0];client.code=code;
- $('zodiacSymbol').textContent=zz[1];$('zodiacName').textContent=zz[0]+'ын орд';
- let archetypes=[
-  ['Сургалтын','Эзэн','«Ивээгч» төрлийн мөнгөний зан чанар','Чи бусдыг эдгээж, зааж, чиглүүлэх агуу хайртай. Мөнгөний хувьд энэ нөлөө чинь ховор хүч: чи мэдлэг, үнэ цэнээ хуваалцаж олон хүнд хүрснээр элбэг урсгал бүрдүүлж чадна.'],
-  ['Алтан','Удирдагч','«Зохион байгуулагч» төрлийн мөнгөний зан чанар','Чи мөнгийг сахилга бат, удирдлага, зөв хуваарилалтаар өсгөдөг. Харин бүхнийг ганцаараа үүрэх үед урсгал чинь гацдаг.'],
-  ['Хишгийн','Түлхүүр','«Боломж нээгч» төрлийн мөнгөний зан чанар','Чамд боломжийг олж харах зөн хүчтэй. Гэвч хурдан шийдвэр, бусдад хэт итгэх зан санхүүгийн зангилаа үүсгэдэг.']
- ];
- let a=archetypes[seed%archetypes.length];
- $('archTitle').textContent=a[0];$('archTitle2').textContent=a[1];$('archSub').textContent=a[2];$('mainText').textContent=a[3];
- $('chips').innerHTML=['Агуу өгөөмөр сэтгэл','Зааж чиглүүлэх авьяас','Тэвчээр хатуужил'].map(x=>`<span class="chip">${x}</span>`).join('');
- $('code1').textContent=code[0];$('code2').textContent=code[1];
- $('result').scrollIntoView({behavior:'smooth'})
-}
-function tick(){let now=new Date(),end=new Date();end.setHours(24,0,0,0);let s=Math.max(0,Math.floor((end-now)/1000));$('timer').textContent=[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(x=>String(x).padStart(2,'0')).join(':')}
-setInterval(tick,1000);tick();
-function choosePackage(name,price){selected={name,price};$('payTitle').textContent=name+' — төлбөр хийх';$('payDesc').textContent='Төлөх дүн: '+price.toLocaleString()+'₮';$('txn').textContent=client.phone||'утас';$('paidCheck').checked=false;toggleSubmit();$('pay').classList.add('show');$('pay').scrollIntoView({behavior:'smooth'})}
-function copyText(id){navigator.clipboard?.writeText($(id).textContent);toast('Хууллаа')}
-function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
-function buildReport(){return{client,package:selected,code:client.code,created:new Date().toISOString()}}
-async function submitOrder(){if(!$('paidCheck').checked){toast('Төлбөр шилжүүлснээ батална уу');return}try{await fb.addDoc(fb.collection(db,'orders'),{...client,package:selected.name,price:selected.price,status:'new',paidConfirmed:true,report:buildReport(),createdAt:fb.serverTimestamp()});$('success').classList.add('show');$('success').scrollIntoView({behavior:'smooth'});toast('Захиалга илгээгдлээ')}catch(e){toast('Firebase алдаа: '+e.message)}}
-async function loadOrders(){const box=$('orders');box.innerHTML='Уншиж байна...';try{const snap=await fb.getDocs(fb.query(fb.collection(db,'orders'),fb.orderBy('createdAt','desc')));let html='';snap.forEach(d=>{let o=d.data();html+=`<div class="order"><b>${o.fullName||''} • ${o.phone||''}</b><p>${o.package} — ${o.price}₮ — ${o.status}</p><button class="btn" onclick="createLink('${d.id}')">Линк</button> <button class="btn secondary" onclick="smsLink('${d.id}','${o.phone||''}')">SMS</button></div>`});box.innerHTML=html||'Захиалга алга'}catch(e){box.innerHTML='Алдаа: '+e.message}}
-function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
-async function createLink(id){const d=await fb.getDoc(fb.doc(db,'orders',id));if(!d.exists())return;let t=d.data().reportToken||token();await fb.setDoc(fb.doc(db,'reports',t),{orderId:id,report:d.data().report,createdAt:fb.serverTimestamp()});await fb.updateDoc(fb.doc(db,'orders',id),{reportToken:t,status:'linked'});const link=location.origin+location.pathname+'#report='+t;navigator.clipboard?.writeText(link);toast('Линк хууллаа')}
-async function smsLink(id,phone){const d=await fb.getDoc(fb.doc(db,'orders',id));if(!d.exists())return;let t=d.data().reportToken;if(!t){await createLink(id);const nd=await fb.getDoc(fb.doc(db,'orders',id));t=nd.data().reportToken}const link=location.origin+location.pathname+'#report='+t;location.href=`sms:${phone}?body=${encodeURIComponent('Тэнгэрийн Мэлмий: Таны тайлан бэлэн боллоо. '+link)}`}
-addEventListener('load',()=>{if(location.hash==='#admin'){if(prompt('Админ нууц үг')==='9999'){$('admin').classList.add('show');loadOrders();$('admin').scrollIntoView()}}})
-window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;
-</script>
-</body>
-</html>
+<section id="loading" class="screen loading">
+  <div>
+    <img src="zodiac-wheel.jpg" class="loadingWheel">
+    <div class="progress"><i id="bar"></i></div>
+    <h2 id="loadingText">Төрсөн мэдээллийг уншиж байна...</h2>
+    <div class="tiny">АЛТАН МЭЛМИЙ ТАНЫ ТӨЛӨӨ АЖИЛЛАЖ БАЙНА</div>
+  </div>
+</section>
+
+<section id="result" class="screen">
+  <div class="resultTop card">
+    <div class="kicker">ТАНЫ МӨНГӨНИЙ ЭНЕРГИЙН ҮНЭГҮЙ ОНОШЛОГОО</div>
+    <div class="bigScore"><span id="totalScore">92</span>%</div>
+    <div class="starsLine">★ ★ ★ ★ ★</div>
+    <h2 id="resultTitle">Таны мөнгөний энерги өндөр байна</h2>
+    <p id="resultNote">Гэхдээ мөнгөний урсгалын бөглөрөл, зоосны зангилаа илэрсэн байна.</p>
+  </div>
+
+  <div class="metrics">
+    <div class="metric card danger"><div>⚠</div><span>Өр зээлийн эрсдэл</span><b id="debtScore">88%</b><small>Өндөр эрсдэл</small></div>
+    <div class="metric card"><div>🔒</div><span>Мөнгөний урсгал</span><b id="flowScore">85%</b><small>Бөглөрөлтэй</small></div>
+    <div class="metric card good"><div>🏺</div><span>Хишгийн сав</span><b id="luckScore">90%</b><small>Их боломжтой</small></div>
+    <div class="metric card power"><div>⚡</div><span>Санхүүгийн энерги</span><b id="energyScore">91%</b><small>Маш хүчтэй</small></div>
+  </div>
+
+  <div class="zodiac card">
+    <div>
+      <div class="kicker">ТАНЫ ОРДНЫ ХЭВ МАЯГ</div>
+      <h2 id="zodiacName">Матар</h2>
+      <p id="zodiacText">Энэ орд нь мөнгөтэй харьцах далд хэв маяг, эрсдэлийг урьдчилан мэдрэх зөнг тодорхойлдог.</p>
+    </div>
+    <img src="zodiac-gold-grid.jpg">
+  </div>
+
+  <div class="locked card">
+    <img src="zodiac-icons.jpg">
+    <div>
+      <div class="kicker">ГОЛ ШАЛТГААН ИЛЭРЛЭЭ</div>
+      <h2>Зоосны зангилаа 🔒</h2>
+      <p>Мөнгөний бөглөрөл үүсгэж буй гол шалтгаан, өр зээлийн энерги, гарц шийдлийг дэлгэрэнгүй тайлангаас үзнэ үү.</p>
+      <button class="gold" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">Тайлангаа нээх</button>
+    </div>
+  </div>
+
+  <section id="packages" class="packages">
+    <h2>Тайлангаа нээх багцууд</h2>
+    <div class="count card"><span>● -50% ХЯМДРАЛ ДУУСАХАД</span><b id="timer">--:--:--</b><small>Өнөөдөр шөнө дунд хүртэл</small></div>
+    <div class="pkgGrid">
+      <div class="pkg card">
+        <div class="tier">ЭХЛЭЛ</div><h3>Зоосны Дусал</h3><p>Баялгаа дусал дуслаар эхлүүл</p>
+        <div><span class="old">19,800₮</span> <b>9,900₮</b> <em>-50%</em></div>
+        <ul><li>Зоосны зангилаа хаана байгааг илчилнэ</li><li>Баялгийн өнцөг</li><li>Азын зүг, өнгө, тоо</li></ul>
+        <button class="gold" onclick="selectPackage('Зоосны Дусал',9900)">Эхний дуслаа авах</button>
+      </div>
+      <div class="pkg card hot">
+        <div class="badge">★ ХАМГИЙН СОНГОГДДОГ</div>
+        <div class="tier">БҮРЭН ШИЙДЭЛ</div><h3>Мөнгөн Гол</h3><p>Мөнгөний урсгалаа бүрэн нээ</p>
+        <div><span class="old">39,800₮</span> <b>19,900₮</b> <em>-50%</em></div>
+        <ul><li>Зоосны Дусал багцын бүх зүйл</li><li>Баялгийн зүг чиг</li><li>Зангилаа тайлах зан үйл</li><li>Аз дуудах сайн өдрүүд</li></ul>
+        <button class="gold" onclick="selectPackage('Мөнгөн Гол',19900)">Урсгалаа нээх</button>
+      </div>
+      <div class="pkg card">
+        <div class="tier">ДЭЭД ЗЭРЭГ</div><h3>Алтан Далай</h3><p>Хязгааргүй элбэгийн далай</p>
+        <div><span class="old">198,000₮</span> <b>99,000₮</b> <em>-50%</em></div>
+        <ul><li>Мөнгөн Гол багцын бүх зүйл</li><li>Насан туршийн хийморийн зураг</li><li>49 хоногийн гүн залбирал</li></ul>
+        <button class="outline" onclick="selectPackage('Алтан Далай',99000)">Далайг эзэмших</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section id="payment" class="screen payment">
+  <div class="payCard card">
+    <button class="back" onclick="showScreen('result')">← Буцах</button>
+    <h2>Төлбөрийн мэдээлэл</h2>
+    <p>Тайлангаа нээхийн тулд төлбөр хийнэ үү.</p>
+    <div class="bankBox">
+      <h3>ХААН БАНК</h3>
+      <div class="copy"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
+      <div class="copy"><span>Данс</span><b id="accNo">5690034540</b><button onclick="copyText('accNo')">📋</button></div>
+      <div class="copy"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
+      <div class="copy"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
+    </div>
+    <button class="gold full" onclick="openBankModal()">Банкны апп нээх</button>
+    <div class="info">Төлбөр хийсний дараа доорх баталгааг дарна.</div>
+    <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
+    <button id="submitBtn" class="gold full" disabled onclick="submitOrder()">Захиалга илгээх</button>
+  </div>
+</section>
+
+<section id="thanks" class="screen"><div class="thanks card"><h2>Захиалга бүртгэгдлээ</h2><p>Төлбөр баталгаажмагц тайлангийн линк SMS-р илгээгдэнэ.</p><button class="gold" onclick="showScreen('home')">Эхлэл рүү буцах</button></div></section>
+
+<section id="admin" class="screen"><div class="adminHead"><h2>Админ</h2><button class="outline" onclick="showScreen('home')">Эхлэл</button></div><div id="orders" class="orders"></div></section>
+
+<div id="confirmModal" class="modal"><div class="modalCard card"><button class="x" onclick="closeModal()">×</button><img src="logo.png"><h2>Мэдээллээ шалгаарай</h2><p>Зурхай чинь яг эдгээр мэдээлэл дээр үндэслэнэ.</p><div class="checkGrid"><div><span>Нэр</span><b id="cName"></b></div><div><span>Төрсөн огноо</span><b id="cBirth"></b></div><div><span>Утас</span><b id="cPhone"></b></div></div><div class="two"><button class="outline" onclick="closeModal()">← Засах</button><button class="gold" onclick="beginScan()">Тийм, нээ</button></div></div></div>
+
+<div id="bankModal" class="bankModal"><div class="bankPanel"><div class="bankTop"><button onclick="closeBankModal()">← Буцах</button><span>14:52</span><button onclick="closeBankModal()">×</button></div><div class="bankGrid" id="bankGrid"></div><button class="outline full" onclick="copyText('accNo')">Данс хуулах</button><button class="gold full" onclick="closeBankModal()">Төлбөр шалгах</button></div></div>
+
+<div id="toast" class="toast"></div>
+<script type="module" src="app.js?v=fullreplace2"></script>
+</body></html>
