@@ -155,6 +155,44 @@ body:after{background-image:
 }
 /* === END SAFE BANK LOGO PATCH === */
 
+
+/* === v9 REPORT + REVIEWS + DETAILS PATCH === */
+.frog{height:275px!important}
+.frog:before{content:"🐉"!important;font-size:112px!important;animation:dragonFloat 2.2s ease-in-out infinite!important}
+.frog:after{content:"🟡 🟡 🟡 🟡 🟡"!important;animation:coinBreath 1.15s ease-in-out infinite alternate!important}
+.beam{animation:dragonBeam 1.15s ease-in-out infinite alternate!important}
+.orbit{animation:orbitPulse 2.4s ease-in-out infinite!important}
+@keyframes dragonFloat{0%,100%{transform:translate(-50%,-50%) scale(1) rotate(-2deg)}50%{transform:translate(-50%,-56%) scale(1.06) rotate(3deg)}}
+@keyframes coinBreath{0%{transform:translateX(-50%) translateY(18px) scale(.86);opacity:.45;letter-spacing:2px}100%{transform:translateX(-50%) translateY(-22px) scale(1.12);opacity:1;letter-spacing:10px}}
+@keyframes dragonBeam{0%{opacity:.35;filter:blur(8px);height:145px}100%{opacity:.95;filter:blur(3px);height:215px}}
+@keyframes orbitPulse{0%,100%{transform:scale(.96);opacity:.45}50%{transform:scale(1.05);opacity:.95}}
+.topReviews{margin:22px 0!important;padding:22px!important;text-align:center!important}
+.topReviewGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.topReview{border:1px solid rgba(255,210,92,.26);border-radius:20px;background:rgba(255,255,255,.055);padding:14px;text-align:center}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;margin:0 auto 8px;background:linear-gradient(135deg,#ffe27a,#b66d12);color:#240407;font-weight:950}
+.topReview b{display:block;color:#fff6df}.topReview span{display:block;color:#ffe27a;margin:5px 0}.topReview p{font-size:14px;line-height:1.45;color:#ead4c7;margin:0}
+.packageDetail{display:none;margin:12px 0 14px;padding:14px;border-radius:16px;border:1px solid rgba(255,210,92,.22);background:rgba(0,0,0,.18);color:#ffeac0;line-height:1.55;font-size:15px}
+.packageDetail.show{display:block}
+.detailBtn{margin-bottom:8px!important}
+.zodiacWheel{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:16px auto 6px;max-width:520px}
+.zItem{min-height:56px;border:1px solid rgba(255,210,92,.22);border-radius:16px;background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d9c9b1;transition:.25s}
+.zItem b{font-size:24px;line-height:1}.zItem small{font-size:10px;margin-top:3px}
+.zItem.active{background:radial-gradient(circle,#ffe27a,#a51318 64%,#46070e);color:#fff;box-shadow:0 0 34px rgba(255,210,92,.35);transform:scale(1.06)}
+.reportBox.show{display:block!important}
+.reportInner{display:grid;gap:12px}
+.reportRow{border:1px solid rgba(255,210,92,.24);border-radius:16px;background:rgba(255,255,255,.06);padding:14px;color:#f8e8cb}
+.admin .order{border:1px solid rgba(255,210,92,.25);border-radius:18px;padding:14px;margin:12px 0;background:rgba(255,255,255,.045)}
+.adminActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.adminActions .btn{padding:12px 10px;font-size:14px}
+@media(max-width:520px){
+ .topReviewGrid{grid-template-columns:1fr}
+ .zodiacWheel{grid-template-columns:repeat(4,1fr)}
+ .frog{height:245px!important}
+ .frog:before{font-size:96px!important}
+ .adminActions{grid-template-columns:1fr}
+}
+@media print{body:before,body:after,.modal,#home,#scan,#result,#pay,#success,#admin,.topReviews{display:none!important}.reportBox{display:block!important;box-shadow:none!important;background:white!important;color:#111!important}.reportRow{color:#111!important;background:#fff7d7!important}}
+/* === END v9 === */
+
 </style>
 </head>
 <body>
@@ -166,6 +204,16 @@ body:after{background-image:
     <div class="card heroCard">
       <div class="frog"><div class="beam"></div><div class="orbit"></div></div>
       <button class="btn" onclick="showForm()">Урсгалаа нээх</button>
+    </div>
+
+    <div class="card topReviews">
+      <div class="smallCaps">ХЭРЭГЛЭГЧИЙН ТОП СЭТГЭГДЭЛ</div>
+      <h2 class="gold">Мөнгөний урсгалаа шалгуулсан хүмүүс</h2>
+      <div class="topReviewGrid">
+        <div class="topReview"><div class="avatar">Н</div><b>Н. Номин</b><span>★★★★★</span><p>Мөнгө орж ирээд тогтдоггүй шалтгаанаа илүү тод харсан.</p></div>
+        <div class="topReview"><div class="avatar">Б</div><b>Б. Бат-Эрдэнэ</b><span>★★★★★</span><p>Өрийн дарамтаа цэгцлэх алхамтай тайлан ирсэн.</p></div>
+        <div class="topReview"><div class="avatar">С</div><b>С. Саруул</b><span>★★★★★</span><p>Зарлагын дадал яг таарсан. Дагаад эхлэхэд ойлгомжтой байсан.</p></div>
+      </div>
     </div>
     <div class="card formBox" id="formBox">
       <div class="field"><label>Овог нэр</label><input id="fullName" placeholder="Өрөр"></div>
@@ -192,6 +240,7 @@ body:after{background-image:
       <div class="zodiacFigure"><div class="symbol" id="zodiacSymbol">♑</div></div>
       <h2 class="gold" id="zodiacName">Матрын орд</h2>
       <p class="sub" id="zodiacText">Энэ орд нь чиний мөнгөтэй харьцах далд хэв маяг, эрсдэлийг урьдчилан мэдрэх зөнг тодорхойлдог.</p>
+      <div class="zodiacWheel" id="zodiacWheel"></div>
       <div class="card cardText" id="mainText"></div>
       <div class="smallCaps" style="margin-top:22px">ЧИНИЙ МӨНГӨНИЙ ДАЛД ХҮЧ</div>
       <div class="chips" id="chips"></div>
@@ -221,6 +270,7 @@ body:after{background-image:
       <div class="smallCaps">ЭХЛЭЛ</div><h2>Зоосны Дусал</h2><p class="sub">Баялгаа дусал дуслаар эхлүүл</p>
       <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
       <ul class="list"><li>Мөнгөний чинь түгжсэн зангилаа аль зүгт нуугдсаныг илчилнэ</li><li>Гэр, ажлын баялгийн өнцөг хаана байгааг заана</li><li>Хувийн сахиус — тоон шившлэгийн эхний хэсэг</li><li>Азын зүг, өнгө, тоо</li></ul>
+      <button class="btn secondary detailBtn" onclick="toggleDetail(\'detail-drop\')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-drop">Энэ багц нь эхний түвшний оношлогоо. Мөнгөний урсгал хаана гацаж байгаа, ямар зүг/өнгө/тоо тохирох, өдөр тутам хийх 3 жижиг алхмыг харуулна.</div>
       <button class="btn" onclick="choosePackage('Зоосны Дусал',9900)">ЭХНИЙ ДУСЛАА АВАХ</button>
     </div>
 
@@ -228,6 +278,7 @@ body:after{background-image:
       <div class="smallCaps">БҮРЭН ШИЙДЭЛ</div><h2 class="gold">Мөнгөн Гол</h2><p class="sub">Мөнгөний урсгалаа бүрэн нээ</p>
       <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
       <ul class="list"><li>«Зоосны Дусал» багцын бүх зүйл</li><li>Баялгийн зүг чиг — мөнгө аль зүгээс урсаж ирэхийг тогтоох</li><li>Зангилаа тайлах нууц шившлэг ба зан үйл</li><li>Аз дуудах сайн өдрүүд, гай зайлуулах өдрүүд</li><li>Баялаг татах бэлгэдэл, өнгө, эд зүйлс</li></ul>
+      <button class="btn secondary detailBtn" onclick="toggleDetail(\'detail-river\')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-river">Энэ багц нь хамгийн тэнцвэртэй бүрэн тайлал. Өрийн блок, зоосны зангилаа, мөнгө тогтоох дадал, 30 хоногийн төлөвлөгөө, азтай өдрүүдийг дэлгэрүүлнэ.</div>
       <button class="btn" onclick="choosePackage('Мөнгөн Гол',19900)">УРСГАЛАА НЭЭХ</button>
     </div>
 
@@ -235,6 +286,7 @@ body:after{background-image:
       <div class="smallCaps">ДЭЭД ЗЭРЭГ</div><h2>Алтан Далай</h2><p class="sub">Хязгааргүй элбэгийн далай</p>
       <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
       <ul class="list"><li>«Мөнгөн Гол» багцын бүх зүйл</li><li>Насан туршийн хий морь, сулдны өсөлт, уналтын зураг</li><li>Зангилаа дахин үүсэхээс хамгаалах сахиус</li><li>Их далайд хүрэх 3 ид шидийн эргэлт</li><li>49 хоногийн гүн тахил, залбирал</li></ul>
+      <button class="btn secondary detailBtn" onclick="toggleDetail(\'detail-sea\')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-sea">Энэ багц нь хамгийн гүн хувилбар. 49 хоногийн чиглэл, дахин зангилаа үүсэхээс хамгаалах сануулга, мөнгөний түлхүүрийн бүрэн тайллыг багтаана.</div>
       <button class="btn secondary" onclick="choosePackage('Алтан Далай',99000)">ДАЛАЙГ ЭЗЭМШИХ</button>
     </div>
   </section>
@@ -291,11 +343,17 @@ body:after{background-image:
   </section>
 
   <section class="card pay admin" id="admin"><h2>Админ</h2><button class="btn secondary" onclick="loadOrders()">Шинэчлэх</button><div id="orders"></div></section>
+
+  <section class="card pay reportBox" id="report">
+    <h2 class="gold">Тэнгэрийн Мэлмий — Мөнгөний тайлан</h2>
+    <div id="reportBody"></div>
+    <button class="btn" onclick="window.print()">Тайлан PDF татах</button>
+  </section>
 </div>
 
 <div class="modal" id="confirmModal">
   <div class="card modalCard center">
-    <div class="logo">🐸</div>
+    <div class="logo">🐉</div>
     <h2>Мэдээллээ шалгаарай</h2>
     <p class="sub">Зурхай чинь яг эдгээр мэдээлэл дээр үндэслэнэ.</p>
     <div class="confirmGrid">
@@ -314,6 +372,92 @@ import{initializeApp}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-ap
 import{getFirestore,collection,addDoc,getDocs,doc,setDoc,getDoc,updateDoc,serverTimestamp,query,orderBy}from"https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 const firebaseConfig={apiKey:"AIzaSyCptq_EpedA2ok205SoFMBjci5IcID7nWc",authDomain:"mongo-block.firebaseapp.com",projectId:"mongo-block",storageBucket:"mongo-block.firebasestorage.app",messagingSenderId:"161463190344",appId:"1:161463190344:web:cc5e2672ded4900937e97d",measurementId:"G-6074VCDK9W"};
 window.app=initializeApp(firebaseConfig);window.db=getFirestore(app);window.fb={collection,addDoc,getDocs,doc,setDoc,getDoc,updateDoc,serverTimestamp,query,orderBy};
+
+function toggleDetail(id){document.querySelectorAll('.packageDetail').forEach(e=>{if(e.id!==id)e.classList.remove('show')});$(id)?.classList.toggle('show')}
+window.toggleDetail=toggleDetail;
+
+function renderZodiacWheel(activeName){
+ const all=[['Матар','♑'],['Хумх','♒'],['Загас','♓'],['Хонь','♈'],['Үхэр','♉'],['Ихэр','♊'],['Мэлхий','♋'],['Арслан','♌'],['Охин','♍'],['Жинлүүр','♎'],['Хилэнц','♏'],['Нум','♐']];
+ const box=$('zodiacWheel'); if(!box)return;
+ box.innerHTML=all.map(a=>`<div class="zItem ${a[0]===activeName?'active':''}"><b>${a[1]}</b><small>${a[0]}</small></div>`).join('');
+}
+
+function reportHtml(data){
+ const r=data.report||data, c=r.client||data, p=r.package||{};
+ return `<div class="reportInner">
+  <div class="reportRow"><b>Нэр:</b> ${c.fullName||c.name||''}</div>
+  <div class="reportRow"><b>Төрсөн огноо:</b> ${c.birth||''}</div>
+  <div class="reportRow"><b>Утас:</b> ${c.phone||''}</div>
+  <div class="reportRow"><b>Багц:</b> ${p.name||data.package||''}</div>
+  <div class="reportRow"><b>Зоосны түлхүүр:</b> ${(r.code||c.code||'••••').toString().slice(0,2)}••</div>
+  <div class="reportRow"><b>Мөнгөний хэв маяг:</b> ${c.zodiac||''} ордын санхүүгийн хандлага</div>
+  <div class="reportRow"><b>Ерөнхий тайлал:</b><br>Таны мөнгөний урсгалд боломж байгаа боловч зарлага, өрийн даралт, бусдад хэт үүрэг хүлээх зангаас зоосны зангилаа үүсэх хандлага харагдаж байна.</div>
+  <div class="reportRow"><b>30 хоногийн зөвлөмж:</b><br>1. Орлого бүрээс 10%-ийг салга.<br>2. 7 хоногийн хэрэггүй зарлагаа бич.<br>3. Шинэ зээл авах шийдвэрийг 72 цаг хойшлуул.<br>4. Мөнгөний зорилгоо нэг л зүйл дээр төвлөрүүл.</div>
+ </div>`;
+}
+
+async function openReportByToken(t){
+ try{
+  const d=await fb.getDoc(fb.doc(db,'reports',t));
+  if(!d.exists()){toast('Тайлангийн линк олдсонгүй'); return}
+  $('home').style.display='none'; $('scan').classList.remove('show'); $('result').classList.remove('show'); $('pay').classList.remove('show'); $('success').classList.remove('show'); $('admin').classList.remove('show');
+  $('reportBody').innerHTML=reportHtml(d.data());
+  $('report').classList.add('show'); $('report').scrollIntoView({behavior:'smooth'});
+ }catch(e){toast('Тайлан нээх алдаа: '+e.message)}
+}
+
+async function viewOrderReport(id){
+ const d=await fb.getDoc(fb.doc(db,'orders',id)); if(!d.exists())return toast('Захиалга олдсонгүй');
+ $('reportBody').innerHTML=reportHtml(d.data());
+ $('report').classList.add('show'); $('report').scrollIntoView({behavior:'smooth'});
+}
+
+async function ensureLink(id){
+ const d=await fb.getDoc(fb.doc(db,'orders',id)); if(!d.exists())return null;
+ let data=d.data(), t=data.reportToken||token();
+ await fb.setDoc(fb.doc(db,'reports',t),{orderId:id,report:data.report,client:data,package:{name:data.package,price:data.price},createdAt:fb.serverTimestamp()});
+ await fb.updateDoc(fb.doc(db,'orders',id),{reportToken:t,status:'linked'});
+ return location.origin+location.pathname+'#report='+t;
+}
+
+async function createLink(id){
+ const link=await ensureLink(id); if(!link)return;
+ navigator.clipboard?.writeText(link); toast('Тайлангийн линк хууллаа');
+}
+async function smsLink(id,phone){
+ const link=await ensureLink(id); if(!link)return;
+ location.href=`sms:${phone}?body=${encodeURIComponent('Тэнгэрийн Мэлмий: Таны мөнгөний тайлан бэлэн боллоо. '+link)}`;
+}
+async function linkAndSms(id,phone){await smsLink(id,phone)}
+window.viewOrderReport=viewOrderReport; window.ensureLink=ensureLink; window.createLink=createLink; window.smsLink=smsLink; window.linkAndSms=linkAndSms;
+
+const oldShowResult=showResult;
+showResult=function(){
+ oldShowResult();
+ renderZodiacWheel(client.zodiac);
+}
+
+loadOrders=async function(){
+ const box=$('orders');box.innerHTML='Уншиж байна...';
+ try{
+  const snap=await fb.getDocs(fb.query(fb.collection(db,'orders'),fb.orderBy('createdAt','desc')));
+  let html='';snap.forEach(d=>{
+    let o=d.data();
+    html+=`<div class="order"><b>${o.fullName||''} • ${o.phone||''}</b><p>${o.package||''} — ${Number(o.price||0).toLocaleString()}₮ — ${o.status||'new'}</p>
+    <div class="adminActions">
+      <button class="btn secondary" onclick="viewOrderReport('${d.id}')">Тайлан харах</button>
+      <button class="btn secondary" onclick="createLink('${d.id}')">Линк хуулах</button>
+      <button class="btn" onclick="linkAndSms('${d.id}','${o.phone||''}')">Линк SMS илгээх</button>
+      <button class="btn secondary" onclick="window.print()">PDF</button>
+    </div></div>`;
+  });
+  box.innerHTML=html||'Захиалга алга';
+ }catch(e){box.innerHTML='Алдаа: '+e.message}
+}
+window.loadOrders=loadOrders;
+
+if(location.hash.startsWith('#report=')){openReportByToken(location.hash.split('=')[1])}
+
 </script>
 <script>
 const $=id=>document.getElementById(id);

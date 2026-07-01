@@ -1,1 +1,1 @@
-v8 safe banks: банкны хэсэг зураг эвдэрсэн ч text/icon fallback гарна. bank png root дээр хэвээр. Үндсэн урсгал эвдээгүй.
+v9: report link opens actual report, admin has report/link/SMS/PDF, top reviews, package detail toggles, live dragon animation, live zodiac wheel.
