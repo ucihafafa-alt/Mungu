@@ -130,6 +130,81 @@ body{font-family:"Georgia","Trebuchet MS","Segoe UI",system-ui,sans-serif!import
 @media(max-width:520px){.codeUseGrid{grid-template-columns:1fr}.codeUse p{font-size:16px}}
 /* === END v11 === */
 
+
+/* === v12 FIX BUTTONS + DRAGON MOTION + 3D 12 YEAR PATCH === */
+.heroVisual img,.scanVisual img{
+  animation:dragonImageMove 7s ease-in-out infinite;
+  transform-origin:center center;
+}
+@keyframes dragonImageMove{
+  0%,100%{transform:scale(1.03) translateY(0)}
+  35%{transform:scale(1.09) translateY(-10px)}
+  70%{transform:scale(1.06) translateY(8px)}
+}
+.heroGlow{
+  animation:dragonGlowPulse 2s ease-in-out infinite!important;
+}
+@keyframes dragonGlowPulse{
+  0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.55}
+  50%{transform:translate(-50%,-50%) scale(1.18);opacity:1}
+}
+.coinRain{
+  animation:coinStream 1.15s ease-in-out infinite alternate!important;
+}
+@keyframes coinStream{
+  0%{opacity:.35;letter-spacing:1px;transform:translateX(-50%) translateY(24px) scale(.82)}
+  100%{opacity:1;letter-spacing:14px;transform:translateX(-50%) translateY(-24px) scale(1.16)}
+}
+.zodiacFigure .symbol{
+  width:150px;height:150px;border-radius:50%;
+  display:grid;place-items:center;margin:auto;
+  background:radial-gradient(circle at 35% 25%,#fff4aa 0 8%,#ffcc3e 28%,#c51625 68%,#4a0710 100%);
+  box-shadow:inset 0 12px 22px rgba(255,255,255,.22), inset 0 -16px 22px rgba(0,0,0,.28),0 28px 60px rgba(255,70,55,.28),0 0 44px rgba(255,229,124,.45);
+  text-shadow:0 4px 12px rgba(0,0,0,.45);
+  transform:perspective(600px) rotateX(13deg);
+  animation:z3dPulse 3s ease-in-out infinite;
+}
+@keyframes z3dPulse{
+  0%,100%{transform:perspective(600px) rotateX(13deg) scale(1)}
+  50%{transform:perspective(600px) rotateX(2deg) scale(1.06)}
+}
+.yearWheel{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px auto 8px;max-width:560px;
+}
+.yItem{
+  min-height:82px;border-radius:20px;border:1px solid rgba(255,220,111,.24);
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(0,0,0,.18));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 30px rgba(0,0,0,.22);
+  color:#f6dfc8;transition:.25s;position:relative;overflow:hidden;
+}
+.yItem:before{
+  content:"";position:absolute;inset:-40%;background:radial-gradient(circle,rgba(255,229,124,.18),transparent 55%);
+  transform:translateY(30%);
+}
+.yItem b{font-size:31px;line-height:1;z-index:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
+.yItem small{font-size:11px;margin-top:4px;z-index:1}
+.yItem.active{
+  background:radial-gradient(circle at 40% 25%,#ffe57c,#c51625 58%,#39050b);
+  border-color:#ffe57c;color:#fff;
+  box-shadow:0 0 32px rgba(255,229,124,.38),0 18px 46px rgba(255,70,55,.28);
+  transform:translateY(-4px) scale(1.04);
+}
+.submitStatus{
+  display:none;margin-top:12px;padding:12px;border:1px solid rgba(255,220,111,.24);border-radius:16px;color:#ffe57c;background:rgba(0,0,0,.18);text-align:center;font-weight:900;
+}
+.submitStatus.show{display:block}
+.adminActions .btn,.adminActions button{
+  min-height:46px;
+}
+@media(max-width:520px){
+ .yearWheel{grid-template-columns:repeat(3,1fr);gap:8px}
+ .yItem{min-height:74px;border-radius:17px}
+ .yItem b{font-size:27px}
+ .zodiacFigure .symbol{width:132px;height:132px}
+}
+/* === END v12 === */
+
 </style>
 </head>
 <body>
@@ -194,6 +269,8 @@ body{font-family:"Georgia","Trebuchet MS","Segoe UI",system-ui,sans-serif!import
       <h2 class="gold" id="zodiacName">Матрын орд</h2>
       <p class="sub" id="zodiacText">Энэ орд нь чиний мөнгөтэй харьцах далд хэв маяг, эрсдэлийг урьдчилан мэдрэх зөнг тодорхойлдог.</p>
       <div class="zodiacWheel" id="zodiacWheel"></div>
+      <div class="smallCaps" style="margin-top:18px">12 ЖИЛИЙН 3D ХҮРД</div>
+      <div class="yearWheel" id="yearWheel"></div>
       <div class="cardText" id="mainText"></div>
 
       <div class="codeUse card">
@@ -279,7 +356,7 @@ body{font-family:"Georgia","Trebuchet MS","Segoe UI",system-ui,sans-serif!import
       <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='toki://',120)"><span class="iconBox toki"><b>Toki</b></span><small>Toki</small></button>
     </div>
     <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
-    <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Захиалга илгээх</button>
+    <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Хүсэлт илгээх</button><div id="submitStatus" class="submitStatus"></div>
   </section>
 
   <section class="card pay" id="success">
@@ -428,6 +505,157 @@ async function openReportByToken(t){
 }
 addEventListener('load',()=>{if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
+
+/* === v12 robust button/admin/report overrides === */
+function renderYearWheel(activeYear){
+ const all=[['Хулгана','🐭'],['Үхэр','🐂'],['Бар','🐯'],['Туулай','🐰'],['Луу','🐉'],['Могой','🐍'],['Морь','🐴'],['Хонь','🐏'],['Бич','🐵'],['Тахиа','🐔'],['Нохой','🐶'],['Гахай','🐷']];
+ const box=document.getElementById('yearWheel'); if(!box)return;
+ box.innerHTML=all.map(a=>`<div class="yItem ${a[0]===activeYear?'active':''}"><b>${a[1]}</b><small>${a[0]}</small></div>`).join('');
+}
+function mongolYearAnimal(year){
+ const animals=['Бич','Тахиа','Нохой','Гахай','Хулгана','Үхэр','Бар','Туулай','Луу','Могой','Морь','Хонь'];
+ return animals[Number(year)%12]||'Луу';
+}
+const __oldShowResultV12 = window.showResult || showResult;
+showResult = function(){
+ __oldShowResultV12();
+ client.yearAnimal = mongolYearAnimal(client.year);
+ renderYearWheel(client.yearAnimal);
+}
+window.showResult=showResult;
+
+function packageReportSections(pkgName, code, c){
+ if(pkgName==='Зоосны Дусал'){
+  return [
+   ['Эхний түлхүүр',`Таны кодын эхний хоёр орон ${String(code).slice(0,2)}. Энэ нь мөнгөний урсгалд эхний хаалт хаана үүсдэгийг харуулна.`],
+   ['7 хоногийн дом','Өглөө бүр түрийвч, данс, ажлын ширээгээ цэгцэлж “орж ирсэн хишгийг тогтооно” гэж өөртөө сануул. Орлого орсон өдөр 10%-ийг салга.'],
+   ['Товч сануулга','Энэ багцад зөвхөн эхний зангилаа, эхний тоон дохио, богино зөвлөмж нээгдэнэ.']
+  ];
+ }
+ if(pkgName==='Мөнгөн Гол'){
+  return [
+   ['Бүрэн мөнгөний код',`Таны бүрэн код ${code}. Эхний хоёр орон мөнгө татах хүчийг, сүүлийн хоёр орон мөнгө сарних цэгийг илэрхийлнэ.`],
+   ['Өрийн дарамтын тайлал','Өрийн дарамт ихсэх үе нь нэг дор олон зүйл эхлүүлэх, баталгаагүй орлого дээр амлалт өгөх, бусдын өмнөөс үүрэг авах үед идэвхждэг.'],
+   ['30 хоногийн төлөвлөгөө','1–7 өдөр: зарлагаа бүртгэ. 8–14 өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 өдөр: орлогын нэг шинэ суваг тодорхойл. 22–30 өдөр: хуримтлалын дүрэм тогтоо.'],
+   ['Аз дуудах дом','Гүн улаан, алтлаг өнгийг сануулга болгон ашигла. Мөнгө орсон өдрөөс хойш 3 дахь өдөр хадгалалт эхлүүлэхэд сайн.']
+  ];
+ }
+ return [
+  ['Гүн заяагдмал код',`Таны бүрэн код ${code}. Энэ код нь мөнгө, өрийн дарамт, хайр дурлал, ажил бизнес, том шийдвэр дээр давтагддаг хэв маягийг унших түлхүүр юм.`],
+  ['Хайр дурлалын код','Хэт өглөгч, бусдын ачааг өөр дээрээ авах хандлага харилцаанд мөнгөний дарамт үүсгэж болзошгүй. Хамтрагчтайгаа мөнгө, үүрэг, зорилгоо тодорхой ярих шаардлагатай.'],
+  ['Ажил бизнесийн код','Нэг чиглэлд 49 хоног тасралтгүй төвлөрөхөд үр дүн гарна. Нэг дор олон санаа эхлүүлэхээс илүү хамгийн ашигтай нэг сувгаа сонгох нь таны кодод тохирно.'],
+  ['49 хоногийн гүн төлөвлөгөө','1–7 хоног: цэвэрлэгээ ба зарлагын бүртгэл. 8–21 хоног: өр, төлбөрийн жагсаалт. 22–35 хоног: орлогын нэг гол суваг. 36–49 хоног: хадгалалт, дахин зангилаа үүсэхээс хамгаалах дүрэм.'],
+  ['Хамгаалах бэлгэдлийн дом','Сар бүрийн нэг өдөр санхүүгийн гэрээ, зээл, амлалт, хуримтлалаа шалга. Алтлаг улаан тэмдэглэл дээр зорилгоо бич.']
+ ];
+}
+buildReport = function(){
+ const code=client.code||moneyCode(client), pkg=selected.name||'Зоосны Дусал';
+ return {client,package:selected,code,zodiac:client.zodiac,yearAnimal:client.yearAnimal||mongolYearAnimal(client.year),title:pkg+' тайлан',level:pkg,sections:packageReportSections(pkg,code,client),created:new Date().toISOString()};
+}
+window.buildReport=buildReport;
+
+reportHtml = function(data){
+ const r=data.report||data, c=(r.client||data), p=(r.package||{name:data.package,price:data.price});
+ const sections=(r.sections||packageReportSections(p.name||data.package||'Зоосны Дусал', r.code||c.code||'••••', c)).map(s=>`<div class="reportRow premium"><h3>${s[0]}</h3><div>${s[1]}</div></div>`).join('');
+ return `<div class="reportInner">
+  <div class="reportRow"><b>Нэр:</b> ${c.fullName||c.name||''}</div>
+  <div class="reportRow"><b>Төрсөн огноо:</b> ${c.birth||''}</div>
+  <div class="reportRow"><b>Утас:</b> ${c.phone||''}</div>
+  <div class="reportRow"><b>Багц:</b> ${p.name||data.package||''}</div>
+  <div class="reportRow"><b>12 жил:</b> ${r.yearAnimal||c.yearAnimal||mongolYearAnimal(c.year||1990)}</div>
+  <div class="reportRow"><b>Зоосны түлхүүр:</b> ${(p.name||data.package)==='Зоосны Дусал' ? String(r.code||c.code||'••••').slice(0,2)+'••' : String(r.code||c.code||'••••')}</div>
+  <div class="reportRow"><b>Мөнгөний хэв маяг:</b> ${c.zodiac||r.zodiac||''} ордын санхүүгийн хандлага</div>
+  ${sections}
+ </div>`;
+}
+window.reportHtml=reportHtml;
+
+submitOrder = async function(){
+ const status=document.getElementById('submitStatus');
+ if(!$('paidCheck').checked){toast('Төлбөр шилжүүлснээ батална уу');return}
+ try{
+  if(status){status.classList.add('show');status.textContent='Хүсэлт илгээж байна...'}
+  const payload={...client,package:selected.name,price:selected.price,status:'new',paidConfirmed:true,report:buildReport(),createdAt:serverTimestamp(),updatedAt:Date.now()};
+  await addDoc(collection(db,'orders'),payload);
+  if(status){status.textContent='Хүсэлт амжилттай илгээгдлээ';}
+  $('success').classList.add('show');$('success').scrollIntoView({behavior:'smooth'});toast('Хүсэлт илгээгдлээ');
+ }catch(e){
+  if(status){status.textContent='Алдаа: '+e.message}
+  alert('Хүсэлт илгээхэд алдаа гарлаа: '+e.message);
+ }
+}
+window.submitOrder=submitOrder;
+
+ensureLink = async function(id){
+ const d=await getDoc(doc(db,'orders',id)); if(!d.exists()){alert('Захиалга олдсонгүй');return null}
+ const data=d.data(), t=data.reportToken||token();
+ const payload={orderId:id,report:data.report||data,client:data,package:{name:data.package,price:data.price},createdAt:serverTimestamp(),updatedAt:Date.now()};
+ await setDoc(doc(db,'reports',t),payload);
+ await updateDoc(doc(db,'orders',id),{reportToken:t,status:'Тайлан бэлэн',updatedAt:Date.now()});
+ return location.origin+location.pathname+'#report='+t;
+}
+window.ensureLink=ensureLink;
+
+createLink = async function(id){
+ const link=await ensureLink(id); if(!link)return;
+ try{await navigator.clipboard.writeText(link)}catch(e){}
+ alert('Тайлангийн линк бэлэн боллоо:\n'+link);
+}
+window.createLink=createLink;
+
+smsLink = async function(id,phone){
+ const link=await ensureLink(id); if(!link)return;
+ const msg='Тэнгэрийн Мэлмий: Таны мөнгөний тайлан бэлэн боллоо. '+link;
+ location.href=`sms:${String(phone||'').replace(/[^0-9+]/g,'')}?body=${encodeURIComponent(msg)}`;
+}
+window.smsLink=smsLink;
+
+viewOrderReport = async function(id){
+ try{
+  const d=await getDoc(doc(db,'orders',id)); if(!d.exists()){alert('Захиалга олдсонгүй');return}
+  $('reportBody').innerHTML=reportHtml(d.data());
+  $('report').classList.add('show');$('report').scrollIntoView({behavior:'smooth'});
+ }catch(e){alert('Тайлан харахад алдаа: '+e.message)}
+}
+window.viewOrderReport=viewOrderReport;
+
+loadOrders = async function(){
+ const box=$('orders');box.innerHTML='Уншиж байна...';
+ try{
+  const snap=await getDocs(query(collection(db,'orders'),orderBy('createdAt','desc')));
+  let html='';snap.forEach(d=>{
+    let o=d.data();
+    html+=`<div class="order"><b>${o.fullName||o.name||''} • ${o.phone||''}</b>
+      <p>${o.package||''} — ${Number(o.price||0).toLocaleString()}₮ — ${o.status||'new'}</p>
+      <div class="adminActions">
+        <button class="btn secondary" onclick="viewOrderReport('${d.id}')">Тайлан харах</button>
+        <button class="btn secondary" onclick="createLink('${d.id}')">Линк хуулах</button>
+        <button class="btn" onclick="smsLink('${d.id}','${o.phone||''}')">Линк SMS илгээх</button>
+        <button class="btn secondary" onclick="viewOrderReport('${d.id}');setTimeout(()=>window.print(),400)">PDF</button>
+      </div></div>`;
+  });
+  box.innerHTML=html||'Захиалга алга';
+ }catch(e){box.innerHTML='Алдаа: '+e.message; alert('Админ уншихад алдаа: '+e.message)}
+}
+window.loadOrders=loadOrders;
+
+openAdmin = function(){
+ const p=prompt('Админ нууц үг');
+ if(p==='9999'){$('admin').classList.add('show');loadOrders();$('admin').scrollIntoView({behavior:'smooth'})}
+}
+window.openAdmin=openAdmin;
+
+openReportByToken = async function(t){
+ try{
+  const d=await getDoc(doc(db,'reports',t)); if(!d.exists()){alert('Тайлангийн линк олдсонгүй'); return}
+  ['home','scan','result','pay','success','admin'].forEach(id=>{let e=$(id); if(e){e.style.display='none'; e.classList.remove('show')}})
+  $('reportBody').innerHTML=reportHtml(d.data());$('report').classList.add('show');$('report').scrollIntoView({behavior:'smooth'});
+ }catch(e){alert('Тайлан нээх алдаа: '+e.message)}
+}
+window.openReportByToken=openReportByToken;
+if(location.hash.startsWith('#report=')){setTimeout(()=>openReportByToken(location.hash.split('=')[1]),500)}
+/* === END v12 overrides === */
+
 </script>
 </body>
 </html>
