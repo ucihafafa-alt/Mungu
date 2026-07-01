@@ -96,14 +96,61 @@ const DB={
  ]
 };
 function buildReport(o){const n=seedFor(o); const debts=pick(DB.debt,n,1).slice(0,5); const money=pick(DB.money,n,2).slice(0,3); const practical=pick(DB.practical,n,3).slice(0,6); const ritual=pick(DB.ritual,n,4).slice(0,5); const conclusion=DB.conclusion[n%DB.conclusion.length]; const title=o.package.name; return {debts,money,practical,ritual,conclusion,title};}
-function openReportBuilder(id){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); if(!o)return; const r=buildReport(o); const html=`<div class="modal-card"><button class="close" onclick="closeReport()">×</button><h2>Тайлан үүсгэх</h2><p><b>${o.client.name}</b> — ${o.package.name}</p><div class="builder-actions"><button class="gold" onclick="copyReport(${id})">Текст хуулах</button><button class="gold" onclick="downloadReportPDF(${id})">PDF татах</button><button class="gold" onclick="printReport(${id})">Хэвлэх</button><button class="ghost" onclick="setStatus(${id},'Тайлан бэлэн')">Тайлан бэлэн</button></div><div id="printArea">${reportHTML(o,r)}</div></div>`; $('reportModal').innerHTML=html; $('reportModal').style.display='grid';}
+function openReportBuilder(id){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); if(!o)return; const r=buildReport(o); const html=`<div class="modal-card"><button class="close" onclick="closeReport()">×</button><h2>Тайлан үүсгэх</h2><p><b>${o.client.name}</b> — ${o.package.name}</p><div class="builder-actions"><button class="gold" onclick="copyReport(${id})">Текст хуулах</button><button class="gold" onclick="downloadReportPDF(${id})">PDF татах</button><button class="gold" onclick="printReport(${id})">Хэвлэх</button><button class="gold" onclick="createReportLink(${id})">Линк үүсгэх</button><button class="gold" onclick="sendSmsLink(${id})">SMS линк илгээх</button><button class="ghost" onclick="setStatus(${id},'Тайлан бэлэн')">Тайлан бэлэн</button></div><div id="linkBox" class="linkbox" style="display:none"></div><div id="printArea">${reportHTML(o,r)}</div></div>`; $('reportModal').innerHTML=html; $('reportModal').style.display='grid';}
 function closeReport(){ $('reportModal').style.display='none'; }
 function li(arr){return arr.map(x=>`<li>${x}</li>`).join('')}
 function reportHTML(o,r){return `<div class="tm-report"><section class="rpage cover"><div class="rbrand">◉ ТЭНГЭРИЙН МЭЛМИЙ</div><h1>${r.title}</h1><p class="rsub">Өр зээл ба мөнгөний урсгалын 3 нүүр тайлан</p><div class="rgrid"><div><span>Үйлчлүүлэгч</span><b>${o.client.name}</b></div><div><span>Төрсөн огноо</span><b>${o.client.year}.${o.client.month}.${o.client.day}</b></div><div><span>Мөнгөний урсгал</span><b>${o.result.money}</b></div><div><span>Өрийн блок</span><b>${o.result.debt}</b></div></div><p class="note">Энэхүү тайлан нь уламжлалт бэлгэдлийн шинжилгээ, хэрэгжүүлэх санхүүгийн дадлын зөвлөмжөөс бүрдэнэ.</p></section><section class="rpage"><h2>Гол шинжилгээ</h2><h3>Санхүүгийн урсгалд нөлөөлж буй хүчин зүйлс</h3><ul>${li(r.debts)}</ul><h3>Мөнгөний урсгалын боломж</h3><ul>${li(r.money)}</ul></section><section class="rpage"><h2>Хэрэгжүүлэх зөвлөмж</h2><h3>Бодит алхам</h3><ul>${li(r.practical)}</ul><h3>Уламжлалт бэлгэдлийн зөвлөмж</h3><ul>${li(r.ritual)}</ul><div class="rcon"><b>Дүгнэлт</b><p>${r.conclusion}</p></div><small>Бэлгэдлийн зөвлөмжүүд нь санхүүгийн үр дүнг баталгаатай амлахгүй, харин сэтгэл төвлөрүүлж дадал тогтооход туслах зорилготой.</small></section></div>`}
 function textReport(o,r){return `ТЭНГЭРИЙН МЭЛМИЙ\n${r.title}\n\nҮйлчлүүлэгч: ${o.client.name}\nТөрсөн огноо: ${o.client.year}.${o.client.month}.${o.client.day}\nМөнгөний урсгал: ${o.result.money}\nӨрийн блок: ${o.result.debt}\n\nГОЛ ШИНЖИЛГЭЭ\n- ${r.debts.join('\n- ')}\n\nМӨНГӨНИЙ УРСГАЛЫН БОЛОМЖ\n- ${r.money.join('\n- ')}\n\nБОДИТ АЛХАМ\n- ${r.practical.join('\n- ')}\n\nУЛАМЖЛАЛТ БЭЛГЭДЛИЙН ЗӨВЛӨМЖ\n- ${r.ritual.join('\n- ')}\n\nДҮГНЭЛТ\n${r.conclusion}\n\nТайлбар: Бэлгэдлийн зөвлөмж нь санхүүгийн үр дүнг баталгаатай амлахгүй.`}
 function copyReport(id){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); const r=buildReport(o); navigator.clipboard?.writeText(textReport(o,r)); alert('3 нүүрийн тайлангийн текст хууллаа. Messenger/SMS рүү paste хийгээрэй.');}
+async function downloadReportPDF(id){
+ const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); if(!o)return; const r=buildReport(o);
+ const holder=document.createElement('div'); holder.style.position='fixed'; holder.style.left='-9999px'; holder.style.top='0'; holder.innerHTML=reportHTML(o,r); document.body.appendChild(holder);
+ try{
+  const {jsPDF}=window.jspdf; const pdf=new jsPDF('p','mm','a4'); const pages=[...holder.querySelectorAll('.rpage')];
+  for(let i=0;i<pages.length;i++){const canvas=await html2canvas(pages[i],{scale:2,backgroundColor:'#08111f'}); const img=canvas.toDataURL('image/jpeg',0.95); if(i>0)pdf.addPage(); pdf.addImage(img,'JPEG',0,0,210,297)}
+  pdf.save(`tenger-melmii-${o.client.name}-${o.id}.pdf`); setStatus(id,'PDF татсан');
+ }catch(e){alert('PDF үүсгэхэд алдаа гарлаа. Хэвлэх товч ашиглаарай.')} finally{holder.remove()}
+}
 function printReport(id){const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); const r=buildReport(o); const w=window.open('','_blank'); w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Тайлан</title><style>${reportCSS()}</style></head><body>${reportHTML(o,r)}</body></html>`); w.document.close(); setTimeout(()=>w.print(),300)}
 function reportCSS(){return `.tm-report{font-family:Arial,sans-serif;color:#1b2635}.rpage{width:210mm;min-height:297mm;padding:18mm;box-sizing:border-box;background:linear-gradient(135deg,#08111f,#10213a 55%,#07111f);color:#fff;page-break-after:always;overflow:hidden}.rbrand{color:#f7d37a;letter-spacing:2px;font-weight:800}.rpage h1{font-size:34px;color:#f7d37a}.rpage h2{color:#f7d37a;font-size:28px}.rpage h3{color:#d7e7ff}.rsub,.note{color:#d7e7ff;line-height:1.7}.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}.rgrid div,.rcon{border:1px solid rgba(247,211,122,.35);border-radius:16px;padding:14px;background:rgba(255,255,255,.06)}.rgrid span{display:block;color:#9bb4d4;font-size:12px}.rgrid b{font-size:22px;color:#fff}li{margin:0 0 12px;line-height:1.65}ul{padding-left:20px}small{color:#aabbd5}`}
+
+function encodePayload(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(obj)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function decodePayload(str){str=str.replace(/-/g,'+').replace(/_/g,'/'); while(str.length%4)str+='='; return JSON.parse(decodeURIComponent(escape(atob(str))))}
+function reportPayload(id){
+ const orders=JSON.parse(localStorage.getItem('tm_orders')||'[]'); const o=orders.find(x=>x.id===id); if(!o)return null;
+ const r=buildReport(o);
+ return {v:1,created:new Date().toLocaleString('mn-MN'),order:{id:o.id,client:o.client,package:o.package,result:o.result},report:r};
+}
+function makeReportLink(id){const payload=reportPayload(id); if(!payload)return ''; return location.origin+location.pathname+'#report='+encodePayload(payload)}
+function createReportLink(id){
+ const link=makeReportLink(id); if(!link){alert('Захиалга олдсонгүй');return}
+ const box=$('linkBox'); if(box){box.style.display='block'; box.innerHTML=`<b>Тайлангийн линк</b><textarea readonly onclick="this.select()">${link}</textarea><div class="actions"><button class="mini" onclick="copyLink('${link}')">Линк хуулах</button><button class="mini" onclick="setStatus(${id},'Линк үүссэн')">Линк үүссэн гэж тэмдэглэх</button></div><small>Энэ бол static demo линк. Сервер/Firebase холбох хүртэл тайлангийн мэдээлэл линк дотроо хадгалагдана.</small>`}
+ navigator.clipboard?.writeText(link);
+ alert('Тайлангийн линк үүсээд clipboard руу хууллаа. Одоо SMS линк илгээх дарж болно.');
+}
+function copyLink(link){navigator.clipboard?.writeText(link); alert('Линк хууллаа')}
+function sendSmsLink(id){
+ const payload=reportPayload(id); if(!payload){alert('Захиалга олдсонгүй');return}
+ const link=makeReportLink(id); const phone=String(payload.order.client.phone||'').replace(/[^0-9+]/g,'');
+ const msg=`Тэнгэрийн Мэлмий: Таны ${payload.order.package.name} тайлан бэлэн боллоо. Дараах холбоосоор нээнэ үү: ${link}`;
+ setStatus(id,'SMS линк илгээхэд бэлэн');
+ window.location.href=`sms:${phone}?&body=${encodeURIComponent(msg)}`;
+}
+function showPublicReport(payload){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ document.querySelector('.top')?.remove(); document.querySelector('.floating-admin')?.remove();
+ let section=document.getElementById('publicReport');
+ if(!section){section=document.createElement('section'); section.id='publicReport'; section.className='screen active public-report'; document.querySelector('main').appendChild(section)}
+ const o=payload.order, r=payload.report;
+ section.innerHTML=`<div class="public-head"><p class="kicker">Тэнгэрийн Мэлмий</p><h2>${o.client.name} таны тайлан</h2><p>Багц: <b>${o.package.name}</b> · Үүссэн: ${payload.created||''}</p></div>${reportHTML({client:o.client,package:o.package,result:o.result},r)}<div class="result-actions"><button class="gold" onclick="window.print()">Хэвлэх / PDF хадгалах</button></div>`;
+ window.scrollTo(0,0);
+}
+function checkReportHash(){
+ if(location.hash.startsWith('#report=')){
+   try{showPublicReport(decodePayload(location.hash.slice(8)))}catch(e){alert('Тайлангийн линк уншигдсангүй. Линк дутуу эсвэл буруу байна.')}
+ }
+}
+window.addEventListener('load',checkReportHash);
 
 function burstCoin(e){
   const coin=e.currentTarget; const r=coin.getBoundingClientRect(); const cx=r.left+r.width/2, cy=r.top+r.height/2; coin.classList.add('explode');
