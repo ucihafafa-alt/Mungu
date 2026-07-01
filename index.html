@@ -117,6 +117,19 @@ h1,h2,h3{
   .page{padding:14px 12px 80px}.brandTop{font-size:20px}.heroTitle{font-size:33px}.heroVisual{height:380px}.cardText{font-size:18px}.coin{width:66px;height:66px}.price{font-size:34px}.copyLine{grid-template-columns:1fr auto}.copyLine span{grid-column:1/-1}.adminActions{grid-template-columns:1fr}
 }
 @media print{body:before,body:after,#home,#scan,#result,#pay,#success,#admin,.modal{display:none!important}.reportBox{display:block!important;background:white!important;color:#111!important;box-shadow:none!important}.reportRow{color:#111!important;background:#fff7d7!important}}
+
+/* === v11 CODE + REPORT DIFFERENTIATION PATCH === */
+body{font-family:"Georgia","Trebuchet MS","Segoe UI",system-ui,sans-serif!important}
+.sub,.list li,.reviewItem p,.cardText,.reportRow{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif!important}
+.codeUse{padding:22px;margin:20px 0;text-align:center}
+.codeUse p{color:#ead4c7;line-height:1.65;font-size:17px;margin:8px 0 14px}
+.codeUseGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.codeUseGrid span{border:1px solid rgba(255,220,111,.24);border-radius:999px;padding:10px 12px;background:rgba(255,255,255,.055);color:#ffe57c;font-weight:800;font-size:14px}
+.reportRow.premium{background:linear-gradient(135deg,rgba(255,229,124,.12),rgba(255,70,55,.08));border-color:rgba(255,229,124,.38)}
+.reportRow h3{margin:0 0 8px;color:#ffe57c;font-family:"Palatino Linotype",Georgia,serif}
+@media(max-width:520px){.codeUseGrid{grid-template-columns:1fr}.codeUse p{font-size:16px}}
+/* === END v11 === */
+
 </style>
 </head>
 <body>
@@ -174,14 +187,28 @@ h1,h2,h3{
 
   <section id="result" class="result">
     <div class="archetype">
-      <div class="smallCaps">ТАНЫ БАЯЛГИЙН АРХЕТИП</div>
-      <h1 class="heroTitle"><span id="archTitle">Сургалтын</span><br><span style="color:#fff" id="archTitle2">Эзэн</span></h1>
-      <p class="sub" id="archSub">Мөнгөний зан чанар</p>
+      <div class="smallCaps">ТАНЫ ЗАЯАГДМАЛ КОД</div>
+      <h1 class="heroTitle"><span id="archTitle">Онцгой</span><br><span style="color:#fff" id="archTitle2">Код</span></h1>
+      <p class="sub" id="archSub">Хүн бүрд өөрийн гэсэн тоон түлхүүр бий</p>
       <div class="zodiacFigure"><div class="symbol" id="zodiacSymbol">♑</div></div>
       <h2 class="gold" id="zodiacName">Матрын орд</h2>
       <p class="sub" id="zodiacText">Энэ орд нь чиний мөнгөтэй харьцах далд хэв маяг, эрсдэлийг урьдчилан мэдрэх зөнг тодорхойлдог.</p>
       <div class="zodiacWheel" id="zodiacWheel"></div>
       <div class="cardText" id="mainText"></div>
+
+      <div class="codeUse card">
+        <h2 class="gold">Энэ кодоор юуг нээж болдог вэ?</h2>
+        <p>Заяагдмал код бол зөвхөн нэг тоо биш. Тэр нь таны мөнгөтэй харьцах хэв маяг, өрийн дарамт үүсдэг цэг, хайр дурлалын сонголт, ажил бизнесийн шийдвэр дээр хаана анхаарахыг заадаг бэлгэдлийн түлхүүр юм.</p>
+        <div class="codeUseGrid">
+          <span>Мөнгөний урсгал</span>
+          <span>Өрийн дарамт</span>
+          <span>Хайр дурлал</span>
+          <span>Ажил бизнес</span>
+          <span>Азын өдөр</span>
+          <span>Засал дом</span>
+        </div>
+      </div>
+
       <div class="smallCaps" style="margin-top:22px">ЧИНИЙ МӨНГӨНИЙ ДАЛД ХҮЧ</div>
       <div class="chips" id="chips"></div>
     </div>
@@ -209,24 +236,24 @@ h1,h2,h3{
     <div class="card pack drop">
       <div class="smallCaps">ЭХЛЭЛ</div><h2>Зоосны Дусал</h2><p class="sub">Баялгаа дусал дуслаар эхлүүл</p>
       <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Зангилааны эхний байрлалыг илчилнэ</li><li>Азын зүг, өнгө, тоо</li><li>Өдөр тутмын 3 жижиг алхам</li></ul>
-      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-drop')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-drop">Энэ багц нь эхний түвшний оношлогоо. Мөнгөний урсгал хаана гацаж байгаа, ямар зүг/өнгө/тоо тохирох, өдөр тутам хийх 3 жижиг алхмыг харуулна.</div>
+      <ul class="list"><li>Заяагдмал кодын эхний 2 орон</li><li>Мөнгө гацдаг эхний шалтгаан</li><li>Азын зүг, өнгө, тооны товч зөвлөмж</li><li>7 хоногийн жижиг дом, дадал</li></ul>
+      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-drop')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-drop">Энэ бол амталгаа биш, эхний түлхүүр. Таны кодын эхний хэсэг, мөнгө тогтохгүй байгаа гол зангилаа, 7 хоног хэрэгжүүлэх энгийн дом/дадал гарна. Гүн өр, хайр дурлал, ажил бизнесийн тайлал энэ багцад нээгдэхгүй.</div>
       <button class="btn" onclick="choosePackage('Зоосны Дусал',9900)">ЭХНИЙ ДУСЛАА АВАХ</button>
     </div>
 
     <div class="card pack river best">
       <div class="smallCaps">БҮРЭН ШИЙДЭЛ</div><h2 class="gold">Мөнгөн Гол</h2><p class="sub">Мөнгөний урсгалаа бүрэн нээ</p>
       <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Өрийн блок, зангилааны гүн тайлал</li><li>30 хоногийн мөнгө тогтоох төлөвлөгөө</li><li>Аз дуудах сайн өдрүүд</li></ul>
-      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-river')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-river">Энэ багц нь хамгийн тэнцвэртэй бүрэн тайлал. Өрийн блок, зоосны зангилаа, мөнгө тогтох дадал, 30 хоногийн төлөвлөгөө, азтай өдрүүдийг дэлгэрүүлнэ.</div>
+      <ul class="list"><li>Заяагдмал кодын 4 орон бүрэн тайлагдана</li><li>Өрийн дарамт, мөнгө сарних гол зангилаа</li><li>30 хоногийн мөнгө тогтоох төлөвлөгөө</li><li>Аз дуудах өдөр, өнгө, чиглэл, дом</li></ul>
+      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-river')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-river">Энэ бол мөнгөний урсгалын үндсэн бүрэн тайлан. Таны кодыг 4 орноор нь нээж, өрийн дарамт, мөнгө сарних дадал, мөнгө тогтоох 30 хоногийн алхам, аз дуудах өдөр, өнгө, чиглэл, бэлгэдлийн домыг дэлгэрүүлнэ.</div>
       <button class="btn" onclick="choosePackage('Мөнгөн Гол',19900)">УРСГАЛАА НЭЭХ</button>
     </div>
 
     <div class="card pack sea">
       <div class="smallCaps">ДЭЭД ЗЭРЭГ</div><h2>Алтан Далай</h2><p class="sub">Хязгааргүй элбэгийн далай</p>
       <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Мөнгөн Гол багцын бүх зүйл</li><li>49 хоногийн хувийн чиглэл</li><li>Мөнгөний түлхүүрийн бүрэн тайлал</li></ul>
-      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-sea')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-sea">Энэ багц нь хамгийн гүн хувилбар. 49 хоногийн чиглэл, дахин зангилаа үүсэхээс хамгаалах сануулга, мөнгөний түлхүүрийн бүрэн тайллыг багтаана.</div>
+      <ul class="list"><li>Мөнгөн Гол багцын бүх зүйл</li><li>49 хоногийн гүн төлөвлөгөө</li><li>Хайр дурлал, ажил бизнес, том шийдвэрийн код</li><li>Дахин зангилаа үүсэхээс хамгаалах бэлгэдлийн дом</li></ul>
+      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-sea')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-sea">Энэ бол хамгийн гүн хувилбар. Мөнгөний кодоос гадна хайр дурлал, ажил бизнес, том шийдвэр, өр зээлээс гарах хандлага, дахин зангилаа үүсэхээс хамгаалах 49 хоногийн бэлгэдлийн дом, өдөр бүрийн чиглэл орно.</div>
       <button class="btn secondary" onclick="choosePackage('Алтан Далай',99000)">ДАЛАЙГ ЭЗЭМШИХ</button>
     </div>
   </section>
@@ -311,14 +338,14 @@ function showResult(){
  $('scan').classList.remove('show');$('result').classList.add('show');
  const seed=hash(JSON.stringify(client)), zz=zodiac(client.month,client.day), code=moneyCode(client);client.zodiac=zz[0];client.code=code;
  $('zodiacSymbol').textContent=zz[1];$('zodiacName').textContent=zz[0]+'ын орд';renderZodiacWheel(zz[0]);
- let archetypes=[
-  ['Сургалтын','Эзэн','«Ивээгч» төрлийн мөнгөний зан чанар','Чи бусдыг эдгээж, зааж, чиглүүлэх агуу хайртай. Мөнгөний хувьд энэ нөлөө чинь ховор хүч: чи мэдлэг, үнэ цэнээ хуваалцаж олон хүнд хүрснээр элбэг урсгал бүрдүүлж чадна.'],
-  ['Алтан','Удирдагч','«Зохион байгуулагч» төрлийн мөнгөний зан чанар','Чи мөнгийг сахилга бат, удирдлага, зөв хуваарилалтаар өсгөдөг. Харин бүхнийг ганцаараа үүрэх үед урсгал чинь гацдаг.'],
-  ['Хишгийн','Түлхүүр','«Боломж нээгч» төрлийн мөнгөний зан чанар','Чамд боломжийг олж харах зөн хүчтэй. Гэвч хурдан шийдвэр, бусдад хэт итгэх зан санхүүгийн зангилаа үүсгэдэг.']
+ let profiles=[
+  ['Заяагдмал','Код','Таны төрсөн мэдээллээс гарсан хувийн тоон түлхүүр',`Танд ${code.slice(0,2)}•• гэсэн заяагдмал код илэрч байна. Энэ код нь мөнгө хаанаас орж ирдэг, хаана сарнидаг, өрийн дарамт ямар үед нэмэгддэг, хайр дурлал болон ажил бизнес дээр ямар шийдвэрт анхаарахыг харуулдаг бэлгэдлийн түлхүүр юм.`],
+  ['Мөнгөний','Түлхүүр','Орлого, зарлага, өрийн зангилааг унших код',`Таны кодын эхний хоёр орон ${code.slice(0,2)}. Энэ нь мөнгөний боломж байгаа ч төвлөрөл алдагдах үед урсгал сарнихыг зааж байна. Үлдсэн хоёр орон бүрэн тайланд нээгдэж, юунаас эхэлж засахыг харуулна.`],
+  ['Хишгийн','Код','Хувийн зам мөр, мөнгө тогтох чадварын дохио',`Энэ код таны хишгийн сав, өрийн дарамт, мөнгө тогтох дадал, харилцааны сонголтод нөлөөлдөг хэв маягийг илтгэнэ. Кодоо зөв ашиглавал юунд хүчээ төвлөрүүлэхээ илүү тод харна.`]
  ];
- let a=archetypes[seed%archetypes.length];
+ let a=profiles[seed%profiles.length];
  $('archTitle').textContent=a[0];$('archTitle2').textContent=a[1];$('archSub').textContent=a[2];$('mainText').textContent=a[3];
- $('chips').innerHTML=['Өгөөмөр сэтгэл','Зааж чиглүүлэх авьяас','Төвлөрөл хэрэгтэй'].map(x=>`<span class="chip">${x}</span>`).join('');
+ $('chips').innerHTML=['Мөнгөний урсгал','Өрийн дарамт','Хайр дурлал','Ажил бизнес','Азын өдөр','Бэлгэдлийн дом'].map(x=>`<span class="chip">${x}</span>`).join('');
  $('code1').textContent=code[0];$('code2').textContent=code[1];
  $('result').scrollIntoView({behavior:'smooth'})
 }
@@ -328,14 +355,54 @@ function toggleDetail(id){document.querySelectorAll('.packageDetail').forEach(e=
 function choosePackage(name,price){selected={name,price};$('payTitle').textContent=name+' — төлбөр хийх';$('payDesc').textContent='Төлөх дүн: '+price.toLocaleString()+'₮';$('txn').textContent=client.phone||'утас';$('paidCheck').checked=false;toggleSubmit();$('pay').classList.add('show');$('pay').scrollIntoView({behavior:'smooth'})}
 function copyText(id){navigator.clipboard?.writeText($(id).textContent);toast('Хууллаа')}
 function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
-function buildReport(){return{client,package:selected,code:client.code,created:new Date().toISOString(),zodiac:client.zodiac}}
-async function submitOrder(){
- if(!$('paidCheck').checked){toast('Төлбөр шилжүүлснээ батална уу');return}
- try{await addDoc(collection(db,'orders'),{...client,package:selected.name,price:selected.price,status:'new',paidConfirmed:true,report:buildReport(),createdAt:serverTimestamp()});$('success').classList.add('show');$('success').scrollIntoView({behavior:'smooth'});toast('Захиалга илгээгдлээ')}catch(e){toast('Firebase алдаа: '+e.message)}
+function buildReport(){
+ const seed=hash(client.fullName+client.birth+(selected.name||'')), code=client.code||moneyCode(client);
+ const common={client,package:selected,code,created:new Date().toISOString(),zodiac:client.zodiac,seed};
+ if(selected.name==='Зоосны Дусал'){
+  return {...common,level:'basic',
+   title:'Зоосны Дусал — эхний түлхүүр',
+   sections:[
+    ['Кодын эхний дохио',`Таны кодын эхний хоёр орон ${code.slice(0,2)}. Энэ нь мөнгөний урсгал байгаа ч жижиг зарлага, бусдын хэрэгт хэт оролцох, эхэлснээ дуусгахгүй орхих үед хишиг сарних дохио юм.`],
+    ['Мөнгө гацдаг эхний цэг','Энэ түвшинд хамгийн түрүүнд өдөр тутмын зарлага, сэтгэл хөдлөлөөр гаргадаг шийдвэр, бусдад гэнэт туслахдаа өөрийн нөөцийг хоослох хандлагыг ажиглана.'],
+    ['7 хоногийн дом, дадал','7 хоногийн турш орлого орсон өдөр 10%-ийг шууд тусад нь хий. Түрийвч, дансны нэр, мөнгө хадгалдаг хэсгээ цэгцэл. Шинэ зардал гаргахын өмнө нэг шөнө хүлээ.'],
+    ['Товч зөвлөмж','Азын өнгө: алтлаг улаан. Азын чиглэл: гэрийн баруун урд булан. Анхаарах өдөр: их зарлага төлөвлөсөн өдөр.']
+   ]};
+ }
+ if(selected.name==='Мөнгөн Гол'){
+  return {...common,level:'standard',
+   title:'Мөнгөн Гол — бүрэн урсгалын тайлан',
+   sections:[
+    ['Заяагдмал код бүрэн тайлал',`Таны код ${code}. Эхний хоёр орон нь мөнгө татах хүчийг, сүүлийн хоёр орон нь мөнгө хаана сарниж байгааг илэрхийлнэ. Энэ кодоор санхүүгийн шийдвэр гаргахдаа юуг түрүүлж засахаа харж болно.`],
+    ['Өрийн дарамтын зангилаа','Өрийн дарамт ихсэх үе нь нэг дор олон зүйл эхлүүлэх, өөрийн орлого баталгаажаагүй байхад том амлалт өгөх, бусдын өмнөөс үүрэг авах үед идэвхждэг.'],
+    ['Мөнгө тогтоох 30 хоногийн төлөвлөгөө','1–7 дахь өдөр: зарлагаа бүртгэ. 8–14 дэх өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 дэх өдөр: орлогын нэг шинэ суваг тодорхойл. 22–30 дахь өдөр: хуримтлалын автомат дүрэм тогтоо.'],
+    ['Аз дуудах өдөр, өнгө, чиглэл','Азын өнгө: гүн улаан, алт. Азын чиглэл: баруун урд. Аз дуудах өдөр: мөнгө орсон өдрөөс хойш 3 дахь өдөр. Энэ өдөр хадгалалт эхлүүлэхэд сайн.'],
+    ['Бэлгэдлийн дом','Өглөө бүр түрийвч, дансны нэр, ажлын ширээгээ цэвэр байлгаж “орж ирсэн хишгийг тогтооно” гэж өөртөө сануул. Энэ нь баталгаа биш, харин дадал тогтоох бэлгэдэл юм.']
+   ]};
+ }
+ return {...common,level:'premium',
+  title:'Алтан Далай — заяагдмал кодын гүн тайлан',
+  sections:[
+   ['Заяагдмал кодын гүн зураглал',`Таны бүрэн код ${code}. Энэ код нь мөнгөний урсгал, өрийн дарамт, хайр дурлалын сонголт, ажил бизнесийн шийдвэр дээр давтагддаг хэв маягийг унших түлхүүр гэж үзнэ.`],
+   ['Мөнгөний урсгал ба өр зээлийн дарамт','Мөнгө орж ирэх боломж өндөр боловч том шийдвэрийг сэтгэл хөдлөлөөр хийх, бусдад хэт үүрэг хүлээх, орлогоос өмнө зарлага төлөвлөх үед урсгал тасалдах хандлага байна.'],
+   ['Хайр дурлал ба харилцааны код','Хайр дурлалын талд таны код хэт өглөгч, бусдын ачааг өөр дээрээ авах хандлагыг харуулна. Хамтрагчтайгаа мөнгө, үүрэг, зорилгыг тодорхой ярих нь хишгийн савыг хамгаална.'],
+   ['Ажил бизнес, том шийдвэр','Ажил бизнес дээр нэг чиглэлд 49 хоног тасралтгүй төвлөрөхөд үр дүн гарна. Нэг дор олон санаа эхлүүлэхээс илүү хамгийн ашигтай нэг сувгаа сонгох нь таны кодод тохирно.'],
+   ['49 хоногийн төлөвлөгөө','1–7 хоног: цэвэрлэгээ ба зарлагын бүртгэл. 8–21 хоног: өр, төлбөрийн жагсаалт. 22–35 хоног: орлогын нэг гол суваг. 36–49 хоног: хадгалалт, дахин зангилаа үүсэхээс хамгаалах дүрэм.'],
+   ['Дахин зангилаа үүсэхээс хамгаалах дом','Сар бүрийн нэг өдөр санхүүгийн гэрээ, зээл, амлалт, хуримтлалаа шалга. Алтлаг улаан тэмдэглэл ашиглаж зорилгоо бич. Энэ дом нь сэтгэл төвлөрүүлэх бэлгэдэл бөгөөд бодит санхүүгийн сахилга баттай хамт хэрэгжинэ.']
+  ]};
 }
 function reportHtml(data){
- const r=data.report||data, c=r.client||data, p=r.package||{};
- return `<div class="reportInner"><div class="reportRow"><b>Нэр:</b> ${c.fullName||c.name||''}</div><div class="reportRow"><b>Төрсөн огноо:</b> ${c.birth||''}</div><div class="reportRow"><b>Утас:</b> ${c.phone||''}</div><div class="reportRow"><b>Багц:</b> ${p.name||data.package||''}</div><div class="reportRow"><b>Зоосны түлхүүр:</b> ${(r.code||c.code||'••••').toString().slice(0,2)}••</div><div class="reportRow"><b>Мөнгөний хэв маяг:</b> ${c.zodiac||r.zodiac||''} ордын санхүүгийн хандлага</div><div class="reportRow"><b>Ерөнхий тайлал:</b><br>Таны мөнгөний урсгалд боломж байгаа боловч зарлага, өрийн даралт, бусдад хэт үүрэг хүлээх зангаас зоосны зангилаа үүсэх хандлага харагдаж байна.</div><div class="reportRow"><b>30 хоногийн зөвлөмж:</b><br>1. Орлого бүрээс 10%-ийг салга.<br>2. 7 хоногийн хэрэггүй зарлагаа бич.<br>3. Шинэ зээл авах шийдвэрийг 72 цаг хойшлуул.<br>4. Мөнгөний зорилгоо нэг л зүйл дээр төвлөрүүл.</div></div>`;
+ const r=data.report||data, c=(r.client||data), p=(r.package||{name:data.package,price:data.price});
+ const sections=(r.sections||[]).map(s=>`<div class="reportRow premium"><h3>${s[0]}</h3><div>${s[1]}</div></div>`).join('');
+ return `<div class="reportInner">
+  <div class="reportRow"><b>Нэр:</b> ${c.fullName||c.name||''}</div>
+  <div class="reportRow"><b>Төрсөн огноо:</b> ${c.birth||''}</div>
+  <div class="reportRow"><b>Утас:</b> ${c.phone||''}</div>
+  <div class="reportRow"><b>Багц:</b> ${p.name||data.package||''}</div>
+  <div class="reportRow"><b>Тайлангийн түвшин:</b> ${r.title||'Мөнгөний тайлан'}</div>
+  <div class="reportRow"><b>Зоосны түлхүүр:</b> ${r.level==='basic' ? (r.code||c.code||'••••').toString().slice(0,2)+'••' : (r.code||c.code||'••••')}</div>
+  <div class="reportRow"><b>Мөнгөний хэв маяг:</b> ${c.zodiac||r.zodiac||''} ордын санхүүгийн хандлага</div>
+  ${sections || `<div class="reportRow premium"><h3>Ерөнхий тайлал</h3>Таны мөнгөний урсгалд боломж байгаа боловч зарлага, өрийн даралт, бусдад хэт үүрэг хүлээх зангаас зоосны зангилаа үүсэх хандлага харагдаж байна.</div>`}
+ </div>`;
 }
 function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
 async function ensureLink(id){
