@@ -10,6 +10,8 @@
 - PDF татах, хэвлэх, текст хуулах хэвээр.
 
 Админ нууц үг: 9999
+Админ орох нууц холбоос: https://ucihafafa-alt.github.io/Mungu/#admin
+Хэрэглэгчид өгөх холбоос: https://ucihafafa-alt.github.io/Mungu/
 
 Firebase шаардлага:
 - Project: mongo-block

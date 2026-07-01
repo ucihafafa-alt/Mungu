@@ -219,8 +219,12 @@ function reportCSS(){return `.tm-report{font-family:Arial,sans-serif;color:#1b26
 async function showReportById(reportId){
  try{const snap=await getDoc(doc(db,'reports',reportId)); if(!snap.exists()){alert('Тайлан олдсонгүй');return} const p=snap.data(); document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.querySelector('.top')?.remove(); document.querySelector('.floating-admin')?.remove(); let section=document.getElementById('publicReport'); if(!section){section=document.createElement('section'); section.id='publicReport'; section.className='screen active public-report'; document.querySelector('main').appendChild(section)} section.innerHTML=`<div class="public-head"><p class="kicker">Тэнгэрийн Мэлмий</p><h2>${safe(p.client?.name)} таны тайлан</h2><p>Багц: <b>${safe(p.package?.name)}</b></p></div>${reportHTML({client:p.client,package:p.package,result:p.result},p.report)}<div class="result-actions"><button class="gold" onclick="window.print()">Хэвлэх / PDF хадгалах</button></div>`; window.scrollTo(0,0)}catch(e){alert('Тайлан нээхэд алдаа: '+e.message)}
 }
-function checkReportHash(){if(location.hash.startsWith('#report=')) showReportById(location.hash.slice(8))}
+function checkReportHash(){
+  if(location.hash.startsWith('#report=')) return showReportById(location.hash.slice(8));
+  if(location.hash==='#admin') return openAdmin();
+}
 window.addEventListener('load',checkReportHash);
+window.addEventListener('hashchange',checkReportHash);
 
 async function exportOrders(){const data=JSON.stringify(ordersCache,null,2); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([data],{type:'application/json'})); a.download='tenger-melmii-orders.json'; a.click()}
 window.exportOrders=exportOrders;
