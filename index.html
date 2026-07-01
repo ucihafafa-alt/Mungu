@@ -157,7 +157,16 @@ body:after{content:"";position:fixed;inset:0;z-index:-2;background-image:
     <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
     <div class="copyLine"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
     <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
-    <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Захиалга илгээх</button>
+    
+<div class="tm-bank-copy">
+  <div class="tm-copy-line"><span>Данс эзэмшигч</span><b id="tmAccName">Л.Батцог</b><button type="button" onclick="tmCopyValue('tmAccName')">📋</button></div>
+  <div class="tm-copy-line"><span>Банк</span><b id="tmBank">Хаан банк</b><button type="button" onclick="tmCopyValue('tmBank')">📋</button></div>
+  <div class="tm-copy-line"><span>Данс</span><b id="tmAccNo">5690034540</b><button type="button" onclick="tmCopyValue('tmAccNo')">📋</button></div>
+  <div class="tm-copy-line"><span>IBAN</span><b id="tmIban">59000500</b><button type="button" onclick="tmCopyValue('tmIban')">📋</button></div>
+  <div class="tm-copy-line"><span>Гүйлгээний утга</span><b id="tmTxn">утасны дугаар</b><button type="button" onclick="tmCopyValue('tmTxn')">📋</button></div>
+</div>
+<label class="tm-paid-check"><input id="tmPaidCheck" type="checkbox" onchange="tmTogglePaid()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
+<button id="submitBtn" disabled  id="submitBtn" class="btn" disabled onclick="submitOrder()">Захиалга илгээх</button>
   </section>
 
   <section class="card pay" id="success">

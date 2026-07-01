@@ -123,13 +123,13 @@ function previewReceipt(input){const f=input.files[0]; if(!f)return; const r=new
 window.previewReceipt=previewReceipt;
 
 async function submitOrder(){
- if(!client.name){alert('Эхлээд шинжилгээ бөглөнө үү');return} if(!selected.name){alert('Багц сонгоно уу');return} if(!receiptData){alert('Баримтын зураг оруулна уу');return}
+ if(!client.name){alert('Эхлээд шинжилгээ бөглөнө үү');return} if(!selected.name){alert('Багц сонгоно уу');return} 
  const n=seedFor({client})%100;
  const order={
    date:new Date().toLocaleString('mn-MN'), createdAt: serverTimestamp(), updatedAt: Date.now(),
    status:'Шинэ захиалга', client, package:selected,
    result:{money:(88+(n%10))+'%', debt:'Илэрсэн', luck:(80+(n%13))+'%'},
-   receipt: receiptData.slice(0,900000), reportId:''
+   receipt: receiptData || '' ? receiptData.slice(0,900000) : '', reportId:''
  };
  try{await addDoc(collection(db,'orders'), order); go('thanks')}
  catch(e){alert('Firebase-д хадгалах үед алдаа гарлаа: '+e.message)}
@@ -232,3 +232,30 @@ window.exportOrders=exportOrders;
 function burstCoin(e){const coin=e.currentTarget; const r=coin.getBoundingClientRect(); const cx=r.left+r.width/2, cy=r.top+r.height/2; coin.classList.add('explode'); const flash=document.createElement('i'); flash.className='flash-burst'; flash.style.left=(cx-9)+'px'; flash.style.top=(cy-9)+'px'; document.body.appendChild(flash); setTimeout(()=>flash.remove(),600); for(let i=0;i<36;i++){const s=document.createElement('i'); s.className='spark'; const a=(Math.PI*2*i/36)+(Math.random()*.45); const d=70+Math.random()*140; s.style.left=cx+'px'; s.style.top=cy+'px'; s.style.setProperty('--x',Math.cos(a)*d+'px'); s.style.setProperty('--y',Math.sin(a)*d+'px'); document.body.appendChild(s); setTimeout(()=>s.remove(),900)} for(let i=0;i<14;i++){const piece=document.createElement('i'); piece.className='coin-piece'; piece.textContent='₮'; const a=(Math.PI*2*i/14)+(Math.random()*.7); const d=80+Math.random()*170; piece.style.left=(cx-11)+'px'; piece.style.top=(cy-11)+'px'; piece.style.setProperty('--x',Math.cos(a)*d+'px'); piece.style.setProperty('--y',Math.sin(a)*d+'px'); piece.style.setProperty('--rot',(Math.random()*720-360)+'deg'); document.body.appendChild(piece); setTimeout(()=>piece.remove(),1050)} if(navigator.vibrate) navigator.vibrate(45); setTimeout(()=>coin.classList.remove('explode'),760)}
 window.burstCoin=burstCoin;
 if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+
+
+/* === TENGER FIX PACK JS === */
+function tmCopyValue(id){
+  const el=document.getElementById(id);
+  if(!el) return;
+  navigator.clipboard && navigator.clipboard.writeText(el.textContent.trim());
+  alert('Хууллаа');
+}
+window.tmCopyValue = tmCopyValue;
+
+function tmTogglePaid(){
+  const c=document.getElementById('tmPaidCheck');
+  const b=document.getElementById('submitBtn') || document.querySelector('[onclick*="submitOrder"]');
+  if(b) b.disabled = !(c && c.checked);
+}
+window.tmTogglePaid = tmTogglePaid;
+
+function tmFillTxn(){
+  const phone = document.getElementById('phone')?.value || document.querySelector('[name=phone]')?.value || '';
+  const txn = document.getElementById('tmTxn');
+  if(txn) txn.textContent = phone || 'утасны дугаар';
+}
+document.addEventListener('input', tmFillTxn);
+document.addEventListener('change', tmFillTxn);
+document.addEventListener('DOMContentLoaded',()=>{tmFillTxn(); tmTogglePaid();});

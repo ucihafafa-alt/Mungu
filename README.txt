@@ -1,3 +1,9 @@
-Melhii-style UI/UX version.
-Upload index.html + manifest.json to GitHub root.
-Admin: #admin password 9999
+Тэнгэрийн Мэлмий — Premium Fix
+Өөрчлөлт:
+- Данс: Л.Батцог / Хаан банк / 5690034540 / IBAN 59000500
+- QR, баримтын зураг шаардах хэсгийг нуусан/сулласан
+- Данс, банк, IBAN, гүйлгээний утга тус бүр хуулдаг
+- "Би төлбөрөө шилжүүлсэн" чек дарсны дараа Захиалга илгээх идэвхжинэ
+- Premium dark/gold UI override нэмсэн
+- GitHub дээр бүх файлыг root дээр upload хийнэ
+- Admin: #admin, pass 9999
