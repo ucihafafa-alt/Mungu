@@ -1,1 +1,3 @@
-Upload files to GitHub root. Admin: /Mungu/#admin password 9999
+Тэнгэрийн Мэлмий V2.1
+Admin: /Mungu/#admin
+Password: 9999
