@@ -1,1 +1,1 @@
-v12: Лууны зургийг хөдөлгөөнтэй болгосон, 12 жилийн 3D хүрд нэмсэн, хүсэлт илгээх болон админий Тайлан/Линк/SMS/PDF товчнуудыг robust override-оор зассан.
+v14 lite: GitHub/mobile дээр гацааг багасгахын тулд video-г шахсан, loading дээр video биш зураг+effect болгосон, худлаа банкны logo файлуудыг авч text-only bank buttons болгосон. Upload all files to GitHub root.
