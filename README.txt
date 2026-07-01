@@ -1,1 +1,1 @@
-v9: report link opens actual report, admin has report/link/SMS/PDF, top reviews, package detail toggles, live dragon animation, live zodiac wheel.
+v10: Зураг үүсгээгүй. Хэрэглэгчийн өгсөн луу, мод, тариа, мөнгөний зургуудыг системд asset болгон оруулсан. Root дээр бүх файлыг upload хийнэ.
