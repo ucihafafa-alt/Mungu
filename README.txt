@@ -1,1 +1,1 @@
-Mungu premium full redesign. Upload all files to GitHub root.
+Fix: гол ₮ солигдсон, админд Тайлан харах / Линк / SMS илгээх нэмсэн, #report= линк тайлан нээнэ.
