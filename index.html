@@ -1,59 +1,204 @@
-<!doctype html><html lang="mn"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>Тэнгэрийн Мэлмий — Мөнгөний Урсгал</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Мөнгөний Урсгал">
 <meta property="og:description" content="Мөнгөний урсгал, өрийн блок, зоосны зангилаа, хишгийн сувгаа шалгаарай.">
-<link rel="stylesheet" href="style.css?v=fix-report-sms-1"><link rel="manifest" href="manifest.json"></head><body>
+<meta property="og:image" content="bg-preview.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css?v=final-v4">
+</head>
+<body>
 <div class="stars"></div>
-<header><button onclick="screenTo('home')">⌂</button><div class="brand"><img src="logo.png"><div><b>ТЭНГЭРИЙН МЭЛМИЙ</b><span>МӨНГӨНИЙ УРСГАЛ</span></div></div><button onclick="openAdmin()">Админ</button></header>
+
+<header class="topbar">
+  <button class="head-btn" onclick="screenTo('home')">⌂</button>
+  <div class="brand">
+    <img src="logo.png" alt="">
+    <div><b>ТЭНГЭРИЙН МЭЛМИЙ</b><span>МӨНГӨНИЙ УРСГАЛ</span></div>
+  </div>
+  <button class="head-btn" onclick="openAdmin()">Админ</button>
+</header>
 
 <main>
-<section id="home" class="screen active">
- <div class="hero">
-  <div><div class="tag">ҮНЭГҮЙ МӨНГӨНИЙ ОНОШЛОГОО</div><h1>Зоосны зангилаагаа<br><span>үнэгүй шалгуулъя</span></h1><p>Мөнгөний урсгал, өрийн блок, хишгийн сав, мөнгө тогтох хэв маягийн эхний зураглал хэдхэн секундэд гарна.</p><button class="gold" onclick="screenTo('form')">Шинжилгээ эхлүүлэх</button></div>
-  <div class="visual card"><img class="wheel" src="zodiac-wheel.jpg"><img class="biglogo" src="logo.png"><div class="vtext">Мөнгөний урсгал • Өрийн блок • Хишгийн сав</div></div>
- </div>
-</section>
+  <section id="home" class="screen active">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="tag">ҮНЭГҮЙ МӨНГӨНИЙ ОНОШЛОГОО</div>
+        <h1>Зоосны зангилаагаа<br><span>үнэгүй шалгуулъя</span></h1>
+        <p>Мөнгөний урсгал, өрийн блок, хишгийн сав, мөнгө тогтох хэв маягийн эхний зураглал хэдхэн секундэд гарна.</p>
+        <button class="gold" onclick="screenTo('form')">Шинжилгээ эхлүүлэх</button>
+      </div>
+      <div class="hero-visual glass">
+        <div class="shine"></div>
+        <img class="logo-focus" src="logo.png" alt="">
+        <img class="wheel-bg" src="money-wheel.jpg" alt="">
+        <div class="visual-note">Мөнгөний урсгал • Өрийн блок • Хишгийн сав</div>
+      </div>
+    </div>
+  </section>
 
-<section id="form" class="screen"><div class="card panel">
- <img src="logo.png" class="logoMain"><h2>Мэдээллээ оруулна уу</h2><p>Эхний оношлогоонд 3 мэдээлэл хэрэгтэй.</p>
- <label>Овог нэр<input id="name" placeholder="Жишээ: Nomi"></label>
- <label>Төрсөн огноо<input id="birth" placeholder="1988.12.31"></label>
- <label>Утас<input id="phone" inputmode="tel" placeholder="99039726"></label>
- <button class="gold full" onclick="confirmInfo()">Үнэгүй үр дүн нээх</button>
-</div></section>
+  <section id="form" class="screen">
+    <div class="panel glass narrow">
+      <img class="panel-logo" src="logo.png" alt="">
+      <h2>Мэдээллээ оруулна уу</h2>
+      <p class="muted">Эхний оношлогоонд зөвхөн 3 мэдээлэл хэрэгтэй.</p>
+      <label>Овог нэр<input id="name" placeholder="Жишээ: Nomi"></label>
+      <label>Төрсөн огноо<input id="birth" placeholder="1988.12.31"></label>
+      <label>Утас<input id="phone" inputmode="tel" placeholder="99039726"></label>
+      <button class="gold full" onclick="confirmInfo()">Үнэгүй үр дүн нээх</button>
+    </div>
+  </section>
 
-<section id="scan" class="screen scan"><div><div class="orb"><img src="zodiac-wheel.jpg"><span id="scanIcon">✦</span></div><h2 id="scanText">Мөнгөний урсгалыг уншиж байна...</h2><div class="progress"><i id="bar"></i></div><p class="tiny">АЛТАН МЭЛМИЙ ТАНЫ ТӨЛӨӨ АЖИЛЛАЖ БАЙНА</p></div></section>
+  <section id="scan" class="screen scan-screen">
+    <div class="scan-box">
+      <div class="scan-orb">
+        <img src="money-wheel.jpg" alt="">
+        <div id="scanIcon">✦</div>
+      </div>
+      <h2 id="scanText">Мөнгөний урсгалыг уншиж байна...</h2>
+      <div class="progress"><i id="bar"></i></div>
+      <p class="tiny">АЛТАН МЭЛМИЙ ТАНЫ ТӨЛӨӨ АЖИЛЛАЖ БАЙНА</p>
+    </div>
+  </section>
 
-<section id="result" class="screen">
- <div class="card resultTop"><div class="tag">ҮНЭГҮЙ ҮР ДҮН</div><h2>Таны мөнгөний урсгал</h2><div class="circle"><span id="mainPercent">89%</span></div><h3 id="mainResult">Өндөр боломжтой, гэхдээ зангилаа илэрсэн.</h3><p id="mainDesc">Мөнгө орж ирэх боломж байгаа ч тогтох хэсэг дээр саад үүссэн байна.</p></div>
- <div class="metrics"><div class="card metric danger"><span>⚠</span><b id="debt">88%</b><small>Өрийн эрсдэл</small></div><div class="card metric"><span>🔒</span><b id="block">85%</b><small>Зангилаа</small></div><div class="card metric good"><span>🏺</span><b id="luck">90%</b><small>Хишгийн сав</small></div><div class="card metric power"><span>⚡</span><b id="energy">91%</b><small>Энерги</small></div></div>
- <div class="card zodiac"><div class="symbolWrap"><div class="smallWheel"></div><div id="zSymbol" class="zSymbol">♑</div></div><div><div class="tag">ТАНЫ МӨНГӨНИЙ ХЭВ МАЯГ</div><h2 id="zName">Матар</h2><p id="zText"></p><div id="chips" class="chips"></div></div></div>
- <div class="card unlock"><div class="lock">🔐</div><div><div class="tag">ГОЛ ШАЛТГААН ИЛЭРЛЭЭ</div><h2>Зоосны зангилаа</h2><p>Мөнгөний урсгалыг удаашруулж буй шалтгаан, өр зээлийн даралт, гарц шийдэл бүрэн тайланд нээгдэнэ.</p><button class="gold" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">Тайлангаа нээх</button></div></div>
- <section id="plans"><h2>Бүрэн тайлангийн багцууд</h2><div class="card timer"><span>-50% хямдрал дуусахад</span><b id="timer">--:--:--</b><small>Өнөөдөр шөнө дунд хүртэл</small></div><div class="plans">
-  <div class="card plan"><h3>Зоосны Дусал</h3><p>Эхний гарц, зөвлөмж</p><div><del>19,800₮</del> <b>9,900₮</b></div><ul><li>Зангилааны эхний тайлал</li><li>Азын зүг, өнгө, тоо</li><li>Мөнгө тогтох 3 алхам</li></ul><button class="gold" onclick="choosePlan('Зоосны Дусал',9900)">Эхний дуслаа авах</button></div>
-  <div class="card plan best"><div class="badge">ХАМГИЙН СОНГОГДДОГ</div><h3>Мөнгөн Гол</h3><p>Урсгалаа бүрэн нээ</p><div><del>39,800₮</del> <b>19,900₮</b></div><ul><li>Өрийн блок тайлал</li><li>Мөнгөний зан үйл</li><li>Аз дуудах өдрүүд</li></ul><button class="gold" onclick="choosePlan('Мөнгөн Гол',19900)">Урсгалаа нээх</button></div>
-  <div class="card plan"><h3>Алтан Далай</h3><p>Гүн тайлал</p><div><del>198,000₮</del> <b>99,000₮</b></div><ul><li>Мөнгөний код</li><li>49 хоногийн төлөвлөгөө</li></ul><button class="outline" onclick="choosePlan('Алтан Далай',99000)">Далайг эзэмших</button></div>
- </div></section>
-</section>
+  <section id="result" class="screen">
+    <div class="result-hero glass">
+      <div class="tag">ҮНЭГҮЙ ҮР ДҮН</div>
+      <h2>Таны мөнгөний урсгал</h2>
+      <div class="score-ring"><span id="mainPercent">89%</span></div>
+      <h3 id="mainResult">Өндөр боломжтой, гэхдээ зангилаа илэрсэн</h3>
+      <p id="mainDesc">Мөнгө орж ирэх боломж байгаа ч тогтох хэсэг дээр саад үүссэн байна.</p>
+    </div>
 
-<section id="payment" class="screen"><div class="card panel">
- <button class="outline" onclick="screenTo('result')">← Буцах</button><h2>Төлбөрийн мэдээлэл</h2><p id="payPlan">Сонгосон багц</p>
- <div class="bankInfo"><h3>ХААН БАНК</h3><div><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div><div><span>Данс</span><b id="accNo">5690034540</b><button onclick="copyText('accNo')">📋</button></div><div><span>IBAN</span><b id="iban">59000500</b><button onclick="copyText('iban')">📋</button></div><div><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div></div>
- <button class="gold full" onclick="openBanks()">Банкны апп нээх</button>
- <label class="paid"><input type="checkbox" id="paid" onchange="toggleSubmit()"> Би төлбөрөө амжилттай шилжүүлсэн.</label>
- <button class="gold full" id="submit" disabled onclick="submitOrder()">Захиалга илгээх</button>
-</div></section>
+    <div class="metrics">
+      <div class="metric glass danger"><span>⚠</span><b id="debt">88%</b><small>Өрийн эрсдэл</small></div>
+      <div class="metric glass"><span>🔒</span><b id="block">85%</b><small>Зоосны зангилаа</small></div>
+      <div class="metric glass good"><span>🏺</span><b id="luck">90%</b><small>Хишгийн сав</small></div>
+      <div class="metric glass power"><span>⚡</span><b id="energy">91%</b><small>Санхүүгийн энерги</small></div>
+    </div>
 
-<section id="thanks" class="screen"><div class="card panel center"><h2>Захиалга бүртгэгдлээ</h2><p>Төлбөр баталгаажмагц админаас тайлангийн линк SMS-р илгээгдэнэ.</p><button class="gold full" onclick="screenTo('home')">Эхлэл рүү буцах</button></div></section>
+    <div class="money-type glass">
+      <div class="symbol-wrap">
+        <div class="small-wheel"></div>
+        <div id="moneySymbol" class="money-symbol">♑</div>
+      </div>
+      <div>
+        <div class="tag">ТАНЫ МӨНГӨНИЙ ХЭВ МАЯГ</div>
+        <h2 id="typeName">Матар</h2>
+        <p id="typeText"></p>
+        <div id="chips" class="chips"></div>
+      </div>
+    </div>
 
-<section id="admin" class="screen"><h2>Админ</h2><div id="orders" class="orders"></div></section>
+    <div class="unlock glass">
+      <div class="lock-visual">🔐</div>
+      <div>
+        <div class="tag">ГОЛ ШАЛТГААН ИЛЭРЛЭЭ</div>
+        <h2>Зоосны зангилаа</h2>
+        <p>Мөнгөний урсгалыг удаашруулж буй шалтгаан, өр зээлийн даралт, мөнгө тогтох дадал, гарц шийдэл бүрэн тайланд нээгдэнэ.</p>
+        <button class="gold" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">Тайлангаа нээх</button>
+      </div>
+    </div>
 
-<section id="report" class="screen"><div class="card panel report"><h2>Тэнгэрийн Мэлмий — Мөнгөний тайлан</h2><div id="reportBody"></div><button class="gold full" onclick="window.print()">Тайлан татах / PDF</button></div></section>
+    <section id="plans" class="plans-sec">
+      <h2>Бүрэн тайлангийн багцууд</h2>
+      <div class="timer glass"><span>-50% хямдрал дуусахад</span><b id="timer">--:--:--</b><small>Өнөөдөр шөнө дунд хүртэл</small></div>
+      <div class="plan-grid">
+        <div class="plan glass">
+          <h3>Зоосны Дусал</h3>
+          <p>Эхний гарц, зөвлөмж</p>
+          <div class="price"><del>19,800₮</del><b>9,900₮</b></div>
+          <ul><li>Зангилааны эхний тайлал</li><li>Азын зүг, өнгө, тоо</li><li>Мөнгө тогтох 3 алхам</li></ul>
+          <button class="gold full" onclick="choosePlan('Зоосны Дусал',9900)">Эхний дуслаа авах</button>
+        </div>
+        <div class="plan glass best">
+          <div class="badge">ХАМГИЙН СОНГОГДДОГ</div>
+          <h3>Мөнгөн Гол</h3>
+          <p>Урсгалаа бүрэн нээ</p>
+          <div class="price"><del>39,800₮</del><b>19,900₮</b></div>
+          <ul><li>Өрийн блок тайлал</li><li>Зангилаа тайлах зан үйл</li><li>Аз дуудах өдрүүд</li><li>Мөнгөний урсгалын 30 хоногийн зөвлөмж</li></ul>
+          <button class="gold full" onclick="choosePlan('Мөнгөн Гол',19900)">Урсгалаа нээх</button>
+        </div>
+        <div class="plan glass">
+          <h3>Алтан Далай</h3>
+          <p>Гүн тайлал</p>
+          <div class="price"><del>198,000₮</del><b>99,000₮</b></div>
+          <ul><li>Мөнгөн Гол багцын бүх зүйл</li><li>Мөнгөний түлхүүр код</li><li>49 хоногийн төлөвлөгөө</li></ul>
+          <button class="outline full" onclick="choosePlan('Алтан Далай',99000)">Далайг эзэмших</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section id="payment" class="screen">
+    <div class="panel glass narrow">
+      <button class="outline" onclick="screenTo('result')">← Буцах</button>
+      <h2>Төлбөрийн мэдээлэл</h2>
+      <p class="muted" id="payPlan">Сонгосон багц</p>
+      <div class="bank-info">
+        <h3>ХААН БАНК</h3>
+        <div><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
+        <div><span>Данс</span><b id="accNo">5690034540</b><button onclick="copyText('accNo')">📋</button></div>
+        <div><span>IBAN</span><b id="iban">59000500</b><button onclick="copyText('iban')">📋</button></div>
+        <div><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
+      </div>
+      <button class="gold full" onclick="openBanks()">Банкны апп нээх</button>
+      <label class="paid"><input type="checkbox" id="paid" onchange="toggleSubmit()"> Би төлбөрөө амжилттай шилжүүлсэн.</label>
+      <button class="gold full" id="submit" disabled onclick="submitOrder()">Захиалга илгээх</button>
+    </div>
+  </section>
+
+  <section id="thanks" class="screen">
+    <div class="panel glass narrow center">
+      <h2>Захиалга бүртгэгдлээ</h2>
+      <p class="muted">Төлбөр баталгаажмагц админаас тайлангийн линк SMS-р илгээгдэнэ.</p>
+      <button class="gold full" onclick="screenTo('home')">Эхлэл рүү буцах</button>
+    </div>
+  </section>
+
+  <section id="admin" class="screen">
+    <h2>Админ</h2>
+    <div id="orders" class="orders"></div>
+  </section>
+
+  <section id="report" class="screen">
+    <div class="report-sheet">
+      <div class="report-head">
+        <img src="logo.png" alt="">
+        <div><h2>Тэнгэрийн Мэлмий</h2><p>Мөнгөний урсгалын дэлгэрэнгүй тайлан</p></div>
+      </div>
+      <div id="reportBody"></div>
+      <button class="gold full no-print" onclick="window.print()">Тайлан татах / PDF</button>
+    </div>
+  </section>
 </main>
 
-<div id="confirm" class="modal"><div class="card modalCard"><button class="x" onclick="closeConfirm()">×</button><img src="logo.png"><h2>Мэдээллээ шалгаарай</h2><div class="rows"><div><span>Нэр</span><b id="cName"></b></div><div><span>Төрсөн огноо</span><b id="cBirth"></b></div><div><span>Утас</span><b id="cPhone"></b></div></div><div class="two"><button class="outline" onclick="closeConfirm()">Засах</button><button class="gold" onclick="startScan()">Тийм, нээ</button></div></div></div>
+<div id="confirm" class="modal">
+  <div class="modal-card glass">
+    <button class="close" onclick="closeConfirm()">×</button>
+    <img src="logo.png" alt="">
+    <h2>Мэдээллээ шалгаарай</h2>
+    <div class="rows">
+      <div><span>Нэр</span><b id="cName"></b></div>
+      <div><span>Төрсөн огноо</span><b id="cBirth"></b></div>
+      <div><span>Утас</span><b id="cPhone"></b></div>
+    </div>
+    <div class="two"><button class="outline" onclick="closeConfirm()">Засах</button><button class="gold" onclick="startScan()">Тийм, нээ</button></div>
+  </div>
+</div>
 
-<div id="bankModal" class="modal"><div class="card bankPanel"><div class="bankTop"><button onclick="closeBanks()">← Буцах</button><span>14:52</span><button onclick="closeBanks()">×</button></div><div id="bankGrid" class="bankGrid"></div><button class="outline full" onclick="copyText('accNo')">Данс хуулах</button><button class="gold full" onclick="closeBanks()">Төлбөр шалгах</button></div></div>
+<div id="bankModal" class="modal">
+  <div class="bank-panel glass">
+    <div class="bank-top"><button onclick="closeBanks()">← Буцах</button><span>14:52</span><button onclick="closeBanks()">×</button></div>
+    <div id="bankGrid" class="bank-grid"></div>
+    <button class="outline full" onclick="copyText('accNo')">Данс хуулах</button>
+    <button class="gold full" onclick="closeBanks()">Төлбөр шалгах</button>
+  </div>
+</div>
+
 <div id="toast" class="toast"></div>
-<script type="module" src="app.js?v=fix-report-sms-1"></script></body></html>
+<script type="module" src="app.js?v=final-v4"></script>
+</body></html>
