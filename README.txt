@@ -1,5 +1,1 @@
-SYSTEM_UPGRADE_v2
-- Банкны апп хэсгийг гоё болгосон
-- Нүүрний ордны хүрд бичвэр дарахгүй болсон
-- Үр дүнд тухайн хүний ордны symbol-card гарна
-- ZIP доторх бүх файлыг GitHub root дээр upload хийнэ
+Mungu premium full redesign. Upload all files to GitHub root.
