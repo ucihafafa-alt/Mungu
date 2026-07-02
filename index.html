@@ -601,70 +601,67 @@ body{
 /* === END v32 === */
 
 
-/* === v32 HERO DRAGON + COIN BREATH EFFECT === */
-.dragonCoinHero{
+/* === v32 dragon standing on coin + breathing effect === */
+.dragonCoinStage{
   position:relative;
-  width:min(100%,520px);
-  height:300px;
-  margin:18px auto 16px;
+  width:min(100%,430px);
+  height:190px;
+  margin:4px auto 16px;
   display:grid;
   place-items:center;
   overflow:visible;
-  border-radius:28px;
-  background:radial-gradient(circle at 50% 62%,rgba(255,220,94,.18),transparent 37%),
-             radial-gradient(circle at 50% 35%,rgba(255,255,255,.08),transparent 35%),
-             rgba(30,4,6,.10);
 }
-.dragonAura{
+.coinPileImg{
   position:absolute;
   left:50%;
-  top:53%;
-  width:250px;
-  height:120px;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(255,218,80,.42),rgba(255,140,25,.15) 46%,transparent 72%);
-  filter:blur(12px);
-  animation:dragonAuraBreath 3.4s ease-in-out infinite;
-  pointer-events:none;
-}
-.heroDragonUser{
-  position:absolute;
-  z-index:3;
-  width:min(84%,390px);
-  top:42px;
-  left:50%;
+  bottom:12px;
+  width:46%;
+  max-width:210px;
   transform:translateX(-50%);
-  filter:drop-shadow(0 18px 24px rgba(0,0,0,.36)) drop-shadow(0 0 18px rgba(255,218,84,.22));
-  animation:dragonBreath 3.4s ease-in-out infinite;
+  z-index:1;
+  filter:drop-shadow(0 18px 18px rgba(0,0,0,.42)) drop-shadow(0 0 18px rgba(255,214,78,.18));
 }
-.heroCoinPile{
+.userDragonImg{
   position:absolute;
+  left:50%;
+  bottom:42px;
+  width:56%;
+  max-width:260px;
+  transform:translateX(-50%);
   z-index:2;
-  width:min(54%,250px);
+  transform-origin:50% 82%;
+  animation:dragonBreath 3.2s ease-in-out infinite;
+  filter:drop-shadow(0 18px 18px rgba(0,0,0,.40)) drop-shadow(0 0 22px rgba(255,221,92,.22));
+}
+.dragonCoinStage:after{
+  content:"";
+  position:absolute;
   left:50%;
   bottom:34px;
+  width:52%;
+  height:42px;
   transform:translateX(-50%);
-  filter:drop-shadow(0 16px 18px rgba(0,0,0,.36)) drop-shadow(0 0 14px rgba(255,218,84,.18));
-  animation:coinGlowBreath 3.4s ease-in-out infinite;
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(255,217,72,.24),rgba(255,130,0,.08) 48%,transparent 72%);
+  animation:dragonGlow 3.2s ease-in-out infinite;
+  z-index:0;
 }
 @keyframes dragonBreath{
-  0%,100%{transform:translateX(-50%) translateY(0) scale(1);filter:drop-shadow(0 18px 24px rgba(0,0,0,.36)) drop-shadow(0 0 16px rgba(255,218,84,.22))}
-  50%{transform:translateX(-50%) translateY(-6px) scale(1.035);filter:drop-shadow(0 22px 28px rgba(0,0,0,.40)) drop-shadow(0 0 28px rgba(255,226,100,.42))}
+  0%,100%{transform:translateX(-50%) translateY(0) scale(1)}
+  45%{transform:translateX(-50%) translateY(-4px) scale(1.028)}
+  70%{transform:translateX(-50%) translateY(-1px) scale(1.012)}
 }
-@keyframes coinGlowBreath{
-  0%,100%{transform:translateX(-50%) scale(1);filter:drop-shadow(0 16px 18px rgba(0,0,0,.36)) drop-shadow(0 0 12px rgba(255,218,84,.18))}
-  50%{transform:translateX(-50%) scale(1.055);filter:drop-shadow(0 18px 22px rgba(0,0,0,.40)) drop-shadow(0 0 24px rgba(255,226,100,.40))}
+@keyframes dragonGlow{
+  0%,100%{opacity:.42;filter:blur(0)}
+  50%{opacity:.78;filter:blur(1.5px)}
 }
-@keyframes dragonAuraBreath{
-  0%,100%{opacity:.42;transform:translate(-50%,-50%) scale(.95)}
-  50%{opacity:.82;transform:translate(-50%,-50%) scale(1.16)}
+.cleanHeroPanel .smallCaps:first-of-type{
+  margin-top:2px;
 }
 @media(max-width:520px){
-  .dragonCoinHero{height:260px;margin-top:12px}
-  .heroDragonUser{width:min(88%,330px);top:38px}
-  .heroCoinPile{width:min(58%,210px);bottom:31px}
-  .dragonAura{width:210px;height:100px}
+  .dragonCoinStage{height:160px;margin-top:0}
+  .userDragonImg{width:62%;bottom:37px}
+  .coinPileImg{width:50%;bottom:10px}
 }
 /* === END v32 === */
 
@@ -676,7 +673,7 @@ body{
 <!-- v32 BUTTON FORM FIX: Тоо шалгах button + missing form + bottom CTA fixed; logic preserved -->
 <!-- v32 REAL LOGO ZODIAC: wording, 12 zodiac images, real bank logos; logic preserved -->
 <!-- v32 DIRECT SYSTEM IMPROVE: user assets only; logic preserved -->
-<!-- v32 HERO DRAGON COIN: user assets only; logic preserved -->
+<!-- v32 USER DRAGON COIN: user assets only; logic preserved -->
 </head>
 <body>
 <div class="page" id="main">
@@ -688,11 +685,17 @@ body{
     <p class="sub">Хүн бүрд өөрт нь цор ганц бүх зүйлийн түлхүүр болсон тоо байдаг. Тэрхүү тоогоор эд баялаг, өрийн дарамт, хайр дурлал, амьдралын томоохон өөрчлөлтийн учгийг таних боломжтой.</p>
 
     <div class="card heroCard cleanHeroPanel">
+      <div class="dragonCoinStage" aria-label="Алтан луу зоосон дээр зогсож буй дүрс">
+        <img class="coinPileImg" src="coin-pile.png?v=32" alt="Алтан зоос">
+        <img class="userDragonImg" src="user-dragon.png?v=32" alt="Алтан луу">
+      </div>
+
       <div class="smallCaps">ЭХНИЙ ДАРАЛТ</div>
-      <div class="dragonCoinHero" aria-label="Алтан луу зоосон дээр зогсож буй дүрслэл">
-        <div class="dragonAura"></div>
-        <img class="heroDragonUser" src="user-dragon.png?v=32" alt="Алтан луу">
-        <img class="heroCoinPile" src="user-coin-pile.png?v=32" alt="Алтан зоос">
+      <div class="goldIngotPreview">
+        <div class="ingotCell"><img src="gold-bar-new.png?v=32" alt="Алтан нүд"><span>?</span></div>
+        <div class="ingotCell"><img src="gold-bar-new.png?v=32" alt="Алтан нүд"><span>?</span></div>
+        <div class="ingotCell faded"><img src="gold-bar-new.png?v=32" alt="Нууц алтан нүд"><span>?</span></div>
+        <div class="ingotCell hiddenish"><img src="gold-bar-new.png?v=32" alt="Нууц алтан нүд"><span>?</span></div>
       </div>
       <p class="heroNoteLite">Төлбөр шаардахгүй. Мэдээллээ оруулаад анхан нээлтээ шууд харна.</p>
       <button class="btn" onclick="showForm()">Тоогоо шалгах</button>
