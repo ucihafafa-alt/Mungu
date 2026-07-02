@@ -115,8 +115,8 @@ function startScan(){
 window.startScan=startScan;
 
 function seedFor(o){const c=o?.client||client;return (Number(c.year||1990)*7+Number(c.month||1)*31+Number(c.day||1)*13+String(c.name||'').length*9)%997}
-function showResult(){const n=seedFor({client})%100; const money=88+(n%10), luck=80+(n%13), code=moneyCode(client); $('resultName').textContent=client.name+' таны шинжилгээ'; $('s1').textContent=money+'%'; $('s3').textContent=luck+'%'; $('payNote').textContent=client.name+' '+client.phone; window.__TM_MONEY_CODE=code; renderOpenCode(code); go('result'); setTimeout(()=>renderOpenCode(code),80)}
-function selectPackage(name,price){selected={name,price,bank:selected.bank||'khan'}; $('payTitle').textContent=name; $('payAmount').textContent=moneyFmt(price); $('payNote').textContent=(client.name||'Нэр')+' '+(client.phone||'утас'); renderBankOptions(); go('payment'); setTimeout(renderBankOptions,80)}
+function showResult(){const n=seedFor({client})%100; const money=88+(n%10), luck=80+(n%13); $('resultName').textContent=client.name+' таны шинжилгээ'; $('s1').textContent=money+'%'; $('s3').textContent=luck+'%'; $('payNote').textContent=client.name+' '+client.phone; go('result')}
+function selectPackage(name,price){selected={name,price}; $('payTitle').textContent=name; $('payAmount').textContent=moneyFmt(price); $('payNote').textContent=(client.name||'Нэр')+' '+(client.phone||'утас'); go('payment')}
 window.selectPackage=selectPackage;
 
 function previewReceipt(input){const f=input.files[0]; if(!f)return; const r=new FileReader(); r.onload=e=>{receiptData=e.target.result; $('receiptPrev').src=receiptData; $('receiptPrev').style.display='block'}; r.readAsDataURL(f)}
@@ -231,121 +231,17 @@ window.exportOrders=exportOrders;
 
 function burstCoin(e){const coin=e.currentTarget; const r=coin.getBoundingClientRect(); const cx=r.left+r.width/2, cy=r.top+r.height/2; coin.classList.add('explode'); const flash=document.createElement('i'); flash.className='flash-burst'; flash.style.left=(cx-9)+'px'; flash.style.top=(cy-9)+'px'; document.body.appendChild(flash); setTimeout(()=>flash.remove(),600); for(let i=0;i<36;i++){const s=document.createElement('i'); s.className='spark'; const a=(Math.PI*2*i/36)+(Math.random()*.45); const d=70+Math.random()*140; s.style.left=cx+'px'; s.style.top=cy+'px'; s.style.setProperty('--x',Math.cos(a)*d+'px'); s.style.setProperty('--y',Math.sin(a)*d+'px'); document.body.appendChild(s); setTimeout(()=>s.remove(),900)} for(let i=0;i<14;i++){const piece=document.createElement('i'); piece.className='coin-piece'; piece.textContent='₮'; const a=(Math.PI*2*i/14)+(Math.random()*.7); const d=80+Math.random()*170; piece.style.left=(cx-11)+'px'; piece.style.top=(cy-11)+'px'; piece.style.setProperty('--x',Math.cos(a)*d+'px'); piece.style.setProperty('--y',Math.sin(a)*d+'px'); piece.style.setProperty('--rot',(Math.random()*720-360)+'deg'); document.body.appendChild(piece); setTimeout(()=>piece.remove(),1050)} if(navigator.vibrate) navigator.vibrate(45); setTimeout(()=>coin.classList.remove('explode'),760)}
 window.burstCoin=burstCoin;
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js?v=36').catch(()=>{});
 
 
-/* === v34 HOTFIX: code preview, ancient scroll card, bank logos, cache refresh === */
-const TM_V34 = 'v34';
-
-function moneyCode(c=client){
- const base = seedFor({client:c});
- return String((base*73 + Number(c?.day||1)*19 + Number(c?.month||1)*41 + 8600) % 10000).padStart(4,'0');
-}
-window.moneyCode = moneyCode;
-
-function renderOpenCode(code){
- code = String(code || moneyCode(client)).padStart(4,'0').slice(0,4);
- const targets = [...document.querySelectorAll('.codePreview,.openCodeDigits,#codePreview,#openCodeDigits,.moneyCodePreview,.unlockDigits')];
- targets.forEach(box=>{
-   box.classList.add('tm-v34-code');
-   box.innerHTML = code.split('').map((d,i)=>`<span class="${i<2?'is-open':'is-locked'}" aria-label="${i<2?'нээлттэй тоо':'нууц тоо'}">${d}</span>`).join('');
- });
- const resultName = $('resultName');
- if(!targets.length && resultName && !document.getElementById('tmV34AutoCode')){
-   const auto=document.createElement('div');
-   auto.id='tmV34AutoCode';
-   auto.className='openCodeCard';
-   auto.innerHTML=`<h2>Таны анхан нээлт</h2><p>Эхний хоёр нүд тод ил гарна. Дараагийн хоёр нүд нууцлаг хэвээр үлдэнэ.</p><div class="openCodeDigits tm-v34-code">${code.split('').map((d,i)=>`<span class="${i<2?'is-open':'is-locked'}">${d}</span>`).join('')}</div>`;
-   resultName.insertAdjacentElement('afterend',auto);
- }
-}
-window.renderOpenCode = renderOpenCode;
-
-const BANKS_V34 = [
- {key:'khan', name:'Хаан банк', icon:'bank-khan-icon.png?v=35', logo:'bank-khan.png?v=35'},
- {key:'golomt', name:'Голомт банк', icon:'bank-golomt-icon.png?v=35', logo:'bank-golomt.png?v=35'},
- {key:'tdb', name:'Худалдаа хөгжлийн банк', icon:'bank-tdb-icon.png?v=35', logo:'bank-tdb.png?v=35'},
- {key:'capitron', name:'Капитрон банк', icon:'bank-capitron-icon.png?v=35', logo:'bank-capitron.png?v=35'},
- {key:'credit', name:'Кредит банк', icon:'bank-credit.png?v=35', logo:'bank-credit.png?v=35'}
-];
-
-function selectBankV34(key){
- selected.bank = key;
- document.querySelectorAll('.bank-card-v34').forEach(el=>el.classList.toggle('active',el.dataset.bank===key));
- const b=BANKS_V34.find(x=>x.key===key);
- const note=$('payNote');
- if(note && b && client.name) note.textContent = `${client.name} ${client.phone||''} — ${b.name}`;
-}
-window.selectBankV34 = selectBankV34;
-
-function renderBankOptions(){
- const payAmount=$('payAmount');
- let box=$('bankOptions') || document.querySelector('.bank-options,.banks,.payment-banks,#bankList');
- if(!box && payAmount){
-   box=document.createElement('div');
-   box.id='bankOptions';
-   payAmount.insertAdjacentElement('afterend',box);
- }
- if(!box) return;
- box.classList.add('bank-options-v34');
- const current=selected.bank || 'khan';
- box.innerHTML=`<div class="bank-title-v34">Банк сонгох</div>` + BANKS_V34.map(b=>`<button type="button" class="bank-card-v34 ${current===b.key?'active':''}" data-bank="${b.key}" onclick="selectBankV34('${b.key}')"><img src="${b.icon}" alt="${b.name}" loading="lazy"><span>${b.name}</span></button>`).join('');
-}
-window.renderBankOptions = renderBankOptions;
-
-function installV34Styles(){
- if(document.getElementById('tm-v34-style')) return;
- const style=document.createElement('style');
- style.id='tm-v34-style';
- style.textContent=`
-  :root{--tm-gold:#ffe67d;--tm-red:#5a0708;--tm-dark:#210205;}
-  .openCodeCard,.code-open-card,.first-open-card,#firstOpen{
-    margin:22px auto 24px!important;padding:28px 18px 30px!important;border-radius:34px!important;
-    background:linear-gradient(rgba(70,8,8,.10),rgba(25,3,4,.30)),url("ancient-scroll-code.jpg?v=35") center/cover no-repeat!important;
-    border:1px solid rgba(255,224,116,.48)!important;box-shadow:0 24px 70px rgba(0,0,0,.45),inset 0 0 38px rgba(255,214,96,.16)!important;
-  }
-  .openCodeCard h2,.code-open-card h2,.first-open-card h2,#firstOpen h2{color:var(--tm-gold)!important;font-size:34px!important;line-height:1.16!important;text-shadow:0 3px 16px rgba(0,0,0,.72)!important;}
-  .openCodeCard p,.code-open-card p,.first-open-card p,#firstOpen p{color:#fff4d0!important;text-shadow:0 2px 10px #000!important;}
-  .tm-v34-code,.codePreview,.openCodeDigits,#codePreview,#openCodeDigits,.moneyCodePreview,.unlockDigits{display:flex!important;justify-content:center!important;align-items:center!important;gap:12px!important;margin:22px auto!important;}
-  .tm-v34-code span,.codePreview span,.openCodeDigits span,#codePreview span,#openCodeDigits span,.moneyCodePreview span,.unlockDigits span{
-    width:64px!important;height:74px!important;border-radius:16px!important;display:grid!important;place-items:center!important;
-    font-family:Georgia,'Times New Roman',serif!important;font-size:44px!important;font-weight:950!important;color:var(--tm-gold)!important;
-    background:linear-gradient(180deg,rgba(255,238,160,.28),rgba(80,11,5,.56)),radial-gradient(circle at 50% 35%,rgba(255,231,125,.35),rgba(88,12,8,.70))!important;
-    border:1px solid rgba(255,224,116,.50)!important;box-shadow:inset 0 0 20px rgba(255,224,116,.20),0 10px 26px rgba(0,0,0,.38)!important;
-    text-shadow:0 0 8px rgba(255,231,125,.70),0 4px 11px rgba(0,0,0,.85)!important;
-  }
-  .tm-v34-code span:nth-child(n+3),.tm-v34-code .is-locked,.codePreview span:nth-child(n+3),.openCodeDigits span:nth-child(n+3),#codePreview span:nth-child(n+3),#openCodeDigits span:nth-child(n+3),.moneyCodePreview span:nth-child(n+3),.unlockDigits span:nth-child(n+3){
-    filter:blur(8px) brightness(.48)!important;opacity:.33!important;transform:scale(.92)!important;color:transparent!important;text-shadow:0 0 22px rgba(255,231,125,.78)!important;user-select:none!important;
-  }
-  .zodiacFigure,.zodiacCoin{width:210px!important;height:210px!important;margin-left:auto!important;margin-right:auto!important;}
-  #zodiacSymbol,.zodiacFigure .symbol{font-size:0!important;width:180px!important;height:180px!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important;}
-  .bank-options-v34{margin:18px auto!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;max-width:520px!important;}
-  .bank-title-v34{grid-column:1/-1;color:var(--tm-gold);font-size:18px;font-weight:900;letter-spacing:.06em;text-align:center;text-shadow:0 2px 10px #000;margin:4px 0 6px;}
-  .bank-card-v34{min-height:74px;border-radius:18px;border:1px solid rgba(255,224,116,.34);background:rgba(46,4,5,.66);box-shadow:inset 0 0 18px rgba(255,224,116,.10),0 12px 28px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;gap:9px;padding:10px;color:#fff3c1;font-weight:800;font-size:13px;}
-  .bank-card-v34.active{border-color:rgba(255,230,125,.95);box-shadow:0 0 0 2px rgba(255,230,125,.18),0 0 28px rgba(255,209,77,.22);background:linear-gradient(135deg,rgba(77,7,7,.88),rgba(113,44,6,.70));}
-  .bank-card-v34 img{width:38px;height:38px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.08);}
-  @media(max-width:520px){.tm-v34-code span,.codePreview span,.openCodeDigits span,#codePreview span,#openCodeDigits span{width:56px!important;height:66px!important;font-size:38px!important}.openCodeCard h2{font-size:30px!important}.bank-options-v34{grid-template-columns:1fr!important}.zodiacFigure,.zodiacCoin{width:190px!important;height:190px!important}}
- `;
- document.head.appendChild(style);
-}
-window.installV34Styles = installV34Styles;
-
-installV34Styles();
-window.addEventListener('load',()=>{installV34Styles(); renderOpenCode(window.__TM_MONEY_CODE||moneyCode(client)); renderBankOptions();});
-
-if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js?v=35').catch(()=>{});
- caches?.keys?.().then(keys=>keys.filter(k=>!/v34/i.test(k)).forEach(k=>caches.delete(k))).catch(()=>{});
-}
-
-
-/* === v35 loader: visual hotfix file === */
+/* === TM v36 REAL FIX LOADER: digits, zodiac, banks, cache === */
 (function(){
   try{
-    if(!document.querySelector('script[data-tm-v35-hotfix]')){
+    if(!document.querySelector('script[data-tm-v36-fix]')){
       var s=document.createElement('script');
-      s.src='v35-client-hotfix.js?v=35';
+      s.src='v36-client-fix.js?v=36';
       s.defer=true;
-      s.dataset.tmV35Hotfix='1';
+      s.dataset.tmV36Fix='1';
       document.head.appendChild(s);
     }
   }catch(e){}
