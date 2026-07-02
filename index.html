@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Заяагдмал Код</title>
+<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v18</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Код">
-<meta property="og:description" content="Өөрийн заяагдмал кодоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
-<meta property="og:image" content="dragon-main.jpg">
+<meta property="og:description" content="Өөрийн заяагдмал тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
+<meta property="og:image" content="v18-hero-dragon.png">
 <link rel="manifest" href="manifest.json">
 <style>
 :root{
@@ -243,6 +243,25 @@ body:before{
 }
 /* === END v16 === */
 
+
+/* === v18 FORCE HERO OVERRIDE: this index must show v18-hero-dragon.png === */
+body{
+  background:
+    linear-gradient(rgba(10,1,2,.14),rgba(8,0,1,.38)),
+    url("v18-bg-wealth.png?v=18") center top/cover fixed !important;
+}
+#home{position:relative;padding-top:10px}
+#home:before{
+  content:"";position:absolute;inset:-18px -12px auto -12px;height:760px;
+  background:url("v18-hero-dragon.png?v=18") center top/cover no-repeat;
+  opacity:.30;filter:saturate(1.15) contrast(1.05);z-index:-1;
+}
+.heroCard .videoBox{background:url("v18-hero-dragon.png?v=18") center top/cover no-repeat!important}
+.videoBox img.heroDragon{content:url("v18-hero-dragon.png?v=18");opacity:1!important}
+.heroCard{margin-top:18px!important}
+.versionMark{position:fixed;right:8px;bottom:8px;z-index:9999;font-size:10px;color:rgba(255,230,150,.55);pointer-events:none}
+/* === END v18 FORCE HERO === */
+
 </style>
 </head>
 <body>
@@ -255,8 +274,8 @@ body:before{
     <p class="sub">Хүн бүрд өөрийн гэсэн заяагдмал тоо бий. Тэр тоогоор мөнгө санхүү, өрийн дарамт, хайр дурлал, ажил бизнес болон амьдралын томоохон шийдвэрт хэрхэн нөлөөлж байгааг бэлгэдлийн аргаар уншиж болдог.</p>
     <div class="card heroCard">
       <div class="videoBox">
-        <video autoplay muted loop playsinline preload="metadata" poster="dragon-main.jpg"><source src="dragon-hero.mp4?v=16" type="video/mp4"></video>
-        <img class="heroDragon" src="dragon-main.jpg?v=16" alt="" onerror="this.remove()">
+        <video autoplay muted loop playsinline preload="metadata" poster="v18-hero-dragon.png"><source src="dragon-hero.mp4?v=16" type="video/mp4"></video>
+        <img class="heroDragon" src="v18-hero-dragon.png?v=18" alt="" onerror="this.remove()">
         <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
         <div class="heroNote">Таны заяагдмал тооны эхний 2 орон үнэгүй нээгдэнэ. Үлдсэн 2 орон, мөнгөний нууц урсгал, дом зан үйл нь бүрэн тайланд ил болно.</div>
       </div>
@@ -289,7 +308,7 @@ body:before{
   <section id="scan" class="scan">
     <div>
       <div class="videoBox">
-        <img class="heroDragon" src="dragon-main.jpg?v=16" alt="">
+        <img class="heroDragon" src="v18-hero-dragon.png?v=18" alt="">
         <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
         <p class="scanText" id="scanText">Алтан луу таны тоог нээж байна...</p>
         <div class="progress"><div class="bar" id="bar"></div></div>
@@ -531,5 +550,6 @@ async function openReportByToken(t){try{const d=await getDoc(doc(db,'reports',t)
 addEventListener('load',()=>{document.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
 </script>
+<div class="versionMark">v18</div>
 </body>
 </html>

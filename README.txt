@@ -1,1 +1,5 @@
-v17: New user images integrated. Hero uses big golden dragon image. Background uses wealth tunnel image. Zodiac grid remains removed; one zodiac image is shown. Matar uses zodiac-matar.png, others fallback until their individual images are provided. Firebase nested array fix kept.
+v18 FORCE NEW HERO.
+Шууд шалгах хаягууд:
+https://ucihafafa-alt.github.io/Mungu/v18-hero-dragon.png
+https://ucihafafa-alt.github.io/Mungu/index.html?v=18
+index.html дотор v18-hero-dragon.png гэж байх ёстой. Доод баруун буланд жижиг v18 тэмдэг гарна.
