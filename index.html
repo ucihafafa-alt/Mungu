@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v18</title>
+<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v19</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Код">
 <meta property="og:description" content="Өөрийн заяагдмал тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
-<meta property="og:image" content="v18-hero-dragon.png">
+<meta property="og:image" content="v19-hero-dragon.png">
 <link rel="manifest" href="manifest.json">
 <style>
 :root{
@@ -244,23 +244,49 @@ body:before{
 /* === END v16 === */
 
 
-/* === v18 FORCE HERO OVERRIDE: this index must show v18-hero-dragon.png === */
+/* === v19 FORCE HERO OVERRIDE: this index must show v19-hero-dragon.png === */
 body{
   background:
     linear-gradient(rgba(10,1,2,.14),rgba(8,0,1,.38)),
-    url("v18-bg-wealth.png?v=18") center top/cover fixed !important;
+    url("v19-bg-wealth.png?v=19") center top/cover fixed !important;
 }
 #home{position:relative;padding-top:10px}
 #home:before{
   content:"";position:absolute;inset:-18px -12px auto -12px;height:760px;
-  background:url("v18-hero-dragon.png?v=18") center top/cover no-repeat;
+  background:url("v19-hero-dragon.png?v=19") center top/cover no-repeat;
   opacity:.30;filter:saturate(1.15) contrast(1.05);z-index:-1;
 }
-.heroCard .videoBox{background:url("v18-hero-dragon.png?v=18") center top/cover no-repeat!important}
-.videoBox img.heroDragon{content:url("v18-hero-dragon.png?v=18");opacity:1!important}
+.heroCard .videoBox{background:url("v19-hero-dragon.png?v=19") center top/cover no-repeat!important}
+.videoBox img.heroDragon{content:url("v19-hero-dragon.png?v=19");opacity:1!important}
 .heroCard{margin-top:18px!important}
 .versionMark{position:fixed;right:8px;bottom:8px;z-index:9999;font-size:10px;color:rgba(255,230,150,.55);pointer-events:none}
-/* === END v18 FORCE HERO === */
+/* === END v19 FORCE HERO === */
+
+
+/* === v19 CONTENT DEEP CLEAN: no duplicate inner dragon === */
+.brandTop{font-size:24px!important}
+.heroTitle{font-size:30px!important;line-height:1.05!important;margin:8px 0 10px!important}
+#home>.sub{font-size:14px!important;line-height:1.62!important}
+.heroPanel{position:relative!important;margin-top:16px!important;padding:18px!important;border-radius:30px!important;background:rgba(18,3,5,.18)!important;border:1px solid rgba(255,224,112,.30)!important;box-shadow:0 0 38px rgba(255,210,75,.12), inset 0 0 18px rgba(255,224,112,.06)!important;backdrop-filter:blur(3px)!important}
+.freeUnlock{text-align:center}
+.codePreview{display:flex;justify-content:center;gap:12px;margin:14px 0}
+.codePreview span{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#fff1a4,#d99b22 55%,#5a0b0a);color:#421006;font-size:26px;font-weight:950;box-shadow:inset 0 5px 12px rgba(255,255,255,.28),0 0 22px rgba(255,218,86,.24)}
+.codePreview .lockedDot{color:#fff2a8;background:radial-gradient(circle at 35% 25%,#ffe67d,#b80f18 60%,#390407)}
+.heroNoteLite{margin:8px auto 14px;max-width:560px;color:#fff4db;font-size:14px;line-height:1.65;text-shadow:0 2px 12px rgba(0,0,0,.86)}
+.heroPanel .btn{position:static!important;width:100%!important;background:rgba(8,2,2,.22)!important;color:#fff2b0!important;border:1.5px solid rgba(255,225,105,.82)!important;box-shadow:0 0 28px rgba(255,213,81,.34), inset 0 0 18px rgba(255,224,112,.10)!important}
+.infoStack{display:grid;gap:14px;margin:18px 0}
+.infoCard{padding:18px;border-radius:25px;background:linear-gradient(180deg,rgba(28,4,7,.42),rgba(8,1,3,.38));border:1px solid rgba(255,224,112,.18);box-shadow:0 14px 40px rgba(0,0,0,.22);backdrop-filter:blur(4px)}
+.infoCard h2{font-size:24px;margin:7px 0 11px}
+.infoCard p{font-size:14px;line-height:1.68;color:#fff0dc;margin:8px 0}
+.miniGrid{display:grid;gap:9px}
+.miniGrid span,.teaserList li{display:block;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.055);border:1px solid rgba(255,224,112,.14);color:#fff0dc;font-size:13.5px;line-height:1.45}
+.teaserList{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.teaserList li:before{content:"✦ ";color:#ffe176}
+.ritualPreview{background:linear-gradient(180deg,rgba(70,16,7,.34),rgba(12,2,3,.42)),url("v19-money-hands.jpg?v=19") center/cover!important}
+.caseBox{background:linear-gradient(180deg,rgba(70,16,7,.30),rgba(12,2,3,.42)),url("v19-money-path.jpg?v=19") center/cover!important}
+.versionMark{font-size:10px!important}
+@media(max-width:520px){.brandTop{font-size:22px!important}.heroTitle{font-size:28px!important}.codePreview span{width:48px;height:48px;font-size:24px}.infoCard{padding:16px}}
+/* === END v19 === */
 
 </style>
 </head>
@@ -272,14 +298,49 @@ body{
     <div class="smallCaps">ҮНЭГҮЙ ШИНЖИЛГЭЭ</div>
     <h1 class="heroTitle">Заяагдмал тоогоо<br><span>үнэгүй нээе</span></h1>
     <p class="sub">Хүн бүрд өөрийн гэсэн заяагдмал тоо бий. Тэр тоогоор мөнгө санхүү, өрийн дарамт, хайр дурлал, ажил бизнес болон амьдралын томоохон шийдвэрт хэрхэн нөлөөлж байгааг бэлгэдлийн аргаар уншиж болдог.</p>
-    <div class="card heroCard">
-      <div class="videoBox">
-        <video autoplay muted loop playsinline preload="metadata" poster="v18-hero-dragon.png"><source src="dragon-hero.mp4?v=16" type="video/mp4"></video>
-        <img class="heroDragon" src="v18-hero-dragon.png?v=18" alt="" onerror="this.remove()">
-        <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
-        <div class="heroNote">Таны заяагдмал тооны эхний 2 орон үнэгүй нээгдэнэ. Үлдсэн 2 орон, мөнгөний нууц урсгал, дом зан үйл нь бүрэн тайланд ил болно.</div>
+    <div class="card heroCard heroPanel">
+      <div class="freeUnlock">
+        <div class="smallCaps">ЭХНИЙ НЭЭЛТ</div>
+        <div class="codePreview"><span>●</span><span>●</span><span class="lockedDot">✦</span><span class="lockedDot">✦</span></div>
+        <p class="heroNoteLite">Таны заяагдмал тооны эхний 2 орон үнэгүй нээгдэнэ. Үлдсэн 2 орон, мөнгөний нууц урсгал, дом зан үйл, санхүүгийн зангилаа нь дэлгэрэнгүй тайланд ил болно.</p>
+        <button class="btn" onclick="showForm()">Тоогоо шалгах</button>
       </div>
-      <button class="btn" style="margin-top:15px" onclick="showForm()">Тоогоо шалгах</button>
+    </div>
+
+    
+    <div class="infoStack">
+      <div class="infoCard">
+        <div class="smallCaps">ЗАЯАГДМАЛ ТОО</div>
+        <h2 class="gold">Таны тоо юуг ил гаргадаг вэ?</h2>
+        <div class="miniGrid">
+          <span>Мөнгө орж ирээд яагаад тогтохгүй байгааг</span>
+          <span>Өрийн дарамт ямар зангилаагаар давтагддагийг</span>
+          <span>Хайр дурлал, ажил, шийдвэр мөнгөнд хэрхэн нөлөөлдгийг</span>
+          <span>Танд тохирох өдөр, өнгө, сахиус, домын чиглэлийг</span>
+        </div>
+      </div>
+      <div class="infoCard">
+        <div class="smallCaps">САНХҮҮГИЙН ДОХИО</div>
+        <h2 class="gold">Дараах шинжүүд танд байдаг уу?</h2>
+        <ul class="teaserList">
+          <li>Орлого нэмэгдсэн ч мөнгө тогтохгүй байх</li>
+          <li>Гэнэт зайлшгүй зардал байнга гарах</li>
+          <li>Өрөө дарах гэсэн ч нэг зүйл дахин татах</li>
+          <li>Бусдын асуудлыг үүрээд өөрийн мөнгөний урсгалаа сулруулах</li>
+          <li>Зарим өдөр санхүүгийн шийдвэр буруу эргэх</li>
+        </ul>
+      </div>
+      <div class="infoCard ritualPreview">
+        <div class="smallCaps">МӨНГӨ ТОГТООХ БЭЛГЭДЭЛ</div>
+        <h2 class="gold">Уламжлалт дом, зан үйлээс</h2>
+        <p>Түрийвчээ хоосон байлгахгүй байх, орсон орлогоо нэг хоног гэртээ хонуулах, нар жаргасны дараа мөнгө тоолохгүй байх, азын мөнгөө үрэхгүй хадгалах зэрэг нь мөнгө тогтоох бэлгэдлийн аргууд гэж үздэг.</p>
+        <p>Дэлгэрэнгүй тайланд эдгээрийг таны заяагдмал тоотой холбож, ямар дом, ямар өдөр, ямар дарааллаар хийхийг ялгаж өгнө.</p>
+      </div>
+      <div class="infoCard caseBox">
+        <div class="smallCaps">ЖИШЭЭ ТАЙЛАЛ</div>
+        <h2 class="gold">Нэг хүний тоонд юу илэрч болох вэ?</h2>
+        <p>Зарим хүний тоонд орлого татах боломж сайн боловч бусдад хэт үүрэг хүлээх, орсон мөнгөө шууд тараах, өрийг төлөх цаг мөчлөгөө буруу сонгох зангилаа гардаг. Ийм үед тайлангаар мөнгө тогтоох дадал, түрийвчний сахиус, сарны үе, өдөр цагийн бэлгэдлийг хамтад нь гаргаж өгнө.</p>
+      </div>
     </div>
 
     <div class="card reviewBlock">
@@ -308,7 +369,7 @@ body{
   <section id="scan" class="scan">
     <div>
       <div class="videoBox">
-        <img class="heroDragon" src="v18-hero-dragon.png?v=18" alt="">
+        <img class="heroDragon" src="v19-hero-dragon.png?v=19" alt="">
         <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
         <p class="scanText" id="scanText">Алтан луу таны тоог нээж байна...</p>
         <div class="progress"><div class="bar" id="bar"></div></div>
@@ -366,7 +427,7 @@ body{
     <div class="card pack drop">
       <div class="smallCaps">ЭХНИЙ НЭЭЛТ</div><h2>Мөнгөний Түлхүүр</h2><p class="sub">Заяагдмал тооны эхний хаалгыг нээнэ</p>
       <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Заяагдмал тооны эхний 2 орон</li><li>Мөнгө тогтохгүй байгаа эхний шалтгаан</li><li>Танд ээлтэй азын өдөр, өнгө, тооны товч зөвлөмж</li><li>7 хоногийн жижиг дом, мөнгө тогтоох эхний дадал</li></ul>
+      <ul class="list"><li>Заяагдмал тооны эхний 2 орон</li><li>Мөнгө тогтохгүй байгаа эхний зангилаа</li><li>3 дом, 7 хоногийн эхний дадал</li><li>Азын өнгө, өдөр, түрийвчний эхний зөвлөмж</li></ul>
       <button class="btn secondary detailBtn" onclick="toggleDetail('detail-drop')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-drop">Энэ бол эхний нээлт. Та өөрийн тооны эхний дохиог харж, мөнгөний урсгал яагаад гацаж байгаагийн үндсэн шалтгааныг олно. Хурдан, ойлгомжтой, эхлэхэд хамгийн тохиромжтой багц.</div>
       <button class="btn" onclick="choosePackage('Мөнгөний Түлхүүр',9900)">ЭХНИЙ ТООГОО НЭЭХ</button>
     </div>
@@ -374,7 +435,7 @@ body{
     <div class="card pack river best">
       <div class="smallCaps">БҮРЭН САНХҮҮГИЙН ТАЙЛАН</div><h2 class="gold">Мөнгөний Урсгал</h2><p class="sub">Мөнгө ба өрийн зангилааг гүн тайлна</p>
       <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Заяагдмал тооны 4 орон бүрэн тайлагдана</li><li>Өрийн дарамт, мөнгө сарних гол зангилаа</li><li>30 хоногийн мөнгө тогтоох төлөвлөгөө</li><li>Мөнгөний урсгал нээх 3–5 дом, зан үйл</li></ul>
+      <ul class="list"><li>Заяагдмал тооны 4 орон бүрэн тайлагдана</li><li>Өр, гарлага, мөнгө сарних зангилаа</li><li>30 хоногийн мөнгө тогтоох төлөвлөгөө</li><li>7–10 дом, зан үйл, өдөр цагийн зөвлөмж</li></ul>
       <button class="btn secondary detailBtn" onclick="toggleDetail('detail-river')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-river">Энэ багцад таны мөнгөний урсгал хаанаас хаагдаж, аль зан үйл, аль шийдвэр мөнгийг тогтоохгүй байгааг илүү тодруулж өгнө. Өр зээл, санхүүгийн дарамтаа цэгцлэхийг хүсэж байгаа хүнд хамгийн оновчтой.</div>
       <button class="btn" onclick="choosePackage('Мөнгөний Урсгал',19900)">УРСГАЛАА НЭЭХ</button>
     </div>
@@ -382,7 +443,7 @@ body{
     <div class="card pack sea">
       <div class="smallCaps">ХАМГИЙН ГҮН ТАЙЛАН</div><h2>Тэнгэрийн Ивээл</h2><p class="sub">Мөнгө + хайр дурлал + амьдралын шийдвэр</p>
       <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Мөнгөний Урсгал багцын бүх зүйл</li><li>49 хоногийн гүн төлөвлөгөө, хамгаалах зан үйл</li><li>Хайр дурлал, ажил бизнес, том шийдвэрийн нөлөө</li><li>Хувийн нууц тоогоо ашиглах нарийн заавар</li></ul>
+      <ul class="list"><li>Мөнгөний Урсгал багцын бүх зүйл</li><li>49 хоногийн гүн төлөвлөгөө</li><li>Мөнгө + хайр дурлал + ажил бизнес + том шийдвэр</li><li>Хувийн сахиус, дом, жилийн мөчлөгийн гүн зөвлөмж</li></ul>
       <button class="btn secondary detailBtn" onclick="toggleDetail('detail-sea')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-sea">Энэ бол хамгийн гүн хувилбар. Заяагдмал тоогоо мөнгө санхүү, хайр дурлал, ажил бизнес, амьдралын том сонголтуудтай хэрхэн холбож ашиглахыг шат дараатай тайлж өгнө.</div>
       <button class="btn secondary" onclick="choosePackage('Тэнгэрийн Ивээл',99000)">ГҮН ТООГОО НЭЭХ</button>
     </div>
@@ -490,25 +551,33 @@ function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
 function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
 function packageReportSections(pkgName, code){
  if(pkgName==='Мөнгөний Түлхүүр')return [
-  {title:'Ил гарсан заяагдмал тоо',body:`Таны заяагдмал тооны эхний хоёр орон ${String(code).slice(0,2)}. Энэ нь мөнгө танд орж ирэх суваг нээлттэй ч тогтоох сахилга, цэгцлэл сул үед урсгал сарних магадлалтайг илтгэнэ.`},
-  {title:'Мөнгө гацах эхний шалтгаан',body:'Хүссэн зүйл олон, эхлүүлсэн зүйл их, харин дуусгадаг дүрэм сул байх үед мөнгөний урсгал тогтворгүй болдог. Мөн хэн нэгэнд өрөвдөж мөнгө гаргах, амлах, батлан даах зэрэг нь таны эхний хаалтыг үүсгэдэг.'},
-  {title:'7 хоногийн мөнгөний дом',body:'7 хоногийн 2 дахь өдрийн 23 цаг 23 минутад 23 ширхэг цагаан давсыг чигчий хурууны толионы хэмжээнээс багахан авч гал дээр хийж дуугарга. Дотроо “хуучин хаалт арилж, шинэ урсгал нээгдэнэ” гэж 7 удаа давт.'},
-  {title:'Эхний дадал',body:'Орлого орсон өдөр нэг дэвсгэртийг салгаж хадгал. Түрийвч дотроо хэрэггүй баримт, хог цаас бүү хадгал. Мөнгө ордог замыг цэвэр байлгах нь эхний нээлт гэж үзнэ.'}
+  {title:'Заяагдмал тооны эхний нээлт',body:`Таны заяагдмал тооны эхний хоёр орон ${String(code).slice(0,2)}. Энэ нь мөнгө танд орж ирэх боломж байгаа ч түүнийг тогтоох эхний дадал, цэгцлэл, шийдвэрийн сахилга сул үед урсгал сарних магадлалтайг илтгэнэ.`},
+  {title:'Мөнгө гацах эхний зангилаа',body:'Энэ түвшний тайллаар хамгийн түрүүнд орлого орсон даруйдаа тарах, бусдад хэт туслах, өөрийн хэрэгцээг хамгийн сүүлд тавих, эсвэл жижиг зарлагаа тооцохгүй орхих хандлагыг ажиглана.'},
+  {title:'7 хоногийн эхний дадал',body:'7 хоногийн турш орлого, зарлагаа өдөр бүр нэг мөрөөр тэмдэглэ. Орлого орсон өдөр ядаж нэг дэвсгэртийг тусад нь хадгал. Түрийвчнээсээ хуучин баримт, хэрэггүй цаас, тасархай зүйлсийг гаргаж цэвэрлэ.'},
+  {title:'Мөнгө тогтоох 3 богино дом',body:'1. Түрийвчээ хоосон бүү байлга. 2. Орсон орлогын жижиг хэсгийг “мөнгөний тархи” гэж үзэн хадгал. 3. Нар жаргасны дараа мөнгө тоолох, өр зээл ярилцахаас аль болох зайлсхий.'},
+  {title:'Азын бэлгэдэл',body:'Алтлаг, хүрэн, хар, шар туяатай өнгө нь мөнгө тогтоох бэлгэдэлд илүү нийцнэ. Түрийвчиндээ үрэхгүй хадгалах жижиг азын мөнгө эсвэл нүхтэй зоос авч явахыг уламжлалд мөнгө тасрахгүй байх бэлгэдэл гэж үздэг.'}
  ];
  if(pkgName==='Мөнгөний Урсгал')return [
-  {title:'Бүрэн заяагдмал тоо',body:`Таны бүрэн заяагдмал тоо ${code}. Эхний хоёр орон мөнгө татах хүчийг, сүүлийн хоёр орон мөнгө тогтоох болон сарних зангилааг илтгэнэ.`},
-  {title:'Өрийн дарамтын гүн тайлал',body:'Өрийн дарамт ихсэх үе нь нэг дор олон төлбөр, олон амлалт, баталгаагүй орлого дээр тулгуурласан шийдвэр, мөн бусдын өмнөөс хэт их үүрэг үүрэх үед идэвхждэг.'},
-  {title:'30 хоногийн мөнгө тогтоох төлөвлөгөө',body:'1–7 өдөр: бүх зарлагаа бүртгэ. 8–14 өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 өдөр: орлогын нэг шинэ суваг тодорхойл. 22–30 өдөр: сар бүрийн тогтмол хадгалалтын дүрэм тогтоо.'},
-  {title:'Лаврын навчны зан үйл',body:'Лаврын навч дээр хүсэмжилдэг 10 тоо болон өөрийн заяагдмал тоог тус бүр 10 удаа бич. Дараа нь нэг дор шатааж, үнсийг салхинд хийсгэн “мөнгөний хаалт арилав, урсгал нээгдэв” гэж 3 удаа хэл.'},
-  {title:'Аз дуудах бэлгэдэл',body:'Гүн улаан, алтлаг өнгийг биедээ сануулга болгон хэрэглэ. Орлого орсон өдрөөс хойш 3 дахь өдөр хадгалалт эхлүүлэх, шинэ түрийвч эсвэл мөнгө хадгалах сав бэлдэхэд сайн.'}
+  {title:'Бүрэн заяагдмал тоо',body:`Таны бүрэн заяагдмал тоо ${code}. Эхний хоёр орон нь мөнгө татах хүч, сүүлийн хоёр орон нь мөнгө хаана сарниж, аль зангилаанаас өрийн дарамт үүсэж байгааг илтгэнэ.`},
+  {title:'Өр, гарлага, мөнгө сарних зангилаа',body:'Өрийн дарамт ихсэх үе нь ихэвчлэн нэг дор олон амлалт өгөх, баталгаагүй орлого дээр тулгуурлан төлөвлөгөө хийх, бусдын асуудлыг өөрийн мөнгөөр шийдэх, эсвэл шөнө орой санхүүгийн шийдвэр гаргах үед идэвхждэг гэж тайлагдана.'},
+  {title:'30 хоногийн мөнгө тогтоох төлөвлөгөө',body:'1–7 өдөр: бүх зарлагаа бич. 8–14 өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 өдөр: орлогын гол нэг сувгаа сонго. 22–30 өдөр: орлого бүрээс тогтмол хувь салгах дүрэм тогтоо.'},
+  {title:'Орлого тогтоох зан үйл',body:'Орлого олсон өдөр бүх мөнгөө шууд бүү үр. Боломжтой бол орлогоо гэртээ нэг хонуулаад дараа өдөр нь хуваарил. Орсон орлогын 10–20 хувийг “тархи” гэж үзэн хадгалбал мөнгөний бие үрэгдсэн ч оюун нь үлдэнэ гэж бэлгэддэг.'},
+  {title:'Түрийвч, азын мөнгө',body:'Хямд, урагдсан, замбараагүй түрийвч мөнгө тогтоохгүй гэж үздэг. Арьс, илэг, даавуун материалтай, дотор нь дэвсгэртээ ялгаж хийдэг түрийвч тохиромжтой. Анхны цалин, сайн хүнээс авсан мөнгө, амжилттай гэрээний мөнгөнөөс нэгийг азын мөнгө болгон үрэхгүй хадгал.'},
+  {title:'Сар ба мөнгөний дом',body:'Хавирган сартай үдэш халаасандаа байгаа мөнгөө зөөлөн шаржигнуулахыг сар өсөх тусам мөнгө үржих бэлгэдэл гэж ярьдаг. Зан үйл хийсний дараа хэт хүлээж, санаа зовохгүй орхих нь чухал гэж уламжлалд хэлдэг.'},
+  {title:'Лаврын навчны зан үйл',body:'Лаврын навч дээр хүсэмжилдэг 10 тоо болон өөрийн заяагдмал тоог 10 удаа бич. Дараа нь галын аюулгүй байдлыг ханган шатааж, үнсийг салхинд хийсгэн “мөнгөний хаалт арилав, урсгал нээгдэв” гэж 3 удаа хэл.'},
+  {title:'Цээрлэх өдөр, цаг',body:'Нар жаргасны дараа мөнгө тоолох, мөнгөө гадагш гаргах, шалаа шүүрдэх, гэрээс юм гаргахыг мөнгөний урсгалыг сулруулах бэлгэдэл гэж үздэг. Санхүүгийн чухал шийдвэрийг өглөө, тайван үед гаргах нь илүү сайн.'}
  ];
  return [
-  {title:'Гүн заяагдмал тоо',body:`Таны бүрэн заяагдмал тоо ${code}. Энэ тоо нь мөнгө, өрийн дарамт, хайр дурлал, ажил бизнес, амьдралын том шийдвэр дээр давтагддаг гүн хэв маягийг унших түлхүүр юм.`},
-  {title:'Хайр дурлал ба санхүүгийн огтлолцол',body:'Хайр дурлалын харилцаанд хэт өглөгч байх, эсвэл нөгөө хүний ачааг өөр дээрээ авах үед санхүүгийн хаалт үүсэх магадлалтай. Иймд мөнгө, үүрэг, хүлээлтээ тодорхой ярьж сурах нь таны тоонд чухал гэж гарч байна.'},
-  {title:'Ажил бизнес, том шийдвэр',body:'Нэг дор олон санаа эхлүүлэхээс илүү ашиг өгч эхэлсэн нэг сувгаа 49 хоног тууштай барихад үр дүн гарна. Том мөнгөн шийдвэрийг орой үдэш бус өглөө эрт, тайван үед гаргах нь танд илүү ээлтэй.'},
-  {title:'49 хоногийн нээлтийн төлөвлөгөө',body:'1–7 хоног: цэвэрлэгээ ба зарлагын бүртгэл. 8–21 хоног: өр, төлбөр, амлалтаа ангил. 22–35 хоног: орлогын гол сувагт төвлөр. 36–49 хоног: хадгалалт ба хамгаалалтын шинэ дүрэм тогтоо.'},
-  {title:'Тэнгэрийн ивээлийн дом',body:'Бүтэн сартай шөнө өөрийн заяагдмал тоогоо цэвэр цаасан дээр 9 удаа бич. Доор нь энэ сард хүсэж буй 3 санхүүгийн зорилгоо нэм. Цаасаа түрийвч эсвэл мөнгө хадгалдаг газартаа 7 хоног хадгал.'},
-  {title:'Хамгаалах сануулга',body:'Харанхуй шөнө бэлэн мөнгө хүнээс бүү зээл, мөн өөрөө ч бүү зээлүүл. Бусдын мөнгийг өөрийн түрийвчинд удаан бүү хадгал. Зоос эсвэл жижиг мөнгийг баруун халаасандаа авч явахыг зарим уламжлал тогтоох бэлгэдэл гэж үздэг.'}
+  {title:'Гүн заяагдмал тоо',body:`Таны бүрэн заяагдмал тоо ${code}. Энэ тоо нь зөвхөн мөнгө биш, хайр дурлал, ажил бизнес, амьдралын том шийдвэр, өрийн дарамт, буруу давтагддаг сонголтуудтай холбогдон тайлагдана.`},
+  {title:'Мөнгө + хайр дурлалын огтлолцол',body:'Хайр дурлалын харилцаанд хэт өглөгч байх, нөгөө хүний ачааг өөр дээрээ авах, эсвэл мөнгөний сэдвийг шууд ярилцахаас зайлсхийх үед санхүүгийн хаалт үүсдэг. Таны тоонд энэ зангилаа хэр хүчтэй байгааг тусгайлан тайлна.'},
+  {title:'Ажил бизнес, том шийдвэр',body:'Нэг дор олон санаа эхлүүлэхээс илүү ашиг өгч эхэлсэн нэг сувгаа 49 хоног тууштай барихад үр дүн илүү гарна. Том мөнгөн шийдвэрийг орой бус, өглөө эрт, тайван үед гаргах нь таны тоонд илүү ээлтэй гэж тайлагдана.'},
+  {title:'49 хоногийн гүн төлөвлөгөө',body:'1–7 хоног: гэр, түрийвч, зарлагын цэвэрлэгээ. 8–21 хоног: өр, төлбөр, амлалтаа цаасан дээр тодорхой бичих. 22–35 хоног: орлогын гол сувгаа бэхжүүлэх. 36–49 хоног: хадгалалт, сахиус, мөнгөний шинэ дүрэм тогтоох.'},
+  {title:'Хослон ургасан самрын бэлгэдэл',body:'Хослон ургасан самрыг эд баялаг, өсөж үржих, дэгжиж дээшлэхийн бэлгэдэл гэж үздэг. Хэрэв ийм самар олбол байнга өмсдөг хувцасны халаасанд эсвэл мөнгө хадгалдаг газартаа авч явж болно.'},
+  {title:'Сүм хийд, зоосны бэлгэдэл',body:'Сүм хийдэд засал ном хийлгэхээр очихдоо баруун хөлийн өсгий дор жижиг зоос хийхийг мөнгөний хийморь тогтоох бэлгэдэл гэж зарим уламжлалд ярьдаг. Нүхтэй эсвэл бага зэрэг нугалсан зоосыг халаасандаа авч явах нь мөнгө тасрахгүй байх бэлгэдэлд ордог.'},
+  {title:'Гэр орон, толь, ширээний дом',body:'Толь нь мөнгө, гэрлийн бэлгэдэлтэй гэж үздэг. Гал тогоо эсвэл зочны өрөөнд цэвэрхэн байрлуулсан толь эд баялгийн урсгалыг гэрт дуудна гэж ярьдаг. Ширээний бүтээлгэн доор багахан мөнгө хийх нь гэрт мөнгө тогтоох бэлгэдэл болдог.'},
+  {title:'Ус ба мөнгөн зоос',body:'Пүрэв гаригт усанд орохдоо мөнгөн зоос усандаа хийж, усанд мөнгөний гэрэл шингэж байна гэж төсөөлөх зан үйл байдаг. Энэ нь мөнгөний энерги өөрт шингэж байна гэсэн бэлгэдлийн төвлөрөл юм.'},
+  {title:'Өр, хуучин оны зангилаа',body:'Хэрэв хуучин ондоо өр зээлээ бүрэн төлж чадахгүй бол хаана, хэнд, ямар өртэйгөө цаасан дээр тодорхой бичээд, төлж дуусгаж байна гэж бэлгэдэн бурханыхаа өмнө 3 хонуулах зан үйл хэрэглэгддэг.'},
+  {title:'Хамгаалах сануулга',body:'Нар жаргасны дараа бусдад мөнгө зээлдүүлэх, шөнө хогоо гаргах, орой гэрээ шүүрдэх, ширээн дээр хоосон сав үлдээх зэргийг мөнгөний урсгал сулруулах цээр гэж үздэг. Энэ нь санхүүгийн сахилга баттай хамт хэрэгжвэл илүү үр дүнтэй бэлгэдэл болно.'}
  ];
 }
 function buildReport(){
@@ -550,6 +619,6 @@ async function openReportByToken(t){try{const d=await getDoc(doc(db,'reports',t)
 addEventListener('load',()=>{document.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
 </script>
-<div class="versionMark">v18</div>
+<div class="versionMark">v19</div>
 </body>
 </html>
