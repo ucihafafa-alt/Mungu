@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v19</title>
-<meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Код">
+<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v20</title>
+<meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Тоо">
 <meta property="og:description" content="Өөрийн заяагдмал тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
 <meta property="og:image" content="v19-hero-dragon.png">
 <link rel="manifest" href="manifest.json">
@@ -289,6 +289,7 @@ body{
 /* === END v19 === */
 
 </style>
+<!-- v20 bank account fix: accNo 5680034540, IBAN 59000500 -->
 </head>
 <body>
 <div class="page" id="main">
@@ -453,20 +454,21 @@ body{
     <h2 class="gold" id="payTitle">Төлбөр хийх</h2><p class="sub" id="payDesc"></p>
     <div class="copyLine"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
     <div class="copyLine"><span>Банк</span><b id="bankName">Хаан банк</b><button onclick="copyText('bankName')">📋</button></div>
-    <div class="copyLine"><span>Данс</span><b id="accNo">5690034540</b><button onclick="copyText('accNo')">📋</button></div>
+    <div class="copyLine"><span>Данс</span><b id="accNo">5680034540</b><button onclick="copyText('accNo')">📋</button></div>
     <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
     <div class="copyLine"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
-    <div class="smallCaps center" style="margin:16px 0 10px">БАНКНЫ АПП СОНГОХ</div>
+    <div class="smallCaps center" style="margin:16px 0 10px">ТӨЛБӨР ХИЙХ</div>
+    <p class="sub center" style="font-size:13px;margin:0 0 10px">Банкны апп шууд нээгдэхгүй бол дансаа хуулж аваад өөрийн банкны апп дээр paste хийнэ үү.</p>
     <div class="safeBanks">
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='khanbank://',120)"><span class="iconBox khan"><b>ХААН</b></span><small>Хаан банк</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='xacbank://',120)"><span class="iconBox xac"><b>ХАС</b></span><small>Хас банк</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='tdbbank://',120)"><span class="iconBox tdb"><b>TDB</b></span><small>TDB</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='golomtbank://',120)"><span class="iconBox golomt"><b>G</b></span><small>Голомт</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='statebank://',120)"><span class="iconBox state"><b>ТБ</b></span><small>Төрийн</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='capitronbank://',120)"><span class="iconBox capitron"><b>К</b></span><small>Капитрон</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='qpay://',120)"><span class="iconBox qpay"><b>Q</b></span><small>QPay</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='mbank://',120)"><span class="iconBox mbank"><b>M</b></span><small>M bank</small></button>
-      <button class="bankApp safe" onclick="copyText('accNo');setTimeout(()=>location.href='toki://',120)"><span class="iconBox toki"><b>Toki</b></span><small>Toki</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox khan"><b>ХААН</b></span><small>Хаан банк</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox xac"><b>ХАС</b></span><small>Хас банк</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox tdb"><b>TDB</b></span><small>TDB</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox golomt"><b>G</b></span><small>Голомт</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox state"><b>ТБ</b></span><small>Төрийн</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox capitron"><b>К</b></span><small>Капитрон</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox qpay"><b>Q</b></span><small>QPay</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox mbank"><b>M</b></span><small>M bank</small></button>
+      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox toki"><b>Toki</b></span><small>Toki</small></button>
     </div>
     <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
     <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Хүсэлт илгээх</button>
@@ -547,6 +549,7 @@ function tick(){let now=new Date(),end=new Date();end.setHours(24,0,0,0);let s=M
 function toggleDetail(id){document.querySelectorAll('.packageDetail').forEach(e=>{if(e.id!==id)e.classList.remove('show')});$(id)?.classList.toggle('show')}
 function choosePackage(name,price){selected={name,price};$('payTitle').textContent=name+' — төлбөр хийх';$('payDesc').textContent='Төлөх дүн: '+price.toLocaleString()+'₮';$('txn').textContent=client.phone||'утас';$('paidCheck').checked=false;toggleSubmit();$('pay').classList.add('show');$('pay').scrollIntoView({behavior:'smooth'})}
 function copyText(id){navigator.clipboard?.writeText($(id).textContent);toast('Хууллаа')}
+function copyPay(){navigator.clipboard?.writeText($('accNo').textContent);toast('Данс хууллаа. Банкны аппдаа ороод paste хийнэ үү')}
 function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
 function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
 function packageReportSections(pkgName, code){
@@ -619,6 +622,6 @@ async function openReportByToken(t){try{const d=await getDoc(doc(db,'reports',t)
 addEventListener('load',()=>{document.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
 </script>
-<div class="versionMark">v19</div>
+<div class="versionMark">v20</div>
 </body>
 </html>
