@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v23</title>
+<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v25</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Тоо">
 <meta property="og:description" content="Өөрийн заяагдмал тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
 <meta property="og:image" content="v19-hero-dragon.png">
@@ -316,7 +316,7 @@ body{
 /* === END v22 === */
 
 
-/* === v23 real bank anchor links === */
+/* === v25 real bank anchor links === */
 .bankLinks{position:relative;z-index:50}
 .bankHref{
   text-decoration:none!important;color:inherit!important;
@@ -327,10 +327,59 @@ body{
 .bankHref *{pointer-events:none!important}
 .bankHref:active,.bigCopyBtn:active{transform:scale(.96)!important;filter:brightness(1.18)!important}
 .payNotice,.bigCopyBtn{position:relative;z-index:60}
-/* === END v23 === */
+/* === END v25 === */
+
+
+/* === v25 SAFE UI PATCH: form first, gold bar numbers, real bank logos === */
+.quickFormHint{margin:16px auto 6px;color:#ffe67d;text-shadow:0 0 12px rgba(255,224,116,.35)}
+#home .formBox{
+  display:block!important;
+  margin:10px 0 18px!important;
+  padding:18px!important;
+  border:1.5px solid rgba(255,230,125,.46)!important;
+  background:linear-gradient(180deg,rgba(82,9,17,.76),rgba(22,2,6,.70))!important;
+  box-shadow:0 0 0 1px rgba(255,224,116,.12),0 24px 70px rgba(0,0,0,.32),0 0 42px rgba(255,214,78,.12)!important;
+}
+#home .formBox:before{
+  content:"Эхний 2 орон үнэгүй";
+  display:block;
+  color:#ffe67d;
+  font-weight:950;
+  font-size:22px;
+  margin-bottom:8px;
+  font-family:Georgia,"Times New Roman",serif;
+}
+#home.focus-form .heroCard,#home.focus-form .reviewBlock{filter:none!important;transform:none!important;opacity:1!important}
+.goldBarReveal{position:relative;width:min(100%,470px);margin:20px auto 16px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,230,125,.35);box-shadow:0 28px 70px rgba(0,0,0,.38),0 0 48px rgba(255,210,64,.16);background:#5b3306}
+.goldBarReveal:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.18),transparent 24%),linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.30));z-index:1;pointer-events:none}
+.goldBarReveal img{display:block;width:100%;height:260px;object-fit:cover;transform:scale(1.03);filter:saturate(1.08) contrast(1.04) brightness(.98)}
+.goldDigits{position:absolute;z-index:2;left:50%;top:40%;transform:translate(-50%,-50%) rotate(-13deg) skewX(-2deg);display:flex;gap:9px;align-items:center;justify-content:center;padding:10px 12px;border-radius:18px;background:rgba(45,23,0,.20);backdrop-filter:blur(2px)}
+.goldDigit{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;font-size:30px;font-weight:1000;font-family:Georgia,"Times New Roman",serif;color:#fff4b7;background:linear-gradient(145deg,rgba(23,8,0,.62),rgba(132,69,5,.28));border:1px solid rgba(255,238,155,.55);text-shadow:0 2px 0 rgba(40,15,0,.75),0 0 14px rgba(255,240,154,.85);box-shadow:inset 0 2px 8px rgba(255,255,255,.18),inset 0 -8px 16px rgba(0,0,0,.35),0 8px 18px rgba(0,0,0,.35)}
+.goldDigit.locked{color:#fff0a8;font-size:24px;filter:saturate(.82) brightness(.82);opacity:.88;background:linear-gradient(145deg,rgba(23,8,0,.72),rgba(55,35,10,.44))}
+.goldBarReveal:after{content:"АЛТАН ТҮЛХҮҮР";position:absolute;left:0;right:0;bottom:16px;z-index:2;text-align:center;letter-spacing:.22em;font-size:11px;font-weight:950;color:rgba(255,240,160,.92);text-shadow:0 2px 8px rgba(0,0,0,.65)}
+.lockKeyVisual{position:relative;margin:18px auto 16px;max-width:430px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,224,116,.30);box-shadow:0 20px 58px rgba(0,0,0,.35),0 0 28px rgba(255,224,116,.12)}
+.lockKeyVisual img{display:block;width:100%;height:220px;object-fit:cover;filter:saturate(1.05) contrast(1.05)}
+.lockKeyVisual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.48))}
+.lockGlow{position:absolute;z-index:2;left:14px;right:14px;bottom:14px;padding:11px 12px;border-radius:16px;background:rgba(24,3,5,.62);border:1px solid rgba(255,224,116,.35);color:#ffe67d;font-weight:950;text-shadow:0 2px 10px rgba(0,0,0,.75)}
+.bankTrustStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;padding:10px;border:1px solid rgba(255,224,116,.18);border-radius:18px;background:rgba(255,255,255,.04)}
+.bankTrustStrip img{width:100%;height:38px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.95);padding:5px}
+.iconBox.logoIcon{background:#fff!important;padding:5px}
+.iconBox.logoIcon img{max-width:100%!important;max-height:100%!important;object-fit:contain!important;z-index:3!important}
+.bankLinks .bankHref{min-height:92px!important}
+.bankLinks .bankHref small{font-size:11px!important;color:#fff1d1!important}
+@media(max-width:520px){
+ .goldBarReveal img{height:220px}
+ .goldDigits{top:39%;gap:7px;transform:translate(-50%,-50%) rotate(-13deg) skewX(-2deg) scale(.92)}
+ .goldDigit{width:48px;height:48px;font-size:27px;border-radius:13px}
+ .goldDigit.locked{font-size:22px}
+ .bankTrustStrip{grid-template-columns:repeat(2,1fr)}
+ .lockKeyVisual img{height:190px}
+}
+/* === END v25 === */
 
 </style>
-<!-- v23 real bank links anchors: accNo 5680034540, IBAN 59000500 -->
+<!-- v25 real bank links anchors: accNo 5680034540, IBAN 59000500 -->
+<!-- v25 safe patch: Firebase/admin/report/payment logic preserved; UI only -->
 </head>
 <body>
 <div class="page" id="main">
@@ -400,12 +449,6 @@ body{
       </div></div>
     </div>
 
-    <div class="card formBox" id="formBox">
-      <div class="field"><label>Овог нэр</label><input id="fullName" placeholder="Жишээ: Номин"></div>
-      <div class="field"><label>Төрсөн огноо</label><input id="birthDate" placeholder="1988.12.31"></div>
-      <div class="field"><label>Утас</label><input id="phone" placeholder="99039726"></div>
-      <button class="btn" onclick="confirmInfo()">Үнэгүй үр дүнгээ нээх</button>
-    </div>
   </section>
 
   <section id="scan" class="scan">
@@ -452,15 +495,23 @@ body{
         <div class="blurLine" data-label="Амьдралын том шийдвэрт тоогоо яаж ашиглах вэ?"></div>
         <div class="blurLine" data-label="Мөнгөний урсгалаа нээх хувийн нууц тоо"></div>
       </div>
-      <div class="lockIcon">✦</div>
+      <div class="lockKeyVisual"><img src="lock-key.jpg?v=25" alt="Цоож ба түлхүүр"><div class="lockGlow">Үлдсэн 2 орон түгжээтэй</div></div>
       <p class="sub">Эдгээр мөр бүр бүрэн тайланд задрана.</p>
     </div>
 
     <div class="card lockCard">
-      <h2 class="gold">Таны ил гарсан тоо</h2>
-      <p class="sub">Эхний хоёр орон л танд үнэгүй нээгдлээ.</p>
-      <div class="coins"><div class="coin" id="code1">7</div><div class="coin" id="code2">7</div><div class="coin locked">🔒</div><div class="coin locked">🔒</div></div>
-      <p class="sub">Сүүлийн хоёр орон болон түүнийг ашиглах арга нь бүрэн тайланд нээгдэнэ.</p>
+      <h2 class="gold">Таны алтан тооны эхний нээлт</h2>
+      <p class="sub">Эхний 2 орон алтан түлхүүр дээр ил гарлаа. Үлдсэн 2 орон бүрэн тайланд нээгдэнэ.</p>
+      <div class="goldBarReveal">
+        <img src="gold-bar.jpg?v=25" alt="Алтан тооны түлхүүр">
+        <div class="goldDigits">
+          <span class="goldDigit" id="code1">7</span>
+          <span class="goldDigit" id="code2">7</span>
+          <span class="goldDigit locked">🔒</span>
+          <span class="goldDigit locked">🔒</span>
+        </div>
+      </div>
+      <p class="sub">Сүүлийн хоёр орон нь таны мөнгөний зангилаа, урсгал нээх дарааллыг бүрэн тайланд ил гаргана.</p>
     </div>
 
     <h1 class="heroTitle center" style="font-size:32px"><span>Тоогоо бүрэн нээж,</span><br>мөнгөний урсгалаа нээх үү?</h1>
@@ -501,20 +552,29 @@ body{
     <div class="smallCaps center" style="margin:16px 0 10px">БАНКНЫ АПП СОНГОХ</div>
     <p class="sub center" style="font-size:13px;margin:0 0 10px">Эхлээд дансаа хуул. Дараа нь банкны нэр дээр дарвал Android дээр тухайн банкны апп нээгдэхээр оролдоно. Facebook дотор нээгдэхгүй бол гадна browser-оор нээ эсвэл банкны аппдаа гараар орно.</p>
     <div id="payNotice" class="payNotice">Данс: <b>5680034540</b> · IBAN: <b>59000500</b></div>
+
+    <div class="bankTrustStrip">
+      <img src="bank-khan.png?v=25" alt="Хаан банк">
+      <img src="bank-golomt.png?v=25" alt="Голомт банк">
+      <img src="bank-tdb.png?v=25" alt="TDB">
+      <img src="bank-xac.png?v=25" alt="Хас банк">
+      <img src="bank-turiin.png?v=25" alt="Төрийн банк">
+      <img src="bank-capitron.png?v=25" alt="Капитрон">
+    </div>
     <button type="button" class="bigCopyBtn" onclick="copyPay('Данс')">Данс хуулах — 5680034540</button>
     <div class="safeBanks bankLinks">
       <a class="bankApp bankHref" href="intent://open#Intent;scheme=khanbank;package=com.khanbank.retail;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.khanbank.retail;end" onclick="copyPay('Хаан банк')" target="_self" rel="noopener">
-        <span class="iconBox khan"><b>ХААН</b></span><small>Хаан банк</small>
+        <span class="iconBox logoIcon khan"><img src="bank-khan-icon.png?v=25" alt=""></span><small>Хаан банк</small>
       </a><a class="bankApp bankHref" href="intent://open#Intent;scheme=golomtbank;package=mn.egolomt.new.bank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.egolomt.new.bank;end" onclick="copyPay('Голомт')" target="_self" rel="noopener">
-        <span class="iconBox golomt"><b>G</b></span><small>Голомт</small>
+        <span class="iconBox logoIcon golomt"><img src="bank-golomt-icon.png?v=25" alt=""></span><small>Голомт</small>
       </a><a class="bankApp bankHref" href="intent://open#Intent;scheme=tdbbank;package=mn.tdb.pay;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.tdb.pay;end" onclick="copyPay('TDB')" target="_self" rel="noopener">
-        <span class="iconBox tdb"><b>TDB</b></span><small>TDB</small>
+        <span class="iconBox logoIcon tdb"><img src="bank-tdb-icon.png?v=25" alt=""></span><small>TDB</small>
       </a><a class="bankApp bankHref" href="intent://open#Intent;scheme=xacbank;package=com.xacbank.mobile;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.xacbank.mobile;end" onclick="copyPay('Хас банк')" target="_self" rel="noopener">
-        <span class="iconBox xac"><b>ХАС</b></span><small>Хас банк</small>
+        <span class="iconBox logoIcon xac"><img src="bank-xac-icon.png?v=25" alt=""></span><small>Хас банк</small>
       </a><a class="bankApp bankHref" href="intent://open#Intent;scheme=statebank;package=com.statebank.gyalsbank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.statebank.gyalsbank;end" onclick="copyPay('Төрийн банк')" target="_self" rel="noopener">
-        <span class="iconBox state"><b>ТБ</b></span><small>Төрийн банк</small>
+        <span class="iconBox logoIcon state"><img src="bank-turiin-icon.png?v=25" alt=""></span><small>Төрийн банк</small>
       </a><a class="bankApp bankHref" href="intent://open#Intent;scheme=capitronbank;package=com.capitron;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.capitron;end" onclick="copyPay('Капитрон')" target="_self" rel="noopener">
-        <span class="iconBox capitron"><b>К</b></span><small>Капитрон</small>
+        <span class="iconBox logoIcon capitron"><img src="bank-capitron-icon.png?v=25" alt=""></span><small>Капитрон</small>
       </a><a class="bankApp bankHref" href="intent://open#Intent;scheme=mbank;package=mn.mllc.mbank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.mllc.mbank;end" onclick="copyPay('M bank')" target="_self" rel="noopener">
         <span class="iconBox mbank"><b>M</b></span><small>M bank</small>
       </a><a class="bankApp bankHref" href="intent://open#Intent;scheme=toki;package=com.toki.mn;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.toki.mn;end" onclick="copyPay('Toki')" target="_self" rel="noopener">
@@ -685,6 +745,6 @@ async function openReportByToken(t){try{const d=await getDoc(doc(db,'reports',t)
 addEventListener('load',()=>{document.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
 </script>
-<div class="versionMark">v23</div>
+<div class="versionMark">v25</div>
 </body>
 </html>
