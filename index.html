@@ -180,6 +180,69 @@ url("gold-tree.jpg") center top/cover fixed!important;}
 .copyLine b{font-size:15px!important}
 button, input{font-family:var(--fontBody)!important}
 
+
+/* === v16 FIX FIRESTORE + REMOVE 12/OROD GRIDS === */
+body{
+  background:
+    linear-gradient(rgba(45,4,9,.38),rgba(10,1,3,.66)),
+    radial-gradient(circle at 50% 18%,rgba(255,232,144,.20),transparent 34%),
+    url("gold-tree.jpg") center top/cover fixed !important;
+}
+body:before{
+  opacity:.22!important;
+}
+.card{
+  background:linear-gradient(180deg,rgba(55,6,13,.45),rgba(18,2,5,.42))!important;
+}
+.heroCard:before,.reviewBlock:before,.pack:before{
+  opacity:.24!important;
+  filter:saturate(1.15) brightness(1.08);
+}
+.result .archetype{
+  background:radial-gradient(circle at 50% 15%,rgba(255,230,125,.10),transparent 42%);
+}
+.zodiacWheel,.yearWheel{display:none!important}
+.zodiacCoin{
+  width:118px;height:118px;margin:16px auto 12px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:
+    radial-gradient(circle at 35% 25%,#fff7b6 0 10%,#ffe16a 22%,#d59a23 48%,#8f3c0c 75%,#3a0708 100%);
+  border:1px solid rgba(255,236,157,.74);
+  box-shadow:
+    inset 0 8px 20px rgba(255,255,255,.32),
+    inset 0 -16px 24px rgba(54,10,0,.42),
+    0 0 36px rgba(255,225,106,.32),
+    0 18px 42px rgba(0,0,0,.38);
+  animation:coinBreath 3.2s ease-in-out infinite;
+}
+.coinMiniSign{
+  font-size:38px;line-height:1;color:#3b0907;
+  text-shadow:0 1px 0 rgba(255,255,255,.38);
+}
+.coinMiniText{
+  margin-top:4px;font-size:10px;font-weight:900;letter-spacing:.06em;color:#5b1608;
+}
+@keyframes coinBreath{
+  0%,100%{transform:scale(1) rotateY(0deg)}
+  50%{transform:scale(1.045) rotateY(7deg)}
+}
+.videoBox img.heroDragon{
+  animation:dragonAlive 4.8s ease-in-out infinite!important;
+}
+.heroGlow{opacity:.82!important}
+.coin.locked{
+  position:relative;font-size:0!important;filter:none!important;
+  background:radial-gradient(circle at 35% 24%,#ffe67d,#c11621 60%,#3b060b)!important;
+}
+.coin.locked:after{
+  content:"✦";font-size:25px;color:#fff0a8;
+}
+@media(max-width:520px){
+  .zodiacCoin{width:104px;height:104px}
+  .coinMiniSign{font-size:34px}
+}
+/* === END v16 === */
+
 </style>
 </head>
 <body>
@@ -192,8 +255,8 @@ button, input{font-family:var(--fontBody)!important}
     <p class="sub">Хүн бүрд өөрийн гэсэн заяагдмал тоо бий. Тэр тоогоор мөнгө санхүү, өрийн дарамт, хайр дурлал, ажил бизнес болон амьдралын томоохон шийдвэрт хэрхэн нөлөөлж байгааг бэлгэдлийн аргаар уншиж болдог.</p>
     <div class="card heroCard">
       <div class="videoBox">
-        <video autoplay muted loop playsinline preload="metadata" poster="dragon-main.jpg"><source src="dragon-hero.mp4?v=14" type="video/mp4"></video>
-        <img class="heroDragon" src="dragon-main.jpg?v=14" alt="" onerror="this.remove()">
+        <video autoplay muted loop playsinline preload="metadata" poster="dragon-main.jpg"><source src="dragon-hero.mp4?v=16" type="video/mp4"></video>
+        <img class="heroDragon" src="dragon-main.jpg?v=16" alt="" onerror="this.remove()">
         <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
         <div class="heroNote">Таны заяагдмал тооны эхний 2 орон үнэгүй нээгдэнэ. Үлдсэн 2 орон, мөнгөний нууц урсгал, дом зан үйл нь бүрэн тайланд ил болно.</div>
       </div>
@@ -226,7 +289,7 @@ button, input{font-family:var(--fontBody)!important}
   <section id="scan" class="scan">
     <div>
       <div class="videoBox">
-        <img class="heroDragon" src="dragon-main.jpg?v=14" alt="">
+        <img class="heroDragon" src="dragon-main.jpg?v=16" alt="">
         <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
         <p class="scanText" id="scanText">Алтан луу таны тоог нээж байна...</p>
         <div class="progress"><div class="bar" id="bar"></div></div>
@@ -240,12 +303,11 @@ button, input{font-family:var(--fontBody)!important}
       <div class="smallCaps">ТАНЫ ЗАЯАГДМАЛ ТОО</div>
       <h1 class="heroTitle"><span id="archTitle">Онцгой</span><br><span style="color:#fff" id="archTitle2">Тоо</span></h1>
       <p class="sub" id="archSub">Хүн бүрд өөрийн гэсэн тоон түлхүүр бий</p>
-      <div class="zodiacFigure"><div class="symbol" id="zodiacSymbol">♑</div></div>
+      <div class="zodiacCoin"><div class="coinMiniSign" id="zodiacSymbol">♑</div><div class="coinMiniText" id="zodiacCoinText">Ордын тоо</div></div>
       <h2 class="gold" id="zodiacName">Матрын орд</h2>
       <p class="sub" id="zodiacFinanceSub">Өрнийн орд нь мөнгөтэй харьцах хэв маяг, амьдралын том шийдвэрийг яаж гаргадаг хандлагыг харуулна.</p>
-      <div class="zodiacWheel" id="zodiacWheel"></div>
-      <div class="smallCaps" style="margin-top:18px">12 ЖИЛИЙН 3D ХҮРД</div>
-      <div class="yearWheel" id="yearWheel"></div>
+      
+      
       <div class="cardText" id="mainText"></div>
       <div class="codeUse card">
         <h2 class="gold">Энэ тоогоор юуг нээж болдог вэ?</h2>
@@ -369,8 +431,8 @@ function zodiac(m,d){let x=m*100+d;return z.find(a=>x<=a[2])||z[0]}
 function moneyCode(c){return String(1000+(hash(c.fullName+c.birth)%9000))}
 function mongolYearAnimal(year){const animals=['Бич','Тахиа','Нохой','Гахай','Хулгана','Үхэр','Бар','Туулай','Луу','Могой','Морь','Хонь'];return animals[Number(year)%12]||'Луу'}
 function beginScan(){closeModal();$('home').style.display='none';$('scan').classList.add('show');let p=0;let texts=['Алтан луу таны тоог нээж байна...','Хишгийн зам, заяагдмал тоог тооцоолж байна...','Өрийн зангилааг хайж байна...','Үлдсэн тооны хаалгыг бэлтгэж байна...'];let interval=setInterval(()=>{p+=4;$('bar').style.width=p+'%';$('scanText').textContent=texts[Math.min(texts.length-1,Math.floor(p/28))];if(p>=100){clearInterval(interval);showResult()}},105)}
-function renderZodiacWheel(activeName){const all=[['Матар','♑'],['Хумх','♒'],['Загас','♓'],['Хонь','♈'],['Үхэр','♉'],['Ихэр','♊'],['Мэлхий','♋'],['Арслан','♌'],['Охин','♍'],['Жинлүүр','♎'],['Хилэнц','♏'],['Нум','♐']];$('zodiacWheel').innerHTML=all.map(a=>`<div class="zItem ${a[0]===activeName?'active':''}"><b>${a[1]}</b><small>${a[0]} орд</small></div>`).join('')}
-function renderYearWheel(activeYear){const all=[['Хулгана','🐭'],['Үхэр','🐂'],['Бар','🐯'],['Туулай','🐰'],['Луу','🐉'],['Могой','🐍'],['Морь','🐴'],['Хонь','🐏'],['Бич','🐵'],['Тахиа','🐔'],['Нохой','🐶'],['Гахай','🐷']];$('yearWheel').innerHTML=all.map(a=>`<div class="yItem ${a[0]===activeYear?'active':''}"><b>${a[1]}</b><small>${a[0]} жил</small></div>`).join('')}
+function renderZodiacWheel(activeName){}
+function renderYearWheel(activeYear){}
 function zodiacFinanceText(name){
  const map={
   'Матар':'Матрын орд санхүүг нухацтай хардаг. Эрсдэлд дуртай биш ч заримдаа хэт болгоомжлоод боломжоо алдах хандлагатай. Таны заяагдмал тоо мөнгийг удаан тогтоох, зөв цагт шийдвэр гаргахад тусална.',
@@ -391,7 +453,7 @@ function zodiacFinanceText(name){
 function showResult(){
  $('scan').classList.remove('show');$('result').classList.add('show');$('home').classList.remove('focus-form');
  const seed=hash(JSON.stringify(client)), zz=zodiac(client.month,client.day), code=moneyCode(client);client.zodiac=zz[0];client.code=code;client.yearAnimal=mongolYearAnimal(client.year);
- $('zodiacSymbol').textContent=zz[1];$('zodiacName').textContent=zz[0]+'ын орд';$('zodiacFinanceSub').textContent=zodiacFinanceText(zz[0]);renderZodiacWheel(zz[0]);renderYearWheel(client.yearAnimal);
+ $('zodiacSymbol').textContent=zz[1];$('zodiacName').textContent=zz[0]+'ын орд';$('zodiacFinanceSub').textContent=zodiacFinanceText(zz[0]);$('zodiacCoinText').textContent=zz[0]+' орд';
  const profiles=[
  ['Заяагдмал','Тоо','Хүн бүрд өөрийн гэсэн онцгой тоо бий',`Танд ${code.slice(0,2)}•• гэсэн заяагдмал тоо илэрч байна. Энэ тоо нь мөнгөний урсгал хаанаас нээгддэг, хаанаас хаагддаг, өрийн дарамт ямар зангилаагаар эргэж ирдэг, мөн энэ бүхэнд хайр дурлал ба амьдралын шийдвэр хэрхэн нөлөөлдгийг харуулах хувийн түлхүүр юм.`],
  ['Мөнгөний','Тоо','Санхүүгийн зангилааг унших хувийн тоо',`Таны тооны эхний хоёр орон ${code.slice(0,2)}. Энэ нь мөнгөний боломж байгаа ч түүнийг тогтоох арга дутмаг байж болзошгүйг илтгэнэ. Үлдсэн хоёр орон бүрэн тайланд нээгдэж, юунаас эхэлж засахаа зааж өгнө.`],
@@ -409,25 +471,25 @@ function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
 function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
 function packageReportSections(pkgName, code){
  if(pkgName==='Мөнгөний Түлхүүр')return [
-  ['Ил гарсан заяагдмал тоо',`Таны заяагдмал тооны эхний хоёр орон ${String(code).slice(0,2)}. Энэ нь мөнгө танд орж ирэх суваг нээлттэй ч тогтоох сахилга, цэгцлэл сул үед урсгал сарних магадлалтайг илтгэнэ.`],
-  ['Мөнгө гацах эхний шалтгаан','Хүссэн зүйл олон, эхлүүлсэн зүйл их, харин дуусгадаг дүрэм сул байх үед мөнгөний урсгал тогтворгүй болдог. Мөн хэн нэгэнд өрөвдөж мөнгө гаргах, амлах, батлан даах зэрэг нь таны эхний хаалтыг үүсгэдэг.'],
-  ['7 хоногийн мөнгөний дом','7 хоногийн 2 дахь өдрийн 23 цаг 23 минутад 23 ширхэг цагаан давсыг чигчий хурууны толионы хэмжээнээс багахан авч гал дээр хийж дуугарга. Дотроо “хуучин хаалт арилж, шинэ урсгал нээгдэнэ” гэж 7 удаа давт.'],
-  ['Эхний дадал','Орлого орсон өдөр нэг дэвсгэртийг салгаж хадгал. Түрийвч дотроо хэрэггүй баримт, хог цаас бүү хадгал. Мөнгө ордог замыг цэвэр байлгах нь эхний нээлт гэж үзнэ.']
+  {title:'Ил гарсан заяагдмал тоо',body:`Таны заяагдмал тооны эхний хоёр орон ${String(code).slice(0,2)}. Энэ нь мөнгө танд орж ирэх суваг нээлттэй ч тогтоох сахилга, цэгцлэл сул үед урсгал сарних магадлалтайг илтгэнэ.`},
+  {title:'Мөнгө гацах эхний шалтгаан',body:'Хүссэн зүйл олон, эхлүүлсэн зүйл их, харин дуусгадаг дүрэм сул байх үед мөнгөний урсгал тогтворгүй болдог. Мөн хэн нэгэнд өрөвдөж мөнгө гаргах, амлах, батлан даах зэрэг нь таны эхний хаалтыг үүсгэдэг.'},
+  {title:'7 хоногийн мөнгөний дом',body:'7 хоногийн 2 дахь өдрийн 23 цаг 23 минутад 23 ширхэг цагаан давсыг чигчий хурууны толионы хэмжээнээс багахан авч гал дээр хийж дуугарга. Дотроо “хуучин хаалт арилж, шинэ урсгал нээгдэнэ” гэж 7 удаа давт.'},
+  {title:'Эхний дадал',body:'Орлого орсон өдөр нэг дэвсгэртийг салгаж хадгал. Түрийвч дотроо хэрэггүй баримт, хог цаас бүү хадгал. Мөнгө ордог замыг цэвэр байлгах нь эхний нээлт гэж үзнэ.'}
  ];
  if(pkgName==='Мөнгөний Урсгал')return [
-  ['Бүрэн заяагдмал тоо',`Таны бүрэн заяагдмал тоо ${code}. Эхний хоёр орон мөнгө татах хүчийг, сүүлийн хоёр орон мөнгө тогтоох болон сарних зангилааг илтгэнэ.`],
-  ['Өрийн дарамтын гүн тайлал','Өрийн дарамт ихсэх үе нь нэг дор олон төлбөр, олон амлалт, баталгаагүй орлого дээр тулгуурласан шийдвэр, мөн бусдын өмнөөс хэт их үүрэг үүрэх үед идэвхждэг. Та мөнгийг алдахдаа ихэвчлэн сэтгэл хөдлөл ба яаруу шийдвэрийн нөлөөнд ордог хэв маяг ажиглагдана.'],
-  ['30 хоногийн мөнгө тогтоох төлөвлөгөө','1–7 өдөр: бүх зарлагаа бүртгэ. 8–14 өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 өдөр: орлогын нэг шинэ суваг тодорхойл. 22–30 өдөр: сар бүрийн тогтмол хадгалалтын дүрэм тогтоо.'],
-  ['Лаврын навчны зан үйл','Лаврын навч дээр хүсэмжилдэг 10 тоо болон өөрийн заяагдмал тоог тус бүр 10 удаа бич. Дараа нь нэг дор шатааж, үнсийг салхинд хийсгэн “мөнгөний хаалт арилав, урсгал нээгдэв” гэж 3 удаа хэл.'],
-  ['Аз дуудах бэлгэдэл','Гүн улаан, алтлаг өнгийг биедээ сануулга болгон хэрэглэ. Орлого орсон өдрөөс хойш 3 дахь өдөр хадгалалт эхлүүлэх, шинэ түрийвч эсвэл мөнгө хадгалах сав бэлдэхэд сайн.']
+  {title:'Бүрэн заяагдмал тоо',body:`Таны бүрэн заяагдмал тоо ${code}. Эхний хоёр орон мөнгө татах хүчийг, сүүлийн хоёр орон мөнгө тогтоох болон сарних зангилааг илтгэнэ.`},
+  {title:'Өрийн дарамтын гүн тайлал',body:'Өрийн дарамт ихсэх үе нь нэг дор олон төлбөр, олон амлалт, баталгаагүй орлого дээр тулгуурласан шийдвэр, мөн бусдын өмнөөс хэт их үүрэг үүрэх үед идэвхждэг.'},
+  {title:'30 хоногийн мөнгө тогтоох төлөвлөгөө',body:'1–7 өдөр: бүх зарлагаа бүртгэ. 8–14 өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 өдөр: орлогын нэг шинэ суваг тодорхойл. 22–30 өдөр: сар бүрийн тогтмол хадгалалтын дүрэм тогтоо.'},
+  {title:'Лаврын навчны зан үйл',body:'Лаврын навч дээр хүсэмжилдэг 10 тоо болон өөрийн заяагдмал тоог тус бүр 10 удаа бич. Дараа нь нэг дор шатааж, үнсийг салхинд хийсгэн “мөнгөний хаалт арилав, урсгал нээгдэв” гэж 3 удаа хэл.'},
+  {title:'Аз дуудах бэлгэдэл',body:'Гүн улаан, алтлаг өнгийг биедээ сануулга болгон хэрэглэ. Орлого орсон өдрөөс хойш 3 дахь өдөр хадгалалт эхлүүлэх, шинэ түрийвч эсвэл мөнгө хадгалах сав бэлдэхэд сайн.'}
  ];
  return [
-  ['Гүн заяагдмал тоо',`Таны бүрэн заяагдмал тоо ${code}. Энэ тоо нь мөнгө, өрийн дарамт, хайр дурлал, ажил бизнес, амьдралын том шийдвэр дээр давтагддаг гүн хэв маягийг унших түлхүүр юм.`],
-  ['Хайр дурлал ба санхүүгийн огтлолцол','Хайр дурлалын харилцаанд хэт өглөгч байх, эсвэл нөгөө хүний ачааг өөр дээрээ авах үед санхүүгийн хаалт үүсэх магадлалтай. Иймд мөнгө, үүрэг, хүлээлтээ тодорхой ярьж сурах нь таны тоонд чухал гэж гарч байна.'],
-  ['Ажил бизнес, том шийдвэр','Нэг дор олон санаа эхлүүлэхээс илүү ашиг өгч эхэлсэн нэг сувгаа 49 хоног тууштай барихад үр дүн гарна. Том мөнгөн шийдвэрийг орой үдэш бус өглөө эрт, тайван үед гаргах нь танд илүү ээлтэй.'],
-  ['49 хоногийн нээлтийн төлөвлөгөө','1–7 хоног: цэвэрлэгээ ба зарлагын бүртгэл. 8–21 хоног: өр, төлбөр, амлалтаа ангил. 22–35 хоног: орлогын гол сувагт төвлөр. 36–49 хоног: хадгалалт ба хамгаалалтын шинэ дүрэм тогтоо.'],
-  ['Тэнгэрийн ивээлийн дом','Бүтэн сартай шөнө өөрийн заяагдмал тоогоо цэвэр цаасан дээр 9 удаа бич. Доор нь энэ сард хүсэж буй 3 санхүүгийн зорилгоо нэм. Цаасаа түрийвч эсвэл мөнгө хадгалдаг газартаа 7 хоног хадгал.'],
-  ['Хамгаалах сануулга','Харанхуй шөнө бэлэн мөнгө хүнээс бүү зээл, мөн өөрөө ч бүү зээлүүл. Бусдын мөнгийг өөрийн түрийвчинд удаан бүү хадгал. Зоос эсвэл жижиг мөнгийг баруун халаасандаа авч явахыг зарим уламжлал тогтоох бэлгэдэл гэж үздэг.']
+  {title:'Гүн заяагдмал тоо',body:`Таны бүрэн заяагдмал тоо ${code}. Энэ тоо нь мөнгө, өрийн дарамт, хайр дурлал, ажил бизнес, амьдралын том шийдвэр дээр давтагддаг гүн хэв маягийг унших түлхүүр юм.`},
+  {title:'Хайр дурлал ба санхүүгийн огтлолцол',body:'Хайр дурлалын харилцаанд хэт өглөгч байх, эсвэл нөгөө хүний ачааг өөр дээрээ авах үед санхүүгийн хаалт үүсэх магадлалтай. Иймд мөнгө, үүрэг, хүлээлтээ тодорхой ярьж сурах нь таны тоонд чухал гэж гарч байна.'},
+  {title:'Ажил бизнес, том шийдвэр',body:'Нэг дор олон санаа эхлүүлэхээс илүү ашиг өгч эхэлсэн нэг сувгаа 49 хоног тууштай барихад үр дүн гарна. Том мөнгөн шийдвэрийг орой үдэш бус өглөө эрт, тайван үед гаргах нь танд илүү ээлтэй.'},
+  {title:'49 хоногийн нээлтийн төлөвлөгөө',body:'1–7 хоног: цэвэрлэгээ ба зарлагын бүртгэл. 8–21 хоног: өр, төлбөр, амлалтаа ангил. 22–35 хоног: орлогын гол сувагт төвлөр. 36–49 хоног: хадгалалт ба хамгаалалтын шинэ дүрэм тогтоо.'},
+  {title:'Тэнгэрийн ивээлийн дом',body:'Бүтэн сартай шөнө өөрийн заяагдмал тоогоо цэвэр цаасан дээр 9 удаа бич. Доор нь энэ сард хүсэж буй 3 санхүүгийн зорилгоо нэм. Цаасаа түрийвч эсвэл мөнгө хадгалдаг газартаа 7 хоног хадгал.'},
+  {title:'Хамгаалах сануулга',body:'Харанхуй шөнө бэлэн мөнгө хүнээс бүү зээл, мөн өөрөө ч бүү зээлүүл. Бусдын мөнгийг өөрийн түрийвчинд удаан бүү хадгал. Зоос эсвэл жижиг мөнгийг баруун халаасандаа авч явахыг зарим уламжлал тогтоох бэлгэдэл гэж үздэг.'}
  ];
 }
 function buildReport(){
@@ -447,7 +509,7 @@ async function submitOrder(){
 }
 function reportHtml(data){
  const r=data.report||data, c=(r.client||data), p=(r.package||{name:data.package,price:data.price});
- const sections=(r.sections||packageReportSections(p.name||data.package||'Мөнгөний Түлхүүр', r.code||c.code||'••••')).map(s=>`<div class="reportRow premium"><h3>${s[0]}</h3><div>${s[1]}</div></div>`).join('');
+ const sections=(r.sections||packageReportSections(p.name||data.package||'Мөнгөний Түлхүүр', r.code||c.code||'••••')).map(s=>{const title=Array.isArray(s)?s[0]:s.title;const body=Array.isArray(s)?s[1]:s.body;return `<div class="reportRow premium"><h3>${title}</h3><div>${body}</div></div>`}).join('');
  return `<div class="reportInner"><div class="reportRow"><b>Нэр:</b> ${c.fullName||c.name||''}</div><div class="reportRow"><b>Төрсөн огноо:</b> ${c.birth||''}</div><div class="reportRow"><b>Утас:</b> ${c.phone||''}</div><div class="reportRow"><b>Багц:</b> ${p.name||data.package||''}</div><div class="reportRow"><b>12 жил:</b> ${r.yearAnimal||c.yearAnimal||mongolYearAnimal(c.year||1990)}</div><div class="reportRow"><b>Заяагдмал тоо:</b> ${(p.name||data.package)==='Мөнгөний Түлхүүр' ? String(r.code||c.code||'••••').slice(0,2)+'••' : String(r.code||c.code||'••••')}</div><div class="reportRow"><b>Ордын тайлбар:</b> ${c.zodiac||r.zodiac||''} ордын мөнгөтэй харьцах хэв маяг</div>${sections}</div>`;
 }
 async function ensureLink(id){

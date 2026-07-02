@@ -1,1 +1,1 @@
-v14 lite: GitHub/mobile дээр гацааг багасгахын тулд video-г шахсан, loading дээр video биш зураг+effect болгосон, худлаа банкны logo файлуудыг авч text-only bank buttons болгосон. Upload all files to GitHub root.
+v17: New user images integrated. Hero uses big golden dragon image. Background uses wealth tunnel image. Zodiac grid remains removed; one zodiac image is shown. Matar uses zodiac-matar.png, others fallback until their individual images are provided. Firebase nested array fix kept.
