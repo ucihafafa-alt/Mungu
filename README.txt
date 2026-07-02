@@ -1,10 +1,10 @@
-v27 FINAL — BUTTON + FORM FIX
+v28 FINAL — TEXT + 12 ZODIAC IMAGES + REAL BANK LOGOS
 
 Fixed:
-- "Тоогоо шалгах" button now works.
-- Missing formBox was restored directly under the hero section.
-- Bottom fixed "Тоогоо шалгах" CTA added; it stays at the bottom of the screen while scrolling.
-- The CTA hides after the user opens the form / starts result / opens payment.
+- "Эхний 2 тоог үнэгүй" wording changed to "Анхан нээлт".
+- 12 ордын зураг cropped and connected to each birth zodiac.
+- Real bank/payment logos added from user-uploaded images.
+- Bank grid now shows actual logo cards instead of fake placeholder letters.
 
 Preserved:
 - Firebase config
@@ -16,7 +16,8 @@ Preserved:
 - PDF
 - bank account: 5680034540
 - IBAN: 59000500
+- v27 bottom button/form fix
 - v26 package images
 
 Check live:
-https://ucihafafa-alt.github.io/Mungu/index.html?v=27
+https://ucihafafa-alt.github.io/Mungu/index.html?v=28
