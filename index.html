@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v20</title>
+<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v22</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Тоо">
 <meta property="og:description" content="Өөрийн заяагдмал тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
 <meta property="og:image" content="v19-hero-dragon.png">
@@ -288,8 +288,35 @@ body{
 @media(max-width:520px){.brandTop{font-size:22px!important}.heroTitle{font-size:28px!important}.codePreview span{width:48px;height:48px;font-size:24px}.infoCard{padding:16px}}
 /* === END v19 === */
 
+
+/* === v21 clickable payment buttons fix === */
+.payNotice{
+  margin:8px 0 10px;padding:12px 14px;border-radius:16px;
+  background:rgba(255,224,116,.10);border:1px solid rgba(255,224,116,.28);
+  color:#fff3d6;font-size:13px;line-height:1.55;text-align:center;
+}
+.bigCopyBtn{
+  width:100%;border:none;border-radius:18px;padding:15px 12px;margin:8px 0 12px;
+  background:linear-gradient(90deg,#ffe477,#ffb43b,#d71920);
+  color:#220406;font-weight:950;font-size:16px;box-shadow:0 10px 28px rgba(255,184,49,.24);
+  cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,229,120,.35)
+}
+.bankApp.safe{
+  cursor:pointer!important;touch-action:manipulation!important;
+  -webkit-tap-highlight-color:rgba(255,229,120,.35)!important;
+  user-select:none!important;position:relative;z-index:3;
+}
+.bankApp.safe:active,.bigCopyBtn:active{transform:scale(.97);filter:brightness(1.12)}
+/* === END v21 === */
+
+
+/* === v22 bank app link buttons === */
+.bankLinks .bankApp.safe{cursor:pointer!important}
+.bankLinks .bankApp.safe:active,.bigCopyBtn:active{transform:scale(.97);filter:brightness(1.15)}
+/* === END v22 === */
+
 </style>
-<!-- v20 bank account fix: accNo 5680034540, IBAN 59000500 -->
+<!-- v22 bank app link fix: accNo 5680034540, IBAN 59000500 -->
 </head>
 <body>
 <div class="page" id="main">
@@ -457,18 +484,20 @@ body{
     <div class="copyLine"><span>Данс</span><b id="accNo">5680034540</b><button onclick="copyText('accNo')">📋</button></div>
     <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
     <div class="copyLine"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
-    <div class="smallCaps center" style="margin:16px 0 10px">ТӨЛБӨР ХИЙХ</div>
-    <p class="sub center" style="font-size:13px;margin:0 0 10px">Банкны апп шууд нээгдэхгүй бол дансаа хуулж аваад өөрийн банкны апп дээр paste хийнэ үү.</p>
-    <div class="safeBanks">
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox khan"><b>ХААН</b></span><small>Хаан банк</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox xac"><b>ХАС</b></span><small>Хас банк</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox tdb"><b>TDB</b></span><small>TDB</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox golomt"><b>G</b></span><small>Голомт</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox state"><b>ТБ</b></span><small>Төрийн</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox capitron"><b>К</b></span><small>Капитрон</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox qpay"><b>Q</b></span><small>QPay</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox mbank"><b>M</b></span><small>M bank</small></button>
-      <button class="bankApp safe" onclick="copyPay()"><span class="iconBox toki"><b>Toki</b></span><small>Toki</small></button>
+    <div class="smallCaps center" style="margin:16px 0 10px">БАНКНЫ АПП СОНГОХ</div>
+    <p class="sub center" style="font-size:13px;margin:0 0 10px">Банкны товч дарахад данс хуулагдаад тухайн банкны апп нээгдэхээр оролдоно. Facebook дотор нээгдэхгүй бол хуулсан дансаа банкны апп дээр paste хийнэ үү.</p>
+    <div id="payNotice" class="payNotice">Данс: <b>5680034540</b> · IBAN: <b>59000500</b></div>
+    <button type="button" class="bigCopyBtn" onclick="copyPay('Данс')">Данс хуулах — 5680034540</button>
+    <div class="safeBanks bankLinks">
+      <button type="button" class="bankApp safe" onclick="openBank('khanbank://','Хаан банк')"><span class="iconBox khan"><b>ХААН</b></span><small>Хаан банк</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('xacbank://','Хас банк')"><span class="iconBox xac"><b>ХАС</b></span><small>Хас банк</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('tdbbank://','TDB')"><span class="iconBox tdb"><b>TDB</b></span><small>TDB</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('golomtbank://','Голомт')"><span class="iconBox golomt"><b>G</b></span><small>Голомт</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('statebank://','Төрийн банк')"><span class="iconBox state"><b>ТБ</b></span><small>Төрийн</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('capitronbank://','Капитрон')"><span class="iconBox capitron"><b>К</b></span><small>Капитрон</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('qpay://','QPay')"><span class="iconBox qpay"><b>Q</b></span><small>QPay</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('mbank://','M bank')"><span class="iconBox mbank"><b>M</b></span><small>M bank</small></button>
+      <button type="button" class="bankApp safe" onclick="openBank('toki://','Toki')"><span class="iconBox toki"><b>Toki</b></span><small>Toki</small></button>
     </div>
     <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
     <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Хүсэлт илгээх</button>
@@ -548,8 +577,22 @@ function showResult(){
 function tick(){let now=new Date(),end=new Date();end.setHours(24,0,0,0);let s=Math.max(0,Math.floor((end-now)/1000));$('timer').textContent=[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(x=>String(x).padStart(2,'0')).join(':')}setInterval(tick,1000);tick()
 function toggleDetail(id){document.querySelectorAll('.packageDetail').forEach(e=>{if(e.id!==id)e.classList.remove('show')});$(id)?.classList.toggle('show')}
 function choosePackage(name,price){selected={name,price};$('payTitle').textContent=name+' — төлбөр хийх';$('payDesc').textContent='Төлөх дүн: '+price.toLocaleString()+'₮';$('txn').textContent=client.phone||'утас';$('paidCheck').checked=false;toggleSubmit();$('pay').classList.add('show');$('pay').scrollIntoView({behavior:'smooth'})}
-function copyText(id){navigator.clipboard?.writeText($(id).textContent);toast('Хууллаа')}
-function copyPay(){navigator.clipboard?.writeText($('accNo').textContent);toast('Данс хууллаа. Банкны аппдаа ороод paste хийнэ үү')}
+function copyText(id){copyToClipboard($(id).textContent,'Хууллаа')}
+function copyToClipboard(text,msg){
+ text=String(text||'').trim();
+ function done(){toast(msg||'Хууллаа');var n=$('payNotice');if(n){n.innerHTML='Данс хууллаа: <b>'+text+'</b><br>Одоо банкны апп нээгдэхгүй бол банкны аппдаа ороод paste хийнэ үү.'}}
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done))}
+ else fallbackCopy(text,done)
+}
+function fallbackCopy(text,done){
+ var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta);done&&done()
+}
+function copyPay(bank){copyToClipboard($('accNo').textContent,(bank?bank+' — ':'')+'данс хууллаа')}
+function openBank(url, bank){
+ copyToClipboard($('accNo').textContent, bank+' — данс хууллаа');
+ var n=$('payNotice'); if(n){n.innerHTML='<b>'+bank+'</b> нээж байна...<br>Нээгдэхгүй бол банкны аппдаа гараар ороод хуулсан дансаа paste хийнэ үү.'}
+ setTimeout(function(){ window.location.href=url; }, 80);
+}
 function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
 function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
 function packageReportSections(pkgName, code){
@@ -622,6 +665,6 @@ async function openReportByToken(t){try{const d=await getDoc(doc(db,'reports',t)
 addEventListener('load',()=>{document.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
 </script>
-<div class="versionMark">v20</div>
+<div class="versionMark">v22</div>
 </body>
 </html>
