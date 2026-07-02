@@ -1,1 +1,9 @@
-{"name":"Тэнгэрийн Мэлмий","short_name":"Мэлмий","start_url":"./?v=36","display":"standalone","background_color":"#1a0204","theme_color":"#5b0708","version":"36"}
+{
+  "name": "Тэнгэрийн Мэлмий — Заяагдмал Тоо v38",
+  "short_name": "Заяагдмал Тоо",
+  "start_url": "./index.html?v=38",
+  "display": "standalone",
+  "background_color": "#120103",
+  "theme_color": "#6b070c",
+  "scope": "./"
+}

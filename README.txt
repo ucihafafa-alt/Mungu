@@ -1,19 +1,23 @@
-TM v35 FIXED UPDATE
+v28 FINAL — TEXT + 12 ZODIAC IMAGES + REAL BANK LOGOS
 
-Энэ ZIP бол сүүлийн v34 update-ийг зассан хувилбар.
+Fixed:
+- "Эхний 2 тоог үнэгүй" wording changed to "Анхан нээлт".
+- 12 ордын зураг cropped and connected to each birth zodiac.
+- Real bank/payment logos added from user-uploaded images.
+- Bank grid now shows actual logo cards instead of fake placeholder letters.
 
-ЯАЖ ОРУУЛАХ ВЭ:
-1. GitHub дээр хуучин 99 файлаа УСТГАХГҮЙ.
-2. Энэ ZIP-ийг задлаад доторх файлуудыг root хэсэгт upload хий.
-3. Давхцаж байгаа app.js / sw.js / manifest.json / зурагнуудыг Replace хийнэ.
-4. Утсан дээр сайтаа 2 удаа refresh хийнэ. PWA icon-оос нээсэн бол хаагаад дахин нээнэ.
+Preserved:
+- Firebase config
+- orders collection
+- reports collection
+- admin
+- report link
+- SMS
+- PDF
+- bank account: 5680034540
+- IBAN: 59000500
+- v27 bottom button/form fix
+- v26 package images
 
-ЗАСВАР:
-- app.js дангаар нөлөөлөхгүй inline index хувилбар дээр ч ажиллахын тулд sw.js нь v35-client-hotfix.js-ийг автоматаар оруулна.
-- 4 тооны эхний 2 тод, сүүлийн 2 blur.
-- Тооны хэсэг ancient-scroll-code.jpg алтан фонд дээр сууна.
-- Ордны тэмдэг/зоос томруулсан.
-- Банкны лого зурагтай болно.
-- Хуучин cache цэвэрлэнэ.
-
-Анхаар: Энэ нь patch/update. Хуучин 99 asset-аа устгахгүй дээрээс нь дарж оруулна.
+Check live:
+https://ucihafafa-alt.github.io/Mungu/index.html?v=28

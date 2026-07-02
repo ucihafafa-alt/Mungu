@@ -1,21 +1,23 @@
-v32 FINAL — USER DRAGON + COIN BREATH EFFECT
+v28 FINAL — TEXT + 12 ZODIAC IMAGES + REAL BANK LOGOS
 
-Хийсэн:
-- Эхэнд/hero дээр гардаг хуучин луутай-тоотой дүрсийг ашиглахгүй болгосон.
-- Хэрэглэгчийн явуулсан алтан лууг оруулсан.
-- Лууны доор хэрэглэгчийн явуулсан зоосыг оруулж, зоосон дээр зогсож байгаа мэт байрлуулсан.
-- Луунд амьсгалж буй мэт зөөлөн хөдөлгөөнт эффект нэмсэн.
-- Үр дүнгийн тооны logic, goldbar cells, орд, банкны logo хэвээр.
+Fixed:
+- "Эхний 2 тоог үнэгүй" wording changed to "Анхан нээлт".
+- 12 ордын зураг cropped and connected to each birth zodiac.
+- Real bank/payment logos added from user-uploaded images.
+- Bank grid now shows actual logo cards instead of fake placeholder letters.
 
-Хүрээгүй:
+Preserved:
 - Firebase config
-- orders / reports
+- orders collection
+- reports collection
 - admin
 - report link
 - SMS
 - PDF
-- банкны данс 5680034540
-- IBAN 59000500
+- bank account: 5680034540
+- IBAN: 59000500
+- v27 bottom button/form fix
+- v26 package images
 
-Шалгах:
-https://ucihafafa-alt.github.io/Mungu/index.html?v=32
+Check live:
+https://ucihafafa-alt.github.io/Mungu/index.html?v=28
