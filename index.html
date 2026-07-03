@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Хувь Тавилангийн Тоо v43 FATE-NUMBER</title>
+<title>Тэнгэрийн Мэлмий — Хувь Тавилангийн Тоо v44 FATE-VISUAL</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Хувь Тавилангийн Тоо">
 <meta property="og:description" content="Өөрийн хувь тавилангийн тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
 <meta property="og:image" content="v19-hero-dragon.png?v=43">
@@ -581,7 +581,7 @@ body{
 
 
 
-/* === v43 FATE-NUMBER HARD FIX — single bank grid, big zodiac, first 2 digits only === */
+/* === v44 FATE-VISUAL HARD FIX — single bank grid, big zodiac, first 2 digits only === */
 :root{--v38Gold:#ffe67d;--v38Deep:#210307;--v38Red:#7b0710}
 .versionMark{font-size:11px!important;color:rgba(255,230,150,.72)!important;font-weight:800!important}
 /* hide any old duplicated bank logo strips if older cache leaves them */
@@ -636,10 +636,10 @@ body{
 @media(max-width:420px){.birthSplit{grid-template-columns:1.2fr .78fr .78fr;gap:7px}.birthSplit input{padding:15px 8px!important;font-size:16px!important}}
 /* === END v39 DOB SPLIT FIX === */
 
-/* === END v43 FATE-NUMBER === */
+/* === END v44 FATE-VISUAL === */
 
 
-/* === v43 FATE NUMBER + OWNER MARK === */
+/* === v44 FATE NUMBER + OWNER MARK === */
 #home .formBox{display:none!important}
 #home .formBox.show{display:block!important}
 #home .formBox:before{content:"Хувь тавилангийн тоогоо нээх"!important}
@@ -677,17 +677,17 @@ body{
 .versionMark{display:none!important}
 @media(max-width:520px){.heroTitle{font-size:38px!important}.heroQuestion{font-size:27px;margin-top:20px}.wealthFlowCta{min-height:82px;padding:0 18px}.wealthFlowCta b{font-size:21px}.destinyGrid{grid-template-columns:1fr}.ownerMark{font-size:8.8px;right:7px;bottom:calc(72px + env(safe-area-inset-bottom))}}
 
-/* v43 horizontal flowing reviews */
+/* v44 horizontal flowing reviews */
 .reviewViewport{height:auto!important;overflow:hidden!important;margin-top:13px!important}
 .reviewList{display:flex!important;gap:12px!important;width:max-content!important;animation:reviewsFlow 42s linear infinite!important}
 .reviewItem{width:320px!important;flex:0 0 320px!important}
 @keyframes reviewsFlow{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @media(max-width:520px){.reviewItem{width:286px!important;flex-basis:286px!important}}
-/* === END v43 === */
+/* === END v44 === */
 
 
 
-/* === v43 FATE NUMBER FINAL PATCH === */
+/* === v44 FATE NUMBER FINAL PATCH === */
 #home .formBox:before{content:"Хувь тавилангийн тоогоо нээх"!important}
 body:before{
  background:
@@ -705,7 +705,37 @@ body:before{
 .destinyInfo{background:linear-gradient(180deg,rgba(112,42,17,.80),rgba(48,12,8,.72)),url('money-wheel.jpg?v=43') center/cover!important}
 .reportRow.premium h3,.reportRow h3{color:#ffe67d}
 @media(max-width:520px){.heroTitle{font-size:36px!important}.heroQuestion{font-size:25px!important}}
-/* === END v43 FATE NUMBER FINAL PATCH === */
+/* === END v44 FATE NUMBER FINAL PATCH === */
+
+
+
+/* === v44 HERO VISUAL + FACEBOOK PAGE === */
+.heroQuestion{margin-bottom:16px!important}
+.fortuneKeyCard{
+ position:relative;display:block;width:min(100%,640px);margin:16px auto 16px;padding:0;border:1px solid rgba(255,231,125,.48);
+ border-radius:32px;overflow:hidden;background:#160306;box-shadow:0 26px 78px rgba(0,0,0,.42),0 0 44px rgba(255,224,116,.16);cursor:pointer;
+}
+.fortuneKeyCard img{display:block;width:100%;height:auto;filter:saturate(1.08) brightness(1.03)}
+.fortuneKeyCard:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 70%,rgba(255,231,125,.20),transparent 28%),linear-gradient(180deg,rgba(0,0,0,0),rgba(38,4,8,.46));pointer-events:none}
+.fortuneKeyCard span{
+ position:absolute;left:7%;right:7%;bottom:22px;z-index:2;border-radius:999px;padding:16px 14px;
+ background:linear-gradient(100deg,rgba(111,7,17,.88),rgba(211,27,34,.88) 38%,rgba(255,178,79,.90) 72%,rgba(255,230,125,.96));
+ color:#2a0304;font-family:Georgia,'Times New Roman',serif;font-size:21px;font-weight:950;text-shadow:0 1px 0 rgba(255,255,255,.24);
+ box-shadow:0 16px 38px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,255,255,.24);
+}
+.fortuneKeyCard:before{content:"";position:absolute;left:-20%;right:-20%;top:46%;height:90px;z-index:1;background:linear-gradient(90deg,transparent,rgba(255,231,125,.34),transparent);filter:blur(16px);animation:keySweep 3.4s ease-in-out infinite;pointer-events:none}
+@keyframes keySweep{0%{transform:translateX(-38%) rotate(-4deg);opacity:.18}50%{transform:translateX(38%) rotate(4deg);opacity:.85}100%{transform:translateX(-38%) rotate(-4deg);opacity:.18}}
+.abundanceVisual{margin:20px auto 0;padding:0!important;overflow:hidden;max-width:650px;background:rgba(44,5,10,.68)!important}
+.abundanceVisual img{display:block;width:100%;height:auto;filter:saturate(1.05) brightness(1.02)}
+.abundanceText{padding:15px 18px 18px;text-align:center;background:linear-gradient(180deg,rgba(74,7,16,.12),rgba(32,3,7,.72))}
+.abundanceText b{display:block;color:#ffe67d;font-family:Georgia,'Times New Roman',serif;font-size:25px;margin-bottom:5px}.abundanceText span{display:block;color:#f4dec8;font-size:15px;line-height:1.55}
+.ownerMark{
+ left:10px!important;right:10px!important;bottom:calc(74px + env(safe-area-inset-bottom))!important;text-align:center!important;
+ font-size:10px!important;line-height:1.35!important;color:rgba(255,238,184,.74)!important;text-shadow:0 2px 9px rgba(0,0,0,.85)!important;
+}
+.ownerMark a{display:inline-block;margin-top:2px;color:#ffe67d!important;font-size:11px!important;font-weight:950!important;text-decoration:none!important;border:1px solid rgba(255,231,125,.35)!important;border-radius:999px!important;padding:3px 12px!important;background:rgba(70,8,13,.54)!important}
+@media(max-width:520px){.fortuneKeyCard{border-radius:25px}.fortuneKeyCard span{font-size:16px;bottom:13px;left:6%;right:6%;padding:13px 10px}.abundanceText b{font-size:21px}.abundanceText span{font-size:13.5px}.ownerMark{font-size:8.8px!important}}
+/* === END v44 === */
 
 </style>
 <!-- v28 real bank links anchors: accNo 5680034540, IBAN 59000500 -->
@@ -724,6 +754,10 @@ body:before{
   <h1 class="heroTitle">Хувь тавилангийн тоогоо<br><span>үнэгүй нээ</span></h1>
   <p class="sub">Хүн бүрт төрөх мөчид нь хамт ирдэг өөрийн гэсэн хувь тавилангийн тоо бий. Энэ тоо нь таны мөнгө татах хүч, хишиг буян, мөнгө тогтох сав, хайр сэтгэл, ажил бизнесийн шийдвэрт хэрхэн нөлөөлж байгааг уншиж өгдөг.</p>
   <div class="heroQuestion">Та одоо болтол мөнгөний араас гүйсээр байна уу?<br><span>Эсвэл мөнгө таныг дагах хувьтай юу?</span></div>
+  <button class="fortuneKeyCard" onclick="showForm()" type="button" aria-label="Хувь тавилангийн тоогоо үнэгүй нээх">
+   <img src="lock-key.jpg?v=44" alt="Хувь тавилангийн тоогоо нээх">
+   <span>Энд дарж хувь тавилангийн тоогоо үнэгүй нээ</span>
+  </button>
 
   <button class="wealthFlowCta" onclick="showForm()" type="button">
    <span class="flowGlow"></span>
@@ -742,6 +776,11 @@ body:before{
      <span><b>4-р нүд</b>Эд баялгийн гол үүд</span>
     </div>
    </div>
+  </div>
+
+  <div class="abundanceVisual card">
+   <img src="money-888.jpg?v=44" alt="Эд баялгийн урсгал">
+   <div class="abundanceText"><b>Эд баялгийн урсгалаа зөв нээ</b><span>Хувь тавилангийн тоо тань мөнгө хаанаас орж, хаанаас сарниж байгааг харуулна.</span></div>
   </div>
 
   <div class="quickFormHint smallCaps center hiddenUntilForm">ТӨЛБӨР ШААРДАХГҮЙ · ШИНЖИЛГЭЭ ШУУД ГАРНА</div>
@@ -1283,12 +1322,12 @@ window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeM
 
 <script>try{const rl=document.querySelector('.reviewList');if(rl&&!rl.dataset.dup){rl.innerHTML+=rl.innerHTML;rl.dataset.dup='1';}}catch(e){}</script>
 <script>
-// v43 FATE-NUMBER: force old GitHub/PWA cache to release without adding a new duplicate UI layer
+// v44 FATE-VISUAL: force old GitHub/PWA cache to release without adding a new duplicate UI layer
 (function(){
  try{ if('caches' in window){caches.keys().then(function(keys){keys.forEach(function(k){caches.delete(k)})})} }catch(e){}
  try{ if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})} }catch(e){}
 })();
 </script>
-<div class="ownerMark">Тэнгэрийн Мэлмий зурхайн өргөөний өмч<br><a href="https://www.facebook.com/ucihafafa" target="_blank" rel="noopener">Facebook хуудас</a></div>
+<div class="ownerMark">Тэнгэрийн Мэлмий зурхайн өргөөний өмч<br><a href="https://www.facebook.com/share/18rjkMySaM/" target="_blank" rel="noopener">Facebook</a></div>
 </body>
 </html>
