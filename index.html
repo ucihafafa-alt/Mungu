@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v38 FINAL</title>
+<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v39 DOB FIX</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Тоо">
 <meta property="og:description" content="Өөрийн заяагдмал тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
-<meta property="og:image" content="v19-hero-dragon.png?v=38">
+<meta property="og:image" content="v19-hero-dragon.png?v=39">
 <link rel="manifest" href="manifest.json">
 <style>
 :root{
@@ -248,16 +248,16 @@ body:before{
 body{
   background:
     linear-gradient(rgba(10,1,2,.14),rgba(8,0,1,.38)),
-    url("v19-bg-wealth.png?v=38") center top/cover fixed !important;
+    url("v19-bg-wealth.png?v=39") center top/cover fixed !important;
 }
 #home{position:relative;padding-top:10px}
 #home:before{
   content:"";position:absolute;inset:-18px -12px auto -12px;height:760px;
-  background:url("v19-hero-dragon.png?v=38") center top/cover no-repeat;
+  background:url("v19-hero-dragon.png?v=39") center top/cover no-repeat;
   opacity:.30;filter:saturate(1.15) contrast(1.05);z-index:-1;
 }
-.heroCard .videoBox{background:url("v19-hero-dragon.png?v=38") center top/cover no-repeat!important}
-.videoBox img.heroDragon{content:url("v19-hero-dragon.png?v=38");opacity:1!important}
+.heroCard .videoBox{background:url("v19-hero-dragon.png?v=39") center top/cover no-repeat!important}
+.videoBox img.heroDragon{content:url("v19-hero-dragon.png?v=39");opacity:1!important}
 .heroCard{margin-top:18px!important}
 .versionMark{position:fixed;right:8px;bottom:8px;z-index:9999;font-size:10px;color:rgba(255,230,150,.55);pointer-events:none}
 /* === END v19 FORCE HERO === */
@@ -282,8 +282,8 @@ body{
 .miniGrid span,.teaserList li{display:block;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.055);border:1px solid rgba(255,224,112,.14);color:#fff0dc;font-size:13.5px;line-height:1.45}
 .teaserList{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .teaserList li:before{content:"✦ ";color:#ffe176}
-.ritualPreview{background:linear-gradient(180deg,rgba(70,16,7,.34),rgba(12,2,3,.42)),url("v19-money-hands.jpg?v=38") center/cover!important}
-.caseBox{background:linear-gradient(180deg,rgba(70,16,7,.30),rgba(12,2,3,.42)),url("v19-money-path.jpg?v=38") center/cover!important}
+.ritualPreview{background:linear-gradient(180deg,rgba(70,16,7,.34),rgba(12,2,3,.42)),url("v19-money-hands.jpg?v=39") center/cover!important}
+.caseBox{background:linear-gradient(180deg,rgba(70,16,7,.30),rgba(12,2,3,.42)),url("v19-money-path.jpg?v=39") center/cover!important}
 .versionMark{font-size:10px!important}
 @media(max-width:520px){.brandTop{font-size:22px!important}.heroTitle{font-size:28px!important}.codePreview span{width:48px;height:48px;font-size:24px}.infoCard{padding:16px}}
 /* === END v19 === */
@@ -581,7 +581,7 @@ body{
 
 
 
-/* === v38 FINAL HARD FIX — single bank grid, big zodiac, first 2 digits only === */
+/* === v39 DOB FIX HARD FIX — single bank grid, big zodiac, first 2 digits only === */
 :root{--v38Gold:#ffe67d;--v38Deep:#210307;--v38Red:#7b0710}
 .versionMark{font-size:11px!important;color:rgba(255,230,150,.72)!important;font-weight:800!important}
 /* hide any old duplicated bank logo strips if older cache leaves them */
@@ -627,7 +627,16 @@ body{
   .finalBankCard span{height:60px!important;border-radius:16px!important}
   .finalBankCard b{font-size:14px!important}
 }
-/* === END v38 FINAL === */
+
+/* === v39 DOB SPLIT FIX: iPhone-д цэг бичих шаардлагагүй === */
+.birthSplit{display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:10px}
+.birthSplit input{width:100%;text-align:center;font-weight:950;letter-spacing:1px}
+.birthSplit input:first-child{text-align:center}
+.birthHint{margin-top:8px;color:rgba(255,242,205,.66);font-size:13px;font-weight:800;text-align:center}
+@media(max-width:420px){.birthSplit{grid-template-columns:1.2fr .78fr .78fr;gap:7px}.birthSplit input{padding:15px 8px!important;font-size:16px!important}}
+/* === END v39 DOB SPLIT FIX === */
+
+/* === END v39 DOB FIX === */
 
 </style>
 <!-- v28 real bank links anchors: accNo 5680034540, IBAN 59000500 -->
@@ -664,7 +673,13 @@ body{
       </div>
       <div class="field">
         <label>Төрсөн он сар өдөр</label>
-        <input id="birthDate" type="text" inputmode="numeric" placeholder="1990.03.29">
+        <div class="birthSplit" aria-label="Төрсөн он сар өдөр">
+          <input id="birthYear" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="1943" autocomplete="bday-year">
+          <input id="birthMonth" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="03" autocomplete="bday-month">
+          <input id="birthDay" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="29" autocomplete="bday-day">
+        </div>
+        <input id="birthDate" type="hidden">
+        <div class="birthHint">Он 4 орон · сар 2 орон · өдөр 2 орон</div>
       </div>
       <div class="field">
         <label>Утас</label>
@@ -729,7 +744,7 @@ body{
   <section id="scan" class="scan">
     <div>
       <div class="videoBox">
-        <img class="heroDragon" src="v19-hero-dragon.png?v=38" alt="">
+        <img class="heroDragon" src="v19-hero-dragon.png?v=39" alt="">
         <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
         <p class="scanText" id="scanText">Алтан луу таны тоог нээж байна...</p>
         <div class="progress"><div class="bar" id="bar"></div></div>
@@ -743,7 +758,7 @@ body{
       <div class="smallCaps">ТАНЫ ЗАЯАГДМАЛ ТОО</div>
       <h1 class="heroTitle"><span id="archTitle">Онцгой</span><br><span style="color:#fff" id="archTitle2">Тоо</span></h1>
       <p class="sub" id="archSub">Хүн бүрд өөрийн гэсэн тоон түлхүүр бий</p>
-      <div class="zodiacCoin zodiacImgCoin"><img id="zodiacImage" src="zodiac-capricorn.png?v=38" alt="Ордын зураг"><div class="coinMiniSign" id="zodiacSymbol" style="display:none">♑</div><div class="coinMiniText" id="zodiacCoinText">Ордын тоо</div></div>
+      <div class="zodiacCoin zodiacImgCoin"><img id="zodiacImage" src="zodiac-capricorn.png?v=39" alt="Ордын зураг"><div class="coinMiniSign" id="zodiacSymbol" style="display:none">♑</div><div class="coinMiniText" id="zodiacCoinText">Ордын тоо</div></div>
       <h2 class="gold" id="zodiacName">Матрын орд</h2>
       <p class="sub" id="zodiacFinanceSub">Өрнийн орд нь мөнгөтэй харьцах хэв маяг, амьдралын том шийдвэрийг яаж гаргадаг хандлагыг харуулна.</p>
       
@@ -770,7 +785,7 @@ body{
         <div class="blurLine" data-label="Амьдралын том шийдвэрт тоогоо яаж ашиглах вэ?"></div>
         <div class="blurLine" data-label="Мөнгөний урсгалаа нээх хувийн нууц тоо"></div>
       </div>
-      <div class="lockKeyVisual"><img src="lock-key.jpg?v=38" alt="Цоож ба түлхүүр"><div class="lockGlow">Үлдсэн 2 орон түгжээтэй</div></div>
+      <div class="lockKeyVisual"><img src="lock-key.jpg?v=39" alt="Цоож ба түлхүүр"><div class="lockGlow">Үлдсэн 2 орон түгжээтэй</div></div>
       <p class="sub">Эдгээр мөр бүр бүрэн тайланд задрана.</p>
     </div>
 
@@ -778,7 +793,7 @@ body{
       <h2 class="gold">Таны алтан тооны эхний нээлт</h2>
       <p class="sub">Таны заяагдмал тооны анхан нээлт алтан түлхүүр дээр ил гарлаа. Үлдсэн орон бүрэн тайланд нээгдэнэ.</p>
       <div class="goldBarReveal">
-        <img src="ancient-scroll-code.jpg?v=38" alt="Эртний бичээстэй алтан фонд">
+        <img src="ancient-scroll-code.jpg?v=39" alt="Эртний бичээстэй алтан фонд">
         <div class="goldDigits">
           <span class="goldDigit" id="code1">7</span>
           <span class="goldDigit" id="code2">7</span>
@@ -793,7 +808,7 @@ body{
     <div class="countBox"><div class="smallCaps" style="color:#ffb1a8">• -50% ХЯМДРАЛ ДУУСАХАД</div><b id="timer">--:--:--</b><p class="sub">Өнөөдөр шөнө дунд хүртэл</p></div>
 
     <div class="card pack drop">
-      <div class="packImage"><img src="package-key.jpg?v=38" alt="Мөнгөний түлхүүр"></div>
+      <div class="packImage"><img src="package-key.jpg?v=39" alt="Мөнгөний түлхүүр"></div>
       <div class="smallCaps">ЭХНИЙ НЭЭЛТ</div><h2>Мөнгөний Түлхүүр</h2><p class="sub">Заяагдмал тооны эхний хаалгыг нээнэ</p>
       <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
       <ul class="list"><li>Заяагдмал тооны эхний 2 орон</li><li>Мөнгө тогтохгүй байгаа эхний зангилаа</li><li>3 дом, 7 хоногийн эхний дадал</li><li>Азын өнгө, өдөр, түрийвчний эхний зөвлөмж</li></ul>
@@ -802,7 +817,7 @@ body{
     </div>
 
     <div class="card pack river best">
-      <div class="packImage"><img src="package-flow.jpg?v=38" alt="Мөнгөний урсгал"></div>
+      <div class="packImage"><img src="package-flow.jpg?v=39" alt="Мөнгөний урсгал"></div>
       <div class="smallCaps">БҮРЭН САНХҮҮГИЙН ТАЙЛАН</div><h2 class="gold">Мөнгөний Урсгал</h2><p class="sub">Мөнгө ба өрийн зангилааг гүн тайлна</p>
       <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
       <ul class="list"><li>Заяагдмал тооны 4 орон бүрэн тайлагдана</li><li>Өр, гарлага, мөнгө сарних зангилаа</li><li>30 хоногийн мөнгө тогтоох төлөвлөгөө</li><li>7–10 дом, зан үйл, өдөр цагийн зөвлөмж</li></ul>
@@ -811,7 +826,7 @@ body{
     </div>
 
     <div class="card pack sea">
-      <div class="packImage"><img src="package-premium.jpg?v=38" alt="Тэнгэрийн ивээл"></div>
+      <div class="packImage"><img src="package-premium.jpg?v=39" alt="Тэнгэрийн ивээл"></div>
       <div class="smallCaps">ХАМГИЙН ГҮН ТАЙЛАН</div><h2>Тэнгэрийн Ивээл</h2><p class="sub">Мөнгө + хайр дурлал + амьдралын шийдвэр</p>
       <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
       <ul class="list"><li>Мөнгөний Урсгал багцын бүх зүйл</li><li>49 хоногийн гүн төлөвлөгөө</li><li>Мөнгө + хайр дурлал + ажил бизнес + том шийдвэр</li><li>Хувийн сахиус, дом, жилийн мөчлөгийн гүн зөвлөмж</li></ul>
@@ -822,7 +837,7 @@ body{
 
   <section class="card pay" id="pay">
     <h2 class="gold" id="payTitle">Төлбөр хийх</h2><p class="sub" id="payDesc"></p>
-    <div class="selectedPackVisual" id="selectedPackVisual"><img id="selectedPackImg" src="package-key.jpg?v=38" alt="Сонгосон багц"><div id="selectedPackCaption">Таны сонгосон багц нээгдэж байна</div></div>
+    <div class="selectedPackVisual" id="selectedPackVisual"><img id="selectedPackImg" src="package-key.jpg?v=39" alt="Сонгосон багц"><div id="selectedPackCaption">Таны сонгосон багц нээгдэж байна</div></div>
     <div class="copyLine"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
     <div class="copyLine"><span>Банк</span><b id="bankName">Хаан банк</b><button onclick="copyText('bankName')">📋</button></div>
     <div class="copyLine"><span>Данс</span><b id="accNo">5680034540</b><button onclick="copyText('accNo')">📋</button></div>
@@ -833,16 +848,16 @@ body{
     <div id="payNotice" class="payNotice">Данс: <b>5680034540</b> · IBAN: <b>59000500</b></div>
     <button type="button" class="bigCopyBtn" onclick="copyPay('Данс')">Данс хуулах — 5680034540</button>
     <div class="finalBankGrid bankLinks" id="finalBankGrid">
-      <a class="finalBankCard" href="intent://open#Intent;scheme=khanbank;package=com.khanbank.retail;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.khanbank.retail;end" onclick="copyPay('Хаан банк')" target="_self" rel="noopener"><span><img src="pay-khan.png?v=38" alt="Хаан банк"></span><b>Хаан банк</b></a>
-      <a class="finalBankCard" href="intent://open#Intent;scheme=golomtbank;package=mn.egolomt.new.bank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.egolomt.new.bank;end" onclick="copyPay('Голомт')" target="_self" rel="noopener"><span><img src="pay-golomt.png?v=38" alt="Голомт"></span><b>Голомт</b></a>
-      <a class="finalBankCard" href="intent://open#Intent;scheme=tdbbank;package=mn.tdb.pay;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.tdb.pay;end" onclick="copyPay('TDB')" target="_self" rel="noopener"><span><img src="pay-tdb.png?v=38" alt="TDB"></span><b>TDB</b></a>
-      <a class="finalBankCard" href="intent://open#Intent;scheme=xacbank;package=com.xacbank.mobile;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.xacbank.mobile;end" onclick="copyPay('Хас банк')" target="_self" rel="noopener"><span><img src="pay-xac.png?v=38" alt="Хас банк"></span><b>Хас банк</b></a>
-      <a class="finalBankCard" href="intent://open#Intent;scheme=statebank;package=com.statebank.gyalsbank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.statebank.gyalsbank;end" onclick="copyPay('Төрийн банк')" target="_self" rel="noopener"><span><img src="pay-turiin.png?v=38" alt="Төрийн банк"></span><b>Төрийн банк</b></a>
-      <a class="finalBankCard" href="intent://open#Intent;scheme=mbank;package=mn.mllc.mbank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.mllc.mbank;end" onclick="copyPay('M bank')" target="_self" rel="noopener"><span><img src="pay-mbank.png?v=38" alt="M bank"></span><b>M bank</b></a>
-      <a class="finalBankCard" href="#" onclick="copyPay('Богд банк');return false"><span><img src="pay-bogd.png?v=38" alt="Богд банк"></span><b>Богд банк</b></a>
-      <a class="finalBankCard" href="#" onclick="copyPay('Ариг банк');return false"><span><img src="pay-arig.png?v=38" alt="Ариг банк"></span><b>Ариг банк</b></a>
-      <a class="finalBankCard" href="#" onclick="copyPay('Sono');return false"><span><img src="pay-sono.png?v=38" alt="Sono"></span><b>Sono</b></a>
-      <a class="finalBankCard" href="#" onclick="copyPay('PayOn');return false"><span><img src="pay-payon.png?v=38" alt="PayOn"></span><b>PayOn</b></a>
+      <a class="finalBankCard" href="intent://open#Intent;scheme=khanbank;package=com.khanbank.retail;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.khanbank.retail;end" onclick="copyPay('Хаан банк')" target="_self" rel="noopener"><span><img src="pay-khan.png?v=39" alt="Хаан банк"></span><b>Хаан банк</b></a>
+      <a class="finalBankCard" href="intent://open#Intent;scheme=golomtbank;package=mn.egolomt.new.bank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.egolomt.new.bank;end" onclick="copyPay('Голомт')" target="_self" rel="noopener"><span><img src="pay-golomt.png?v=39" alt="Голомт"></span><b>Голомт</b></a>
+      <a class="finalBankCard" href="intent://open#Intent;scheme=tdbbank;package=mn.tdb.pay;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.tdb.pay;end" onclick="copyPay('TDB')" target="_self" rel="noopener"><span><img src="pay-tdb.png?v=39" alt="TDB"></span><b>TDB</b></a>
+      <a class="finalBankCard" href="intent://open#Intent;scheme=xacbank;package=com.xacbank.mobile;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.xacbank.mobile;end" onclick="copyPay('Хас банк')" target="_self" rel="noopener"><span><img src="pay-xac.png?v=39" alt="Хас банк"></span><b>Хас банк</b></a>
+      <a class="finalBankCard" href="intent://open#Intent;scheme=statebank;package=com.statebank.gyalsbank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.statebank.gyalsbank;end" onclick="copyPay('Төрийн банк')" target="_self" rel="noopener"><span><img src="pay-turiin.png?v=39" alt="Төрийн банк"></span><b>Төрийн банк</b></a>
+      <a class="finalBankCard" href="intent://open#Intent;scheme=mbank;package=mn.mllc.mbank;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dmn.mllc.mbank;end" onclick="copyPay('M bank')" target="_self" rel="noopener"><span><img src="pay-mbank.png?v=39" alt="M bank"></span><b>M bank</b></a>
+      <a class="finalBankCard" href="#" onclick="copyPay('Богд банк');return false"><span><img src="pay-bogd.png?v=39" alt="Богд банк"></span><b>Богд банк</b></a>
+      <a class="finalBankCard" href="#" onclick="copyPay('Ариг банк');return false"><span><img src="pay-arig.png?v=39" alt="Ариг банк"></span><b>Ариг банк</b></a>
+      <a class="finalBankCard" href="#" onclick="copyPay('Sono');return false"><span><img src="pay-sono.png?v=39" alt="Sono"></span><b>Sono</b></a>
+      <a class="finalBankCard" href="#" onclick="copyPay('PayOn');return false"><span><img src="pay-payon.png?v=39" alt="PayOn"></span><b>PayOn</b></a>
     </div>
     <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
     <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Хүсэлт илгээх</button>
@@ -886,10 +901,44 @@ function showForm(){
  setTimeout(()=>f.scrollIntoView({behavior:'smooth',block:'start'}),60);
 }
 function parseDate(s){let p=String(s||'').trim().replaceAll('/','.').replaceAll('-','.').split('.').map(x=>parseInt(x,10));return {year:p[0],month:p[1],day:p[2]}}
+function pad2(n){return String(n).padStart(2,'0')}
+function getBirth(){
+ const yEl=$('birthYear'), mEl=$('birthMonth'), dEl=$('birthDay');
+ if(yEl&&mEl&&dEl){
+   const year=parseInt(yEl.value,10), month=parseInt(mEl.value,10), day=parseInt(dEl.value,10);
+   const birth=year&&month&&day ? `${String(year).padStart(4,'0')}.${pad2(month)}.${pad2(day)}` : '';
+   const old=$('birthDate'); if(old) old.value=birth;
+   return {year,month,day,birth};
+ }
+ const bd=parseDate($('birthDate')?.value); return {...bd,birth:$('birthDate')?.value.trim()||''};
+}
+function validBirth(b){
+ if(!b.year||!b.month||!b.day)return false;
+ if(b.year<1900||b.year>2099||b.month<1||b.month>12||b.day<1||b.day>31)return false;
+ const d=new Date(b.year,b.month-1,b.day);
+ return d.getFullYear()===b.year && d.getMonth()===b.month-1 && d.getDate()===b.day;
+}
+function setupBirthInputs(){
+ const y=$('birthYear'),m=$('birthMonth'),d=$('birthDay'); if(!y||!m||!d)return;
+ const items=[[y,4,m],[m,2,d],[d,2,null]];
+ items.forEach(([el,max,next])=>{
+   el.addEventListener('input',()=>{
+     el.value=el.value.replace(/\D/g,'').slice(0,max);
+     if(el.value.length>=max && next) next.focus();
+     getBirth();
+   });
+   el.addEventListener('keydown',e=>{
+     if(e.key==='Backspace' && !el.value){
+       const prev=el===d?m:el===m?y:null; if(prev){prev.focus();}
+     }
+   });
+ });
+}
 function confirmInfo(){
- const bd=parseDate($('birthDate').value);
- client={fullName:$('fullName').value.trim(),name:$('fullName').value.trim(),phone:$('phone').value.trim(),year:bd.year,month:bd.month,day:bd.day,birth:$('birthDate').value.trim()};
+ const bd=getBirth();
+ client={fullName:$('fullName').value.trim(),name:$('fullName').value.trim(),phone:$('phone').value.trim(),year:bd.year,month:bd.month,day:bd.day,birth:bd.birth};
  if(!client.fullName||!client.phone||!client.year||!client.month||!client.day){toast('Мэдээллээ бүрэн оруулна уу');return}
+ if(!validBirth(bd)){toast('Төрсөн он сар өдрөө зөв оруулна уу');return}
  $('cName').textContent=client.fullName;$('cBirth').textContent=client.birth;$('cPhone').textContent=client.phone;$('confirmModal').style.display='flex'
 }
 function closeModal(){$('confirmModal').style.display='none'}
@@ -936,7 +985,7 @@ function showResult(){
  $('scan').classList.remove('show');$('result').classList.add('show');$('bottomCta')?.classList.add('hide');$('home').classList.remove('focus-form');
  const seed=hash(JSON.stringify(client)), zz=zodiac(client.month,client.day), code=moneyCode(client);client.zodiac=zz[0];client.code=code;client.yearAnimal=mongolYearAnimal(client.year);
  if($('zodiacSymbol')) $('zodiacSymbol').textContent=zz[1];
- if($('zodiacImage')){ $('zodiacImage').src=zz[3]+'?v=38'; $('zodiacImage').alt=zz[0]+'ын орд'; }
+ if($('zodiacImage')){ $('zodiacImage').src=zz[3]+'?v=39'; $('zodiacImage').alt=zz[0]+'ын орд'; }
  $('zodiacName').textContent=zz[0]+'ын орд';$('zodiacFinanceSub').textContent=zodiacFinanceText(zz[0]);$('zodiacCoinText').textContent=zz[0]+' орд';
  const profiles=[
  ['Заяагдмал','Тоо','Хүн бүрд өөрийн гэсэн онцгой тоо бий',`Танд ${code.slice(0,2)}•• гэсэн заяагдмал тоо илэрч байна. Энэ тоо нь мөнгөний урсгал хаанаас нээгддэг, хаанаас хаагддаг, өрийн дарамт ямар зангилаагаар эргэж ирдэг, мөн энэ бүхэнд хайр дурлал ба амьдралын шийдвэр хэрхэн нөлөөлдгийг харуулах хувийн түлхүүр юм.`],
@@ -955,9 +1004,9 @@ function choosePackage(name,price){
  $('payDesc').textContent='Төлөх дүн: '+price.toLocaleString()+'₮';
  var packImg=$('selectedPackImg'), cap=$('selectedPackCaption');
  if(packImg){
-   var img='package-key.jpg?v=38', caption='Эхний түлхүүр нээгдэх багц';
-   if(name==='Мөнгөний Урсгал'){img='package-flow.jpg?v=38';caption='Мөнгөний урсгал нээгдэх багц'}
-   if(name==='Тэнгэрийн Ивээл'){img='package-premium.jpg?v=38';caption='Дээд зэргийн алтан ивээл нээгдэх багц'}
+   var img='package-key.jpg?v=39', caption='Эхний түлхүүр нээгдэх багц';
+   if(name==='Мөнгөний Урсгал'){img='package-flow.jpg?v=39';caption='Мөнгөний урсгал нээгдэх багц'}
+   if(name==='Тэнгэрийн Ивээл'){img='package-premium.jpg?v=39';caption='Дээд зэргийн алтан ивээл нээгдэх багц'}
    packImg.src=img;
    if(cap) cap.textContent=caption;
  }
@@ -1048,16 +1097,16 @@ async function loadOrders(){
 }
 function openAdmin(){if(prompt('Админ нууц үг')==='9999'){$('admin').classList.add('show');loadOrders();$('admin').scrollIntoView({behavior:'smooth'})}}
 async function openReportByToken(t){try{const d=await getDoc(doc(db,'reports',t)); if(!d.exists()){alert('Тайлангийн линк олдсонгүй'); return}['home','scan','result','pay','success','admin'].forEach(id=>{let e=$(id); if(e){e.style.display='none'; e.classList.remove('show')}});$('reportBody').innerHTML=reportHtml(d.data());$('report').classList.add('show');$('report').scrollIntoView({behavior:'smooth'})}catch(e){alert('Тайлан нээх алдаа: '+e.message)}}
-addEventListener('load',()=>{document.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
+addEventListener('load',()=>{setupBirthInputs();document.querySelectorAll('video').forEach(v=>v.play().catch(()=>{}));if(location.hash==='#admin')openAdmin(); if(location.hash.startsWith('#report='))openReportByToken(location.hash.split('=')[1])})
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
 </script>
 <script>
-// v38 FINAL: force old GitHub/PWA cache to release without adding a new duplicate UI layer
+// v39 DOB FIX: force old GitHub/PWA cache to release without adding a new duplicate UI layer
 (function(){
   try{ if('caches' in window){caches.keys().then(function(keys){keys.forEach(function(k){caches.delete(k)})})} }catch(e){}
   try{ if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})} }catch(e){}
 })();
 </script>
-<div class="versionMark">v38 FINAL</div>
+<div class="versionMark">v39 DOB FIX</div>
 </body>
 </html>
