@@ -3,35 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v40 REPORT+iOS</title>
+<title>Тэнгэрийн Мэлмий — Заяагдмал Тоо v41 WEALTH-NUMBER</title>
 <meta property="og:title" content="Тэнгэрийн Мэлмий — Заяагдмал Тоо">
 <meta property="og:description" content="Өөрийн заяагдмал тоогоор мөнгөний урсгал, өрийн дарамт, хайр дурлал, ажил бизнесийн дохиогоо нээ.">
-<meta property="og:image" content="v19-hero-dragon.png?v=40">
+<meta property="og:image" content="v19-hero-dragon.png?v=41">
 <link rel="manifest" href="manifest.json">
 <style>
 :root{
-  --bg:#210307;--bg2:#4a0710;--red:#b4121c;--red2:#ff4438;
-  --gold:#d9a72e;--gold2:#ffe67d;--text:#fff7e8;--muted:#e1c5b8;
-  --card:rgba(52,6,13,.78);--line:rgba(255,224,116,.32);--dark:#100104;
+ --bg:#210307;--bg2:#4a0710;--red:#b4121c;--red2:#ff4438;
+ --gold:#d9a72e;--gold2:#ffe67d;--text:#fff7e8;--muted:#e1c5b8;
+ --card:rgba(52,6,13,.78);--line:rgba(255,224,116,.32);--dark:#100104;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{
-  margin:0;min-height:100vh;color:var(--text);overflow-x:hidden;
-  font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;background:#120104;
+ margin:0;min-height:100vh;color:var(--text);overflow-x:hidden;
+ font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;background:#120104;
 }
 body:before{
-  content:"";position:fixed;inset:0;z-index:-4;background:
-  radial-gradient(circle at 50% 0,rgba(255,231,125,.23),transparent 24%),
-  radial-gradient(circle at 10% 28%,rgba(255,66,55,.28),transparent 34%),
-  radial-gradient(circle at 88% 18%,rgba(255,231,125,.12),transparent 32%),
-  linear-gradient(180deg,#3e050b,#190206 63%,#060001);
+ content:"";position:fixed;inset:0;z-index:-4;background:
+ radial-gradient(circle at 50% 0,rgba(255,231,125,.23),transparent 24%),
+ radial-gradient(circle at 10% 28%,rgba(255,66,55,.28),transparent 34%),
+ radial-gradient(circle at 88% 18%,rgba(255,231,125,.12),transparent 32%),
+ linear-gradient(180deg,#3e050b,#190206 63%,#060001);
 }
 body:after{
-  content:"";position:fixed;inset:0;z-index:-3;opacity:.32;background-image:
-  linear-gradient(rgba(255,224,116,.12) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(255,224,116,.12) 1px,transparent 1px);
-  background-size:72px 72px;
+ content:"";position:fixed;inset:0;z-index:-3;opacity:.32;background-image:
+ linear-gradient(rgba(255,224,116,.12) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,224,116,.12) 1px,transparent 1px);
+ background-size:72px 72px;
 }
 .page{max-width:790px;margin:0 auto;padding:14px 13px 90px;position:relative}
 .brandTop{text-align:center;padding:12px 0 4px;color:var(--gold2);font-family:Georgia,"Times New Roman",serif;font-size:24px;letter-spacing:4px}
@@ -42,13 +42,13 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:.01em}
 .heroTitle span{color:var(--gold2)}
 .sub{color:var(--muted);font-size:17px;line-height:1.65;margin:0 auto;max-width:610px}
 .card{
-  border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(82,9,17,.82),rgba(31,4,9,.74));
-  box-shadow:0 24px 76px rgba(0,0,0,.42);backdrop-filter:blur(16px);
+ border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(82,9,17,.82),rgba(31,4,9,.74));
+ box-shadow:0 24px 76px rgba(0,0,0,.42);backdrop-filter:blur(16px);
 }
 .btn{
-  width:100%;border:0;border-radius:20px;padding:17px 16px;font-size:16px;font-weight:950;color:#270307;
-  background:linear-gradient(100deg,#a9151d,#ff4b39 42%,#ffe67d);
-  box-shadow:0 18px 42px rgba(255,67,56,.23);cursor:pointer;
+ width:100%;border:0;border-radius:20px;padding:17px 16px;font-size:16px;font-weight:950;color:#270307;
+ background:linear-gradient(100deg,#a9151d,#ff4b39 42%,#ffe67d);
+ box-shadow:0 18px 42px rgba(255,67,56,.23);cursor:pointer;
 }
 .btn.secondary{background:rgba(255,255,255,.04);color:var(--gold2);border:1px solid var(--line);box-shadow:none}
 .btn:disabled{opacity:.45;filter:grayscale(1);cursor:not-allowed}
@@ -82,10 +82,10 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:.01em}
 .zodiacFigure{height:260px;display:grid;place-items:center;position:relative;border-radius:27px;overflow:hidden;margin-top:8px}
 .zodiacFigure:before{content:"";position:absolute;inset:0;background:url("gold-tree.jpg") center/cover;opacity:.18}
 .zodiacFigure .symbol{
-  width:142px;height:142px;border-radius:50%;display:grid;place-items:center;font-size:82px;color:#fff;z-index:2;
-  background:radial-gradient(circle at 35% 25%,#fff4aa 0 8%,#ffcc3e 28%,#c51625 68%,#4a0710 100%);
-  box-shadow:inset 0 12px 22px rgba(255,255,255,.22), inset 0 -16px 22px rgba(0,0,0,.28),0 26px 58px rgba(255,70,55,.28),0 0 42px rgba(255,231,125,.45);
-  text-shadow:0 4px 12px rgba(0,0,0,.45);animation:z3dPulse 3s ease-in-out infinite;
+ width:142px;height:142px;border-radius:50%;display:grid;place-items:center;font-size:82px;color:#fff;z-index:2;
+ background:radial-gradient(circle at 35% 25%,#fff4aa 0 8%,#ffcc3e 28%,#c51625 68%,#4a0710 100%);
+ box-shadow:inset 0 12px 22px rgba(255,255,255,.22), inset 0 -16px 22px rgba(0,0,0,.28),0 26px 58px rgba(255,70,55,.28),0 0 42px rgba(255,231,125,.45);
+ text-shadow:0 4px 12px rgba(0,0,0,.45);animation:z3dPulse 3s ease-in-out infinite;
 }
 @keyframes z3dPulse{0%,100%{transform:perspective(600px) rotateX(13deg) scale(1)}50%{transform:perspective(600px) rotateX(2deg) scale(1.06)}}
 .cardText{font-size:19px;line-height:1.7;padding:22px;border-radius:28px;border:1px solid rgba(255,224,116,.24);background:rgba(57,6,13,.68);margin-top:18px}
@@ -124,9 +124,9 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:.01em}
 .khan,.xac,.tdb,.golomt,.state,.capitron,.qpay,.mbank,.toki{background:linear-gradient(135deg,#3a0610,#a9151d 58%,#ffe67d)!important}
 .toki b{color:#fff!important}
 @media(max-width:520px){
-  .videoBox{height:330px}
-  .scan .videoBox{height:400px}
-  .safeBanks{grid-template-columns:repeat(2,1fr)!important}
+ .videoBox{height:330px}
+ .scan .videoBox{height:400px}
+ .safeBanks{grid-template-columns:repeat(2,1fr)!important}
 }
 /* === END v14 === */
 
@@ -183,81 +183,81 @@ button, input{font-family:var(--fontBody)!important}
 
 /* === v16 FIX FIRESTORE + REMOVE 12/OROD GRIDS === */
 body{
-  background:
-    linear-gradient(rgba(45,4,9,.38),rgba(10,1,3,.66)),
-    radial-gradient(circle at 50% 18%,rgba(255,232,144,.20),transparent 34%),
-    url("gold-tree.jpg") center top/cover fixed !important;
+ background:
+  linear-gradient(rgba(45,4,9,.38),rgba(10,1,3,.66)),
+  radial-gradient(circle at 50% 18%,rgba(255,232,144,.20),transparent 34%),
+  url("gold-tree.jpg") center top/cover fixed !important;
 }
 body:before{
-  opacity:.22!important;
+ opacity:.22!important;
 }
 .card{
-  background:linear-gradient(180deg,rgba(55,6,13,.45),rgba(18,2,5,.42))!important;
+ background:linear-gradient(180deg,rgba(55,6,13,.45),rgba(18,2,5,.42))!important;
 }
 .heroCard:before,.reviewBlock:before,.pack:before{
-  opacity:.24!important;
-  filter:saturate(1.15) brightness(1.08);
+ opacity:.24!important;
+ filter:saturate(1.15) brightness(1.08);
 }
 .result .archetype{
-  background:radial-gradient(circle at 50% 15%,rgba(255,230,125,.10),transparent 42%);
+ background:radial-gradient(circle at 50% 15%,rgba(255,230,125,.10),transparent 42%);
 }
 .zodiacWheel,.yearWheel{display:none!important}
 .zodiacCoin{
-  width:118px;height:118px;margin:16px auto 12px;border-radius:50%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:
-    radial-gradient(circle at 35% 25%,#fff7b6 0 10%,#ffe16a 22%,#d59a23 48%,#8f3c0c 75%,#3a0708 100%);
-  border:1px solid rgba(255,236,157,.74);
-  box-shadow:
-    inset 0 8px 20px rgba(255,255,255,.32),
-    inset 0 -16px 24px rgba(54,10,0,.42),
-    0 0 36px rgba(255,225,106,.32),
-    0 18px 42px rgba(0,0,0,.38);
-  animation:coinBreath 3.2s ease-in-out infinite;
+ width:118px;height:118px;margin:16px auto 12px;border-radius:50%;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ background:
+  radial-gradient(circle at 35% 25%,#fff7b6 0 10%,#ffe16a 22%,#d59a23 48%,#8f3c0c 75%,#3a0708 100%);
+ border:1px solid rgba(255,236,157,.74);
+ box-shadow:
+  inset 0 8px 20px rgba(255,255,255,.32),
+  inset 0 -16px 24px rgba(54,10,0,.42),
+  0 0 36px rgba(255,225,106,.32),
+  0 18px 42px rgba(0,0,0,.38);
+ animation:coinBreath 3.2s ease-in-out infinite;
 }
 .coinMiniSign{
-  font-size:38px;line-height:1;color:#3b0907;
-  text-shadow:0 1px 0 rgba(255,255,255,.38);
+ font-size:38px;line-height:1;color:#3b0907;
+ text-shadow:0 1px 0 rgba(255,255,255,.38);
 }
 .coinMiniText{
-  margin-top:4px;font-size:10px;font-weight:900;letter-spacing:.06em;color:#5b1608;
+ margin-top:4px;font-size:10px;font-weight:900;letter-spacing:.06em;color:#5b1608;
 }
 @keyframes coinBreath{
-  0%,100%{transform:scale(1) rotateY(0deg)}
-  50%{transform:scale(1.045) rotateY(7deg)}
+ 0%,100%{transform:scale(1) rotateY(0deg)}
+ 50%{transform:scale(1.045) rotateY(7deg)}
 }
 .videoBox img.heroDragon{
-  animation:dragonAlive 4.8s ease-in-out infinite!important;
+ animation:dragonAlive 4.8s ease-in-out infinite!important;
 }
 .heroGlow{opacity:.82!important}
 .coin.locked{
-  position:relative;font-size:0!important;filter:none!important;
-  background:radial-gradient(circle at 35% 24%,#ffe67d,#c11621 60%,#3b060b)!important;
+ position:relative;font-size:0!important;filter:none!important;
+ background:radial-gradient(circle at 35% 24%,#ffe67d,#c11621 60%,#3b060b)!important;
 }
 .coin.locked:after{
-  content:"✦";font-size:25px;color:#fff0a8;
+ content:"✦";font-size:25px;color:#fff0a8;
 }
 @media(max-width:520px){
-  .zodiacCoin{width:104px;height:104px}
-  .coinMiniSign{font-size:34px}
+ .zodiacCoin{width:104px;height:104px}
+ .coinMiniSign{font-size:34px}
 }
 /* === END v16 === */
 
 
 /* === v19 FORCE HERO OVERRIDE: this index must show v19-hero-dragon.png === */
 body{
-  background:
-    linear-gradient(rgba(10,1,2,.14),rgba(8,0,1,.38)),
-    url("v19-bg-wealth.png?v=40") center top/cover fixed !important;
+ background:
+  linear-gradient(rgba(10,1,2,.14),rgba(8,0,1,.38)),
+  url("v19-bg-wealth.png?v=41") center top/cover fixed !important;
 }
 #home{position:relative;padding-top:10px}
 #home:before{
-  content:"";position:absolute;inset:-18px -12px auto -12px;height:760px;
-  background:url("v19-hero-dragon.png?v=40") center top/cover no-repeat;
-  opacity:.30;filter:saturate(1.15) contrast(1.05);z-index:-1;
+ content:"";position:absolute;inset:-18px -12px auto -12px;height:760px;
+ background:url("v19-hero-dragon.png?v=41") center top/cover no-repeat;
+ opacity:.30;filter:saturate(1.15) contrast(1.05);z-index:-1;
 }
-.heroCard .videoBox{background:url("v19-hero-dragon.png?v=40") center top/cover no-repeat!important}
-.videoBox img.heroDragon{content:url("v19-hero-dragon.png?v=40");opacity:1!important}
+.heroCard .videoBox{background:url("v19-hero-dragon.png?v=41") center top/cover no-repeat!important}
+.videoBox img.heroDragon{content:url("v19-hero-dragon.png?v=41");opacity:1!important}
 .heroCard{margin-top:18px!important}
 .versionMark{position:fixed;right:8px;bottom:8px;z-index:9999;font-size:10px;color:rgba(255,230,150,.55);pointer-events:none}
 /* === END v19 FORCE HERO === */
@@ -282,8 +282,8 @@ body{
 .miniGrid span,.teaserList li{display:block;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.055);border:1px solid rgba(255,224,112,.14);color:#fff0dc;font-size:13.5px;line-height:1.45}
 .teaserList{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .teaserList li:before{content:"✦ ";color:#ffe176}
-.ritualPreview{background:linear-gradient(180deg,rgba(70,16,7,.34),rgba(12,2,3,.42)),url("v19-money-hands.jpg?v=40") center/cover!important}
-.caseBox{background:linear-gradient(180deg,rgba(70,16,7,.30),rgba(12,2,3,.42)),url("v19-money-path.jpg?v=40") center/cover!important}
+.ritualPreview{background:linear-gradient(180deg,rgba(70,16,7,.34),rgba(12,2,3,.42)),url("v19-money-hands.jpg?v=41") center/cover!important}
+.caseBox{background:linear-gradient(180deg,rgba(70,16,7,.30),rgba(12,2,3,.42)),url("v19-money-path.jpg?v=41") center/cover!important}
 .versionMark{font-size:10px!important}
 @media(max-width:520px){.brandTop{font-size:22px!important}.heroTitle{font-size:28px!important}.codePreview span{width:48px;height:48px;font-size:24px}.infoCard{padding:16px}}
 /* === END v19 === */
@@ -291,20 +291,20 @@ body{
 
 /* === v21 clickable payment buttons fix === */
 .payNotice{
-  margin:8px 0 10px;padding:12px 14px;border-radius:16px;
-  background:rgba(255,224,116,.10);border:1px solid rgba(255,224,116,.28);
-  color:#fff3d6;font-size:13px;line-height:1.55;text-align:center;
+ margin:8px 0 10px;padding:12px 14px;border-radius:16px;
+ background:rgba(255,224,116,.10);border:1px solid rgba(255,224,116,.28);
+ color:#fff3d6;font-size:13px;line-height:1.55;text-align:center;
 }
 .bigCopyBtn{
-  width:100%;border:none;border-radius:18px;padding:15px 12px;margin:8px 0 12px;
-  background:linear-gradient(90deg,#ffe477,#ffb43b,#d71920);
-  color:#220406;font-weight:950;font-size:16px;box-shadow:0 10px 28px rgba(255,184,49,.24);
-  cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,229,120,.35)
+ width:100%;border:none;border-radius:18px;padding:15px 12px;margin:8px 0 12px;
+ background:linear-gradient(90deg,#ffe477,#ffb43b,#d71920);
+ color:#220406;font-weight:950;font-size:16px;box-shadow:0 10px 28px rgba(255,184,49,.24);
+ cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,229,120,.35)
 }
 .bankApp.safe{
-  cursor:pointer!important;touch-action:manipulation!important;
-  -webkit-tap-highlight-color:rgba(255,229,120,.35)!important;
-  user-select:none!important;position:relative;z-index:3;
+ cursor:pointer!important;touch-action:manipulation!important;
+ -webkit-tap-highlight-color:rgba(255,229,120,.35)!important;
+ user-select:none!important;position:relative;z-index:3;
 }
 .bankApp.safe:active,.bigCopyBtn:active{transform:scale(.97);filter:brightness(1.12)}
 /* === END v21 === */
@@ -319,10 +319,10 @@ body{
 /* === v28 real bank anchor links === */
 .bankLinks{position:relative;z-index:50}
 .bankHref{
-  text-decoration:none!important;color:inherit!important;
-  display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;
-  min-height:76px!important;pointer-events:auto!important;cursor:pointer!important;touch-action:manipulation!important;
-  -webkit-tap-highlight-color:rgba(255,229,120,.35)!important;
+ text-decoration:none!important;color:inherit!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;
+ min-height:76px!important;pointer-events:auto!important;cursor:pointer!important;touch-action:manipulation!important;
+ -webkit-tap-highlight-color:rgba(255,229,120,.35)!important;
 }
 .bankHref *{pointer-events:none!important}
 .bankHref:active,.bigCopyBtn:active{transform:scale(.96)!important;filter:brightness(1.18)!important}
@@ -333,21 +333,21 @@ body{
 /* === v28 SAFE UI PATCH: form first, gold bar numbers, real bank logos === */
 .quickFormHint{margin:16px auto 6px;color:#ffe67d;text-shadow:0 0 12px rgba(255,224,116,.35)}
 #home .formBox{
-  display:block!important;
-  margin:10px 0 18px!important;
-  padding:18px!important;
-  border:1.5px solid rgba(255,230,125,.46)!important;
-  background:linear-gradient(180deg,rgba(82,9,17,.76),rgba(22,2,6,.70))!important;
-  box-shadow:0 0 0 1px rgba(255,224,116,.12),0 24px 70px rgba(0,0,0,.32),0 0 42px rgba(255,214,78,.12)!important;
+ display:block!important;
+ margin:10px 0 18px!important;
+ padding:18px!important;
+ border:1.5px solid rgba(255,230,125,.46)!important;
+ background:linear-gradient(180deg,rgba(82,9,17,.76),rgba(22,2,6,.70))!important;
+ box-shadow:0 0 0 1px rgba(255,224,116,.12),0 24px 70px rgba(0,0,0,.32),0 0 42px rgba(255,214,78,.12)!important;
 }
 #home .formBox:before{
-  content:"Анхан нээлт";
-  display:block;
-  color:#ffe67d;
-  font-weight:950;
-  font-size:22px;
-  margin-bottom:8px;
-  font-family:Georgia,"Times New Roman",serif;
+ content:"Анхан нээлт";
+ display:block;
+ color:#ffe67d;
+ font-weight:950;
+ font-size:22px;
+ margin-bottom:8px;
+ font-family:Georgia,"Times New Roman",serif;
 }
 #home.focus-form .heroCard,#home.focus-form .reviewBlock{filter:none!important;transform:none!important;opacity:1!important}
 .goldBarReveal{position:relative;width:min(100%,470px);margin:20px auto 16px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,230,125,.35);box-shadow:0 28px 70px rgba(0,0,0,.38),0 0 48px rgba(255,210,64,.16);background:#5b3306}
@@ -380,77 +380,77 @@ body{
 
 /* === v28 PACKAGE IMAGES PATCH === */
 .packImage{
-  position:relative;
-  margin:-3px -3px 14px;
-  height:178px;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(255,224,116,.30);
-  box-shadow:0 18px 42px rgba(0,0,0,.34),0 0 24px rgba(255,209,69,.11);
-  background:#2b0a04;
+ position:relative;
+ margin:-3px -3px 14px;
+ height:178px;
+ border-radius:22px;
+ overflow:hidden;
+ border:1px solid rgba(255,224,116,.30);
+ box-shadow:0 18px 42px rgba(0,0,0,.34),0 0 24px rgba(255,209,69,.11);
+ background:#2b0a04;
 }
 .packImage img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  filter:saturate(1.08) contrast(1.05) brightness(.93);
-  transform:scale(1.03);
+ width:100%;
+ height:100%;
+ display:block;
+ object-fit:cover;
+ filter:saturate(1.08) contrast(1.05) brightness(.93);
+ transform:scale(1.03);
 }
 .packImage:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.48));
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.48));
 }
 .pack.drop .packImage:before{
-  content:"ТҮЛХҮҮР";
-  position:absolute;z-index:2;left:14px;bottom:12px;
-  color:#ffe67d;font-weight:950;letter-spacing:.18em;font-size:12px;text-shadow:0 2px 10px rgba(0,0,0,.65);
+ content:"ТҮЛХҮҮР";
+ position:absolute;z-index:2;left:14px;bottom:12px;
+ color:#ffe67d;font-weight:950;letter-spacing:.18em;font-size:12px;text-shadow:0 2px 10px rgba(0,0,0,.65);
 }
 .pack.river .packImage:before{
-  content:"УРСГАЛ";
-  position:absolute;z-index:2;left:14px;bottom:12px;
-  color:#ffe67d;font-weight:950;letter-spacing:.18em;font-size:12px;text-shadow:0 2px 10px rgba(0,0,0,.65);
+ content:"УРСГАЛ";
+ position:absolute;z-index:2;left:14px;bottom:12px;
+ color:#ffe67d;font-weight:950;letter-spacing:.18em;font-size:12px;text-shadow:0 2px 10px rgba(0,0,0,.65);
 }
 .pack.sea .packImage:before{
-  content:"АЛТАН ИВЭЭЛ";
-  position:absolute;z-index:2;left:14px;bottom:12px;
-  color:#ffe67d;font-weight:950;letter-spacing:.18em;font-size:12px;text-shadow:0 2px 10px rgba(0,0,0,.65);
+ content:"АЛТАН ИВЭЭЛ";
+ position:absolute;z-index:2;left:14px;bottom:12px;
+ color:#ffe67d;font-weight:950;letter-spacing:.18em;font-size:12px;text-shadow:0 2px 10px rgba(0,0,0,.65);
 }
 .selectedPackVisual{
-  position:relative;
-  margin:12px 0 15px;
-  border-radius:22px;
-  overflow:hidden;
-  height:170px;
-  border:1px solid rgba(255,224,116,.28);
-  box-shadow:0 18px 48px rgba(0,0,0,.34),0 0 30px rgba(255,214,78,.12);
-  background:#2a0804;
+ position:relative;
+ margin:12px 0 15px;
+ border-radius:22px;
+ overflow:hidden;
+ height:170px;
+ border:1px solid rgba(255,224,116,.28);
+ box-shadow:0 18px 48px rgba(0,0,0,.34),0 0 30px rgba(255,214,78,.12);
+ background:#2a0804;
 }
 .selectedPackVisual img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  filter:saturate(1.08) contrast(1.04) brightness(.94);
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+ filter:saturate(1.08) contrast(1.04) brightness(.94);
 }
 .selectedPackVisual:after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.56));
+ content:"";
+ position:absolute;inset:0;
+ background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.56));
 }
 #selectedPackCaption{
-  position:absolute;z-index:2;left:12px;right:12px;bottom:12px;
-  padding:10px 12px;border-radius:15px;
-  background:rgba(20,3,5,.62);
-  border:1px solid rgba(255,224,116,.30);
-  color:#ffe67d;font-weight:950;text-align:center;
-  text-shadow:0 2px 10px rgba(0,0,0,.7);
+ position:absolute;z-index:2;left:12px;right:12px;bottom:12px;
+ padding:10px 12px;border-radius:15px;
+ background:rgba(20,3,5,.62);
+ border:1px solid rgba(255,224,116,.30);
+ color:#ffe67d;font-weight:950;text-align:center;
+ text-shadow:0 2px 10px rgba(0,0,0,.7);
 }
 @media(max-width:520px){
-  .packImage{height:156px}
-  .selectedPackVisual{height:150px}
+ .packImage{height:156px}
+ .selectedPackVisual{height:150px}
 }
 /* === END v28 === */
 
@@ -458,130 +458,130 @@ body{
 /* === v28 BUTTON + FORM FIX === */
 .formBox.show{display:block!important}
 #formBox{
-  scroll-margin-top:14px;
+ scroll-margin-top:14px;
 }
 .miniFormNote{
-  margin:10px 0 0!important;
-  font-size:13px!important;
-  line-height:1.45!important;
+ margin:10px 0 0!important;
+ font-size:13px!important;
+ line-height:1.45!important;
 }
 .bottomCta{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:9998;
-  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-  background:linear-gradient(180deg,rgba(18,1,4,0),rgba(18,1,4,.94) 35%,rgba(18,1,4,.98));
-  backdrop-filter:blur(10px);
-  transition:transform .22s ease, opacity .22s ease;
+ position:fixed;
+ left:0;
+ right:0;
+ bottom:0;
+ z-index:9998;
+ padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+ background:linear-gradient(180deg,rgba(18,1,4,0),rgba(18,1,4,.94) 35%,rgba(18,1,4,.98));
+ backdrop-filter:blur(10px);
+ transition:transform .22s ease, opacity .22s ease;
 }
 .bottomCta.hide{
-  transform:translateY(115%);
-  opacity:0;
-  pointer-events:none;
+ transform:translateY(115%);
+ opacity:0;
+ pointer-events:none;
 }
 .bottomCta .btn{
-  width:min(100%,790px);
-  margin:0 auto;
-  display:block;
-  box-shadow:0 12px 38px rgba(0,0,0,.45),0 0 28px rgba(255,224,116,.22);
+ width:min(100%,790px);
+ margin:0 auto;
+ display:block;
+ box-shadow:0 12px 38px rgba(0,0,0,.45),0 0 28px rgba(255,224,116,.22);
 }
 .page{padding-bottom:116px!important}
 @media(max-width:520px){
-  .bottomCta{padding:9px 10px calc(9px + env(safe-area-inset-bottom))}
-  .bottomCta .btn{font-size:16px}
+ .bottomCta{padding:9px 10px calc(9px + env(safe-area-inset-bottom))}
+ .bottomCta .btn{font-size:16px}
 }
 /* === END v28 === */
 
 
 /* === v28 TEXT + ZODIAC IMAGE + REAL LOGO PATCH === */
 .zodiacImgCoin{
-  width:154px!important;
-  height:154px!important;
-  padding:0!important;
-  overflow:hidden!important;
-  position:relative!important;
-  background:linear-gradient(145deg,#1b0610,#4f0a13 48%,#d69b24)!important;
+ width:154px!important;
+ height:154px!important;
+ padding:0!important;
+ overflow:hidden!important;
+ position:relative!important;
+ background:linear-gradient(145deg,#1b0610,#4f0a13 48%,#d69b24)!important;
 }
 .zodiacImgCoin img{
-  position:absolute;
-  inset:8px;
-  width:calc(100% - 16px);
-  height:calc(100% - 16px);
-  object-fit:cover;
-  border-radius:50%;
-  z-index:1;
-  box-shadow:inset 0 0 18px rgba(0,0,0,.30),0 0 28px rgba(255,224,116,.24);
+ position:absolute;
+ inset:8px;
+ width:calc(100% - 16px);
+ height:calc(100% - 16px);
+ object-fit:cover;
+ border-radius:50%;
+ z-index:1;
+ box-shadow:inset 0 0 18px rgba(0,0,0,.30),0 0 28px rgba(255,224,116,.24);
 }
 .zodiacImgCoin .coinMiniText{
-  position:absolute;
-  left:10px;
-  right:10px;
-  bottom:8px;
-  z-index:2;
-  color:#fff3b5!important;
-  background:rgba(30,3,7,.70);
-  border:1px solid rgba(255,224,116,.35);
-  border-radius:999px;
-  padding:5px 6px;
-  font-size:10px!important;
-  text-shadow:0 2px 8px rgba(0,0,0,.72);
+ position:absolute;
+ left:10px;
+ right:10px;
+ bottom:8px;
+ z-index:2;
+ color:#fff3b5!important;
+ background:rgba(30,3,7,.70);
+ border:1px solid rgba(255,224,116,.35);
+ border-radius:999px;
+ padding:5px 6px;
+ font-size:10px!important;
+ text-shadow:0 2px 8px rgba(0,0,0,.72);
 }
 .realLogoStrip{
-  grid-template-columns:repeat(2,1fr)!important;
+ grid-template-columns:repeat(2,1fr)!important;
 }
 .realLogoStrip img{
-  height:50px!important;
-  object-fit:contain!important;
-  background:#fff!important;
+ height:50px!important;
+ object-fit:contain!important;
+ background:#fff!important;
 }
 .realBankGrid{
-  display:grid!important;
-  grid-template-columns:repeat(2,1fr)!important;
-  gap:10px!important;
+ display:grid!important;
+ grid-template-columns:repeat(2,1fr)!important;
+ gap:10px!important;
 }
 .realBankLogo{
-  min-height:104px!important;
-  padding:10px 8px!important;
-  border:1px solid rgba(255,224,116,.26)!important;
-  border-radius:18px!important;
-  background:rgba(255,255,255,.06)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.20)!important;
+ min-height:104px!important;
+ padding:10px 8px!important;
+ border:1px solid rgba(255,224,116,.26)!important;
+ border-radius:18px!important;
+ background:rgba(255,255,255,.06)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.20)!important;
 }
 .bankLogoWide{
-  width:100%!important;
-  height:62px!important;
-  border-radius:14px!important;
-  background:#fff!important;
-  display:grid!important;
-  place-items:center!important;
-  padding:5px!important;
-  overflow:hidden!important;
+ width:100%!important;
+ height:62px!important;
+ border-radius:14px!important;
+ background:#fff!important;
+ display:grid!important;
+ place-items:center!important;
+ padding:5px!important;
+ overflow:hidden!important;
 }
 .bankLogoWide img{
-  max-width:100%!important;
-  max-height:100%!important;
-  object-fit:contain!important;
-  display:block!important;
+ max-width:100%!important;
+ max-height:100%!important;
+ object-fit:contain!important;
+ display:block!important;
 }
 .realBankLogo small{
-  margin-top:7px!important;
-  font-size:12px!important;
-  color:#fff3d6!important;
-  font-weight:850!important;
+ margin-top:7px!important;
+ font-size:12px!important;
+ color:#fff3d6!important;
+ font-weight:850!important;
 }
 #home .formBox:before{content:"Анхан нээлт"!important}
 @media(max-width:420px){
-  .bankLogoWide{height:54px!important}
-  .realBankLogo{min-height:96px!important}
-  .realLogoStrip img{height:45px!important}
+ .bankLogoWide{height:54px!important}
+ .realBankLogo{min-height:96px!important}
+ .realLogoStrip img{height:45px!important}
 }
 /* === END v28 === */
 
 
 
-/* === v40 REPORT+iOS HARD FIX — single bank grid, big zodiac, first 2 digits only === */
+/* === v41 WEALTH-NUMBER HARD FIX — single bank grid, big zodiac, first 2 digits only === */
 :root{--v38Gold:#ffe67d;--v38Deep:#210307;--v38Red:#7b0710}
 .versionMark{font-size:11px!important;color:rgba(255,230,150,.72)!important;font-weight:800!important}
 /* hide any old duplicated bank logo strips if older cache leaves them */
@@ -616,16 +616,16 @@ body{
 /* prevent tiny/cropped logo artifacts */
 .bankLogoWide img,.iconBox img,.realLogoStrip img{object-fit:contain!important}
 @media(max-width:520px){
-  .zodiacCoin.zodiacImgCoin{width:230px!important;height:230px!important}
-  #zodiacName{font-size:36px!important}
-  #zodiacFinanceSub{font-size:16px!important}
-  .goldBarReveal{min-height:360px!important;border-radius:26px!important}
-  .goldDigits{gap:9px!important;padding:12px!important}
-  .goldDigit{width:56px!important;height:72px!important;font-size:39px!important;border-radius:16px!important}
-  .finalBankGrid{gap:10px!important}
-  .finalBankCard{min-height:106px!important;border-radius:22px!important;padding:10px 8px!important}
-  .finalBankCard span{height:60px!important;border-radius:16px!important}
-  .finalBankCard b{font-size:14px!important}
+ .zodiacCoin.zodiacImgCoin{width:230px!important;height:230px!important}
+ #zodiacName{font-size:36px!important}
+ #zodiacFinanceSub{font-size:16px!important}
+ .goldBarReveal{min-height:360px!important;border-radius:26px!important}
+ .goldDigits{gap:9px!important;padding:12px!important}
+ .goldDigit{width:56px!important;height:72px!important;font-size:39px!important;border-radius:16px!important}
+ .finalBankGrid{gap:10px!important}
+ .finalBankCard{min-height:106px!important;border-radius:22px!important;padding:10px 8px!important}
+ .finalBankCard span{height:60px!important;border-radius:16px!important}
+ .finalBankCard b{font-size:14px!important}
 }
 
 /* === v39 DOB SPLIT FIX: iPhone-д цэг бичих шаардлагагүй === */
@@ -636,7 +636,7 @@ body{
 @media(max-width:420px){.birthSplit{grid-template-columns:1.2fr .78fr .78fr;gap:7px}.birthSplit input{padding:15px 8px!important;font-size:16px!important}}
 /* === END v39 DOB SPLIT FIX === */
 
-/* === END v40 REPORT+iOS === */
+/* === END v41 WEALTH-NUMBER === */
 
 </style>
 <!-- v28 real bank links anchors: accNo 5680034540, IBAN 59000500 -->
@@ -648,238 +648,238 @@ body{
 </head>
 <body>
 <div class="page" id="main">
-  <div class="brandTop" ondblclick="openAdmin()">Тэнгэрийн Мэлмий</div>
+ <div class="brandTop" ondblclick="openAdmin()">Тэнгэрийн Мэлмий</div>
 
-  <section class="center" id="home">
-    <div class="smallCaps">ҮНЭГҮЙ ШИНЖИЛГЭЭ</div>
-    <h1 class="heroTitle">Заяагдмал тоогоо<br><span>үнэгүй нээе</span></h1>
-    <p class="sub">Хүн бүрд өөрийн гэсэн заяагдмал тоо бий. Тэр тоогоор мөнгө санхүү, өрийн дарамт, хайр дурлал, ажил бизнес болон амьдралын томоохон шийдвэрт хэрхэн нөлөөлж байгааг бэлгэдлийн аргаар уншиж болдог.</p>
-    <div class="card heroCard heroPanel">
-      <div class="freeUnlock">
-        <div class="smallCaps">ЭХНИЙ НЭЭЛТ</div>
-        <div class="codePreview"><span>●</span><span>●</span><span class="lockedDot">✦</span><span class="lockedDot">✦</span></div>
-        <p class="heroNoteLite">Таны заяагдмал тооны анхан нээлт ил болно. Үлдсэн 2 орон, мөнгөний нууц урсгал, дом зан үйл, санхүүгийн зангилаа нь дэлгэрэнгүй тайланд ил болно.</p>
-        <button class="btn" onclick="showForm()">Тоогоо шалгах</button>
-      </div>
+ <section class="center" id="home">
+  <div class="smallCaps">ҮНЭГҮЙ ШИНЖИЛГЭЭ</div>
+  <h1 class="heroTitle">Заяагдмал тоогоо<br><span>үнэгүй нээе</span></h1>
+  <p class="sub">Хүн бүрт төрөх мөчид нь хамт заяадаг өөрийн гэсэн эд баялгийн тоо бий. Энэ тоо нь таны мөнгө татах хүч, хишиг буян, мөнгө тогтох сав, хайр сэтгэл, ажил бизнесийн шийдвэрт хэрхэн нөлөөлж байгааг уншиж өгдөг.</p>
+  <div class="card heroCard heroPanel">
+   <div class="freeUnlock">
+    <div class="smallCaps">ЭХНИЙ НЭЭЛТ</div>
+    <div class="codePreview"><span>●</span><span>●</span><span class="lockedDot">✦</span><span class="lockedDot">✦</span></div>
+    <p class="heroNoteLite">Таны төрөхөд хамт заяасан эд баялгийн тооны эхний 2 нүд ил болно. Үлдсэн 2 нүд, мөнгөний гол үүд, өрийн давтамж, эд баялгийн гүн зангилаа нь дэлгэрэнгүй тайланд нээгдэнэ.</p>
+    <button class="btn" onclick="showForm()">Тоогоо шалгах</button>
+   </div>
+  </div>
+
+  
+  
+  <div class="quickFormHint smallCaps center">ТӨЛБӨР ШААРДАХГҮЙ · АНХАН НЭЭЛТ ШУУД ГАРНА</div>
+  <div class="card formBox show" id="formBox">
+   <div class="field">
+    <label>Нэр</label>
+    <input id="fullName" type="text" placeholder="Жишээ: Бат-Эрдэнэ" autocomplete="name">
+   </div>
+   <div class="field">
+    <label>Төрсөн он сар өдөр</label>
+    <div class="birthSplit" aria-label="Төрсөн он сар өдөр">
+     <input id="birthYear" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="1943" autocomplete="bday-year">
+     <input id="birthMonth" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="03" autocomplete="bday-month">
+     <input id="birthDay" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="29" autocomplete="bday-day">
     </div>
+    <input id="birthDate" type="hidden">
+    <div class="birthHint">Он 4 орон · сар 2 орон · өдөр 2 орон</div>
+   </div>
+   <div class="field">
+    <label>Утас</label>
+    <input id="phone" type="tel" inputmode="tel" placeholder="99112233" autocomplete="tel">
+   </div>
+   <button class="btn" onclick="confirmInfo()">Анхан нээлтээ харах</button>
+   <p class="sub miniFormNote">Карт оруулахгүй. Төлбөр шаардахгүй. Анхан нээлт шууд гарна.</p>
+  </div>
 
-    
-    
-    <div class="quickFormHint smallCaps center">ТӨЛБӨР ШААРДАХГҮЙ · АНХАН НЭЭЛТ ШУУД ГАРНА</div>
-    <div class="card formBox show" id="formBox">
-      <div class="field">
-        <label>Нэр</label>
-        <input id="fullName" type="text" placeholder="Жишээ: Бат-Эрдэнэ" autocomplete="name">
-      </div>
-      <div class="field">
-        <label>Төрсөн он сар өдөр</label>
-        <div class="birthSplit" aria-label="Төрсөн он сар өдөр">
-          <input id="birthYear" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="1943" autocomplete="bday-year">
-          <input id="birthMonth" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="03" autocomplete="bday-month">
-          <input id="birthDay" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="29" autocomplete="bday-day">
-        </div>
-        <input id="birthDate" type="hidden">
-        <div class="birthHint">Он 4 орон · сар 2 орон · өдөр 2 орон</div>
-      </div>
-      <div class="field">
-        <label>Утас</label>
-        <input id="phone" type="tel" inputmode="tel" placeholder="99112233" autocomplete="tel">
-      </div>
-      <button class="btn" onclick="confirmInfo()">Анхан нээлтээ харах</button>
-      <p class="sub miniFormNote">Карт оруулахгүй. Төлбөр шаардахгүй. Анхан нээлт шууд гарна.</p>
+  <div class="infoStack">
+   <div class="infoCard">
+    <div class="smallCaps">ЗАЯАГДМАЛ ТОО</div>
+    <h2 class="gold">Таны тоо юуг ил гаргадаг вэ?</h2>
+    <div class="miniGrid">
+     <span>Мөнгө орж ирээд яагаад тогтохгүй байгааг</span>
+     <span>Өрийн дарамт ямар зангилаагаар давтагддагийг</span>
+     <span>Хайр дурлал, ажил, шийдвэр мөнгөнд хэрхэн нөлөөлдгийг</span>
+     <span>Танд тохирох өдөр, өнгө, сахиус, домын чиглэлийг</span>
     </div>
+   </div>
+   <div class="infoCard">
+    <div class="smallCaps">САНХҮҮГИЙН ДОХИО</div>
+    <h2 class="gold">Дараах шинжүүд танд байдаг уу?</h2>
+    <ul class="teaserList">
+     <li>Орлого нэмэгдсэн ч мөнгө тогтохгүй байх</li>
+     <li>Гэнэт зайлшгүй зардал байнга гарах</li>
+     <li>Өрөө дарах гэсэн ч нэг зүйл дахин татах</li>
+     <li>Бусдын асуудлыг үүрээд өөрийн мөнгөний урсгалаа сулруулах</li>
+     <li>Зарим өдөр санхүүгийн шийдвэр буруу эргэх</li>
+    </ul>
+   </div>
+   <div class="infoCard ritualPreview">
+    <div class="smallCaps">МӨНГӨ ТОГТООХ БЭЛГЭДЭЛ</div>
+    <h2 class="gold">Уламжлалт мөнгө тогтоох дадалээс</h2>
+    <p>Түрийвчээ хоосон байлгахгүй байх, орсон орлогоо нэг хоног гэртээ хонуулах, нар жаргасны дараа мөнгө тоолохгүй байх, азын мөнгөө үрэхгүй хадгалах зэрэг нь мөнгө тогтоох бэлгэдлийн аргууд гэж үздэг.</p>
+    <p>Дэлгэрэнгүй тайланд эдгээрийг таны төрөхөд хамт заяасан эд баялгийн тоотой холбож, ямар өдөр, ямар дарааллаар мөнгөний дадлаа тогтоохыг ялгаж өгнө.</p>
+   </div>
+   <div class="infoCard caseBox">
+    <div class="smallCaps">ЖИШЭЭ ТАЙЛАЛ</div>
+    <h2 class="gold">Нэг хүний тоонд юу илэрч болох вэ?</h2>
+    <p>Зарим хүний тоонд орлого татах боломж сайн боловч бусдад хэт үүрэг хүлээх, орсон мөнгөө шууд тараах, өрийг төлөх цаг мөчлөгөө буруу сонгох зангилаа гардаг. Ийм үед тайлангаар мөнгө тогтоох дадал, түрийвчний сахиус, сарны үе, өдөр цагийн бэлгэдлийг хамтад нь гаргаж өгнө.</p>
+   </div>
+  </div>
 
-    <div class="infoStack">
-      <div class="infoCard">
-        <div class="smallCaps">ЗАЯАГДМАЛ ТОО</div>
-        <h2 class="gold">Таны тоо юуг ил гаргадаг вэ?</h2>
-        <div class="miniGrid">
-          <span>Мөнгө орж ирээд яагаад тогтохгүй байгааг</span>
-          <span>Өрийн дарамт ямар зангилаагаар давтагддагийг</span>
-          <span>Хайр дурлал, ажил, шийдвэр мөнгөнд хэрхэн нөлөөлдгийг</span>
-          <span>Танд тохирох өдөр, өнгө, сахиус, домын чиглэлийг</span>
-        </div>
-      </div>
-      <div class="infoCard">
-        <div class="smallCaps">САНХҮҮГИЙН ДОХИО</div>
-        <h2 class="gold">Дараах шинжүүд танд байдаг уу?</h2>
-        <ul class="teaserList">
-          <li>Орлого нэмэгдсэн ч мөнгө тогтохгүй байх</li>
-          <li>Гэнэт зайлшгүй зардал байнга гарах</li>
-          <li>Өрөө дарах гэсэн ч нэг зүйл дахин татах</li>
-          <li>Бусдын асуудлыг үүрээд өөрийн мөнгөний урсгалаа сулруулах</li>
-          <li>Зарим өдөр санхүүгийн шийдвэр буруу эргэх</li>
-        </ul>
-      </div>
-      <div class="infoCard ritualPreview">
-        <div class="smallCaps">МӨНГӨ ТОГТООХ БЭЛГЭДЭЛ</div>
-        <h2 class="gold">Уламжлалт дом, зан үйлээс</h2>
-        <p>Түрийвчээ хоосон байлгахгүй байх, орсон орлогоо нэг хоног гэртээ хонуулах, нар жаргасны дараа мөнгө тоолохгүй байх, азын мөнгөө үрэхгүй хадгалах зэрэг нь мөнгө тогтоох бэлгэдлийн аргууд гэж үздэг.</p>
-        <p>Дэлгэрэнгүй тайланд эдгээрийг таны заяагдмал тоотой холбож, ямар дом, ямар өдөр, ямар дарааллаар хийхийг ялгаж өгнө.</p>
-      </div>
-      <div class="infoCard caseBox">
-        <div class="smallCaps">ЖИШЭЭ ТАЙЛАЛ</div>
-        <h2 class="gold">Нэг хүний тоонд юу илэрч болох вэ?</h2>
-        <p>Зарим хүний тоонд орлого татах боломж сайн боловч бусдад хэт үүрэг хүлээх, орсон мөнгөө шууд тараах, өрийг төлөх цаг мөчлөгөө буруу сонгох зангилаа гардаг. Ийм үед тайлангаар мөнгө тогтоох дадал, түрийвчний сахиус, сарны үе, өдөр цагийн бэлгэдлийг хамтад нь гаргаж өгнө.</p>
-      </div>
+  <div class="card reviewBlock">
+   <div class="smallCaps">ХЭРЭГЛЭГЧИЙН ТОП СЭТГЭГДЭЛ</div>
+   <h2 class="gold">Тоогоо нээлгэсэн хүмүүс</h2>
+   <div class="reviewViewport"><div class="reviewList">
+    <div class="reviewItem"><div class="avatar">Н</div><div><b>Н. Номин</b><span>★★★★★ Баталгаажсан</span><p>Ёоо би бүр итгэхгүй, яахуу яахуу гэж бодоод авсан чинь үнэхээр баярлалаа. Тоо нь яг одоо надад тулгараад байсан асуудалтай их таарсан.</p></div></div>
+    <div class="reviewItem"><div class="avatar">С</div><div><b>С. Саруул</b><span>★★★★★ Баталгаажсан</span><p>Олон удаа хараад л зүгээр өнгөрдөг байсан. Энэ удаа авсан чинь ёстой харамсаад байна, яагаад эрт ороогүй юм болоо. Над шиг зүгээр харж өнгөрч болохгүй юм байна.</p></div></div>
+    <div class="reviewItem"><div class="avatar">Б</div><div><b>Б. Бат-Эрдэнэ</b><span>★★★★★ Баталгаажсан</span><p>Өрийн дарамт яагаад дахиад дахиад үүсдэгийг арай өөр өнцгөөс ойлгосон. Товч мөртлөө надад хэрэгтэй үг их байсан.</p></div></div>
+    <div class="reviewItem"><div class="avatar">О</div><div><b>О. Одгэрэл</b><span>★★★★★ Баталгаажсан</span><p>Мөнгө орж ирээд тогтдоггүйгээ анх удаа ингэж ойлгосон. Домын хэсэг нь бүр сонирхолтой байсан, би заримыг нь шууд туршиж эхэлсэн.</p></div></div>
+    <div class="reviewItem"><div class="avatar">А</div><div><b>А. Ариунаа</b><span>★★★★★ Баталгаажсан</span><p>Хайр дурлал, мөнгө хоёр хоорондоо яаж холбогддогийг ойлголоо. Зүгээр нэг текст биш, их юм бодогдуулсан тайлан байсан.</p></div></div>
+    <div class="reviewItem"><div class="avatar">Э</div><div><b>Э. Энхтөр</b><span>★★★★★ Баталгаажсан</span><p>Тоо нь үнэхээр үнэн юм байна гэж бодогдсон. Би өөрөө эхэндээ их эргэлзсэн, гэхдээ авсны дараа дахиад үзмээр санагдсан.</p></div></div>
+    <div class="reviewItem"><div class="avatar">М</div><div><b>М. Мөнхзаяа</b><span>★★★★★ Баталгаажсан</span><p>Ёстой яг надад хэлээд байгаа юм шиг санагдсан. Танд ч бас олон удаа тааралдаад өнгөрч байсан бол энэ удаа зүгээр битгий өнгөрөөрэй гэж хэлмээр байна.</p></div></div>
+    <div class="reviewItem"><div class="avatar">Т</div><div><b>Т. Төгсөө</b><span>★★★★★ Баталгаажсан</span><p>Өмнө нь ийм төрлийн юм сонирхдоггүй байсан. Гэтэл мөнгөний дадал, шийдвэр дээрээ юуг засахаа олж харсан нь надад хамгийн үнэ цэнтэй санагдсан.</p></div></div>
+   </div></div>
+  </div>
+
+ </section>
+
+ <section id="scan" class="scan">
+  <div>
+   <div class="videoBox">
+    <img class="heroDragon" src="v19-hero-dragon.png?v=41" alt="">
+    <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
+    <p class="scanText" id="scanText">Алтан луу таны тоог нээж байна...</p>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+   </div>
+   <div class="smallCaps">АЛТАН МЭЛМИЙ ТАНЫ ЗАЯАГДМАЛ ТООГ НЭЭЖ БАЙНА</div>
+  </div>
+ </section>
+
+ <section id="result" class="result">
+  <div class="archetype">
+   <div class="smallCaps">ТАНЫ ЗАЯАГДМАЛ ТОО</div>
+   <h1 class="heroTitle"><span id="archTitle">Онцгой</span><br><span style="color:#fff" id="archTitle2">Тоо</span></h1>
+   <p class="sub" id="archSub">Хүн бүрд өөрийн гэсэн тоон түлхүүр бий</p>
+   <div class="zodiacCoin zodiacImgCoin"><img id="zodiacImage" src="zodiac-capricorn.png?v=41" alt="Ордын зураг"><div class="coinMiniSign" id="zodiacSymbol" style="display:none">♑</div><div class="coinMiniText" id="zodiacCoinText">Ордын тоо</div></div>
+   <h2 class="gold" id="zodiacName">Матрын орд</h2>
+   <p class="sub" id="zodiacFinanceSub">Өрнийн орд нь мөнгөтэй харьцах хэв маяг, амьдралын том шийдвэрийг яаж гаргадаг хандлагыг харуулна.</p>
+   
+   
+   <div class="cardText" id="mainText"></div>
+   <div class="codeUse card">
+    <h2 class="gold">Энэ тоогоор юуг нээж болдог вэ?</h2>
+    <p>Таны эд баялгийн тоо бол зүгээр нэг цифр биш. Энэ нь мөнгө санхүү, өрийн дарамт, хайр дурлал, амьдралын том шийдвэр, азын өдөр, хишиг буян татах дадлыг хэрхэн ашиглахыг харуулах хувийн түлхүүр юм.</p>
+    <div class="codeUseGrid"><span>Мөнгөний урсгал</span><span>Өрийн дарамт</span><span>Хайр дурлал</span><span>Ажил бизнес</span><span>Азын өдөр</span><span>Бэлгэдлийн дом</span></div>
+   </div>
+   <div class="chips" id="chips"></div>
+  </div>
+
+  <div class="card lockCard">
+   <div class="smallCaps">ГЭХДЭЭ...</div>
+   <h1 class="heroTitle" style="font-size:34px"><span>Үлдсэн тоо</span> цоожтой байна</h1>
+   <p class="sub">Анхан нээлт зөвхөн эхний хаалгыг нээнэ. Харин үлдсэн 2 оронд мөнгөний урсгал, өрийн дарамт, хайр дурлал, шийдвэрийн зангилаа болон танд тохирох эд баялгийн дадал нуугдаж байна.</p>
+   <div class="teaserBlur">
+    <div class="blurLine" data-label="Таны мөнгө яагаад тогтохгүй байна вэ?"></div>
+    <div class="blurLine" data-label="Өрийн дарамт аль зангилаанаас эхэлдэг вэ?"></div>
+    <div class="blurLine" data-label="Хайр дурлал санхүүд нөлөөлж байгаа эсэх"></div>
+    <div class="blurLine" data-label="Танд тохирох азын өдөр, чиглэл, өнгө"></div>
+    <div class="blurLine" data-label="7 / 30 / 49 хоногийн дом ба зан үйл"></div>
+    <div class="blurLine" data-label="Амьдралын том шийдвэрт тоогоо яаж ашиглах вэ?"></div>
+    <div class="blurLine" data-label="Мөнгөний урсгалаа нээх хувийн нууц тоо"></div>
+   </div>
+   <div class="lockKeyVisual"><img src="lock-key.jpg?v=41" alt="Цоож ба түлхүүр"><div class="lockGlow">Үлдсэн 2 орон түгжээтэй</div></div>
+   <p class="sub">Эдгээр мөр бүр бүрэн тайланд задрана.</p>
+  </div>
+
+  <div class="card lockCard">
+   <h2 class="gold">Таны алтан тооны эхний нээлт</h2>
+   <p class="sub">Таны заяагдмал тооны анхан нээлт алтан түлхүүр дээр ил гарлаа. Үлдсэн орон бүрэн тайланд нээгдэнэ.</p>
+   <div class="goldBarReveal">
+    <img src="ancient-scroll-code.jpg?v=41" alt="Эртний бичээстэй алтан фонд">
+    <div class="goldDigits">
+     <span class="goldDigit" id="code1">7</span>
+     <span class="goldDigit" id="code2">7</span>
+     <span class="goldDigit hiddenDigit" id="code3">?</span>
+     <span class="goldDigit hiddenDigit" id="code4">?</span>
     </div>
+   </div>
+   <p class="sub">Сүүлийн хоёр орон нь таны мөнгөний зангилаа, урсгал нээх дарааллыг бүрэн тайланд ил гаргана.</p>
+  </div>
 
-    <div class="card reviewBlock">
-      <div class="smallCaps">ХЭРЭГЛЭГЧИЙН ТОП СЭТГЭГДЭЛ</div>
-      <h2 class="gold">Тоогоо нээлгэсэн хүмүүс</h2>
-      <div class="reviewViewport"><div class="reviewList">
-        <div class="reviewItem"><div class="avatar">Н</div><div><b>Н. Номин</b><span>★★★★★ Баталгаажсан</span><p>Ёоо би бүр итгэхгүй, яахуу яахуу гэж бодоод авсан чинь үнэхээр баярлалаа. Тоо нь яг одоо надад тулгараад байсан асуудалтай их таарсан.</p></div></div>
-        <div class="reviewItem"><div class="avatar">С</div><div><b>С. Саруул</b><span>★★★★★ Баталгаажсан</span><p>Олон удаа хараад л зүгээр өнгөрдөг байсан. Энэ удаа авсан чинь ёстой харамсаад байна, яагаад эрт ороогүй юм болоо. Над шиг зүгээр харж өнгөрч болохгүй юм байна.</p></div></div>
-        <div class="reviewItem"><div class="avatar">Б</div><div><b>Б. Бат-Эрдэнэ</b><span>★★★★★ Баталгаажсан</span><p>Өрийн дарамт яагаад дахиад дахиад үүсдэгийг арай өөр өнцгөөс ойлгосон. Товч мөртлөө надад хэрэгтэй үг их байсан.</p></div></div>
-        <div class="reviewItem"><div class="avatar">О</div><div><b>О. Одгэрэл</b><span>★★★★★ Баталгаажсан</span><p>Мөнгө орж ирээд тогтдоггүйгээ анх удаа ингэж ойлгосон. Домын хэсэг нь бүр сонирхолтой байсан, би заримыг нь шууд туршиж эхэлсэн.</p></div></div>
-        <div class="reviewItem"><div class="avatar">А</div><div><b>А. Ариунаа</b><span>★★★★★ Баталгаажсан</span><p>Хайр дурлал, мөнгө хоёр хоорондоо яаж холбогддогийг ойлголоо. Зүгээр нэг текст биш, их юм бодогдуулсан тайлан байсан.</p></div></div>
-        <div class="reviewItem"><div class="avatar">Э</div><div><b>Э. Энхтөр</b><span>★★★★★ Баталгаажсан</span><p>Тоо нь үнэхээр үнэн юм байна гэж бодогдсон. Би өөрөө эхэндээ их эргэлзсэн, гэхдээ авсны дараа дахиад үзмээр санагдсан.</p></div></div>
-        <div class="reviewItem"><div class="avatar">М</div><div><b>М. Мөнхзаяа</b><span>★★★★★ Баталгаажсан</span><p>Ёстой яг надад хэлээд байгаа юм шиг санагдсан. Танд ч бас олон удаа тааралдаад өнгөрч байсан бол энэ удаа зүгээр битгий өнгөрөөрэй гэж хэлмээр байна.</p></div></div>
-        <div class="reviewItem"><div class="avatar">Т</div><div><b>Т. Төгсөө</b><span>★★★★★ Баталгаажсан</span><p>Өмнө нь ийм төрлийн юм сонирхдоггүй байсан. Гэтэл мөнгөний дадал, шийдвэр дээрээ юуг засахаа олж харсан нь надад хамгийн үнэ цэнтэй санагдсан.</p></div></div>
-      </div></div>
-    </div>
+  <h1 class="heroTitle center" style="font-size:32px"><span>Тоогоо бүрэн нээж,</span><br>мөнгөний урсгалаа нээх үү?</h1>
+  <div class="countBox"><div class="smallCaps" style="color:#ffb1a8">• -50% ХЯМДРАЛ ДУУСАХАД</div><b id="timer">--:--:--</b><p class="sub">Өнөөдөр шөнө дунд хүртэл</p></div>
 
-  </section>
+  <div class="card pack drop">
+   <div class="packImage"><img src="package-key.jpg?v=41" alt="Мөнгөний түлхүүр"></div>
+   <div class="smallCaps">ЭХНИЙ НЭЭЛТ</div><h2>Мөнгөний Түлхүүр</h2><p class="sub">Заяагдмал тооны эхний хаалгыг нээнэ</p>
+   <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
+   <ul class="list"><li>Эд баялгийн тооны эхний 2 нүд</li><li>Мөнгө тогтохгүй байгаа эхний зангилаа</li><li>3 эд баялгийн дадал, 7 хоногийн эхний алхам</li><li>Азын өнгө, өдөр, мөнгөний савны эхний зөвлөмж</li></ul>
+   <button class="btn secondary detailBtn" onclick="toggleDetail('detail-drop')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-drop">Энэ бол эхний нээлт. Та өөрийн тооны эхний дохиог харж, мөнгөний урсгал яагаад гацаж байгаагийн үндсэн шалтгааныг олно. Хурдан, ойлгомжтой, эхлэхэд хамгийн тохиромжтой багц.</div>
+   <button class="btn" onclick="choosePackage('Мөнгөний Түлхүүр',9900)">ЭХНИЙ 3 НҮДЭЭ НЭЭХ</button>
+  </div>
 
-  <section id="scan" class="scan">
-    <div>
-      <div class="videoBox">
-        <img class="heroDragon" src="v19-hero-dragon.png?v=40" alt="">
-        <div class="heroGlow"></div><div class="coinRain">● ● ● ● ●</div>
-        <p class="scanText" id="scanText">Алтан луу таны тоог нээж байна...</p>
-        <div class="progress"><div class="bar" id="bar"></div></div>
-      </div>
-      <div class="smallCaps">АЛТАН МЭЛМИЙ ТАНЫ ЗАЯАГДМАЛ ТООГ НЭЭЖ БАЙНА</div>
-    </div>
-  </section>
+  <div class="card pack river best">
+   <div class="packImage"><img src="package-flow.jpg?v=41" alt="Мөнгөний урсгал"></div>
+   <div class="smallCaps">БҮРЭН САНХҮҮГИЙН ТАЙЛАН</div><h2 class="gold">Мөнгөний Урсгал</h2><p class="sub">Мөнгө ба өрийн зангилааг гүн тайлна</p>
+   <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
+   <ul class="list"><li>Эд баялгийн 4 нүд бүрэн тайлагдана</li><li>Өр, гарлага, мөнгө сарних зангилаа</li><li>30 хоногийн мөнгө тогтоох төлөвлөгөө</li><li>7–10 мөнгө тогтоох дадал, өдөр цагийн зөвлөмж</li></ul>
+   <button class="btn secondary detailBtn" onclick="toggleDetail('detail-river')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-river">Энэ багцад таны мөнгөний урсгал хаанаас хаагдаж, аль зан үйл, аль шийдвэр мөнгийг тогтоохгүй байгааг илүү тодруулж өгнө. Өр зээл, санхүүгийн дарамтаа цэгцлэхийг хүсэж байгаа хүнд хамгийн оновчтой.</div>
+   <button class="btn" onclick="choosePackage('Мөнгөний Урсгал',19900)">УРСГАЛАА НЭЭХ</button>
+  </div>
 
-  <section id="result" class="result">
-    <div class="archetype">
-      <div class="smallCaps">ТАНЫ ЗАЯАГДМАЛ ТОО</div>
-      <h1 class="heroTitle"><span id="archTitle">Онцгой</span><br><span style="color:#fff" id="archTitle2">Тоо</span></h1>
-      <p class="sub" id="archSub">Хүн бүрд өөрийн гэсэн тоон түлхүүр бий</p>
-      <div class="zodiacCoin zodiacImgCoin"><img id="zodiacImage" src="zodiac-capricorn.png?v=40" alt="Ордын зураг"><div class="coinMiniSign" id="zodiacSymbol" style="display:none">♑</div><div class="coinMiniText" id="zodiacCoinText">Ордын тоо</div></div>
-      <h2 class="gold" id="zodiacName">Матрын орд</h2>
-      <p class="sub" id="zodiacFinanceSub">Өрнийн орд нь мөнгөтэй харьцах хэв маяг, амьдралын том шийдвэрийг яаж гаргадаг хандлагыг харуулна.</p>
-      
-      
-      <div class="cardText" id="mainText"></div>
-      <div class="codeUse card">
-        <h2 class="gold">Энэ тоогоор юуг нээж болдог вэ?</h2>
-        <p>Заяагдмал тоо бол зүгээр нэг тоо биш. Энэ нь мөнгө санхүү, өрийн дарамт, хайр дурлал, амьдралын том шийдвэр, азын өдөр, бэлгэдлийн домыг хэрхэн ашиглахыг харуулах хувийн түлхүүр юм.</p>
-        <div class="codeUseGrid"><span>Мөнгөний урсгал</span><span>Өрийн дарамт</span><span>Хайр дурлал</span><span>Ажил бизнес</span><span>Азын өдөр</span><span>Бэлгэдлийн дом</span></div>
-      </div>
-      <div class="chips" id="chips"></div>
-    </div>
+  <div class="card pack sea">
+   <div class="packImage"><img src="package-premium.jpg?v=41" alt="Тэнгэрийн ивээл"></div>
+   <div class="smallCaps">ХАМГИЙН ГҮН ТАЙЛАН</div><h2>Тэнгэрийн Ивээл</h2><p class="sub">Мөнгө + хайр дурлал + амьдралын шийдвэр</p>
+   <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
+   <ul class="list"><li>Мөнгөний Урсгал багцын бүх зүйл</li><li>49 хоногийн гүн төлөвлөгөө</li><li>Мөнгө + хайр дурлал + ажил бизнес + том шийдвэр</li><li>Хувийн сахиус, дом, жилийн мөчлөгийн гүн зөвлөмж</li></ul>
+   <button class="btn secondary detailBtn" onclick="toggleDetail('detail-sea')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-sea">Энэ бол хамгийн гүн хувилбар. Заяагдмал тоогоо мөнгө санхүү, хайр дурлал, ажил бизнес, амьдралын том сонголтуудтай хэрхэн холбож ашиглахыг шат дараатай тайлж өгнө.</div>
+   <button class="btn secondary" onclick="choosePackage('Тэнгэрийн Ивээл',99000)">ГҮН ТООГОО НЭЭХ</button>
+  </div>
+ </section>
 
-    <div class="card lockCard">
-      <div class="smallCaps">ГЭХДЭЭ...</div>
-      <h1 class="heroTitle" style="font-size:34px"><span>Үлдсэн тоо</span> цоожтой байна</h1>
-      <p class="sub">Анхан нээлт зөвхөн эхний хаалгыг нээнэ. Харин үлдсэн 2 оронд мөнгөний урсгал, өрийн дарамт, хайр дурлал, шийдвэрийн зангилаа болон танд тохирох дом зан үйл нуугдаж байна.</p>
-      <div class="teaserBlur">
-        <div class="blurLine" data-label="Таны мөнгө яагаад тогтохгүй байна вэ?"></div>
-        <div class="blurLine" data-label="Өрийн дарамт аль зангилаанаас эхэлдэг вэ?"></div>
-        <div class="blurLine" data-label="Хайр дурлал санхүүд нөлөөлж байгаа эсэх"></div>
-        <div class="blurLine" data-label="Танд тохирох азын өдөр, чиглэл, өнгө"></div>
-        <div class="blurLine" data-label="7 / 30 / 49 хоногийн дом ба зан үйл"></div>
-        <div class="blurLine" data-label="Амьдралын том шийдвэрт тоогоо яаж ашиглах вэ?"></div>
-        <div class="blurLine" data-label="Мөнгөний урсгалаа нээх хувийн нууц тоо"></div>
-      </div>
-      <div class="lockKeyVisual"><img src="lock-key.jpg?v=40" alt="Цоож ба түлхүүр"><div class="lockGlow">Үлдсэн 2 орон түгжээтэй</div></div>
-      <p class="sub">Эдгээр мөр бүр бүрэн тайланд задрана.</p>
-    </div>
+ <section class="card pay" id="pay">
+  <h2 class="gold" id="payTitle">Төлбөр хийх</h2><p class="sub" id="payDesc"></p>
+  <div class="selectedPackVisual" id="selectedPackVisual"><img id="selectedPackImg" src="package-key.jpg?v=41" alt="Сонгосон багц"><div id="selectedPackCaption">Таны сонгосон багц нээгдэж байна</div></div>
+  <div class="copyLine"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
+  <div class="copyLine"><span>Банк</span><b id="bankName">Хаан банк</b><button onclick="copyText('bankName')">📋</button></div>
+  <div class="copyLine"><span>Данс</span><b id="accNo">5680034540</b><button onclick="copyText('accNo')">📋</button></div>
+  <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
+  <div class="copyLine"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
+  <div class="smallCaps center" style="margin:16px 0 10px">БАНКНЫ АПП СОНГОХ</div>
+  <p class="sub center" style="font-size:13px;margin:0 0 10px">Эхлээд дансаа хуул. Дараа нь банкны апп руугаа орж шилжүүлгээ хийнэ. Лого дээр дарахад данс, дүн, утга хуулна.</p>
+  <div id="payNotice" class="payNotice">Данс: <b>5680034540</b> · IBAN: <b>59000500</b></div>
+  <button type="button" class="bigCopyBtn" onclick="copyPay('Данс')">Данс хуулах — 5680034540</button>
+  <div class="finalBankGrid bankLinks" id="finalBankGrid">
+   <button type="button" class="finalBankCard" onclick="openBankApp('khan')"><span><img src="pay-khan.png?v=41" alt="Хаан банк"></span><b>Хаан банк</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('golomt')"><span><img src="pay-golomt.png?v=41" alt="Голомт"></span><b>Голомт</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('tdb')"><span><img src="pay-tdb.png?v=41" alt="TDB"></span><b>TDB</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('xac')"><span><img src="pay-xac.png?v=41" alt="Хас банк"></span><b>Хас банк</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('state')"><span><img src="pay-turiin.png?v=41" alt="Төрийн банк"></span><b>Төрийн банк</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('mbank')"><span><img src="pay-mbank.png?v=41" alt="M bank"></span><b>M bank</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('bogd')"><span><img src="pay-bogd.png?v=41" alt="Богд банк"></span><b>Богд банк</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('arig')"><span><img src="pay-arig.png?v=41" alt="Ариг банк"></span><b>Ариг банк</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('sono')"><span><img src="pay-sono.png?v=41" alt="Sono"></span><b>Sono</b></button>
+   <button type="button" class="finalBankCard" onclick="openBankApp('payon')"><span><img src="pay-payon.png?v=41" alt="PayOn"></span><b>PayOn</b></button>
+  </div>
+  <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
+  <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Хүсэлт илгээх</button>
+  <div id="submitStatus" class="submitStatus"></div>
+ </section>
 
-    <div class="card lockCard">
-      <h2 class="gold">Таны алтан тооны эхний нээлт</h2>
-      <p class="sub">Таны заяагдмал тооны анхан нээлт алтан түлхүүр дээр ил гарлаа. Үлдсэн орон бүрэн тайланд нээгдэнэ.</p>
-      <div class="goldBarReveal">
-        <img src="ancient-scroll-code.jpg?v=40" alt="Эртний бичээстэй алтан фонд">
-        <div class="goldDigits">
-          <span class="goldDigit" id="code1">7</span>
-          <span class="goldDigit" id="code2">7</span>
-          <span class="goldDigit hiddenDigit" id="code3">?</span>
-          <span class="goldDigit hiddenDigit" id="code4">?</span>
-        </div>
-      </div>
-      <p class="sub">Сүүлийн хоёр орон нь таны мөнгөний зангилаа, урсгал нээх дарааллыг бүрэн тайланд ил гаргана.</p>
-    </div>
-
-    <h1 class="heroTitle center" style="font-size:32px"><span>Тоогоо бүрэн нээж,</span><br>мөнгөний урсгалаа нээх үү?</h1>
-    <div class="countBox"><div class="smallCaps" style="color:#ffb1a8">• -50% ХЯМДРАЛ ДУУСАХАД</div><b id="timer">--:--:--</b><p class="sub">Өнөөдөр шөнө дунд хүртэл</p></div>
-
-    <div class="card pack drop">
-      <div class="packImage"><img src="package-key.jpg?v=40" alt="Мөнгөний түлхүүр"></div>
-      <div class="smallCaps">ЭХНИЙ НЭЭЛТ</div><h2>Мөнгөний Түлхүүр</h2><p class="sub">Заяагдмал тооны эхний хаалгыг нээнэ</p>
-      <div><span class="old">19,800₮</span> <span class="price">9,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Заяагдмал тооны эхний 2 орон</li><li>Мөнгө тогтохгүй байгаа эхний зангилаа</li><li>3 дом, 7 хоногийн эхний дадал</li><li>Азын өнгө, өдөр, түрийвчний эхний зөвлөмж</li></ul>
-      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-drop')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-drop">Энэ бол эхний нээлт. Та өөрийн тооны эхний дохиог харж, мөнгөний урсгал яагаад гацаж байгаагийн үндсэн шалтгааныг олно. Хурдан, ойлгомжтой, эхлэхэд хамгийн тохиромжтой багц.</div>
-      <button class="btn" onclick="choosePackage('Мөнгөний Түлхүүр',9900)">ЭХНИЙ ТООГОО НЭЭХ</button>
-    </div>
-
-    <div class="card pack river best">
-      <div class="packImage"><img src="package-flow.jpg?v=40" alt="Мөнгөний урсгал"></div>
-      <div class="smallCaps">БҮРЭН САНХҮҮГИЙН ТАЙЛАН</div><h2 class="gold">Мөнгөний Урсгал</h2><p class="sub">Мөнгө ба өрийн зангилааг гүн тайлна</p>
-      <div><span class="old">39,800₮</span> <span class="price">19,900₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Заяагдмал тооны 4 орон бүрэн тайлагдана</li><li>Өр, гарлага, мөнгө сарних зангилаа</li><li>30 хоногийн мөнгө тогтоох төлөвлөгөө</li><li>7–10 дом, зан үйл, өдөр цагийн зөвлөмж</li></ul>
-      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-river')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-river">Энэ багцад таны мөнгөний урсгал хаанаас хаагдаж, аль зан үйл, аль шийдвэр мөнгийг тогтоохгүй байгааг илүү тодруулж өгнө. Өр зээл, санхүүгийн дарамтаа цэгцлэхийг хүсэж байгаа хүнд хамгийн оновчтой.</div>
-      <button class="btn" onclick="choosePackage('Мөнгөний Урсгал',19900)">УРСГАЛАА НЭЭХ</button>
-    </div>
-
-    <div class="card pack sea">
-      <div class="packImage"><img src="package-premium.jpg?v=40" alt="Тэнгэрийн ивээл"></div>
-      <div class="smallCaps">ХАМГИЙН ГҮН ТАЙЛАН</div><h2>Тэнгэрийн Ивээл</h2><p class="sub">Мөнгө + хайр дурлал + амьдралын шийдвэр</p>
-      <div><span class="old">198,000₮</span> <span class="price">99,000₮</span><span class="sale">-50%</span></div>
-      <ul class="list"><li>Мөнгөний Урсгал багцын бүх зүйл</li><li>49 хоногийн гүн төлөвлөгөө</li><li>Мөнгө + хайр дурлал + ажил бизнес + том шийдвэр</li><li>Хувийн сахиус, дом, жилийн мөчлөгийн гүн зөвлөмж</li></ul>
-      <button class="btn secondary detailBtn" onclick="toggleDetail('detail-sea')">Дэлгэрэнгүй тайлбар</button><div class="packageDetail" id="detail-sea">Энэ бол хамгийн гүн хувилбар. Заяагдмал тоогоо мөнгө санхүү, хайр дурлал, ажил бизнес, амьдралын том сонголтуудтай хэрхэн холбож ашиглахыг шат дараатай тайлж өгнө.</div>
-      <button class="btn secondary" onclick="choosePackage('Тэнгэрийн Ивээл',99000)">ГҮН ТООГОО НЭЭХ</button>
-    </div>
-  </section>
-
-  <section class="card pay" id="pay">
-    <h2 class="gold" id="payTitle">Төлбөр хийх</h2><p class="sub" id="payDesc"></p>
-    <div class="selectedPackVisual" id="selectedPackVisual"><img id="selectedPackImg" src="package-key.jpg?v=40" alt="Сонгосон багц"><div id="selectedPackCaption">Таны сонгосон багц нээгдэж байна</div></div>
-    <div class="copyLine"><span>Данс эзэмшигч</span><b id="accName">Л.Батцог</b><button onclick="copyText('accName')">📋</button></div>
-    <div class="copyLine"><span>Банк</span><b id="bankName">Хаан банк</b><button onclick="copyText('bankName')">📋</button></div>
-    <div class="copyLine"><span>Данс</span><b id="accNo">5680034540</b><button onclick="copyText('accNo')">📋</button></div>
-    <div class="copyLine"><span>IBAN</span><b id="ibanNo">59000500</b><button onclick="copyText('ibanNo')">📋</button></div>
-    <div class="copyLine"><span>Гүйлгээний утга</span><b id="txn">утас</b><button onclick="copyText('txn')">📋</button></div>
-    <div class="smallCaps center" style="margin:16px 0 10px">БАНКНЫ АПП СОНГОХ</div>
-    <p class="sub center" style="font-size:13px;margin:0 0 10px">Эхлээд дансаа хуул. Дараа нь банкны апп руугаа орж шилжүүлгээ хийнэ. Лого дээр дарахад данс, дүн, утга хуулна.</p>
-    <div id="payNotice" class="payNotice">Данс: <b>5680034540</b> · IBAN: <b>59000500</b></div>
-    <button type="button" class="bigCopyBtn" onclick="copyPay('Данс')">Данс хуулах — 5680034540</button>
-    <div class="finalBankGrid bankLinks" id="finalBankGrid">
-      <button type="button" class="finalBankCard" onclick="openBankApp('khan')"><span><img src="pay-khan.png?v=40" alt="Хаан банк"></span><b>Хаан банк</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('golomt')"><span><img src="pay-golomt.png?v=40" alt="Голомт"></span><b>Голомт</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('tdb')"><span><img src="pay-tdb.png?v=40" alt="TDB"></span><b>TDB</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('xac')"><span><img src="pay-xac.png?v=40" alt="Хас банк"></span><b>Хас банк</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('state')"><span><img src="pay-turiin.png?v=40" alt="Төрийн банк"></span><b>Төрийн банк</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('mbank')"><span><img src="pay-mbank.png?v=40" alt="M bank"></span><b>M bank</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('bogd')"><span><img src="pay-bogd.png?v=40" alt="Богд банк"></span><b>Богд банк</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('arig')"><span><img src="pay-arig.png?v=40" alt="Ариг банк"></span><b>Ариг банк</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('sono')"><span><img src="pay-sono.png?v=40" alt="Sono"></span><b>Sono</b></button>
-      <button type="button" class="finalBankCard" onclick="openBankApp('payon')"><span><img src="pay-payon.png?v=40" alt="PayOn"></span><b>PayOn</b></button>
-    </div>
-    <label class="check"><input id="paidCheck" type="checkbox" onchange="toggleSubmit()"> <span>Би дээрх данс руу төлбөрөө амжилттай шилжүүлсэн.</span></label>
-    <button id="submitBtn" class="btn" disabled onclick="submitOrder()">Хүсэлт илгээх</button>
-    <div id="submitStatus" class="submitStatus"></div>
-  </section>
-
-  <section class="card pay" id="success"><h2 class="gold">Хүсэлт бүртгэгдлээ</h2><p class="sub">Төлбөр баталгаажмагц тайлангийн хамгаалалттай линк SMS-р илгээгдэнэ.</p></section>
-  <section class="card pay admin" id="admin"><h2 class="gold">Админ — тайлан удирдлага</h2><p class="sub">Тайлан харах, линк үүсгэх, SMS-р илгээх хэсэг.</p><button class="btn secondary" onclick="loadOrders()">Шинэчлэх</button><div id="orders"></div></section>
-  <section class="card pay reportBox" id="report"><h2 class="gold">Тэнгэрийн Мэлмий — Тайлан</h2><div id="reportBody"></div><button class="btn" onclick="window.print()">PDF хадгалах / хэвлэх</button></section>
+ <section class="card pay" id="success"><h2 class="gold">Хүсэлт бүртгэгдлээ</h2><p class="sub">Төлбөр баталгаажмагц тайлангийн хамгаалалттай линк SMS-р илгээгдэнэ.</p></section>
+ <section class="card pay admin" id="admin"><h2 class="gold">Админ — тайлан удирдлага</h2><p class="sub">Тайлан харах, линк үүсгэх, SMS-р илгээх хэсэг.</p><button class="btn secondary" onclick="loadOrders()">Шинэчлэх</button><div id="orders"></div></section>
+ <section class="card pay reportBox" id="report"><h2 class="gold">Тэнгэрийн Мэлмий — Тайлан</h2><div id="reportBody"></div><button class="btn" onclick="window.print()">PDF хадгалах / хэвлэх</button></section>
 </div>
 
 <div class="modal" id="confirmModal"><div class="card center" style="max-width:620px;width:100%;padding:24px">
-  <h2>Мэдээллээ шалгаарай</h2><p class="sub">Тайлал эдгээр мэдээлэл дээр үндэслэнэ.</p>
-  <div class="copyLine"><span>Нэр</span><b id="cName"></b></div>
-  <div class="copyLine"><span>Төрсөн</span><b id="cBirth"></b></div>
-  <div class="copyLine"><span>Утас</span><b id="cPhone"></b></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button class="btn secondary" onclick="closeModal()">← Засах</button><button class="btn" onclick="beginScan()">Тийм, нээ</button></div>
+ <h2>Мэдээллээ шалгаарай</h2><p class="sub">Тайлал эдгээр мэдээлэл дээр үндэслэнэ.</p>
+ <div class="copyLine"><span>Нэр</span><b id="cName"></b></div>
+ <div class="copyLine"><span>Төрсөн</span><b id="cBirth"></b></div>
+ <div class="copyLine"><span>Утас</span><b id="cPhone"></b></div>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button class="btn secondary" onclick="closeModal()">← Засах</button><button class="btn" onclick="beginScan()">Тийм, нээ</button></div>
 </div></div>
 <div class="toast" id="toast"></div>
 
 <div class="bottomCta" id="bottomCta">
-  <button class="btn" onclick="showForm()">Тоогоо шалгах</button>
+ <button class="btn" onclick="showForm()">Тоогоо шалгах</button>
 </div>
 
 
@@ -905,10 +905,10 @@ function pad2(n){return String(n).padStart(2,'0')}
 function getBirth(){
  const yEl=$('birthYear'), mEl=$('birthMonth'), dEl=$('birthDay');
  if(yEl&&mEl&&dEl){
-   const year=parseInt(yEl.value,10), month=parseInt(mEl.value,10), day=parseInt(dEl.value,10);
-   const birth=year&&month&&day ? `${String(year).padStart(4,'0')}.${pad2(month)}.${pad2(day)}` : '';
-   const old=$('birthDate'); if(old) old.value=birth;
-   return {year,month,day,birth};
+  const year=parseInt(yEl.value,10), month=parseInt(mEl.value,10), day=parseInt(dEl.value,10);
+  const birth=year&&month&&day ? `${String(year).padStart(4,'0')}.${pad2(month)}.${pad2(day)}` : '';
+  const old=$('birthDate'); if(old) old.value=birth;
+  return {year,month,day,birth};
  }
  const bd=parseDate($('birthDate')?.value); return {...bd,birth:$('birthDate')?.value.trim()||''};
 }
@@ -922,16 +922,16 @@ function setupBirthInputs(){
  const y=$('birthYear'),m=$('birthMonth'),d=$('birthDay'); if(!y||!m||!d)return;
  const items=[[y,4,m],[m,2,d],[d,2,null]];
  items.forEach(([el,max,next])=>{
-   el.addEventListener('input',()=>{
-     el.value=el.value.replace(/\D/g,'').slice(0,max);
-     if(el.value.length>=max && next) next.focus();
-     getBirth();
-   });
-   el.addEventListener('keydown',e=>{
-     if(e.key==='Backspace' && !el.value){
-       const prev=el===d?m:el===m?y:null; if(prev){prev.focus();}
-     }
-   });
+  el.addEventListener('input',()=>{
+   el.value=el.value.replace(/\D/g,'').slice(0,max);
+   if(el.value.length>=max && next) next.focus();
+   getBirth();
+  });
+  el.addEventListener('keydown',e=>{
+   if(e.key==='Backspace' && !el.value){
+    const prev=el===d?m:el===m?y:null; if(prev){prev.focus();}
+   }
+  });
  });
 }
 function confirmInfo(){
@@ -959,25 +959,25 @@ const z=[
  ['Матар','♑',1231,'zodiac-capricorn.png']
 ];
 function zodiac(m,d){let x=m*100+d;return z.find(a=>x<=a[2])||z[0]}
-function moneyCode(c){return String(1000+(hash(c.fullName+c.birth)%9000))}
+
 function mongolYearAnimal(year){const animals=['Бич','Тахиа','Нохой','Гахай','Хулгана','Үхэр','Бар','Туулай','Луу','Могой','Морь','Хонь'];return animals[Number(year)%12]||'Луу'}
 function beginScan(){ $('bottomCta')?.classList.add('hide');closeModal();$('home').style.display='none';$('scan').classList.add('show');let p=0;let texts=['Алтан луу таны тоог нээж байна...','Хишгийн зам, заяагдмал тоог тооцоолж байна...','Өрийн зангилааг хайж байна...','Үлдсэн тооны хаалгыг бэлтгэж байна...'];let interval=setInterval(()=>{p+=4;$('bar').style.width=p+'%';$('scanText').textContent=texts[Math.min(texts.length-1,Math.floor(p/28))];if(p>=100){clearInterval(interval);showResult()}},105)}
 function renderZodiacWheel(activeName){}
 function renderYearWheel(activeYear){}
 function zodiacFinanceText(name){
  const map={
-  'Матар':'Матрын орд санхүүг нухацтай хардаг. Эрсдэлд дуртай биш ч заримдаа хэт болгоомжлоод боломжоо алдах хандлагатай. Таны заяагдмал тоо мөнгийг удаан тогтоох, зөв цагт шийдвэр гаргахад тусална.',
-  'Хумх':'Хумхын орд шинэ санаа, чөлөөтэй орлого, шинэлэг арга барилд татагддаг. Орлого олох арга олон ч төвлөрөхгүй бол мөнгө задарч магадгүй. Таны тоо төвлөрөх сувгийг заана.',
-  'Загас':'Загасны орд мөнгөний шийдвэрт сэтгэл хөдлөлөө оруулдаг. Тиймээс мөнгө, хайр дурлал хоёрыг салгаж харж сурах нь чухал. Таны тоо аль хэсэгт уярч алдаж байгааг илтгэнэ.',
-  'Хонь':'Хонины орд шийдэмгий, хурдан хөдөлдөг. Боломжийг хурдан ашигладаг ч түргэн шийдвэр мөнгийг тогтоохгүй байж болно. Таны тоо юунд тэвчээр хэрэгтэйг заана.',
-  'Үхэр':'Үхрийн орд тогтвортой байдалд дуртай. Мөнгө цуглуулах чадвартай ч нэг хэвэндээ удаан байж магадгүй. Таны тоо өсөх боломжтой шинэ урсгалыг илтгэнэ.',
-  'Ихэр':'Ихрийн орд олон зүйл зэрэг сонирхдог. Орлого олох санаа олон ч задарвал ашиг буурна. Таны тоо хамгийн үр дүнтэй чиглэлийг сонгоход тусална.',
-  'Мэлхий':'Мэлхийн орд гэр бүл, аюулгүй байдалтай мөнгийг холбоод үздэг. Бусдын төлөө мөнгө гаргах нь их байдаг. Таны тоо өөрийгөө хамгаалж, мөнгөө тогтоох хил хязгаарыг заана.',
-  'Арслан':'Арслангийн орд нэр хүнд, чанар, сүр хүчийг эрхэмлэдэг. Энэ нь мөнгийг зөв зүйлд зарцуулах давуу талтай ч заримдаа хэт өгөөмөр болгодог. Таны тоо юуг барих, юуг суллахыг харуулна.',
-  'Охин':'Охины орд жижиг урсгал, тооцоог сайн анзаардаг. Гэхдээ хэт задлан бодсоноос том боломжийг алдах үе бий. Таны тоо аль үед шийдвэртэй алхахыг сануулна.',
-  'Жинлүүр':'Жинлүүрийн орд тэнцвэр хайдаг. Бусдад таалагдах шийдвэр гаргахдаа өөрийн санхүүг хойш тавьж болзошгүй. Таны тоо өөрийн ашиг, өөрийн үнэ цэнийг хамгаалахад тусална.',
-  'Хилэнц':'Хилэнцийн орд нууц хүч, гүн стратегитай. Мөнгөний том эргэлтэд мэдрэмж сайн ч хэт нууцалбал дарамт үүсч болно. Таны тоо эрсдэл ба хамгаалалтын тэнцвэрийг харуулна.',
-  'Нум':'Нумын орд өргөн сэтгэж, боломж руу тэмүүлдэг. Ашигтай том санаа ихтэй ч нарийн төлөвлөгөө дутвал мөнгө гараад явчихдаг. Таны тоо зорилгоо бодит алхам болгоход тусална.'
+ 'Матар':'Матрын орд санхүүг нухацтай хардаг. Эрсдэлд дуртай биш ч заримдаа хэт болгоомжлоод боломжоо алдах хандлагатай. Таны заяагдмал тоо мөнгийг удаан тогтоох, зөв цагт шийдвэр гаргахад тусална.',
+ 'Хумх':'Хумхын орд шинэ санаа, чөлөөтэй орлого, шинэлэг арга барилд татагддаг. Орлого олох арга олон ч төвлөрөхгүй бол мөнгө задарч магадгүй. Таны тоо төвлөрөх сувгийг заана.',
+ 'Загас':'Загасны орд мөнгөний шийдвэрт сэтгэл хөдлөлөө оруулдаг. Тиймээс мөнгө, хайр дурлал хоёрыг салгаж харж сурах нь чухал. Таны тоо аль хэсэгт уярч алдаж байгааг илтгэнэ.',
+ 'Хонь':'Хонины орд шийдэмгий, хурдан хөдөлдөг. Боломжийг хурдан ашигладаг ч түргэн шийдвэр мөнгийг тогтоохгүй байж болно. Таны тоо юунд тэвчээр хэрэгтэйг заана.',
+ 'Үхэр':'Үхрийн орд тогтвортой байдалд дуртай. Мөнгө цуглуулах чадвартай ч нэг хэвэндээ удаан байж магадгүй. Таны тоо өсөх боломжтой шинэ урсгалыг илтгэнэ.',
+ 'Ихэр':'Ихрийн орд олон зүйл зэрэг сонирхдог. Орлого олох санаа олон ч задарвал ашиг буурна. Таны тоо хамгийн үр дүнтэй чиглэлийг сонгоход тусална.',
+ 'Мэлхий':'Мэлхийн орд гэр бүл, аюулгүй байдалтай мөнгийг холбоод үздэг. Бусдын төлөө мөнгө гаргах нь их байдаг. Таны тоо өөрийгөө хамгаалж, мөнгөө тогтоох хил хязгаарыг заана.',
+ 'Арслан':'Арслангийн орд нэр хүнд, чанар, сүр хүчийг эрхэмлэдэг. Энэ нь мөнгийг зөв зүйлд зарцуулах давуу талтай ч заримдаа хэт өгөөмөр болгодог. Таны тоо юуг барих, юуг суллахыг харуулна.',
+ 'Охин':'Охины орд жижиг урсгал, тооцоог сайн анзаардаг. Гэхдээ хэт задлан бодсоноос том боломжийг алдах үе бий. Таны тоо аль үед шийдвэртэй алхахыг сануулна.',
+ 'Жинлүүр':'Жинлүүрийн орд тэнцвэр хайдаг. Бусдад таалагдах шийдвэр гаргахдаа өөрийн санхүүг хойш тавьж болзошгүй. Таны тоо өөрийн ашиг, өөрийн үнэ цэнийг хамгаалахад тусална.',
+ 'Хилэнц':'Хилэнцийн орд нууц хүч, гүн стратегитай. Мөнгөний том эргэлтэд мэдрэмж сайн ч хэт нууцалбал дарамт үүсч болно. Таны тоо эрсдэл ба хамгаалалтын тэнцвэрийг харуулна.',
+ 'Нум':'Нумын орд өргөн сэтгэж, боломж руу тэмүүлдэг. Ашигтай том санаа ихтэй ч нарийн төлөвлөгөө дутвал мөнгө гараад явчихдаг. Таны тоо зорилгоо бодит алхам болгоход тусална.'
  };
  return map[name]||'Таны орд мөнгөтэй харьцах хэв маяг, шийдвэр гаргах хандлагыг илтгэнэ.';
 }
@@ -985,7 +985,7 @@ function showResult(){
  $('scan').classList.remove('show');$('result').classList.add('show');$('bottomCta')?.classList.add('hide');$('home').classList.remove('focus-form');
  const seed=hash(JSON.stringify(client)), zz=zodiac(client.month,client.day), code=moneyCode(client);client.zodiac=zz[0];client.code=code;client.yearAnimal=mongolYearAnimal(client.year);
  if($('zodiacSymbol')) $('zodiacSymbol').textContent=zz[1];
- if($('zodiacImage')){ $('zodiacImage').src=zz[3]+'?v=40'; $('zodiacImage').alt=zz[0]+'ын орд'; }
+ if($('zodiacImage')){ $('zodiacImage').src=zz[3]+'?v=41'; $('zodiacImage').alt=zz[0]+'ын орд'; }
  $('zodiacName').textContent=zz[0]+'ын орд';$('zodiacFinanceSub').textContent=zodiacFinanceText(zz[0]);$('zodiacCoinText').textContent=zz[0]+' орд';
  const profiles=[
  ['Заяагдмал','Тоо','Хүн бүрд өөрийн гэсэн онцгой тоо бий',`Танд ${code.slice(0,2)}•• гэсэн заяагдмал тоо илэрч байна. Энэ тоо нь мөнгөний урсгал хаанаас нээгддэг, хаанаас хаагддаг, өрийн дарамт ямар зангилаагаар эргэж ирдэг, мөн энэ бүхэнд хайр дурлал ба амьдралын шийдвэр хэрхэн нөлөөлдгийг харуулах хувийн түлхүүр юм.`],
@@ -993,7 +993,7 @@ function showResult(){
  ['Хишгийн','Тоо','Хувийн хишиг, мөнгө тогтох хэв маяг',`Энэ тоо таны мөнгө хуримтлагдах сав, өрийн дарамт үүсгэдэг хэв маяг, мөн харилцаа ба шийдвэрээс шалтгаалж мөнгө яагаад сарнидагийг илтгэнэ. Тоогоо зөв ойлговол юунд хүчээ төвлөрүүлэхээ илүү тод харна.`]
  ];
  let a=profiles[seed%profiles.length];$('archTitle').textContent=a[0];$('archTitle2').textContent=a[1];$('archSub').textContent=a[2];$('mainText').textContent=a[3];
- $('chips').innerHTML=['Мөнгөний урсгал','Өрийн дарамт','Хайр дурлал','Амьдралын шийдвэр','Азын өдөр','Дом зан үйл'].map(x=>`<span class="chip">${x}</span>`).join('');
+ $('chips').innerHTML=['Мөнгөний урсгал','Өрийн дарамт','Хайр дурлал','Амьдралын шийдвэр','Азын өдөр','Эд баялгийн дадал'].map(x=>`<span class="chip">${x}</span>`).join('');
  $('code1').textContent=code[0];$('code2').textContent=code[1];if($('code3')) $('code3').textContent='?';if($('code4')) $('code4').textContent='?';$('result').scrollIntoView({behavior:'smooth'})
 }
 function tick(){let now=new Date(),end=new Date();end.setHours(24,0,0,0);let s=Math.max(0,Math.floor((end-now)/1000));$('timer').textContent=[Math.floor(s/3600),Math.floor(s%3600/60),s%60].map(x=>String(x).padStart(2,'0')).join(':')}setInterval(tick,1000);tick()
@@ -1004,11 +1004,11 @@ function choosePackage(name,price){
  $('payDesc').textContent='Төлөх дүн: '+price.toLocaleString()+'₮';
  var packImg=$('selectedPackImg'), cap=$('selectedPackCaption');
  if(packImg){
-   var img='package-key.jpg?v=40', caption='Эхний түлхүүр нээгдэх багц';
-   if(name==='Мөнгөний Урсгал'){img='package-flow.jpg?v=40';caption='Мөнгөний урсгал нээгдэх багц'}
-   if(name==='Тэнгэрийн Ивээл'){img='package-premium.jpg?v=40';caption='Дээд зэргийн алтан ивээл нээгдэх багц'}
-   packImg.src=img;
-   if(cap) cap.textContent=caption;
+  var img='package-key.jpg?v=41', caption='Эхний түлхүүр нээгдэх багц';
+  if(name==='Мөнгөний Урсгал'){img='package-flow.jpg?v=41';caption='Мөнгөний урсгал нээгдэх багц'}
+  if(name==='Тэнгэрийн Ивээл'){img='package-premium.jpg?v=41';caption='Дээд зэргийн алтан ивээл нээгдэх багц'}
+  packImg.src=img;
+  if(cap) cap.textContent=caption;
  }
  $('txn').textContent=client.phone||'утас';
  $('paidCheck').checked=false;
@@ -1046,9 +1046,9 @@ function openBankApp(key){
  const notice=$('payNotice');
  if(notice){notice.innerHTML=(b.name||'Банк')+' — данс хууллаа: <b>'+$('accNo').textContent+'</b><br>Апп нээгдэхгүй бол банкны аппдаа ороод paste хийнэ үү.'}
  if(isiOS){
-   const schemes=(b.ios||[]); let i=0;
-   const tryNext=()=>{ if(i>=schemes.length) return; location.href=schemes[i++]; if(i<schemes.length) setTimeout(tryNext,850); };
-   tryNext(); return false;
+  const schemes=(b.ios||[]); let i=0;
+  const tryNext=()=>{ if(i>=schemes.length) return; location.href=schemes[i++]; if(i<schemes.length) setTimeout(tryNext,850); };
+  tryNext(); return false;
  }
  if(isAndroid && b.android){ location.href=b.android; return false; }
  return false;
@@ -1057,99 +1057,153 @@ function openBankApp(key){
 function toggleSubmit(){$('submitBtn').disabled=!$('paidCheck').checked}
 function token(){return Math.random().toString(36).slice(2,12).toUpperCase()}
 
+function birthDigits(c){
+ const s=String(c?.birth||'').replace(/\D/g,'');
+ return s.split('').map(x=>parseInt(x,10)).filter(n=>!Number.isNaN(n));
+}
+function reduceDigit(n){
+ n=Math.abs(parseInt(n||0,10));
+ while(n>9)n=String(n).split('').reduce((a,b)=>a+Number(b),0);
+ return n;
+}
+function firstNumberDigit(n){
+ const s=String(Math.abs(parseInt(n||0,10))||0);
+ return Number(s[0]||0);
+}
+function wealthData(c){
+ const nums=birthDigits(c);
+ const day=Number(c?.day||1);
+ const firstDayDigit=Number(String(day).padStart(2,'0')[0]||0);
+ const w1=nums.reduce((a,b)=>a+b,0)||0;
+ const w2=reduceDigit(w1);
+ const w3=Math.max(0,w1-(2*firstDayDigit));
+ const w4=reduceDigit(w3);
+ const code=[firstNumberDigit(w1),w2,firstNumberDigit(w3),w4].join('');
+ const all=(nums.join('')+String(w1)+String(w2)+String(w3)+String(w4)).split('').map(Number).filter(n=>n>=1&&n<=9);
+ const counts={}; for(let i=1;i<=9;i++)counts[i]=0; all.forEach(n=>counts[n]++);
+ const missing=Object.keys(counts).filter(k=>counts[k]===0);
+ const strong=Object.keys(counts).filter(k=>counts[k]>=3);
+ return {nums,w1,w2,w3,w4,code,counts,missing,strong};
+}
+function moneyCode(c){return wealthData(c||client).code}
 function digitMeaning(d){
  const m={
-  '0':{k:'хаалттай сав, эхлээгүй боломж',money:'мөнгөний үүд бүрэн хаалттай гэсэн үг биш. Харин боломж байгааг мэдэрдэг ч эхлүүлэх, барьж тогтоох цэг дээр хоосон зай үүсдэг.',love:'харилцаанд дуугүй өнгөрөөх, хэлэх ёстой зүйлээ дарах үед мөнгөний шийдвэр ч мөн хойшилдог.',work:'эхлэхээс өмнө удаан бодож, боломжийг алдахгүй байхыг сануулна.'},
-  '1':{k:'эхлэл, өөрийн хүч, ганцаар шийдэх зан',money:'мөнгө өөрийн хөдөлгөөн, шийдвэр, зоригтой алхмаар орж ирдэг. Гэхдээ бүхнийг ганцаараа үүрэх үед дарамт хуримтлагдана.',love:'хайр дурлал дээр өөрийнхөөрөө зүтгэх, асуудлаа дотроо дарах хандлага гарч болно.',work:'шинэ ажил, хувийн санаа, жижиг эхлэлээ тууштай баривал ашиг гарна.'},
-  '2':{k:'харилцаа, хамаарал, бусдын нөлөө',money:'мөнгө бусад хүнтэй хийсэн тохироо, хамтын шийдвэр, гэр бүлийн нөлөөгөөр хөдөлдөг. Хил хязгаар сул бол мөнгө сарнина.',love:'хосын харилцаа, итгэлцэл, мөнгөний яриа санхүүтэй шууд холбогдоно.',work:'түншлэл ашигтай ч тохиролцоог тодорхой бичгээр барих хэрэгтэй.'},
-  '3':{k:'үг, санаа, худалдаа, харилцаагаар мөнгө олох',money:'ярих, зарах, сурталчлах, хүмүүстэй холбогдох үед мөнгөний суваг нээгдэнэ. Гэхдээ олон санаа зэрэг эхэлбэл урсгал задарна.',love:'сэтгэлээ зөв илэрхийлэхгүй бол мөнгөний асуудал маргаан болон хувирч болно.',work:'онлайн худалдаа, үйлчилгээ, контент, зөвлөгөөний сувагт ээлтэй.'},
-  '4':{k:'сахилга, бүтэц, хөдөлмөр, өр дарах чадвар',money:'мөнгө тогтох хүч төлөвлөгөө, тэмдэглэл, тогтмол дүрмээр сайжирна. Залхуурах биш, системгүй байх нь гол саад.',love:'гэр бүл, ахуйн зохион байгуулалт санхүүгийн тайван байдлыг нэмэгдүүлнэ.',work:'удаан боловч бат бөх өсөлт, тогтмол ажил, хуваарьт тохиромжтой.'},
-  '5':{k:'хөдөлгөөн, эрсдэл, хурдан урсгал',money:'мөнгө хурдан орж хурдан гарах хэв маягтай. Боломж олон ч тогтворгүй шийдвэр гарвал ашиг үлдэхгүй.',love:'сэтгэл хөдлөлөөр зарлага хийх, гэнэтийн шийдвэрт автахыг анхааруулна.',work:'аялал, худалдаа, зуучлал, түргэн эргэлттэй ажилд боломж байна.'},
-  '6':{k:'гэр бүл, үүрэг, ахуй, бусдын төлөө зарлага',money:'орлого ордог ч гэр бүл, ойрын хүмүүс, ахуйн зардал, үүрэг хариуцлагаар сарних магадлалтай.',love:'хайр дурлал, гэр бүлийн ачаа мөнгөний савыг шууд нөлөөлнө.',work:'үйлчилгээ, халамж, гоо сайхан, гэр ахуйтай холбоотой чиглэлд ээлтэй.'},
-  '7':{k:'дотоод айдас, итгэл, нууц дарамт',money:'мөнгөний шийдвэрт айдас, эргэлзээ, нууц санаа зовнил нөлөөлдөг. Итгэл сэргээх, тооцоогоо ил болгох хэрэгтэй.',love:'дотроо шаналж хэлэхгүй явах нь мөнгөний асуудлыг ч хааж болзошгүй.',work:'судалгаа, мэдлэг, сүсэг бишрэл, нарийн ур чадвараар орлого нэмэгдэнэ.'},
-  '8':{k:'эд баялаг, эрх мэдэл, том мөнгө',money:'том боломж, удирдах хүч, эд хөрөнгийн эргэлттэй холбоотой. Гэхдээ бардам, яаруу шийдвэр алдагдал дагуулж болно.',love:'эрх мэдэл, хяналт, мөнгөний байр суурь харилцаанд хүчтэй нөлөөлнө.',work:'бизнес, хөрөнгө, удирдлага, гэрээ хэлцэлд боломжтой.'},
-  '9':{k:'өглөг, буян, бусдад туслах сэтгэл',money:'мөнгө татах үүд хаалттай биш. Харин өрөвдөх, бусдад туслах, өөрийн хэрэгцээг хойш тавих үед мөнгө хурдан сарнина.',love:'хэт өглөгч хайр, бусдын ачааг авах зан санхүүгийн дарамт болж хувирч болно.',work:'олонд хүрэх үйлчилгээ, зөвлөгөө, сургалт, буянтай ажилд мөнгөний суваг нээгдэнэ.'}
+ '0':{k:'хаалттай сав, эхлээгүй боломж',money:'боломж бүрэн хаалттай гэсэн үг биш. Та дотроо мэдэрдэг мөртлөө эхлэх мөч дээрээ хойш тавьж, мөнгөний үүдээ өөрөө удаашруулах үе гардаг.',love:'хэлэх ёстой зүйлээ дотроо дарах үед мөнгөний шийдвэр ч адилхан хойшилдог.',work:'эхлэхээс өмнө хэт удаан бодох нь боломжийг алдуулдаг тул нэг жижиг алхмаар хөдөлгөөн оруулах хэрэгтэй.'},
+ '1':{k:'өөрийн хүч, шийдвэр, эхлэл',money:'та мөнгийг бусдаас хүлээж суухаас илүү өөрөө хөдөлж, өөрөө шийдэж татдаг хүн. Гэхдээ бүхнийг ганцаараа үүрэх гээд явбал орлого орсон ч сэтгэл дотор дарамт нэмэгдэнэ.',love:'сэтгэлээ шууд хэлэхгүй, асуудлаа өөрөө шийдэх гэж дотроо барих үед харилцаа мөнгөний дарамттай холбогддог.',work:'шинэ санаа, хувийн ажил, өөрийн нэрээр босгох зүйл танд илүү ашигтай.'},
+ '2':{k:'харилцаа, хамаарал, бусдын нөлөө',money:'таны мөнгө ганц таны шийдвэрээр биш, ойрын хүн, гэр бүл, хосын яриа, бусдын хүсэлтээр хөдөлдөг. Үгүй гэж хэлж чадахгүй үед мөнгөний сав цоорч эхэлдэг.',love:'хайр, итгэлцэл, хамтын мөнгөний яриа тодорхойгүй бол санхүүгийн дарамт дотроо нэмэгддэг.',work:'хамтын ажил ашигтай боловч тохироо, үүрэг, мөнгөний хуваарийг тодорхой болгох хэрэгтэй.'},
+ '3':{k:'үг, санаа, худалдаа, харилцаагаар мөнгө олох',money:'та санаагаа бусдад ойлгуулж, ярих, зарах, сурталчлах, үйлчилгээ үзүүлэх үед мөнгөний хаалга нээгддэг. Гэхдээ олон санааг зэрэг эхлүүлбэл ашиг үлдэхгүй сарнидаг.',love:'сэтгэлээ зөв илэрхийлэхгүй бол мөнгөний асуудал маргаан болж хувирч болно.',work:'онлайн худалдаа, контент, зөвлөгөө, сургалт, үйлчилгээ танд орлогын суваг болж чадна.'},
+ '4':{k:'сахилга, бүтэц, өр дарах чадвар',money:'мөнгө тогтох хүч тань төлөвлөгөө, тэмдэглэл, тогтмол дүрмээр сэргэдэг. Та залхуу хүн биш, харин системгүй үедээ мөнгөө алддаг.',love:'гэр бүл, ахуйн зохион байгуулалт тодорхой болоход санхүүгийн тайван байдал нэмэгдэнэ.',work:'удаан боловч бат өсөлт, тогтмол хуваарь, нэг чиглэлээ барихад ашигтай.'},
+ '5':{k:'хөдөлгөөн, эрсдэл, хурдан урсгал',money:'мөнгө хурдан орж хурдан гарах хандлага хүчтэй. Боломж олон боловч яаруу шийдвэр, гэнэтийн хүсэл, түргэн зарлага ашиг үлдээхгүй байж мэднэ.',love:'сэтгэл хөдлөлөөр худалдаа хийх, хайртай хүний үгээр яарахыг анхаарах хэрэгтэй.',work:'зуучлал, худалдаа, аялал, түргэн эргэлттэй орлогын суваг танд ээлтэй.'},
+ '6':{k:'гэр бүл, үүрэг, ахуй, бусдын төлөө зарлага',money:'орлого орсон ч гэр бүл, ойрын хүн, ахуйн хэрэгцээ, бусдын өмнөөс санаа зовох зангаар хурдан сарних магадлалтай.',love:'хайртай хүнээ хамгаалах гэж өөрийн санхүүг орхивол мөнгөний сав сулрана.',work:'үйлчилгээ, халамж, гоо сайхан, гэр ахуй, хүнтэй ойр ажиллах чиглэлд орлого нээгдэнэ.'},
+ '7':{k:'дотоод айдас, итгэл, нууц дарамт',money:'мөнгөний шийдвэрт айдас, эргэлзээ, дотроо нуусан санаа зовнил нөлөөлдөг. Та тооцоогоо ил болгож бичих үед дарамт багасч эхэлнэ.',love:'дотроо шаналж хэлэхгүй явах нь мөнгөний асуудлыг ч хааж болзошгүй.',work:'судалгаа, нарийн мэдлэг, итгэл үнэмшил, дотоод мэдрэмж шаардсан ажилд орлого нээгдэнэ.'},
+ '8':{k:'эд баялаг, эрх мэдэл, том мөнгө',money:'том боломж, удирдах хүч, хөрөнгө, гэрээ, бизнесийн эргэлттэй холбоотой хүчтэй тоо. Харин бардам, яаруу шийдвэр гарвал том алдагдал ч дагуулж чадна.',love:'эрх мэдэл, хяналт, мөнгөний байр суурь харилцаанд хүчтэй нөлөөлнө.',work:'бизнес, хөрөнгө, удирдлага, гэрээ хэлцэл, том шийдвэрт боломжтой.'},
+ '9':{k:'өглөг, хишиг буян, бусдад туслах сэтгэл',money:'мөнгө татах үүд хаалттай биш. Харин өрөвдөх, бусдад туслах, өөрийн хэрэгцээг хойш тавих үед мөнгө хурдан сарнидаг.',love:'хэт өглөгч хайр, бусдын ачааг өөр дээрээ авах зан санхүүгийн дарамт болж хувирч болно.',work:'олонд хүрэх үйлчилгээ, зөвлөгөө, сургалт, хүн туслах ажилд мөнгөний суваг нээгдэнэ.'}
  };
  return m[String(d)]||m['0'];
 }
-function posName(i){return ['1-р нүд — мөнгө татах хүч','2-р нүд — мөнгө тогтох ба өрийн зангилаа','3-р нүд — хайр, сэтгэл, гэр бүлийн нөлөө','4-р нүд — гол нууц зангилаа'][i]||''}
+function posName(i){return ['1-р нүд — мөнгө татах хүч','2-р нүд — мөнгө тогтох сав ба өрийн зангилаа','3-р нүд — хайр, гэр бүл, сэтгэлийн нөлөө','4-р нүд — эд баялгийн гол үүд'][i]||''}
 function posDesc(i){return [
- 'энэ нүд таны мөнгө, боломж, хүн татах өгөгдмөл энерги буюу мөнгөний үүд хаалга хаанаас нээгддэгийг харуулна.',
- 'энэ нүд орлого орсон ч яагаад тогтохгүй, өр зээл, давтамжтай төлбөр, санхүүгийн сав хаана сул байгааг заадаг.',
- 'энэ нүд хайр дурлал, гэр бүл, сэтгэл хөдлөл, бусдад туслах зан мөнгөнд яаж нөлөөлдгийг тайлна.',
- 'энэ нүд хамгийн чухал. Мөнгөний хаалт яг хаанаас гүнзгийрч, ямар дадал, шийдвэр, бэлгэдлээр нээгдэхийг заадаг.'
+ 'энэ нүд таны мөнгө, боломж, хүн татах өгөгдмөл хүч буюу эд баялгийн үүд хаанаас нээгддэгийг харуулна.',
+ 'энэ нүд орлого орсон ч яагаад тогтохгүй, өр зээл яагаад давтагдах, мөнгөний сав хаанаас цоорч байгааг заадаг.',
+ 'энэ нүд хайр дурлал, гэр бүл, сэтгэл хөдлөл, бусдад туслах зан мөнгөнд хэрхэн нөлөөлдгийг тайлна.',
+ 'энэ нүд хамгийн чухал. Мөнгөний гол хаалт хаанаас гүнзгийрч, эд баялгийн үүд ямар алхмаар нээгдэхийг заадаг.'
 ][i]||''}
+function personalOpening(c, visible){
+ const wd=wealthData(c||client), code=wd.code, first=code[0], second=code[1], third=code[2];
+ const a=digitMeaning(first), b=digitMeaning(second), c3=digitMeaning(third);
+ let lines=[];
+ lines.push(`Таны төрөхөд хамт заяасан эд баялгийн тоогоор харахад мөнгө орж ирэх боломж бүрэн хаалттай хүн биш байна. Харин мөнгө орсны дараа түүнийг өөр дээрээ үлдээх, зөв хуваарилах, бусдын хэрэгцээнээс өөрийн санхүүг тусгаарлах тал дээр онцгой анхаарах зангилаа харагдаж байна.`);
+ if(['2','6','9'].includes(second)||['2','6','9'].includes(third)) lines.push(`Та ойрын хүн, гэр бүл, хайртай хүн, найз нөхдийн асуудлыг сонсоод зүгээр өнгөрч чаддаггүй талтай. Заримдаа өөрөө бүрэн боломжгүй байсан ч “яахав, би аргалчихъя” гэж бодоод мөнгөний ачааг өөр дээрээ авах үе гардаг.`);
+ if(['1','7'].includes(first)||wd.strong.includes('1')||wd.strong.includes('7')) lines.push(`Та санхүүгийн дарамтаа хүн бүрт хэлээд явдаг хүн биш. Дотроо тооцоолж, ганцаараа шийдэх гэж хичээдэг. Энэ нь хүчтэй чанар боловч өр, төлбөр, амлалт давхцах үед дотор дарамт болж хуримтлагддаг.`);
+ if(wd.missing.includes('4')||wd.missing.includes('5')) lines.push(`Таны тоон зураглалд мөнгө олох чадвар гэхээс илүү мөнгө барих дэг, өдөр тутмын тогтолцоо тал дээр сул зай байна. Ийм хүн нэг удаа их мөнгө оллоо ч хадгалах дүрэмгүй бол бага багаар сарниулдаг.`);
+ lines.push(`Эхний ${visible} нүдээр харахад ${a.k}, ${b.k}${visible>=3?', '+c3.k:''} гэсэн хүчнүүд хамт ажиллаж байна. Энэ нь таны эд баялаг нэг л зүйлээс бус, мөнгө татах хүч, мөнгө тогтох сав, сэтгэл ба харилцааны шийдвэр гурваас зэрэг хамаарч байгааг илтгэнэ.`);
+ return lines.join('<br><br>');
+}
 function digitSection(code,i,locked){
  const d=String(code)[i]||'0', dm=digitMeaning(d);
- if(locked) return {title:posName(i)+' — нууц хэвээр',body:`Энэ нүд бүрэн тайланд нээгдэнэ. ${posDesc(i)} Одоогоор эхний нүднүүдийн дохио харагдаж байгаа ч ${i+1}-р нүд нээгдэж байж таны мөнгөний зангилаа бүрэн баталгаажна.`};
- return {title:posName(i)+' · '+d+' тоо',body:`Таны ${i+1}-р нүдэнд <b>${d}</b> тоо байрлаж байна. Энэ байрлалын утгаар ${posDesc(i)} Монгол уламжлалт бэлгэдлээр энэ тоо <b>${dm.k}</b>-тай холбогдоно. Дорнын тоон тайллаар ${dm.money} ${dm.love} ${dm.work}`};
+ if(locked) return {title:posName(i)+' — нууц хэвээр',body:`Энэ нүд одоогоор хаалттай байна. ${posDesc(i)} Эхний нүднүүдээр таны үндсэн зураглал харагдаж байгаа ч ${i+1}-р нүд нээгдэж байж мөнгө яагаад яг нэг цэг дээр гацдаг, өрийн давтамж хаанаас эхэлдэг, ямар алхмаар эд баялгийн үүд нээгдэх нь бүрэн тодорно.`};
+ return {title:posName(i)+' · '+d+' тоо',body:`Таны ${i+1}-р нүдэнд <b>${d}</b> тоо байрлаж байна. ${posDesc(i)} Энэ тооны чанар нь <b>${dm.k}</b>. ${dm.money} ${dm.love} ${dm.work}`};
 }
-function freqSection(code){
- const counts={}; String(code).split('').forEach(d=>counts[d]=(counts[d]||0)+1);
- let rows=Object.keys(counts).filter(d=>counts[d]>1).map(d=>{let n=counts[d], dm=digitMeaning(d);return `<b>${d}</b> тоо ${n} удаа давтагдсан тул “${dm.k}” гэсэн шинж нэг удаагийн дохио биш, давтамжтай хэв маяг болж хүчтэй илэрнэ. Ийм үед зөвлөгөө нь ерөнхий бус, тухайн давтагдсан тооны зангилааг засах чиглэлд төвлөрөх ёстой.`});
- return {title:'Давтагдсан тооны хүч',body:rows.length?rows.join('<br><br>'):'Энэ кодонд нэг тоо хэт давамгай давтагдаагүй байна. Ийм үед дөрвөн нүд тус бүр өөр өөр үүрэгтэй ажиллаж, мөнгөний зам нэг шалтгаанаар бус олон жижиг шийдвэрээр хэлбэлзэнэ.'};
+function freqSection(code,c){
+ const wd=wealthData(c||client); const rows=[];
+ Object.keys(wd.counts).forEach(d=>{const n=wd.counts[d], dm=digitMeaning(d); if(n>=3) rows.push(`<b>${d}</b> тоо ${n} удаа хүчтэй давтагдсан байна. Энэ нь “${dm.k}” таны амьдралд нэг удаагийн араншин биш, давтагддаг хэв маяг болж илэрдэг гэсэн үг. Ийм тоо гарсан үед зөвлөгөө ерөнхий байх ёсгүй, яг энэ зангилааг засахад чиглэнэ.`);});
+ return {title:'Давтагдсан тооны хүч',body:rows.length?rows.join('<br><br>'):'Таны зураглалд нэг тоо хэт давамгайлаагүй байна. Ийм үед мөнгөний зам ганц шалтгаанаар бус олон жижиг шийдвэр, харилцаа, өдөр тутмын дадлаар хэлбэлздэг.'};
 }
-function unifiedText(code,visible){
+function missingSection(c){
+ const wd=wealthData(c||client); if(!wd.missing.length)return {title:'Дутуу нүдний сануулга',body:'Таны үндсэн тоон зураглалд бүх тооны дохио ямар нэг хэмжээгээр орсон байна. Энэ үед гол ажил нь дутууг нөхөхөөс илүү давтагдсан тоогоо зөв ашиглах явдал юм.'};
+ const meanings={
+ '1':'өөрийн шийдвэр, эхлэх зориг', '2':'харилцааны хил хязгаар, хамтын мөнгөний тодорхой байдал', '3':'санаагаа ил гаргах, ярих, борлуулах чадвар', '4':'сахилга, бүтэц, өр дарах тогтолцоо', '5':'төвлөрөл, дотоод тогтвортой байдал', '6':'гэр бүл, үүргээ зөв хуваах ухаан', '7':'итгэл, айдсаа ил болгох чадвар', '8':'том мөнгө, хөрөнгө, бизнесийн зориг', '9':'өглөг ба өөрийгөө хамгаалах тэнцвэр'
+ };
+ const rows=wd.missing.map(d=>`<b>${d}</b> тоо сул байгаа нь ${meanings[d]} дээр анхаарах шаардлагатайг харуулна.`);
+ return {title:'Сул байгаа нүдний санхүүгийн нөлөө',body:rows.join('<br>')+' Энэ нь муу гэсэн үг биш. Харин таны эд баялгийн үүдийг нээхийн тулд аль дадлыг зориуд суулгах ёстойг зааж өгч байна.'};
+}
+function unifiedText(code,visible,c){
  const digs=String(code).slice(0,visible).split('');
  const words=digs.map((d,i)=>`${i+1}-р нүдний ${d} нь ${digitMeaning(d).k}`).join(', ');
- return `Нэгдсэн матрицаар харахад ${words}. Эдгээр нь нийлээд мөнгө орж ирэх боломж байвч түүнийг тогтоох сав, харилцаа, шийдвэрийн сахилга зэрэгцэн ажиллах ёстойг харуулна. Нэг тоог дангаар нь сайн эсвэл муу гэж үзэхгүй. Нүдний байрлал, тооны утга, давтамж гурвыг хамтад нь харж байж итгэлтэй тайлал гарна.`;
+ return `Нэгдсэн зураглалаар харахад ${words}. Эдгээр нь нийлээд таны мөнгө орж ирэх боломж, мөнгө тогтох сав, сэтгэл ба харилцааны нөлөө зэрэгцэн ажиллаж байгааг харуулна. Нэг тоог дангаар нь сайн эсвэл муу гэж үзэхгүй. Нүдний байрлал, тооны чанар, давтамж гурвыг хамт харж байж таны тухай илүү итгэлтэй тайлал гарна.`;
 }
-function symbolicAdvice(code,deep){
- const first=String(code)[0]||'0', second=String(code)[1]||'0';
- const base=`Танд тохирох гол бэлгэдэл нь “цэвэр түрийвч + хадгалах дэвсгэрт” байна. Орлого орсон өдөр бүх мөнгөө шууд тараахгүй, багахан хэсгийг өөртөө үлдээж “миний мөнгөний сав үлдэж байна” гэж дотроо тогтооно.`;
- const extra=` Монгол уламжлалд түрийвч, зоос, гэрийн цэвэрхэн ширээ нь мөнгө тогтоох савын бэлгэдэлд ордог. Дорнын тайлалд тоо давтагдах үед нэг зан үйлийг олон өөр цагт давхардуулах бус, нэг л дүрмээ тогтмол давтахыг чухалчилна. Европ, Орос, Япон, Солонгос, Хятад зэрэг олон орны бэлгэдэлд ч мөн адил “цэвэр сав, хадгалах зоос, мөнгийг хүндэтгэх дадал” гэсэн нийтлэг санаа байдаг.`;
- return deep?base+extra:base;
+function fengshuiAdvice(code,c,deep){
+ const wd=wealthData(c||client); const second=String(code)[1]||'0';
+ let text=[];
+ text.push(`Танд тохирох фэншү орчны үндсэн ажил бол “мөнгөний сав”-аа тодорхой болгох. Энэ нь зүгээр цэвэрлэх гэсэн ерөнхий үг биш. Та өнөөдөр түрийвч, банкны карт, өр авлагын тэмдэглэл, хадгалах гэж шийдсэн мөнгөө нэг дор биш, тус тусын байртай болгоно. Ингэснээр мөнгө орж ирээд хаашаа урсахаа таны орчин өөрөө сануулж эхэлнэ.`);
+ if(wd.missing.includes('4')||second==='4') text.push(`4-ийн дэг сул харагдаж байгаа тул танд “толгойд байгаа тооцоо” тохирохгүй. Өр, сарын төлбөр, хүнд өгөх амлалт, авах авлагаа цаасан дээр нэг мөрөөр бич. Бичигдээгүй өр хүний толгойд айдас болж томордог, бичсэн өр төлөвлөгөө болж эхэлдэг.`);
+ if(wd.missing.includes('5')||second==='5') text.push(`5-ийн төвлөрөл сул үед хүн мөнгөө нэг газар тогтоохоос өмнө олон жижиг хүсэлд алддаг. Тиймээс орлого орсон өдөр эхний 10–15 минутанд ямар ч худалдан авалт хийхгүй, эхлээд өөрт үлдэх дүнгээ салга. Энэ жижиг завсар таны мөнгөний урсгалыг барьж эхэлнэ.`);
+ if(['2','6','9'].includes(second)) text.push(`Харилцаа, гэр бүл, бусдын хүсэлт мөнгөнд хүчтэй нөлөөлөх дохио байна. Тиймээс “өгөх мөнгө” ба “өөрт үлдэх мөнгө”-өө нэг түрийвчинд битгий холь. Өгөх нь өглөг байж болно, гэхдээ өөрийн сав хоосон үлдвэл хишиг тогтохгүй.`);
+ if(deep) text.push(`Фэншүгийн хувьд танд олон зүйл зэрэг хийх хэрэггүй. Нэг л тогтмол байр, нэг л хадгалах дэвсгэрт, нэг л өрийн жагсаалт, нэг л орлого хуваах дүрэм. Давхар олон арга хэрэглэх тусам таны анхаарал сарниж, мөнгөний сав дахин сулрах эрсдэлтэй.`);
+ return text.join('<br><br>');
 }
-function packageReportSections(pkgName, code){
- code=String(code||'0000').padEnd(4,'0').slice(0,4);
+function packageReportSections(pkgName, code, c){
+ c=c||client||{}; code=String(code||moneyCode(c)||'0000').padEnd(4,'0').slice(0,4);
  if(pkgName==='Мөнгөний Түлхүүр')return [
-  {title:'Эхний 3 нүд нээгдлээ: '+code.slice(0,3)+'•',body:`Энэ багцад таны заяагдмал тооны эхний гурван нүд нээгдэнэ. 1-р нүд мөнгө татах хүч, 2-р нүд мөнгө тогтох ба өрийн зангилаа, 3-р нүд хайр дурлал, гэр бүл, сэтгэл хөдлөл мөнгөнд хэрхэн нөлөөлдгийг харуулна. 4-р нүд гол нууц зангилаа тул дараагийн багцад бүрэн нээгдэнэ.`},
-  digitSection(code,0,false),
-  digitSection(code,1,false),
-  digitSection(code,2,false),
-  digitSection(code,3,true),
-  {title:'Эхний 3 тооны нэгдсэн тайлал',body:unifiedText(code,3)},
-  {title:'Мөнгө орж ирээд яагаад тогтохгүй байна вэ?',body:`Таны эхний гурван нүдээр мөнгөний асуудлыг харахад гол нь “орлого байхгүй” гэхээс илүү орсон мөнгө хаашаа, ямар сэтгэл хөдлөл, ямар үүрэг, ямар жижиг шийдвэрээр сарниж байгааг ажиглах хэрэгтэй. ${symbolicAdvice(code,false)}`},
-  {title:'7 хоногийн эхний засах төлөвлөгөө',body:'1 дэх өдөр түрийвч, баримт, жижиг өрөө жагсаа. 2–3 дахь өдөр орсон мөнгө бүр хаашаа гарч байгааг бич. 4–5 дахь өдөр бусдад өгдөг мөнгө, гэр бүлийн зардал, өөрийн хэрэгцээг тусад нь ангил. 6–7 дахь өдөр орлого орсон эхний өдөр хадгалах хамгийн бага дүнгээ тогтоо.'},
-  {title:'9,900₮ багцын хаалтын дүгнэлт',body:'Энэ тайлан нь таны эхний гурван нүдийг нээж анхны зангилааг тодрууллаа. Дөрөв дэх нүд нээгдээгүй тул хамгийн гүн хаалт, өрийн үндсэн давтамж, яг ямар өдөр цагт засах чиглэл бүрэн гараагүй хэвээр байна. Дараагийн багцад 4 нүд нэгдэж бүрэн зураглал болно.'}
+ {title:'Таны төрөхөд хамт заяасан эд баялгийн тоо',body:'Хүн бүрт төрөх мөчид нь хамт заяадаг өөрийн гэсэн эд баялгийн тоо байдаг. Энэ тоо нь зүгээр нэг цифр биш. Таны мөнгө татах хүч, хишиг буян, мөнгө тогтох сав, хайр сэтгэл, өр төлбөр давтагдах шалтгаан, санхүүгийн шийдвэрийн хэв маягийг харуулдаг.'},
+ {title:'Эхний 3 нүд нээгдлээ: '+code.slice(0,3)+'•',body:`Энэ багцад таны эд баялгийн тооны эхний гурван нүд нээгдэнэ. 1-р нүд мөнгө татах хүч, 2-р нүд мөнгө тогтох сав ба өрийн зангилаа, 3-р нүд хайр дурлал, гэр бүл, сэтгэл хөдлөл санхүүд хэрхэн нөлөөлдгийг харуулна. 4-р нүд бол эд баялгийн гол үүд тул дараагийн багцад бүрэн нээгдэнэ.`},
+ {title:'Таны тухай эхний уншлага',body:personalOpening(c,3)},
+ digitSection(code,0,false), digitSection(code,1,false), digitSection(code,2,false), digitSection(code,3,true),
+ {title:'Эхний 3 тооны нэгдсэн тайлал',body:unifiedText(code,3,c)},
+ missingSection(c),
+ {title:'Мөнгө орж ирээд яагаад тогтохгүй байна вэ?',body:`Таны эхний гурван нүдээр мөнгөний асуудлыг харахад гол нь “орлого байхгүй” гэхээс илүү орсон мөнгө хаашаа, ямар сэтгэл хөдлөл, ямар үүрэг, ямар жижиг шийдвэрээр сарниж байгааг ажиглах хэрэгтэй. ${fengshuiAdvice(code,c,false)}`},
+ {title:'7 хоногийн эхний засах алхам',body:'1 дэх өдөр: түрийвч, банкны карт, баримт, жижиг өрөө салгаж нэг дор хар. 2–3 дахь өдөр: орсон мөнгө бүр хаашаа гарч байгааг бич. 4–5 дахь өдөр: бусдад өгдөг мөнгө, гэр бүлийн зардал, өөрийн хэрэгцээг тусад нь ангил. 6–7 дахь өдөр: орлого орсон эхний өдөр өөрт үлдэх хамгийн бага дүнгээ тогтоо. Энэ бол харам зан биш, таны мөнгөний савыг хамгаалах эхний үйлдэл.'},
+ {title:'4-р нүд яагаад нууц хэвээр үлдэж байна вэ?',body:'Эхний 3 нүдээр таны мөнгө татах хүч, мөнгө тогтох сав, хайр ба гэр бүлийн нөлөө харагдлаа. Харин 4-р нүд нээгдэж байж таны эд баялгийн гол хаалт яг хаанаас үүсдэг, өрийн давтамж юунаас эхэлдэг, ямар шийдвэр таны санхүүг буруу эргүүлдэг нь бүрэн тодорно. Энэ нүд бол “юунаас эхэлж засах вэ” гэсэн гол түлхүүр юм.'}
  ];
  if(pkgName==='Мөнгөний Урсгал')return [
-  {title:'Бүрэн 4 нүд нээгдлээ: '+code,body:`Энэ багцад таны дөрвөн нүд бүгд нээгдэнэ. Эхний нүд мөнгө татах хүч, хоёр дахь нүд мөнгө тогтох сав, гурав дахь нүд хайр ба сэтгэл, дөрөв дэх нүд мөнгөний гол нууц зангилааг илтгэнэ.`},
-  digitSection(code,0,false),digitSection(code,1,false),digitSection(code,2,false),digitSection(code,3,false),freqSection(code),
-  {title:'4 нүдний нэгдсэн мөнгөний онош',body:unifiedText(code,4)+' Энэ түвшинд зөвлөгөө нь ганц дом бус, санхүүгийн дадал, харилцааны хил хязгаар, орлогын суваг, өрийн жагсаалт дөрвийг зэрэг цэгцлэхэд чиглэнэ.'},
-  {title:'Өр, гарлага, мөнгө сарних зангилаа',body:'Өрийн дарамт ихсэх үе нь ихэвчлэн нэг дор олон амлалт өгөх, баталгаагүй орлого дээр тулгуурлах, бусдын асуудлыг өөрийн мөнгөөр шийдэх, эсвэл ядарсан үед санхүүгийн шийдвэр гаргахтай холбоотой. Таны дөрвөн нүдний нийлэмж энэ давтамжийг ажиглаж, аль цэгээс эхэлж засахыг заана.'},
-  {title:'30 хоногийн мөнгө тогтоох төлөвлөгөө',body:'1–7 өдөр: бүх зарлагаа бич. 8–14 өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 өдөр: орлогын гол нэг сувгаа сонго. 22–30 өдөр: орлого бүрээс тогтмол хувь салгах дүрэм тогтоо. Энэ төлөвлөгөө нь мөнгөний урсгалыг нэг дор хүчээр өөрчлөх бус, өдөр бүрийн жижиг алдагдлыг хаахад зориулагдана.'},
-  {title:'Танд тохирох бэлгэдэл ба цээр',body:symbolicAdvice(code,true)+' Нар жаргасны дараа яаруу мөнгө зээлүүлэх, шөнө хогоо гаргах, ширээн дээр хоосон сав үлдээх зэрэг нь мөнгөний урсгал сулруулах цээр гэж үздэг. Гэхдээ эдгээрийг санхүүгийн бодит сахилга баттай хамт хэрэглэвэл илүү утгатай.'},
-  {title:'19,900₮ багцын хаалтын дүгнэлт',body:'Таны 4 нүд бүгд нээгдсэн тул энэ тайлан мөнгөний урсгал, өрийн зангилаа, хайр ба шийдвэрийн нөлөөг бүрэн анхны түвшинд харууллаа. Харин 99,000₮ багцад нас, төрсөн огнооны матриц, орд, 12 жил, 49/90 хоногийн гүн төлөвлөгөө, олон уламжлалын бэлгэдлийг нэгтгэсэн premium зураглал гарна.'}
+ {title:'Бүрэн 4 нүд нээгдлээ: '+code,body:`Энэ багцад таны эд баялгийн дөрвөн нүд бүгд нээгдэнэ. Эхний нүд мөнгө татах хүч, хоёр дахь нүд мөнгө тогтох сав, гурав дахь нүд хайр ба сэтгэл, дөрөв дэх нүд мөнгөний гол нууц зангилааг илтгэнэ.`},
+ {title:'Таны тухай бүрэн уншлага',body:personalOpening(c,4)},
+ digitSection(code,0,false),digitSection(code,1,false),digitSection(code,2,false),digitSection(code,3,false),freqSection(code,c),missingSection(c),
+ {title:'4 нүдний нэгдсэн мөнгөний онош',body:unifiedText(code,4,c)+' Энэ түвшинд зөвлөгөө нь ганц зүйлээр хязгаарлагдахгүй. Санхүүгийн дадал, харилцааны хил хязгаар, орлогын суваг, өрийн жагсаалт дөрвийг зэрэг цэгцлэхэд чиглэнэ.'},
+ {title:'Өр, гарлага, мөнгө сарних зангилаа',body:'Өрийн дарамт ихсэх үе нь ихэвчлэн нэг дор олон амлалт өгөх, баталгаагүй орлого дээр тулгуурлах, бусдын асуудлыг өөрийн мөнгөөр шийдэх, эсвэл ядарсан үед санхүүгийн шийдвэр гаргахтай холбоотой. Таны 4 нүдний нийлэмж энэ давтамжийг ажиглаж, аль цэгээс эхэлж засахыг заана.'},
+ {title:'30 хоногийн мөнгө тогтоох төлөвлөгөө',body:'1–7 өдөр: бүх зарлагаа бич. 8–14 өдөр: жижиг өр, давтамжтай төлбөрөө ангил. 15–21 өдөр: орлогын гол нэг сувгаа сонго. 22–30 өдөр: орлого бүрээс тогтмол хувь салгах дүрэм тогтоо. Энэ төлөвлөгөө нь мөнгөний урсгалыг нэг дор хүчээр өөрчлөх бус, өдөр бүрийн жижиг алдагдлыг хаахад зориулагдана.'},
+ {title:'Фэншү орчны зөвлөмж',body:fengshuiAdvice(code,c,true)},
+ {title:'19,900₮ багцын хаалтын дүгнэлт',body:'Таны 4 нүд бүгд нээгдсэн тул энэ тайлан мөнгөний урсгал, өрийн зангилаа, хайр ба шийдвэрийн нөлөөг бүрэн анхны түвшинд харууллаа. Харин 99,000₮ багцад нас, төрсөн огнооны гүн зураглал, орд, 12 жил, 49/90 хоногийн premium замлал илүү нарийн гарна.'}
  ];
  return [
-  {title:'Premium гүн матриц: '+code,body:`Таны бүрэн заяагдмал тоо ${code}. Энэ кодыг зөвхөн мөнгөний тоо гэж харахгүй. Мөнгө, хайр дурлал, ажил бизнес, гэр бүл, өрийн дарамт, амьдралын том шийдвэрүүд нэг матриц дээр хэрхэн давхцаж байгааг уншина.`},
-  digitSection(code,0,false),digitSection(code,1,false),digitSection(code,2,false),digitSection(code,3,false),freqSection(code),
-  {title:'Монгол уламжлалт бэлгэдлийн шугам',body:'Монгол ахуйд эд баялаг нь зөвхөн мөнгө биш, амны хишиг, гэрийн хийморь, цэвэр сав, өр төлбөрөө цэгцлэх сахилга, өглөг буяны тэнцвэртэй холбогддог. Таны кодын байрлалаар мөнгө татах үүд, мөнгө тогтох сав, хайр ба гэр бүлийн нөлөө, гол нууц зангилаа дөрвийг тусад нь харж өгнө.'},
-  {title:'Дорнын тоон матрицын шугам',body:unifiedText(code,4)+' Дорнын тоон тайллаар нэг тоо сайн муу гэсэн ганц утгатай биш. Байрлал нь өөрчлөгдөхөд мөнгө татах хүч ч болж болно, өрийн зангилаа ч болж болно.'},
-  {title:'Гадаад уламжлалын нийцтэй бэлгэдэл',body:'Европ, Орос, Герман, Япон, Хятад, Солонгос, Тайвань, Тайланд, Энэтхэг, Арабын зарим бэлгэдлийн уламжлалд эд баялагтай холбоотой нийтлэг санаа нь цэвэр түрийвч, хадгалах зоос, мөнгөний сав, өглөөний тайван шийдвэр, өрийн жагсаалтыг ил болгох зэрэгт төвлөрдөг. Энэ тайланд хоорондоо зөрчилдөх олон домыг давхардуулахгүй, таны тоонд нийцэх цөөн боловч тогтвортой зан үйлийг сонгоно.'},
-  {title:'Хайр дурлал ба мөнгөний огтлолцол',body:'Хайр дурлалын харилцаанд хэт өглөгч байх, нөгөө хүний ачааг өөр дээрээ авах, мөнгөний сэдвийг шууд ярилцахаас зайлсхийх үед санхүүгийн хаалт үүсдэг. Гурав дахь нүдний тоо энд гол үүрэгтэй бөгөөд дөрөв дэх нүдтэй нийлээд энэ хэв маяг түр зуурынх уу, гүн давтамж уу гэдгийг тодруулна.'},
-  {title:'Ажил бизнес, том шийдвэр',body:'Нэг дор олон санаа эхлүүлэхээс илүү ашиг өгч эхэлсэн нэг сувгаа 49 хоног тууштай барихад үр дүн илүү гарна. Том мөнгөн шийдвэрийг ядарсан, бухимдсан үед бус, өглөө эрт, тайван үед гаргах нь таны матрицад илүү ээлтэй.'},
-  {title:'49 хоногийн гүн төлөвлөгөө',body:'1–7 хоног: гэр, түрийвч, зарлагын цэвэрлэгээ. 8–21 хоног: өр, төлбөр, амлалтаа цаасан дээр тодорхой бичих. 22–35 хоног: орлогын гол сувгаа бэхжүүлэх. 36–49 хоног: хадгалалт, сахиус, мөнгөний шинэ дүрэм тогтоох.'},
-  {title:'90 хоногийн premium замлал',body:'1-р сар: мөнгөний алдагдлын нүхээ хаана. 2-р сар: орлогын нэг гол сувгаа өсгөнө. 3-р сар: хадгалалт, өр бууруулах, гэр бүлийн санхүүгийн хил хязгаарыг тогтооно. Ингэж 90 хоногт мөнгөний савыг хүчээр биш, дадлаар тогтооно.'},
-  {title:'Танд тохирох бэлгэдэл ба хамгаалах сануулга',body:symbolicAdvice(code,true)+' Нэг өдөрт олон өөр дом давхар хийхгүй. Нэг тайлан дотор өглөө ба орой, гаргах ба хадгалах, өгөх ба хорих гэсэн зөрчилтэй зааврыг хольж болохгүй. Танд тохирох гол дүрэм бол цөөн зүйлээ тогтмол хийх.'},
-  {title:'Premium дүгнэлт',body:'Таны мөнгөний хаалт нь ганцхан азгүйдэл биш. Энэ нь тооны байрлал, давтагдсан зан, харилцааны хил хязгаар, мөнгө хадгалах сав, том шийдвэрийн цагтай нийлж үүсдэг хэв маяг. Энэ тайлангийн зорилго бол айлгах бус, хаанаас эхэлж засахаа ойлгомжтой харуулах явдал юм.'}
+ {title:'Premium гүн тоон зураглал: '+code,body:`Таны бүрэн эд баялгийн тоо ${code}. Энэ кодыг зөвхөн мөнгөний тоо гэж харахгүй. Мөнгө, хайр дурлал, ажил бизнес, гэр бүл, өрийн дарамт, амьдралын том шийдвэрүүд таны төрөхөд хамт заяасан 4 нүд дээр хэрхэн давхцаж байгааг уншина.`},
+ {title:'Таны тухай premium уншлага',body:personalOpening(c,4)},
+ digitSection(code,0,false),digitSection(code,1,false),digitSection(code,2,false),digitSection(code,3,false),freqSection(code,c),missingSection(c),
+ {title:'Эд баялгийн нүдний шугам',body:'Эд баялаг нь зөвхөн мөнгө биш. Амны хишиг, гэрийн хийморь, цэвэр сав, өр төлбөрөө цэгцлэх сахилга, өглөг ба өөрийгөө хамгаалах тэнцвэртэй холбогддог. Таны 4 нүдээр мөнгө татах үүд, мөнгө тогтох сав, хайр ба гэр бүлийн нөлөө, гол нууц зангилаа дөрвийг тусад нь харж өгнө.'},
+ {title:'Заяагдмал 4 нүдний шугам',body:unifiedText(code,4,c)+' Нэг тоо сайн муу гэсэн ганц утгатай биш. Байрлал нь өөрчлөгдөхөд мөнгө татах хүч ч болж болно, өрийн зангилаа ч болж болно.'},
+ {title:'Гадаад бэлгэдлийн нийцтэй зөвлөмж',body:'Европ, Орос, Герман, Япон, Хятад, Солонгос, Тайвань, Тайланд, Энэтхэг, Арабын эд баялагтай холбоотой нийтлэг санаа нь цэвэр түрийвч, хадгалах зоос, мөнгөний сав, өглөөний тайван шийдвэр, өрийн жагсаалтыг ил болгох зэрэгт төвлөрдөг. Энэ тайланд хоорондоо зөрчилдөх олон аргыг давхардуулахгүй, таны тоонд нийцэх цөөн боловч тогтвортой дадлыг сонгоно.'},
+ {title:'Хайр дурлал ба мөнгөний огтлолцол',body:'Хайр дурлалын харилцаанд хэт өглөгч байх, нөгөө хүний ачааг өөр дээрээ авах, мөнгөний сэдвийг шууд ярилцахаас зайлсхийх үед санхүүгийн хаалт үүсдэг. Гурав дахь нүдний тоо энд гол үүрэгтэй бөгөөд дөрөв дэх нүдтэй нийлээд энэ хэв маяг түр зуурынх уу, гүн давтамж уу гэдгийг тодруулна.'},
+ {title:'Ажил бизнес, том шийдвэр',body:'Нэг дор олон санаа эхлүүлэхээс илүү ашиг өгч эхэлсэн нэг сувгаа 49 хоног тууштай барихад үр дүн илүү гарна. Том мөнгөн шийдвэрийг ядарсан, бухимдсан үед бус, өглөө эрт, тайван үед гаргах нь таны зураглалд илүү ээлтэй.'},
+ {title:'49 хоногийн гүн төлөвлөгөө',body:'1–7 хоног: гэр, түрийвч, зарлагын цэвэрлэгээ. 8–21 хоног: өр, төлбөр, амлалтаа цаасан дээр тодорхой бичих. 22–35 хоног: орлогын гол сувгаа бэхжүүлэх. 36–49 хоног: хадгалалт, хишгийн тэмдэг, мөнгөний шинэ дүрэм тогтоох.'},
+ {title:'90 хоногийн premium замлал',body:'1-р сар: мөнгөний алдагдлын нүхээ хаана. 2-р сар: орлогын нэг гол сувгаа өсгөнө. 3-р сар: хадгалалт, өр бууруулах, гэр бүлийн санхүүгийн хил хязгаарыг тогтооно. Ингэж 90 хоногт мөнгөний савыг хүчээр биш, дадлаар тогтооно.'},
+ {title:'Танд тохирох фэншү ба хамгаалах сануулга',body:fengshuiAdvice(code,c,true)+' Нэг өдөрт олон өөр арга давхар хийхгүй. Нэг тайлан дотор өглөө ба орой, гаргах ба хадгалах, өгөх ба хорих гэсэн зөрчилтэй зааврыг хольж болохгүй. Танд тохирох гол дүрэм бол цөөн зүйлээ тогтмол хийх.'},
+ {title:'Premium дүгнэлт',body:'Таны мөнгөний хаалт нь ганцхан азгүйдэл биш. Энэ нь тооны байрлал, давтагдсан зан, харилцааны хил хязгаар, мөнгө хадгалах сав, том шийдвэрийн цагтай нийлж үүсдэг хэв маяг. Энэ тайлангийн зорилго бол айлгах бус, хаанаас эхэлж засахаа ойлгомжтой харуулах явдал юм.'}
  ];
 }
 
 function buildReport(){
  const code=client.code||moneyCode(client), pkg=selected.name||'Мөнгөний Түлхүүр';
- return {client,package:selected,code,zodiac:client.zodiac,yearAnimal:client.yearAnimal||mongolYearAnimal(client.year),title:pkg+' тайлан',level:pkg,sections:packageReportSections(pkg,code),created:new Date().toISOString()};
+ return {client,package:selected,code,zodiac:client.zodiac,yearAnimal:client.yearAnimal||mongolYearAnimal(client.year),title:pkg+' тайлан',level:pkg,sections:packageReportSections(pkg,code,client),created:new Date().toISOString()};
 }
 async function submitOrder(){
  const status=$('submitStatus');
  if(!$('paidCheck').checked){toast('Төлбөр шилжүүлснээ батална уу');return}
  if(!selected.name){toast('Багцаа сонгоно уу');return}
  try{
-  status.classList.add('show');status.textContent='Хүсэлт илгээж байна...';
-  const payload={...client,package:selected.name,price:selected.price,status:'new',paidConfirmed:true,report:buildReport(),createdAt:serverTimestamp(),updatedAt:Date.now()};
-  await addDoc(collection(db,'orders'),payload);
-  status.textContent='Хүсэлт амжилттай илгээгдлээ';$('success').classList.add('show');$('success').scrollIntoView({behavior:'smooth'});toast('Хүсэлт илгээгдлээ');
+ status.classList.add('show');status.textContent='Хүсэлт илгээж байна...';
+ const payload={...client,package:selected.name,price:selected.price,status:'new',paidConfirmed:true,report:buildReport(),createdAt:serverTimestamp(),updatedAt:Date.now()};
+ await addDoc(collection(db,'orders'),payload);
+ status.textContent='Хүсэлт амжилттай илгээгдлээ';$('success').classList.add('show');$('success').scrollIntoView({behavior:'smooth'});toast('Хүсэлт илгээгдлээ');
  }catch(e){status.classList.add('show');status.textContent='Алдаа: '+e.message;alert('Хүсэлт илгээхэд алдаа гарлаа: '+e.message)}
 }
 
@@ -1158,7 +1212,7 @@ function reportHtml(data){
  const pkgName=p.name||data.package||'Мөнгөний Түлхүүр';
  const code=String(r.code||c.code||'••••');
  const shownCode=pkgName==='Мөнгөний Түлхүүр'?code.slice(0,3)+'•':code;
- const sections=packageReportSections(pkgName, code).map(s=>{const title=Array.isArray(s)?s[0]:s.title;const body=Array.isArray(s)?s[1]:s.body;return `<div class="reportRow premium"><h3>${title}</h3><div>${body}</div></div>`}).join('');
+ const sections=packageReportSections(pkgName, code, c).map(s=>{const title=Array.isArray(s)?s[0]:s.title;const body=Array.isArray(s)?s[1]:s.body;return `<div class="reportRow premium"><h3>${title}</h3><div>${body}</div></div>`}).join('');
  return `<div class="reportInner"><div class="reportRow"><b>Нэр:</b> ${c.fullName||c.name||''}</div><div class="reportRow"><b>Төрсөн огноо:</b> ${c.birth||''}</div><div class="reportRow"><b>Утас:</b> ${c.phone||''}</div><div class="reportRow"><b>Багц:</b> ${pkgName}</div><div class="reportRow"><b>12 жил:</b> ${r.yearAnimal||c.yearAnimal||mongolYearAnimal(c.year||1990)}</div><div class="reportRow"><b>Заяагдмал тоо:</b> ${shownCode}</div><div class="reportRow"><b>Ордын тайлбар:</b> ${c.zodiac||r.zodiac||''} ордын мөнгөтэй харьцах хэв маяг</div>${sections}</div>`;
 }
 
@@ -1182,12 +1236,12 @@ addEventListener('load',()=>{setupBirthInputs();document.querySelectorAll('video
 window.showForm=showForm;window.confirmInfo=confirmInfo;window.closeModal=closeModal;window.beginScan=beginScan;window.toggleDetail=toggleDetail;window.choosePackage=choosePackage;window.copyText=copyText;window.openBankApp=openBankApp;window.toggleSubmit=toggleSubmit;window.submitOrder=submitOrder;window.loadOrders=loadOrders;window.createLink=createLink;window.smsLink=smsLink;window.viewOrderReport=viewOrderReport;window.openAdmin=openAdmin;
 </script>
 <script>
-// v40 REPORT+iOS: force old GitHub/PWA cache to release without adding a new duplicate UI layer
+// v41 WEALTH-NUMBER: force old GitHub/PWA cache to release without adding a new duplicate UI layer
 (function(){
-  try{ if('caches' in window){caches.keys().then(function(keys){keys.forEach(function(k){caches.delete(k)})})} }catch(e){}
-  try{ if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})} }catch(e){}
+ try{ if('caches' in window){caches.keys().then(function(keys){keys.forEach(function(k){caches.delete(k)})})} }catch(e){}
+ try{ if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})} }catch(e){}
 })();
 </script>
-<div class="versionMark">v40 REPORT+iOS</div>
+<div class="versionMark">v41 WEALTH-NUMBER</div>
 </body>
 </html>
