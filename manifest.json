@@ -1,9 +1,0 @@
-{
-  "name": "Тэнгэрийн Мэлмий — Хувь Тавилангийн Тоо",
-  "short_name": "Хувь Тавилангийн Тоо",
-  "start_url": "./index.html?v=43",
-  "display": "standalone",
-  "background_color": "#120103",
-  "theme_color": "#6b070c",
-  "scope": "./"
-}
